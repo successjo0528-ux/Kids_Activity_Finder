@@ -7,6 +7,8 @@ from .conventions import ConventionScraper
 from .contests import ContestScraper
 from .sports_events import SportsEventsScraper
 from .kids_platforms import KidsPlatformsScraper
+from .regional_museums_sports import RegionalMuseumsSportsScraper
+from .concerts import ConcertsScraper
 
 ALL_SCRAPERS = [
     SeongnamLibraryScraper,
@@ -17,6 +19,8 @@ ALL_SCRAPERS = [
     ContestScraper,
     SportsEventsScraper,
     KidsPlatformsScraper,
+    RegionalMuseumsSportsScraper,
+    ConcertsScraper,
 ]
 
 __all__ = [
@@ -30,4 +34,6 @@ __all__ = [
     "ContestScraper",
     "SportsEventsScraper",
     "KidsPlatformsScraper",
+    "RegionalMuseumsSportsScraper",
+    "ConcertsScraper",
 ]

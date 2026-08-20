@@ -1,5 +1,5 @@
 /**
- * Kids Activity Finder - 메인 프론트엔드 인터랙션 로직
+ * Kids Activity Finder - 메인 프론트엔드 인터랙션 로직 (AI 및 미술/글짓기 대회 포함)
  */
 
 // 전역 상태
@@ -33,7 +33,7 @@ async function loadData() {
     document.getElementById("cards-grid").innerHTML = `
       <div class="col-span-full text-center py-12 text-slate-500">
         <p class="text-base font-semibold mb-2">데이터를 불러오는 중입니다...</p>
-        <p class="text-xs">PC에서 최초 수집 실행을 하지 않았거나 파일이 없을 수 있습니다.</p>
+        <p class="text-xs">잠시 후 새로고침 버튼을 눌러주세요.</p>
       </div>
     `;
   }
@@ -79,7 +79,6 @@ function toggleBookmark(id, event) {
   localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
   updateBookmarkBadge();
   
-  // 렌더링 갱신
   if (currentView === "bookmarks") {
     applyFilters();
   } else {
@@ -116,7 +115,10 @@ function clearSearch() {
 function setCategory(category) {
   currentCategory = category;
   document.querySelectorAll("#category-chips .chip").forEach(chip => {
-    if (chip.textContent.includes(category) || (category === "전체" && chip.textContent.includes("전체"))) {
+    const text = chip.textContent;
+    if (category === "전체" && text.includes("전체")) {
+      chip.classList.add("active");
+    } else if (category !== "전체" && (text.includes(category) || (category === "AI코딩대회" && text.includes("AI")))) {
       chip.classList.add("active");
     } else {
       chip.classList.remove("active");
@@ -166,36 +168,30 @@ function applyFilters() {
   const bookmarks = getBookmarks();
 
   filteredActivities = allActivities.filter(item => {
-    // 찜보기 모드
     if (currentView === "bookmarks" && !bookmarks.includes(item.id)) {
       return false;
     }
 
-    // 카테고리 필터
     if (currentCategory !== "전체" && item.category !== currentCategory) {
       return false;
     }
 
-    // 검색어 필터
     if (query) {
-      const matchTitle = item.title.toLowerCase().includes(query);
-      const matchPlace = item.place_name.toLowerCase().includes(query);
-      const matchTags = item.tags.some(t => t.toLowerCase().includes(query));
-      const matchDesc = item.description.toLowerCase().includes(query);
+      const matchTitle = (item.title || "").toLowerCase().includes(query);
+      const matchPlace = (item.place_name || "").toLowerCase().includes(query);
+      const matchTags = (item.tags || []).some(t => t.toLowerCase().includes(query));
+      const matchDesc = (item.description || "").toLowerCase().includes(query);
       if (!matchTitle && !matchPlace && !matchTags && !matchDesc) return false;
     }
 
-    // 연령 필터
     if (age !== "전체") {
       if (!item.target_age.includes(age) && item.target_age !== "전연령") return false;
     }
 
-    // 지역 필터
     if (region !== "전체") {
       if (!item.region.includes(region) && !item.place_name.includes(region)) return false;
     }
 
-    // 비용 필터
     if (cost !== "전체") {
       if (cost === "무료" && item.cost_type !== "무료") return false;
       if (cost === "참관무료" && item.cost_type !== "참관무료") return false;
@@ -205,7 +201,6 @@ function applyFilters() {
     return true;
   });
 
-  // 정렬
   if (sort === "dday") {
     filteredActivities.sort((a, b) => {
       if (a.d_day.startsWith("D-") && b.d_day.startsWith("D-")) {
@@ -219,7 +214,6 @@ function applyFilters() {
     filteredActivities.sort((a, b) => (a.event_start || "").localeCompare(b.event_start || ""));
   }
 
-  // 개수 갱신
   document.getElementById("total-count").textContent = filteredActivities.length;
 
   if (currentView === "calendar") {
@@ -257,7 +251,6 @@ function renderCards() {
   container.innerHTML = filteredActivities.map(item => {
     const isBookmarked = bookmarks.includes(item.id);
     
-    // D-Day 배지 클래스
     let ddayBadgeClass = "badge-dday-normal";
     if (item.d_day === "오늘마감" || item.d_day === "D-1" || item.d_day === "D-2" || item.d_day === "D-3") {
       ddayBadgeClass = "badge-dday-urgent";
@@ -265,11 +258,15 @@ function renderCards() {
       ddayBadgeClass = "badge-dday-ended";
     }
 
-    // 비용 뱃지
     const isFree = item.cost_type === "무료" || item.cost_type === "참관무료";
     const costBadge = isFree 
       ? `<span class="badge-free px-2 py-0.5 rounded text-[10px] font-bold">${item.cost_type}</span>`
       : `<span class="bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-bold">유료</span>`;
+
+    // AI 카테고리 특수 배지
+    let catBadgeColor = "bg-slate-100 text-slate-700";
+    if (item.category === "AI코딩대회") catBadgeColor = "bg-purple-50 text-purple-700 border border-purple-200 font-bold";
+    if (item.category === "미술글짓기") catBadgeColor = "bg-amber-50 text-amber-700 border border-amber-200 font-bold";
 
     return `
       <div class="activity-card" onclick="openDetailModal('${item.id}')">
@@ -277,7 +274,7 @@ function renderCards() {
           <!-- 상단 태그 & 북마크 -->
           <div class="flex items-center justify-between gap-2 mb-2">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[10px] font-semibold">${item.source_name}</span>
+              <span class="${catBadgeColor} px-2 py-0.5 rounded text-[10px]">${item.category === 'AI코딩대회' ? '🤖 AI/코딩대회' : item.source_name}</span>
               ${costBadge}
             </div>
             <button onclick="toggleBookmark('${item.id}', event)" class="text-slate-300 hover:text-rose-500 transition p-1 text-sm">
@@ -324,7 +321,7 @@ function renderCards() {
 // 9. 캘린더 뷰 렌더링
 function renderCalendar() {
   const year = currentCalendarDate.getFullYear();
-  const month = currentCalendarDate.getMonth(); // 0-indexed
+  const month = currentCalendarDate.getMonth();
 
   document.getElementById("calendar-month-title").textContent = `${year}년 ${month + 1}월`;
 
@@ -335,18 +332,15 @@ function renderCalendar() {
   const grid = document.getElementById("calendar-days-grid");
   grid.innerHTML = "";
 
-  // 빈 앞칸 채우기
   for (let i = 0; i < firstDay; i++) {
     grid.innerHTML += `<div class="cal-day opacity-30 bg-transparent border-transparent cursor-default"></div>`;
   }
 
-  // 날짜별 행사 매핑
   for (let day = 1; day <= lastDate; day++) {
     const dayStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     const isToday = dayStr === todayStr;
     const isSelected = dayStr === selectedCalendarDateStr;
 
-    // 해당 날짜에 마감 또는 행사가 있는 아이템 검색
     const dayItems = filteredActivities.filter(item => {
       const applyEnd = (item.apply_end || "").slice(0, 10);
       const eventStart = (item.event_start || "").slice(0, 10);
@@ -358,6 +352,7 @@ function renderCalendar() {
       dotsHtml = `<div class="mt-1 flex flex-wrap gap-0.5">` + 
         dayItems.slice(0, 4).map(item => {
           let dotColor = "bg-indigo-500";
+          if (item.category === "AI코딩대회") dotColor = "bg-purple-500";
           if (item.category === "스포츠대회") dotColor = "bg-emerald-500";
           if (item.category === "미술글짓기") dotColor = "bg-amber-500";
           if (item.category === "도서관체험") dotColor = "bg-blue-500";
@@ -378,7 +373,6 @@ function renderCalendar() {
   if (selectedCalendarDateStr) {
     showCalendarDateDetails(selectedCalendarDateStr);
   } else {
-    // 오늘 날짜 기본 선택
     selectCalendarDate(todayStr);
   }
 }
@@ -408,13 +402,13 @@ function showCalendarDateDetails(dateStr) {
   const titleElem = document.getElementById("selected-date-title");
   const listElem = document.getElementById("selected-date-list");
 
-  titleElem.innerHTML = `<i class="fa-solid fa-calendar-day text-indigo-500"></i> ${dateStr} 일정 (${filteredActivities.filter(item => (item.apply_end||'').slice(0,10) === dateStr || (item.event_start||'').slice(0,10) === dateStr).length}건)`;
-
   const dayItems = filteredActivities.filter(item => {
     const applyEnd = (item.apply_end || "").slice(0, 10);
     const eventStart = (item.event_start || "").slice(0, 10);
     return applyEnd === dateStr || eventStart === dateStr;
   });
+
+  titleElem.innerHTML = `<i class="fa-solid fa-calendar-day text-indigo-500"></i> ${dateStr} 일정 (${dayItems.length}건)`;
 
   if (dayItems.length === 0) {
     listElem.innerHTML = `
@@ -455,11 +449,9 @@ function openDetailModal(id) {
   document.getElementById("modal-cost-info").textContent = item.cost_info || item.cost_type;
   document.getElementById("modal-description").textContent = item.description || "상세 페이지를 통해 상세한 안내를 확인해 주세요.";
 
-  // 태그 리스트
   const tagsContainer = document.getElementById("modal-tags");
   tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
 
-  // 링크 버튼
   const urlBtn = document.getElementById("modal-url-btn");
   urlBtn.href = item.url || "#";
 
@@ -491,7 +483,6 @@ function closeModal() {
   document.body.style.overflow = "auto";
 }
 
-// 배경 클릭 시 닫기
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("detail-modal");
   if (e.target === modal) {
