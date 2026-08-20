@@ -1,0 +1,52 @@
+name: 🎈 Kids Activity Finder Daily Auto Crawler
+
+on:
+  schedule:
+    # 매일 한국 시간 오전 6시 (UTC 21:00) 자동 실행
+    - cron: '0 21 * * *'
+  workflow_dispatch: # 수동 실행 지원
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  crawl-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 3.10 환경 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 의존성 패키지 설치
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml python-dateutil
+
+      - name: 성남시 및 수도권 키즈 활동/대회 크롤러 실행
+        run: |
+          python crawler_runner.py
+
+      - name: 갱신된 데이터 커밋 및 푸시
+        run: |
+          git config --global user.name "KidsActivityBot"
+          git config --global user.email "bot@github-actions.com"
+          git add data/activities.json web/activities.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 [자동 갱신] 최신 키즈 체험/대회 데이터 업데이트 ($(date +'%Y-%m-%d'))" && git push)
+
+      - name: GitHub Pages 배포 설정
+        uses: actions/configure-pages@v4
+
+      - name: 웹 빌드 아티팩트 업로드 (web 폴더)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'web'
+
+      - name: GitHub Pages에 배포 완료
+        id: deployment
+        uses: actions/deploy-pages@v4
