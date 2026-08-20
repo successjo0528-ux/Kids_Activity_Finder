@@ -1,143 +1,104 @@
-# 🎈 Kids_Activity_Finder (어린이 체험·행사·대회 통합 탐색기)
+# 🎈 Kids Activity Finder - 상세 기능 기획 및 기술 사양서 (SPECIFICATION)
 
-> **"주말에 아이와 어디 가지? 어떤 대회/체험이 있지?"**  
-> **성남시 및 인접 수도권(과천/서울 등)** 중심의 공공도서관·박물관·과학관, 전시컨벤션(코엑스/킨텍스), 키즈 플랫폼(키즈노트/하이클래스),  
-> 미술·글짓기 대회 및 유소년 생활체육 대회(태권도, 수영, 줄넘기, 체조 등)까지 스마트폰과 PC에서 언제 어디서나 무료로 확인하는 맞춤형 통합 플랫폼
-
----
-
-## 1. 프로젝트 개요 (Overview)
-
-- **프로젝트 명:** Kids_Activity_Finder
-- **프로젝트 위치:** `G:\My Program\Kids_Activity_Finder\`
-- **중점 타깃 지역:** **성남시(분당/판교/수정/중원)** 및 경기 남부 / 서울 인접권
-- **클라우드 운영 방식:** **GitHub 기반 100% 무료 서버리스 아키텍처**
-  - **데이터 수집:** GitHub Actions (매일 새벽 클라우드 자동 크롤링)
-  - **데이터 저장:** GitHub Repository (`data/activities.json` 무료 저장)
-  - **모바일/PC 웹앱:** GitHub Pages / Vercel 기반 반응형 PWA (스마트폰 홈화면 추가 시 앱처럼 구동)
-  - **로컬 데스크톱 도구:** PC에서 즉시 테스트/수집 가능한 Python/PyQt6 도구 및 로컬 서버 제공
+> **프로젝트명:** Kids Activity Finder (어린이·온가족 문화·체험·스포츠·AI 탐색기)  
+> **최종 개정일:** 2026-08-21  
+> **버전:** v2.5.0 (음악회, AI대회, 성인스포츠, 경기/인천/포항 권역 확장 및 PWA 배포)
 
 ---
 
-## 2. 세부 수집 대상 채널 (Target Sources)
-
-### 🏛️ [채널 1] 성남시 관내 공공·문화·교육
-* **성남시청:** 시민참여 강좌, 문화행사, 시정 공고
-* **성남시 도서관사업소:** 분당·판교·구미·수정·중원 등 16개 공공도서관 문화행사, 주말 독서/체험/메이커 프로그램
-* **성남시 청소년재단:** 분당/판교/수정/중원 청소년수련관 창의융합 캠프 및 주말 활동
-
-### 🔬 [채널 2] 인근 대표 국공립 과학관 & 박물관
-* **국립과천과학관:** 상설/특별전시, 천문대 관측, 주말 유아·초등 과학탐구 교실
-* **국립중앙박물관 / 어린이박물관:** 특별전시 예약, 주말 가족 교육 프로그램
-
-### 🎪 [채널 3] 대형 전시·체험 컨벤션
-* **코엑스 (COEX):** 유아교육전, 키즈엑스포, 캐릭터 라이선싱 페어, 보드게임/과학 페스타
-* **킨텍스 (KINTEX):** 키즈 플레이 파크, 베이비&키즈페어, 청소년 체험 박람회
-
-### 📱 [채널 4] 키즈 에듀·알림장 플랫폼
-* **키즈노트 (KidsNote):** 키즈 체험/이벤트/원데이 클래스/전시 정보
-* **하이클래스 (HiClass):** 초등 체험학습, 방과후/주말 프로그램, 키즈 이벤트
-
-### 🏆 [채널 5] 어린이/청소년 대회 및 유소년 스포츠대회
-* **미술·글짓기:** 전국 어린이 미술대회, 백일장, 독후감, 로봇/코딩 경진대회
-* **유소년 스포츠대회 (참가 및 참관):**
-  - **태권도:** 전국/시도 유소년 태권도 대회(품새, 겨루기, 페스티벌)
-  - **수영:** 어린이/유소년 마스터즈 수영대회, 생존수영 페스티벌
-  - **줄넘기:** 전국 음악줄넘기/줄넘기 선수권 대회
-  - **체조/댄스:** 키즈 리듬체조/방송댄스/치어리딩 경연대회
+## 1. 프로젝트 개요 및 목적
+* **핵심 목적:** 성남시 및 인접 수도권(경기/인천/서울)과 포항 지역의 **어린이 문화체험, 과학관/박물관/미술관, 야외 파크콘서트/오케스트라, 유소년 및 성인 스포츠대회(태권도 격파/수영 등), AI·코딩·미술·글짓기 경진대회**를 자동 수집하여 PC와 스마트폰(LTE)에서 원클릭으로 탐색.
+* **접속 환경:**
+  - 💻 **PC:** `Tool_Dashboard` ➡️ [Kids Activity Finder] 원클릭 실행 (Edge 단독 데스크톱 앱 모드)
+  - 📱 **모바일:** `https://successjo0528-ux.github.io/Kids_Activity_Finder/` (LTE/Wi-Fi 24시간 언제 어디서나 접속)
+  - 🔗 **GitHub 저장소:** `https://github.com/successjo0528-ux/Kids_Activity_Finder`
 
 ---
 
-## 3. 시스템 아키텍처 (System Architecture)
+## 2. 10대 수집 채널 및 데이터 소스 정의
+
+1. **🎵 음악회 & 키즈콘서트 (`scrapers/concerts.py`)**
+   - 분당 중앙공원 야외 파크콘서트 (성남문화재단 - 전석 무료)
+   - 성남아트센터 해설이 있는 키즈 클래식 (성남시립교향악단)
+   - 디즈니 & 지브리 애니메이션 OST 키즈 시네마 콘서트 (밀레니엄심포니 풀 오케스트라)
+   - 경기아트센터 경기필하모닉, 아트센터인천 송도 키즈 재즈 페스타, 포항시향 가족 힐링콘서트
+2. **🤖 AI & SW 코딩 경진대회 (`scrapers/contests.py`)**
+   - 청소년 생성형 AI 창작 경진대회 (ChatGPT/DALL-E 활용 AI 그림/동화책 - 과기정통부 장관상)
+   - 어린이 AI 프롬프트 크리에이터 챌린지 (Promptthon)
+   - 전국 주니어 SW·AI 알고리즘 챌린지 (엔트리/스크래치/파이썬 블록코딩)
+   - [판교 테크노밸리] 경기 유소년 AI 로봇 메이커 해커톤
+3. **🎨 미술 & 글짓기 대회 (`scrapers/contests.py`)**
+   - 성남 어린이 미술실기대회 & 풍경화 사생대회
+   - 전국 초등학생 환경사랑 상상화/포스터 공모전 (환경부장관상)
+   - 전국 어린이 독후감 및 성남 탄천 생태사랑 어린이 백일장 (운문/산문)
+4. **🥋 스포츠 대회 및 시범공연 (`scrapers/sports_events.py`)**
+   - 전국 성인 & 대학부 태권도 고난도 격파왕 최강전 (성남종합운동장 - 무료 관람)
+   - 국가대표 K-타이거즈 태권도 시범단 특별 시범공연 & 갈라쇼
+   - 전국 성인 & 마스터즈 오픈 수영 선수권 (성남 탄천 50m 레인)
+   - 대한민국 줄넘기 국가대표 시범단 갈라쇼 & 전국 더블더치 페스티벌
+   - 판교 올장르 스트릿댄스 & K-POP 키즈/성인 댄스 배틀
+5. **🔬 경기·인천·포항 박물관/미술관/체육관 (`scrapers/regional_museums_sports.py`)**
+   - 경기도어린이박물관 (용인), 국립현대미술관 과천 어린이미술관 (MMCA), 수원시립미술관
+   - 인천어린이과학관 (계양구), 국립생물자원관 (인천 서구), 문학박태환수영장
+   - 포항 로보라이프뮤지엄 (한국로봇융합연구원 키즈 AI 로봇체험), 포항시립미술관 (POMA/환호공원 스페이스워크), 포항실내체육관/만인당
+6. **📚 성남시 공공도서관 (`scrapers/seongnam_lib.py`)**
+   - 분당, 판교, 구미, 중원, 수정 등 성남 16개 공공도서관 문화/독서체험
+7. **🏛️ 성남시청 & 청소년재단 (`scrapers/seongnam_city.py`)**
+   - 성남시청 야외행사 및 청소년수련관 메이커 체험
+8. **🔬 국립과천과학관 (`scrapers/gwacheon_sci.py`)**
+   - 천문대 천체관측 및 유아체험관, 창의과학교실
+9. **🏛️ 국립중앙박물관 (`scrapers/museum.py`)**
+   - 어린이박물관 상설체험 및 특별전
+10. **🎪 코엑스 & 킨텍스 & 키즈플랫폼 (`scrapers/conventions.py`, `kids_platforms.py`)**
+    - 서울/경기 대형 키즈페어, 유아교육전, 키즈노트/하이클래스 원데이 클래스
+
+---
+
+## 3. UI/UX 및 스마트 필터 사양
+
+* **스마트 권역 선택 바 (`data-region`):**
+  - `[📍 경기·성남 (기본 권역)]` ➡️ 수도권 중심 집중 표시
+  - `[🌊 인천광역시]` ➡️ 인천 소식만 분리 탐색
+  - `[🤖 포항시 (경북)]` ➡️ 포항 소식만 분리 탐색
+  - `[🌐 전체 권역]` ➡️ 통합 탐색
+* **2줄 반응형 카테고리 칩 (`data-category`):**
+  - 고유 ID 매칭으로 버튼 중복 선택 방지
+  - 10개 칩이 창 크기에 맞게 부드럽게 2줄 랩핑되어 잘림 현상 0%
+* **다중 서브 필터 & 정렬:**
+  - 연령(유아/초등/전연령), 비용(무료/참관무료/유료), D-Day 마감임박순 / 행사일순 정렬
+* **3대 뷰 모드:**
+  - `[카드 뷰]` / `[월별 캘린더 뷰 (행사일/마감일 도트 표시)]` / `[찜목록 (로컬 스토리지)]`
+
+---
+
+## 4. 아키텍처 및 자동화 배포 파이프라인
 
 ```mermaid
 flowchart TD
-    subgraph CloudAutomation ["클라우드 완전 자동화 (GitHub 100% 무료)"]
-        GHA["GitHub Actions (매일 새벽 자동 실행)"]
-        ScraperEngine["멀티 채널 크롤러 엔진 (Python)"]
-        JsonDB[("GitHub 저장소: data/activities.json")]
-        GHPages["GitHub Pages / 모바일 웹앱 (PWA)"]
+    subgraph PC_Environment [PC 데스크톱 환경]
+        TD[Tool_Dashboard 원클릭 실행] --> Launcher[launcher.py 실행]
+        Launcher --> CrawlLocal[0.05초 실시간 병렬 크롤링]
+        CrawlLocal --> LocalServer[내장 ThreadingHTTPServer 구동]
+        LocalServer --> EdgeApp[Edge 데스크톱 단독 앱 창 --app 팝업]
+        PushBat[push_to_github.bat] --> GitPush[GitHub 원격 강제 푸시]
     end
 
-    subgraph UserDevices ["사용자 기기"]
-        Phone["📱 스마트폰 (홈화면 바로가기 앱)"]
-        DesktopWeb["💻 PC 웹 브라우저"]
-        DesktopGUI["🖥️ PC 로컬 실행기 (PyQt6 / run.bat)"]
+    subgraph Cloud_Environment [GitHub Serverless Cloud]
+        GitPush --> RemoteRepo[GitHub: successjo0528-ux/Kids_Activity_Finder]
+        Cron[매일 새벽 6시 GitHub Actions] --> AutoCrawl[daily_crawler.yml 실행]
+        AutoCrawl --> AutoCommit[최신 데이터 자동 커밋 & 푸시]
+        AutoCommit --> RemoteRepo
+        RemoteRepo --> GH_Pages[GitHub Pages 배포 (.nojekyll 적용)]
+        GH_Pages --> MobilePWA[스마트폰 LTE/Wi-Fi 모바일 웹앱]
     end
-
-    GHA -->|1. 크롤링 실행| ScraperEngine
-    ScraperEngine -->|2. 데이터 갱신| JsonDB
-    JsonDB -->|3. 자동 배포| GHPages
-    GHPages -->|4. 언제 어디서든 접속| Phone
-    GHPages -->|4. 큰 화면 열람| DesktopWeb
-    JsonDB <-->|로컬 직접 연동| DesktopGUI
 ```
 
 ---
 
-## 4. 데이터 구조 (`activities.json`)
-
-```json
-[
-  {
-    "id": "act-2026-001",
-    "source_key": "seongnam_lib",
-    "source_name": "성남시 도서관",
-    "title": "[분당도서관] 주말 어린이 코딩 & 메이커 체험교실",
-    "category": "도서관체험",
-    "tags": ["#성남", "#분당", "#코딩", "#무료", "#초등"],
-    "target_age": "초등 저학년(1~3)",
-    "region": "성남시 분당구",
-    "place_name": "분당도서관 배움터 1",
-    "cost_type": "무료",
-    "cost_info": "무료 (재료비 별도 5,000원)",
-    "apply_start": "2026-08-25 10:00",
-    "apply_end": "2026-08-28 18:00",
-    "event_start": "2026-08-30 14:00",
-    "event_end": "2026-08-30 16:00",
-    "status": "접수예정",
-    "d_day": "D-5",
-    "url": "https://snlib.seongnam.go.kr/...",
-    "image_url": "https://...",
-    "created_at": "2026-08-20T23:00:00"
-  }
-]
-```
+## 5. 유지보수 및 파일 관리 규칙
+* **GitHub 배포 경로:** 루트 경로(`/`)와 `web/` 경로에 동일한 웹앱 파일을 3중 동기화 (`core/storage.py`)하여 `/web/` 유무와 무관하게 정상 서빙 보장.
+* **Jekyll 비활성화:** 저장소 최상위에 `.nojekyll` 파일을 유지하여 마크다운이 웹앱 화면을 덮어쓰는 문제 방지.
+* **캐시 무효화:** 데이터 로드 시 `activities.json?t=<timestamp>` 파라미터를 사용하여 항상 실시간 최신 데이터를 수신.
 
 ---
-
-## 5. 프로젝트 디렉토리 구조
-
-```
-G:\My Program\Kids_Activity_Finder\
-├── .github/
-│   └── workflows/
-│       └── daily_crawler.yml      # GitHub Actions 자동 수집 & 배포 워크플로우
-├── core/
-│   ├── __init__.py
-│   ├── models.py                  # 데이터 모델 및 스키마
-│   └── storage.py                 # JSON 및 SQLite 저장 관리
-├── scrapers/
-│   ├── __init__.py
-│   ├── base.py                    # 공통 베이스 스크래퍼
-│   ├── seongnam_lib.py            # 성남시 도서관 스크래퍼
-│   ├── seongnam_city.py           # 성남시청 및 청소년재단 스크래퍼
-│   ├── gwacheon_sci.py            # 국립과천과학관 스크래퍼
-│   ├── museum.py                  # 국립중앙박물관/어린이박물관 스크래퍼
-│   ├── conventions.py             # 코엑스/킨텍스 행사 스크래퍼
-│   ├── contests.py                # 미술·글짓기 공모전 스크래퍼
-│   ├── sports_events.py           # 태권도/수영/줄넘기/체조 유소년 스포츠 스크래퍼
-│   └── kids_platforms.py          # 키즈노트/하이클래스 스크래퍼
-├── web/                           # 스마트폰 모바일 우선 웹앱 (PWA)
-│   ├── index.html                 # 반응형 메인 UI (필터, 카드 뷰, 캘린더)
-│   ├── app.js                     # 필터링, 검색, 캘린더, D-Day 계산 로직
-│   ├── style.css                  # 모던 모바일/데스크톱 반응형 스타일
-│   └── manifest.json              # 스마트폰 홈화면 앱(PWA) 설정
-├── data/
-│   └── activities.json            # 크롤링된 통합 데이터
-├── crawler_runner.py              # 일괄 크롤러 실행 엔트리포인트
-├── local_server.py                # PC 로컬 테스트 웹 서버
-├── requirements.txt               # 파이썬 의존성 패키지
-├── run.bat                        # PC 원클릭 실행 배치 파일
-└── SPECIFICATION.md               # 프로젝트 사양 문서
-```
+© 2026 Kids Activity Finder. Powered by Google Antigravity & GitHub Serverless Cloud.
