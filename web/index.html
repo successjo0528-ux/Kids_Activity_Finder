@@ -21,12 +21,12 @@
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
 
   <!-- 📱 모바일/PC 통합 상단 헤더 -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between gap-3">
       <div class="flex items-center gap-2 cursor-pointer" onclick="resetFilters()">
         <span class="text-2xl">🎈</span>
         <div>
-          <h1 class="font-bold text-lg leading-tight text-indigo-900 tracking-tight">Kids Activity Finder</h1>
+          <h1 class="font-bold text-base sm:text-lg leading-tight text-indigo-900 tracking-tight">Kids Activity Finder</h1>
           <p class="text-[11px] text-slate-500 font-medium">성남·경기·인천·포항 키즈 박물관·음악회·체육관 & 대회 탐색기</p>
         </div>
       </div>
@@ -47,36 +47,36 @@
     </div>
 
     <!-- 🔍 검색창 -->
-    <div class="max-w-6xl mx-auto px-4 pb-3">
+    <div class="max-w-6xl mx-auto px-4 pb-2">
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-        <input type="text" id="search-input" placeholder="파크콘서트, 오케스트라, 디즈니OST, 어린이박물관, 태권도, 수영, AI대회 검색..." 
-               class="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-sm rounded-xl pl-9 pr-10 py-2.5 transition border border-transparent focus:border-indigo-500 focus:outline-none shadow-inner">
+        <input type="text" id="search-input" placeholder="파크콘서트, 오케스트라, 어린이박물관, 미술관, 태권도, 수영, AI대회 검색..." 
+               class="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-xs sm:text-sm rounded-xl pl-9 pr-10 py-2 transition border border-transparent focus:border-indigo-500 focus:outline-none shadow-inner">
         <button id="clear-search" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
           <i class="fa-solid fa-circle-xmark text-sm"></i>
         </button>
       </div>
     </div>
 
-    <!-- 🏷️ 카테고리 퀵 스크롤 바 (모바일 가로 스와이프) -->
-    <div class="border-t border-slate-100 bg-white">
-      <div class="max-w-6xl mx-auto px-4 py-2 flex gap-2 overflow-x-auto no-scrollbar" id="category-chips">
+    <!-- 🏷️ 카테고리 칩 바 (잘림 없는 2줄 자동 랩핑 반응형 디자인) -->
+    <div class="border-t border-slate-100 bg-slate-50/70">
+      <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap gap-1.5" id="category-chips">
         <button class="chip active" onclick="setCategory('전체')">🌟 전체보기</button>
-        <button class="chip" onclick="setCategory('음악공연')">🎵 음악회·클래식·콘서트</button>
-        <button class="chip" onclick="setCategory('과학박물관')">🔬 경기/인천/포항 박물관·미술관</button>
-        <button class="chip" onclick="setCategory('AI코딩대회')">🤖 AI & 코딩 대회</button>
-        <button class="chip" onclick="setCategory('미술글짓기')">🎨 미술/글짓기 대회</button>
-        <button class="chip" onclick="setCategory('스포츠대회')">🥋 체육관·태권도·수영</button>
+        <button class="chip" onclick="setCategory('음악공연')">🎵 음악회·콘서트</button>
+        <button class="chip" onclick="setCategory('과학박물관')">🔬 박물관·미술관</button>
+        <button class="chip" onclick="setCategory('AI코딩대회')">🤖 AI & 코딩대회</button>
+        <button class="chip" onclick="setCategory('미술글짓기')">🎨 미술·글짓기</button>
+        <button class="chip" onclick="setCategory('스포츠대회')">🥋 스포츠·태권도·수영</button>
         <button class="chip" onclick="setCategory('도서관체험')">📚 성남 도서관</button>
-        <button class="chip" onclick="setCategory('지자체체험')">🏛️ 성남시청/청소년</button>
-        <button class="chip" onclick="setCategory('전시행사')">🎪 코엑스/킨텍스</button>
-        <button class="chip" onclick="setCategory('키즈플랫폼')">📱 키즈노트/하이클래스</button>
+        <button class="chip" onclick="setCategory('지자체체험')">🏛️ 성남시청·청소년</button>
+        <button class="chip" onclick="setCategory('전시행사')">🎪 전시·박람회</button>
+        <button class="chip" onclick="setCategory('키즈플랫폼')">📱 키즈노트·클래스</button>
       </div>
     </div>
   </header>
 
   <!-- 🎛️ 서브 필터 드롭다운 바 -->
-  <section class="bg-slate-100/80 border-b border-slate-200 py-2.5">
+  <section class="bg-slate-100/90 border-b border-slate-200 py-2">
     <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2 text-xs">
       <div class="flex flex-wrap items-center gap-2">
         <!-- 대상 연령 필터 -->
@@ -129,7 +129,7 @@
   </section>
 
   <!-- 📦 메인 콘텐츠 영역 -->
-  <main class="max-w-6xl mx-auto px-4 py-6 flex-1 w-full">
+  <main class="max-w-6xl mx-auto px-4 py-5 flex-1 w-full">
 
     <!-- 1. 카드 뷰 모드 -->
     <div id="view-cards-container">

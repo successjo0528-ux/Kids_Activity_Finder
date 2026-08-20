@@ -1,5 +1,5 @@
 /**
- * Kids Activity Finder - 메인 프론트엔드 인터랙션 로직 (AI 및 미술/글짓기 대회 포함)
+ * Kids Activity Finder - 메인 프론트엔드 인터랙션 로직
  */
 
 // 전역 상태
@@ -118,7 +118,18 @@ function setCategory(category) {
     const text = chip.textContent;
     if (category === "전체" && text.includes("전체")) {
       chip.classList.add("active");
-    } else if (category !== "전체" && (text.includes(category) || (category === "AI코딩대회" && text.includes("AI")))) {
+    } else if (category !== "전체" && (
+      (category === "음악공연" && text.includes("음악회")) ||
+      (category === "과학박물관" && text.includes("박물관")) ||
+      (category === "AI코딩대회" && text.includes("AI")) ||
+      (category === "미술글짓기" && text.includes("미술")) ||
+      (category === "스포츠대회" && text.includes("스포츠")) ||
+      (category === "도서관체험" && text.includes("도서관")) ||
+      (category === "지자체체험" && text.includes("성남시청")) ||
+      (category === "전시행사" && text.includes("전시")) ||
+      (category === "키즈플랫폼" && text.includes("키즈노트")) ||
+      text.includes(category)
+    )) {
       chip.classList.add("active");
     } else {
       chip.classList.remove("active");
@@ -263,10 +274,22 @@ function renderCards() {
       ? `<span class="badge-free px-2 py-0.5 rounded text-[10px] font-bold">${item.cost_type}</span>`
       : `<span class="bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-bold">유료</span>`;
 
-    // AI 카테고리 특수 배지
+    // 카테고리별 예쁜 색상 배지
     let catBadgeColor = "bg-slate-100 text-slate-700";
-    if (item.category === "AI코딩대회") catBadgeColor = "bg-purple-50 text-purple-700 border border-purple-200 font-bold";
-    if (item.category === "미술글짓기") catBadgeColor = "bg-amber-50 text-amber-700 border border-amber-200 font-bold";
+    let catLabel = item.source_name;
+    if (item.category === "음악공연") {
+      catBadgeColor = "bg-sky-50 text-sky-700 border border-sky-200 font-bold";
+      catLabel = "🎵 " + item.source_name;
+    } else if (item.category === "AI코딩대회") {
+      catBadgeColor = "bg-purple-50 text-purple-700 border border-purple-200 font-bold";
+      catLabel = "🤖 AI/코딩대회";
+    } else if (item.category === "미술글짓기") {
+      catBadgeColor = "bg-amber-50 text-amber-700 border border-amber-200 font-bold";
+      catLabel = "🎨 " + item.source_name;
+    } else if (item.category === "스포츠대회") {
+      catBadgeColor = "bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold";
+      catLabel = "🥋 " + item.source_name;
+    }
 
     return `
       <div class="activity-card" onclick="openDetailModal('${item.id}')">
@@ -274,7 +297,7 @@ function renderCards() {
           <!-- 상단 태그 & 북마크 -->
           <div class="flex items-center justify-between gap-2 mb-2">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="${catBadgeColor} px-2 py-0.5 rounded text-[10px]">${item.category === 'AI코딩대회' ? '🤖 AI/코딩대회' : item.source_name}</span>
+              <span class="${catBadgeColor} px-2 py-0.5 rounded text-[10px] truncate max-w-[180px]">${catLabel}</span>
               ${costBadge}
             </div>
             <button onclick="toggleBookmark('${item.id}', event)" class="text-slate-300 hover:text-rose-500 transition p-1 text-sm">
@@ -299,7 +322,7 @@ function renderCards() {
             </div>
             <div class="flex items-center gap-1.5 truncate">
               <i class="fa-solid fa-calendar text-slate-400 text-[11px] w-3"></i>
-              <span class="truncate">${item.event_start ? '행사일: ' + item.event_start : '접수마감: ' + (item.apply_end || '상시')}</span>
+              <span class="truncate">${item.event_start ? '일시: ' + item.event_start : '접수: ' + (item.apply_end || '상시')}</span>
             </div>
           </div>
         </div>
@@ -352,6 +375,7 @@ function renderCalendar() {
       dotsHtml = `<div class="mt-1 flex flex-wrap gap-0.5">` + 
         dayItems.slice(0, 4).map(item => {
           let dotColor = "bg-indigo-500";
+          if (item.category === "음악공연") dotColor = "bg-sky-500";
           if (item.category === "AI코딩대회") dotColor = "bg-purple-500";
           if (item.category === "스포츠대회") dotColor = "bg-emerald-500";
           if (item.category === "미술글짓기") dotColor = "bg-amber-500";
@@ -445,7 +469,7 @@ function openDetailModal(id) {
   document.getElementById("modal-address").textContent = item.address || item.place_name;
   document.getElementById("modal-age").textContent = item.target_age;
   document.getElementById("modal-apply-period").textContent = `${item.apply_start || '상시'} ~ ${item.apply_end || '선착순 마감'}`;
-  document.getElementById("modal-event-period").textContent = `${item.event_start || '상세 페이지 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`;
+  document.getElementById("modal-event-period").textContent = `${item.event_start || '상세 안내 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`;
   document.getElementById("modal-cost-info").textContent = item.cost_info || item.cost_type;
   document.getElementById("modal-description").textContent = item.description || "상세 페이지를 통해 상세한 안내를 확인해 주세요.";
 
