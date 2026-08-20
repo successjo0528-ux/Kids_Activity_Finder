@@ -11,6 +11,7 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 WEB_DIR = os.path.join(BASE_DIR, "web")
 JSON_PATH = os.path.join(DATA_DIR, "activities.json")
 WEB_JSON_PATH = os.path.join(WEB_DIR, "activities.json")
+ROOT_JSON_PATH = os.path.join(BASE_DIR, "activities.json")
 
 
 def ensure_dirs():
@@ -35,7 +36,7 @@ def load_activities() -> List[ActivityItem]:
 
 
 def save_activities(items: List[ActivityItem]) -> int:
-    """새로운 활동 목록을 기존 데이터와 병합하여 data/ 및 web/ 폴더에 저장"""
+    """새로운 활동 목록을 data/, web/ 및 루트 경로에 3중 자동 동기화 저장"""
     ensure_dirs()
     
     # 기존 데이터 로드
@@ -51,12 +52,16 @@ def save_activities(items: List[ActivityItem]) -> int:
     # 딕셔너리로 직렬화
     serialized_data = [item.to_dict() for item in merged_list]
     
-    # data/activities.json 저장
+    # 1. data/activities.json 저장
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(serialized_data, f, ensure_ascii=False, indent=2)
     
-    # web/activities.json 동기화 복사 (GitHub Pages 및 웹앱용)
+    # 2. web/activities.json 저장
     with open(WEB_JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(serialized_data, f, ensure_ascii=False, indent=2)
+
+    # 3. 루트 activities.json 저장 (루트 접속 호환)
+    with open(ROOT_JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(serialized_data, f, ensure_ascii=False, indent=2)
         
     print(f"총 {len(merged_list)}건의 활동 데이터 저장 완료 (신규/갱신: {len(items)}건)")
