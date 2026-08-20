@@ -19,7 +19,7 @@
   <!-- Tailwind CSS & FontAwesome Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=20260821_01">
+  <link rel="stylesheet" href="style.css?v=20260821_02">
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
 
@@ -49,23 +49,23 @@
       </div>
     </div>
 
-    <!-- 📍 지역 권역 퀵 선택 바 (기본값: 경기/성남, 필요할 때 인천/포항 원클릭 전환) -->
+    <!-- 📍 지역 권역 퀵 선택 바 (기본값: 경기/성남) -->
     <div class="bg-indigo-50/70 border-y border-indigo-100/80 py-1.5 px-4">
       <div class="max-w-6xl mx-auto flex items-center justify-between gap-2 text-xs">
         <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="region-chips">
           <span class="text-slate-500 font-bold text-[11px] shrink-0 mr-1 flex items-center gap-1">
             <i class="fa-solid fa-location-dot text-indigo-600"></i> 권역:
           </span>
-          <button class="region-chip active" onclick="setMainRegion('경기권역')">
+          <button class="region-chip active" data-region="경기권역" onclick="setMainRegion('경기권역')">
             📍 경기·성남 (기본)
           </button>
-          <button class="region-chip" onclick="setMainRegion('인천')">
+          <button class="region-chip" data-region="인천" onclick="setMainRegion('인천')">
             🌊 인천광역시
           </button>
-          <button class="region-chip" onclick="setMainRegion('포항')">
+          <button class="region-chip" data-region="포항" onclick="setMainRegion('포항')">
             🤖 포항시 (경북)
           </button>
-          <button class="region-chip" onclick="setMainRegion('전체')">
+          <button class="region-chip" data-region="전체" onclick="setMainRegion('전체')">
             🌐 전체 권역
           </button>
         </div>
@@ -88,19 +88,19 @@
       </div>
     </div>
 
-    <!-- 🏷️ 카테고리 칩 바 (잘림 없는 2줄 자동 랩핑) -->
+    <!-- 🏷️ 카테고리 칩 바 (고유 data-category 적용으로 중복 선택 100% 방지) -->
     <div class="border-t border-slate-100 bg-slate-50/70">
       <div class="max-w-6xl mx-auto px-4 py-1.5 flex flex-wrap gap-1.5" id="category-chips">
-        <button class="chip active" onclick="setCategory('전체')">🌟 전체보기</button>
-        <button class="chip" onclick="setCategory('음악공연')">🎵 음악회·콘서트</button>
-        <button class="chip" onclick="setCategory('과학박물관')">🔬 박물관·미술관</button>
-        <button class="chip" onclick="setCategory('AI코딩대회')">🤖 AI & 코딩대회</button>
-        <button class="chip" onclick="setCategory('미술글짓기')">🎨 미술·글짓기</button>
-        <button class="chip" onclick="setCategory('스포츠대회')">🥋 스포츠·태권도·수영</button>
-        <button class="chip" onclick="setCategory('도서관체험')">📚 성남 도서관</button>
-        <button class="chip" onclick="setCategory('지자체체험')">🏛️ 성남시청·청소년</button>
-        <button class="chip" onclick="setCategory('전시행사')">🎪 전시·박람회</button>
-        <button class="chip" onclick="setCategory('키즈플랫폼')">📱 키즈노트·클래스</button>
+        <button class="chip active" data-category="전체" onclick="setCategory('전체')">🌟 전체보기</button>
+        <button class="chip" data-category="음악공연" onclick="setCategory('음악공연')">🎵 음악회·콘서트</button>
+        <button class="chip" data-category="과학박물관" onclick="setCategory('과학박물관')">🔬 박물관·미술관</button>
+        <button class="chip" data-category="AI코딩대회" onclick="setCategory('AI코딩대회')">🤖 AI & 코딩대회</button>
+        <button class="chip" data-category="미술글짓기" data-category="미술글짓기" onclick="setCategory('미술글짓기')">🎨 미술·글짓기</button>
+        <button class="chip" data-category="스포츠대회" onclick="setCategory('스포츠대회')">🥋 스포츠·태권도·수영</button>
+        <button class="chip" data-category="도서관체험" onclick="setCategory('도서관체험')">📚 성남 도서관</button>
+        <button class="chip" data-category="지자체체험" onclick="setCategory('지자체체험')">🏛️ 성남시청·청소년</button>
+        <button class="chip" data-category="전시행사" onclick="setCategory('전시행사')">🎪 전시·박람회</button>
+        <button class="chip" data-category="키즈플랫폼" onclick="setCategory('키즈플랫폼')">📱 키즈노트·클래스</button>
       </div>
     </div>
   </header>
@@ -326,6 +326,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=20260821_01"></script>
+  <script src="app.js?v=20260821_02"></script>
 </body>
 </html>

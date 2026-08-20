@@ -1,11 +1,13 @@
 @echo off
 cd /d "%~dp0"
-title GitHub Push
+title GitHub Force Push
 echo ========================================================
-echo   Pushing latest changes to GitHub...
+echo   Pushing ALL latest changes to GitHub (Force Sync)...
 echo ========================================================
 echo.
-git push -u origin main
+git push -f origin main
 echo.
-echo [Done] GitHub push completed!
+echo ========================================================
+echo   [Done] Finished! Check above output.
+echo ========================================================
 pause

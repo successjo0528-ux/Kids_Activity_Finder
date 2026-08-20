@@ -1,7 +1,6 @@
 /**
  * Kids Activity Finder - 메인 프론트엔드 인터랙션 로직
- * - 기본값: 경기/성남 권역 우선 노출
- * - 인천/포항/전체는 원클릭 분리 탐색
+ * - 고유 data-category 및 data-region 기반 1:1 매칭 (중복 활성화 버그 100% 방지)
  */
 
 // 전역 상태
@@ -114,18 +113,11 @@ function clearSearch() {
   applyFilters();
 }
 
-// 5. 메인 권역 퀵 전환 (경기권역 기본, 인천/포항/전체 분리)
+// 5. 메인 권역 퀵 전환 (data-region 1:1 매칭)
 function setMainRegion(region) {
   currentMainRegion = region;
   document.querySelectorAll("#region-chips .region-chip").forEach(chip => {
-    const text = chip.textContent;
-    if (region === "경기권역" && text.includes("경기·성남")) {
-      chip.classList.add("active");
-    } else if (region === "인천" && text.includes("인천")) {
-      chip.classList.add("active");
-    } else if (region === "포항" && text.includes("포항")) {
-      chip.classList.add("active");
-    } else if (region === "전체" && text.includes("전체")) {
+    if (chip.dataset.region === region) {
       chip.classList.add("active");
     } else {
       chip.classList.remove("active");
@@ -137,25 +129,11 @@ function setMainRegion(region) {
   applyFilters();
 }
 
-// 6. 카테고리 칩 선택
+// 6. 카테고리 칩 선택 (고유 data-category 1:1 매칭으로 중복 선택 100% 방지)
 function setCategory(category) {
   currentCategory = category;
   document.querySelectorAll("#category-chips .chip").forEach(chip => {
-    const text = chip.textContent;
-    if (category === "전체" && text.includes("전체")) {
-      chip.classList.add("active");
-    } else if (category !== "전체" && (
-      (category === "음악공연" && text.includes("음악회")) ||
-      (category === "과학박물관" && text.includes("박물관")) ||
-      (category === "AI코딩대회" && text.includes("AI")) ||
-      (category === "미술글짓기" && text.includes("미술")) ||
-      (category === "스포츠대회" && text.includes("스포츠")) ||
-      (category === "도서관체험" && text.includes("도서관")) ||
-      (category === "지자체체험" && text.includes("성남시청")) ||
-      (category === "전시행사" && text.includes("전시")) ||
-      (category === "키즈플랫폼" && text.includes("키즈노트")) ||
-      text.includes(category)
-    )) {
+    if (chip.dataset.category === category) {
       chip.classList.add("active");
     } else {
       chip.classList.remove("active");
@@ -213,7 +191,6 @@ function applyFilters() {
     // 1. 메인 권역 필터 (경기권역 기본값 vs 인천 vs 포항 vs 전체)
     const itemRegion = (item.region || "") + " " + (item.place_name || "") + " " + (item.source_name || "");
     if (currentMainRegion === "경기권역") {
-      // 경기/성남/서울/전국 온라인 대회만 포함 (인천/포항 단독 시설은 제외)
       const isGyeonggiOrCapital = 
         itemRegion.includes("성남") || 
         itemRegion.includes("경기") || 
@@ -236,7 +213,6 @@ function applyFilters() {
         item.source_key === "kids_platforms";
 
       if (!isGyeonggiOrCapital || itemRegion.includes("인천") || itemRegion.includes("포항")) {
-        // 단, 전국 대회는 포함
         if (!itemRegion.includes("전국")) return false;
       }
     } else if (currentMainRegion === "인천") {
@@ -254,7 +230,7 @@ function applyFilters() {
       if (!item.region.includes(subRegion) && !item.place_name.includes(subRegion)) return false;
     }
 
-    // 3. 카테고리 필터
+    // 3. 카테고리 필터 (1:1 완전 일치)
     if (currentCategory !== "전체" && item.category !== currentCategory) {
       return false;
     }
