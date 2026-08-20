@@ -27,7 +27,7 @@
         <span class="text-2xl">🎈</span>
         <div>
           <h1 class="font-bold text-base sm:text-lg leading-tight text-indigo-900 tracking-tight">Kids Activity Finder</h1>
-          <p class="text-[11px] text-slate-500 font-medium">성남·경기·인천·포항 키즈 박물관·음악회·체육관 & 대회 탐색기</p>
+          <p class="text-[11px] text-slate-500 font-medium">성남·경기 중심 키즈 문화·음악회·스포츠·대회 탐색기</p>
         </div>
       </div>
 
@@ -46,8 +46,35 @@
       </div>
     </div>
 
+    <!-- 📍 지역 권역 퀵 선택 바 (기본값: 경기/성남, 필요할 때 인천/포항 원클릭 전환) -->
+    <div class="bg-indigo-50/70 border-y border-indigo-100/80 py-1.5 px-4">
+      <div class="max-w-6xl mx-auto flex items-center justify-between gap-2 text-xs">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="region-chips">
+          <span class="text-slate-500 font-bold text-[11px] shrink-0 mr-1 flex items-center gap-1">
+            <i class="fa-solid fa-location-dot text-indigo-600"></i> 권역:
+          </span>
+          <button class="region-chip active" onclick="setMainRegion('경기권역')">
+            📍 경기·성남 (기본)
+          </button>
+          <button class="region-chip" onclick="setMainRegion('인천')">
+            🌊 인천광역시
+          </button>
+          <button class="region-chip" onclick="setMainRegion('포항')">
+            🤖 포항시 (경북)
+          </button>
+          <button class="region-chip" onclick="setMainRegion('전체')">
+            🌐 전체 권역
+          </button>
+        </div>
+
+        <span class="text-[11px] text-slate-400 font-medium shrink-0 hidden sm:inline">
+          총 <strong id="total-count" class="text-indigo-600">0</strong>건
+        </span>
+      </div>
+    </div>
+
     <!-- 🔍 검색창 -->
-    <div class="max-w-6xl mx-auto px-4 pb-2">
+    <div class="max-w-6xl mx-auto px-4 pt-2 pb-1.5">
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
         <input type="text" id="search-input" placeholder="파크콘서트, 오케스트라, 어린이박물관, 미술관, 태권도, 수영, AI대회 검색..." 
@@ -58,9 +85,9 @@
       </div>
     </div>
 
-    <!-- 🏷️ 카테고리 칩 바 (잘림 없는 2줄 자동 랩핑 반응형 디자인) -->
+    <!-- 🏷️ 카테고리 칩 바 (잘림 없는 2줄 자동 랩핑) -->
     <div class="border-t border-slate-100 bg-slate-50/70">
-      <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap gap-1.5" id="category-chips">
+      <div class="max-w-6xl mx-auto px-4 py-1.5 flex flex-wrap gap-1.5" id="category-chips">
         <button class="chip active" onclick="setCategory('전체')">🌟 전체보기</button>
         <button class="chip" onclick="setCategory('음악공연')">🎵 음악회·콘서트</button>
         <button class="chip" onclick="setCategory('과학박물관')">🔬 박물관·미술관</button>
@@ -76,35 +103,37 @@
   </header>
 
   <!-- 🎛️ 서브 필터 드롭다운 바 -->
-  <section class="bg-slate-100/90 border-b border-slate-200 py-2">
+  <section class="bg-slate-100/90 border-b border-slate-200 py-1.5">
     <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2 text-xs">
       <div class="flex flex-wrap items-center gap-2">
-        <!-- 대상 연령 필터 -->
-        <select id="filter-age" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
-          <option value="전체">👶 대상 연령: 전체</option>
-          <option value="전연령">전연령 (가족 동반/관람)</option>
-          <option value="유아">유아 (3~7세)</option>
-          <option value="초등">초등학생 (1~6학년)</option>
-          <option value="초등 저학년">초등 저학년 (1~3)</option>
-          <option value="초등 고학년">초등 고학년 (4~6)</option>
-        </select>
-
-        <!-- 지역 필터 (성남, 경기도, 인천, 포항, 서울 등) -->
-        <select id="filter-region" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
-          <option value="전체">📍 지역: 전체 (성남/경기/인천/포항)</option>
+        <!-- 세부 지역 필터 -->
+        <select id="filter-region" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
+          <option value="전체">📍 세부 지역: 전체</option>
           <option value="성남">성남시 전체</option>
           <option value="분당">성남시 분당구/판교</option>
           <option value="수정">성남시 수정구</option>
           <option value="중원">성남시 중원구</option>
-          <option value="경기도">경기도 (용인/수원/과천/고양)</option>
-          <option value="인천">인천광역시 (송도/과학관/수영장)</option>
-          <option value="포항">포항시 (음악회/로봇뮤지엄/POMA)</option>
+          <option value="용인">경기도 용인시 (어린이박물관)</option>
+          <option value="수원">경기도 수원시 (미술관/경기필)</option>
+          <option value="과천">경기도 과천시 (과학관/미술관)</option>
+          <option value="고양">경기도 고양시 (체육관/킨텍스)</option>
           <option value="서울">서울 (롯데콘서트홀/코엑스/박물관)</option>
-          <option value="전국">전국 (온라인 대회/공연)</option>
+          <option value="인천">인천광역시</option>
+          <option value="포항">포항시</option>
+        </select>
+
+        <!-- 대상 연령 필터 -->
+        <select id="filter-age" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
+          <option value="전체">👶 연령: 전체</option>
+          <option value="전연령">전연령 (가족 관람)</option>
+          <option value="유아">유아 (3~7세)</option>
+          <option value="초등">초등학생 (1~6)</option>
+          <option value="초등 저학년">초등 저학년 (1~3)</option>
+          <option value="초등 고학년">초등 고학년 (4~6)</option>
         </select>
 
         <!-- 비용 필터 -->
-        <select id="filter-cost" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
+        <select id="filter-cost" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
           <option value="전체">💰 비용: 전체</option>
           <option value="무료">무료만 보기</option>
           <option value="참관무료">참관/관람 무료</option>
@@ -112,15 +141,15 @@
         </select>
 
         <!-- 정렬 순서 -->
-        <select id="filter-sort" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
-          <option value="dday">⏰ 마감임박순 (D-Day)</option>
+        <select id="filter-sort" onchange="applyFilters()" class="bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-700 font-medium focus:ring-1 focus:ring-indigo-500 focus:outline-none">
+          <option value="dday">⏰ 마감임박순</option>
           <option value="event">📅 행사일순</option>
           <option value="latest">✨ 최신등록순</option>
         </select>
       </div>
 
-      <div class="text-slate-500 font-medium text-[11px] flex items-center gap-1.5">
-        <span>총 <strong id="total-count" class="text-indigo-600">0</strong>건</span>
+      <div class="text-slate-500 font-medium text-[11px] flex items-center gap-1.5 sm:hidden">
+        <span>총 <strong id="total-count-mobile" class="text-indigo-600">0</strong>건</span>
         <button onclick="refreshData()" title="데이터 새로고침" class="p-1 hover:text-indigo-600 transition">
           <i class="fa-solid fa-arrows-rotate"></i>
         </button>
@@ -139,9 +168,9 @@
       <div id="empty-state" class="hidden text-center py-16">
         <div class="text-5xl mb-3">🔍</div>
         <h3 class="text-base font-bold text-slate-700">조건에 맞는 활동이 없습니다</h3>
-        <p class="text-xs text-slate-500 mt-1">검색어나 필터 조건을 변경해 보세요.</p>
+        <p class="text-xs text-slate-500 mt-1">권역이나 필터 조건을 변경해 보세요.</p>
         <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-indigo-50 text-indigo-600 text-xs font-semibold rounded-xl hover:bg-indigo-100 transition">
-          필터 초기화
+          필터 초기화 (경기·성남 권역)
         </button>
       </div>
     </div>
@@ -289,7 +318,7 @@
   <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-400">
     <div class="max-w-6xl mx-auto px-4 space-y-2">
       <p class="font-medium text-slate-500">🎈 Kids Activity Finder - 성남·경기·인천·포항 종합 탐색기</p>
-      <p class="text-[11px]">성남아트센터 파크콘서트, 키즈 오케스트라, 박물관, 미술관, 태권도/수영대회, AI대회 매일 자동 수집</p>
+      <p class="text-[11px]">기본: 경기/성남 권역 | 선택 시: 인천/포항/전국 확장 탐색 지원</p>
       <p class="text-[10px] text-slate-300">© 2026 Kids Activity Finder. Powered by GitHub Serverless Cloud</p>
     </div>
   </footer>

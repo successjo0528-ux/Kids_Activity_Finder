@@ -1,10 +1,13 @@
 /**
  * Kids Activity Finder - 메인 프론트엔드 인터랙션 로직
+ * - 기본값: 경기/성남 권역 우선 노출
+ * - 인천/포항/전체는 원클릭 분리 탐색
  */
 
 // 전역 상태
 let allActivities = [];
 let filteredActivities = [];
+let currentMainRegion = "경기권역"; // 기본값: '경기권역' (성남+경기+서울+전국대회)
 let currentCategory = "전체";
 let currentView = "cards"; // 'cards', 'calendar', 'bookmarks'
 let currentCalendarDate = new Date();
@@ -111,7 +114,30 @@ function clearSearch() {
   applyFilters();
 }
 
-// 5. 카테고리 칩 선택
+// 5. 메인 권역 퀵 전환 (경기권역 기본, 인천/포항/전체 분리)
+function setMainRegion(region) {
+  currentMainRegion = region;
+  document.querySelectorAll("#region-chips .region-chip").forEach(chip => {
+    const text = chip.textContent;
+    if (region === "경기권역" && text.includes("경기·성남")) {
+      chip.classList.add("active");
+    } else if (region === "인천" && text.includes("인천")) {
+      chip.classList.add("active");
+    } else if (region === "포항" && text.includes("포항")) {
+      chip.classList.add("active");
+    } else if (region === "전체" && text.includes("전체")) {
+      chip.classList.add("active");
+    } else {
+      chip.classList.remove("active");
+    }
+  });
+
+  // 드롭다운 세부 지역도 초기화
+  document.getElementById("filter-region").value = "전체";
+  applyFilters();
+}
+
+// 6. 카테고리 칩 선택
 function setCategory(category) {
   currentCategory = category;
   document.querySelectorAll("#category-chips .chip").forEach(chip => {
@@ -138,7 +164,7 @@ function setCategory(category) {
   applyFilters();
 }
 
-// 6. 뷰 모드 전환
+// 7. 뷰 모드 전환
 function switchView(viewName) {
   currentView = viewName;
   const tabCards = document.getElementById("tab-cards");
@@ -169,24 +195,71 @@ function switchView(viewName) {
   }
 }
 
-// 7. 필터 적용 로직
+// 8. 필터 적용 로직
 function applyFilters() {
   const query = document.getElementById("search-input").value.trim().toLowerCase();
+  const subRegion = document.getElementById("filter-region").value;
   const age = document.getElementById("filter-age").value;
-  const region = document.getElementById("filter-region").value;
   const cost = document.getElementById("filter-cost").value;
   const sort = document.getElementById("filter-sort").value;
   const bookmarks = getBookmarks();
 
   filteredActivities = allActivities.filter(item => {
+    // 찜목록 뷰
     if (currentView === "bookmarks" && !bookmarks.includes(item.id)) {
       return false;
     }
 
+    // 1. 메인 권역 필터 (경기권역 기본값 vs 인천 vs 포항 vs 전체)
+    const itemRegion = (item.region || "") + " " + (item.place_name || "") + " " + (item.source_name || "");
+    if (currentMainRegion === "경기권역") {
+      // 경기/성남/서울/전국 온라인 대회만 포함 (인천/포항 단독 시설은 제외)
+      const isGyeonggiOrCapital = 
+        itemRegion.includes("성남") || 
+        itemRegion.includes("경기") || 
+        itemRegion.includes("분당") || 
+        itemRegion.includes("판교") || 
+        itemRegion.includes("수정") || 
+        itemRegion.includes("중원") || 
+        itemRegion.includes("용인") || 
+        itemRegion.includes("수원") || 
+        itemRegion.includes("과천") || 
+        itemRegion.includes("고양") || 
+        itemRegion.includes("서울") || 
+        itemRegion.includes("전국") || 
+        item.source_key === "contests" || 
+        item.source_key === "seongnam_lib" || 
+        item.source_key === "seongnam_city" || 
+        item.source_key === "gwacheon_sci" || 
+        item.source_key === "museum" || 
+        item.source_key === "conventions" || 
+        item.source_key === "kids_platforms";
+
+      if (!isGyeonggiOrCapital || itemRegion.includes("인천") || itemRegion.includes("포항")) {
+        // 단, 전국 대회는 포함
+        if (!itemRegion.includes("전국")) return false;
+      }
+    } else if (currentMainRegion === "인천") {
+      if (!itemRegion.includes("인천") && !itemRegion.includes("송도") && !itemRegion.includes("계양")) {
+        return false;
+      }
+    } else if (currentMainRegion === "포항") {
+      if (!itemRegion.includes("포항") && !itemRegion.includes("경북")) {
+        return false;
+      }
+    }
+
+    // 2. 세부 지역 드롭다운 필터
+    if (subRegion !== "전체") {
+      if (!item.region.includes(subRegion) && !item.place_name.includes(subRegion)) return false;
+    }
+
+    // 3. 카테고리 필터
     if (currentCategory !== "전체" && item.category !== currentCategory) {
       return false;
     }
 
+    // 4. 검색어 필터
     if (query) {
       const matchTitle = (item.title || "").toLowerCase().includes(query);
       const matchPlace = (item.place_name || "").toLowerCase().includes(query);
@@ -195,14 +268,12 @@ function applyFilters() {
       if (!matchTitle && !matchPlace && !matchTags && !matchDesc) return false;
     }
 
+    // 5. 대상 연령 필터
     if (age !== "전체") {
       if (!item.target_age.includes(age) && item.target_age !== "전연령") return false;
     }
 
-    if (region !== "전체") {
-      if (!item.region.includes(region) && !item.place_name.includes(region)) return false;
-    }
-
+    // 6. 비용 필터
     if (cost !== "전체") {
       if (cost === "무료" && item.cost_type !== "무료") return false;
       if (cost === "참관무료" && item.cost_type !== "참관무료") return false;
@@ -212,6 +283,7 @@ function applyFilters() {
     return true;
   });
 
+  // 정렬
   if (sort === "dday") {
     filteredActivities.sort((a, b) => {
       if (a.d_day.startsWith("D-") && b.d_day.startsWith("D-")) {
@@ -225,7 +297,10 @@ function applyFilters() {
     filteredActivities.sort((a, b) => (a.event_start || "").localeCompare(b.event_start || ""));
   }
 
-  document.getElementById("total-count").textContent = filteredActivities.length;
+  const countElem = document.getElementById("total-count");
+  const countMobileElem = document.getElementById("total-count-mobile");
+  if (countElem) countElem.textContent = filteredActivities.length;
+  if (countMobileElem) countMobileElem.textContent = filteredActivities.length;
 
   if (currentView === "calendar") {
     renderCalendar();
@@ -237,15 +312,16 @@ function applyFilters() {
 function resetFilters() {
   document.getElementById("search-input").value = "";
   document.getElementById("clear-search").classList.add("hidden");
-  document.getElementById("filter-age").value = "전체";
   document.getElementById("filter-region").value = "전체";
+  document.getElementById("filter-age").value = "전체";
   document.getElementById("filter-cost").value = "전체";
   document.getElementById("filter-sort").value = "dday";
+  setMainRegion("경기권역");
   setCategory("전체");
   switchView("cards");
 }
 
-// 8. 카드 뷰 렌더링
+// 9. 카드 뷰 렌더링
 function renderCards() {
   const container = document.getElementById("cards-grid");
   const emptyState = document.getElementById("empty-state");
@@ -341,7 +417,7 @@ function renderCards() {
   }).join("");
 }
 
-// 9. 캘린더 뷰 렌더링
+// 10. 캘린더 뷰 렌더링
 function renderCalendar() {
   const year = currentCalendarDate.getFullYear();
   const month = currentCalendarDate.getMonth();
@@ -455,7 +531,7 @@ function showCalendarDateDetails(dateStr) {
   `).join("");
 }
 
-// 10. 모달 제어
+// 11. 모달 제어
 function openDetailModal(id) {
   const item = allActivities.find(a => a.id === id);
   if (!item) return;
