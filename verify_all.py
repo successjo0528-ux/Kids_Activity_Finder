@@ -28,10 +28,11 @@ web_data_path = os.path.join(BASE_DIR, "web", "activities.json")
 
 if os.path.exists(data_path) and os.path.exists(web_data_path):
     with open(data_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    print(f"  [OK] data/activities.json 로드 성공 (총 {len(data)}건)")
-    print(f"  [OK] 카테고리 분포: {set(item.get('category') for item in data)}")
-    results.append(("데이터 무결성", True, f"{len(data)}건 저장됨"))
+        raw_data = json.load(f)
+    items = raw_data.get("items", []) if isinstance(raw_data, dict) else raw_data
+    print(f"  [OK] data/activities.json 로드 성공 (총 {len(items)}건)")
+    print(f"  [OK] 카테고리 분포: {set(item.get('category') for item in items)}")
+    results.append(("데이터 무결성", True, f"{len(items)}건 저장됨"))
 else:
     print("  [FAIL] 데이터 파일 누락")
     results.append(("데이터 무결성", False, "파일 누락"))
@@ -51,15 +52,25 @@ results.append(("프론트엔드 파일", all_web_ok, "5개 파일 정상"))
 
 # [3] 웹 서버 HTTP 200 응답 검증
 print("\n[검증 3] 로컬 웹 서버 HTTP 200 응답 검사...")
-from launcher import is_server_running, start_server_background
-if not is_server_running(8080):
-    start_server_background(8080)
-    time.sleep(1)
+import threading
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+
+class TestHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=os.path.join(BASE_DIR, "web"), **kwargs)
+    def log_message(self, format, *args):
+        pass
+
+test_port = 8899
+test_server = ThreadingHTTPServer(("127.0.0.1", test_port), TestHandler)
+server_thread = threading.Thread(target=test_server.serve_forever, daemon=True)
+server_thread.start()
+time.sleep(0.5)
 
 try:
-    with urllib.request.urlopen("http://localhost:8080/index.html", timeout=2) as res:
+    with urllib.request.urlopen(f"http://127.0.0.1:{test_port}/index.html", timeout=2) as res:
         code_html = res.status
-    with urllib.request.urlopen("http://localhost:8080/activities.json", timeout=2) as res:
+    with urllib.request.urlopen(f"http://127.0.0.1:{test_port}/activities.json", timeout=2) as res:
         code_json = res.status
     
     if code_html == 200 and code_json == 200:
