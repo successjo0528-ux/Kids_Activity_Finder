@@ -32,7 +32,7 @@ class KidsPlatformsScraper(BaseScraper):
                 "cost_info": "수강료 15,000원 (재료비 포함)",
                 "days_end": 3,
                 "days_event": 6,
-                "url": "https://www.kidsnote.com",
+                "url": "https://www.ehyundai.com/newCulture/ct/sub0100.do",
                 "desc": "키즈노트 회원 특별 할인! 유명 그림책 일러스트레이터와 함께하는 감성 드로잉 수업"
             },
             {

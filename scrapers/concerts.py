@@ -53,7 +53,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "전석 10,000원 (성남시민 30% 할인)",
                 "days_end": 5,
                 "days_event": 10,
-                "url": "https://www.snart.or.kr/main/show/list.do",
+                "url": "https://tickets.interpark.com/search?keyword=성남아트센터%20키즈",
                 "desc": "지휘자의 쉽고 재미있는 해설과 오케스트라 연주로 만나는 생상스의 '동물의 사육제' 어린이 클래식 음악회"
             },
 
@@ -70,7 +70,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "R석 60,000원 / S석 40,000원 / A석 30,000원 (가족 할인 20%)",
                 "days_end": 12,
                 "days_event": 20,
-                "url": "https://www.lotteconcerthall.com/kor/Performance/ProgramList",
+                "url": "https://tickets.interpark.com/search?keyword=디즈니%20지브리%20오케스트라",
                 "desc": "대형 스크린 영상과 70인조 풀 오케스트라의 웅장한 사운드로 만나는 겨울왕국, 알라딘, 이웃집 토토로 명곡 라이브"
             },
 

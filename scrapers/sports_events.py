@@ -39,7 +39,7 @@ class SportsEventsScraper(BaseScraper):
                 "cost_info": "일반 시민 및 가족 무료 관람 (2층 관람석 자유 입장)",
                 "days_end": 6,
                 "days_event": 12,
-                "url": "https://www.koreataekwondo.co.kr/competitions",
+                "url": "https://www.kukkiwon.or.kr/front/kor/demonstration/schedule.do",
                 "desc": "공중 회전 격파, 위력 격파, 스피드 품새 등 성인 태권도 유단자들의 압도적인 무도 기술을 눈앞에서 직관할 수 있는 전국 대회 (아이들이 가장 열광하는 격파 경기)"
             },
             {
@@ -54,7 +54,7 @@ class SportsEventsScraper(BaseScraper):
                 "cost_info": "무료 야외 공연 관람",
                 "days_end": 4,
                 "days_event": 8,
-                "url": "https://www.snart.or.kr/main/show/list.do",
+                "url": "https://ktigers.com",
                 "desc": "K-POP 음악에 맞춘 익스트림 태권도 아크로바틱, 눈먼 격파, 공중 다단차기 등 세계 최고 수준의 태권도 시범 퍼포먼스"
             },
             {
@@ -86,7 +86,7 @@ class SportsEventsScraper(BaseScraper):
                 "cost_info": "2층 관람석 무료 입장",
                 "days_end": 7,
                 "days_event": 14,
-                "url": "https://sports.seongnam.go.kr/sub/sub03_01.php",
+                "url": "https://swimming.sports.or.kr/servlets/game/Schedule/",
                 "desc": "50m 정규 레인에서 펼쳐지는 성인 수영 동호인 및 엘리트 선수들의 자유형, 접영, 혼계영 스피드 대결 직관"
             },
             {
@@ -101,7 +101,7 @@ class SportsEventsScraper(BaseScraper):
                 "cost_info": "무료 참관",
                 "days_end": 10,
                 "days_event": 18,
-                "url": "https://www.insiseol.or.kr/design/child/exhibit_view.asp",
+                "url": "https://www.insiseol.or.kr/culture/icsmuseum/",
                 "desc": "어린이 수영 꿈나무들의 열정 넘치는 레인 레이스 및 가족 응원 페스티벌"
             },
 
@@ -118,7 +118,7 @@ class SportsEventsScraper(BaseScraper):
                 "cost_info": "일반 참관 및 공연 관람 무료",
                 "days_end": 9,
                 "days_event": 17,
-                "url": "https://gys.or.kr/community/notice",
+                "url": "https://www.jumprope.co.kr/contest/schedule.php",
                 "desc": "두 줄을 엇갈려 돌리는 고난도 더블더치 아크로바틱과 줄넘기 국가대표들의 눈부신 묘기 시범"
             },
             {

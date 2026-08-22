@@ -31,7 +31,7 @@ class ConventionScraper(BaseScraper):
                 "cost_info": "사전등록 시 무료 (현장 10,000원)",
                 "days_end": 5,
                 "days_event": 10,
-                "url": "https://www.coex.co.kr",
+                "url": "https://www.educare.co.kr",
                 "desc": "국내 최대 규모 어린이 도서, 스마트 교구, 키즈 원데이 클래스가 한자리에 모이는 대표 전시"
             },
             {
@@ -45,7 +45,7 @@ class ConventionScraper(BaseScraper):
                 "cost_info": "무료 입장 (현장 수백 종 보드게임 자유 무료체험)",
                 "days_end": 8,
                 "days_event": 15,
-                "url": "https://www.coex.co.kr",
+                "url": "https://www.boardgamefesta.com",
                 "desc": "국내외 최신 보드게임 500여 종을 가족과 함께 무료로 배워보고 즐기는 체험형 축제"
             },
             {
@@ -59,7 +59,7 @@ class ConventionScraper(BaseScraper):
                 "cost_info": "종일권 어린이 18,000원 / 성인 10,000원",
                 "days_end": 12,
                 "days_event": 20,
-                "url": "https://www.kintex.com",
+                "url": "https://tickets.interpark.com/search?keyword=킨텍스%20키즈",
                 "desc": "비가 와도 걱정 없는 초대형 실내 에어바운스, 짚라인, 범퍼카, 챌린지 코스 체험"
             },
             {
@@ -73,7 +73,7 @@ class ConventionScraper(BaseScraper):
                 "cost_info": "무료 관람 및 체험 부스 운영",
                 "days_end": 6,
                 "days_event": 14,
-                "url": "https://www.kintex.com",
+                "url": "https://www.scienceall.com",
                 "desc": "전국 과학고/동아리 및 에듀테크 기업이 참여하는 로봇 시연, AI 체험, 드론 조종 박람회"
             }
         ]

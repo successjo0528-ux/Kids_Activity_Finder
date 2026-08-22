@@ -38,7 +38,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "1인 4,000원 (경기도민 50% 할인, 100% 사전 온라인 예약)",
                 "days_end": 10,
                 "days_event": 14,
-                "url": "https://gcm.ggcf.kr",
+                "url": "https://gcm.ggcf.kr/program/schedule",
                 "desc": "자연놀이터, 튼튼놀이터, 동화속 보물찾기 등 3개 층에 걸친 초대형 어린이 전용 체험 박물관"
             },
             {
@@ -53,7 +53,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "무료 (전시관 입장권 포함, 온라인 사전예약)",
                 "days_end": 5,
                 "days_event": 8,
-                "url": "https://www.mmca.go.kr",
+                "url": "https://www.mmca.go.kr/child/",
                 "desc": "현대미술 작품을 어린이의 시선으로 감상하고 조각과 입체 드로잉으로 나만의 작품을 완성하는 미술 교육"
             },
             {
@@ -68,7 +68,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "수강료 10,000원 (재료비 포함)",
                 "days_end": 7,
                 "days_event": 12,
-                "url": "https://suma.suwon.go.kr",
+                "url": "https://suma.suwon.go.kr/edu/edu_view.do",
                 "desc": "화성행궁 옆 수원시립미술관에서 열리는 명화 감상과 판화/콜라주 입체 미술 실습"
             },
             {
@@ -115,7 +115,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "무료 입장 및 무료 교육 (사전 온라인 신청)",
                 "days_end": 4,
                 "days_event": 9,
-                "url": "https://www.nibr.go.kr",
+                "url": "https://www.nibr.go.kr/cmn/busi/busiReqstList.do",
                 "desc": "우리나라 자생 생물 박제 표본과 살아있는 곤충/식물을 현미경으로 관찰하는 생태 과학교실"
             },
             {
@@ -130,7 +130,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "관람석 자유 입장 무료",
                 "days_end": 12,
                 "days_event": 20,
-                "url": "https://www.insiseol.or.kr",
+                "url": "https://swimming.sports.or.kr/servlets/game/Schedule/",
                 "desc": "최고의 시설을 갖춘 박태환수영장에서 열리는 인천/수도권 유소년 꿈나무들의 자유형·평영 레이스"
             },
 
@@ -147,7 +147,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "체험료 3,000원 (사전예약제)",
                 "days_end": 7,
                 "days_event": 13,
-                "url": "https://www.kiro.re.kr",
+                "url": "https://www.kiro.re.kr/museum/reservation.do",
                 "desc": "해양로봇, 재난로봇, 탑승형 휴머노이드 로봇을 직접 조종하고 AI 인공지능 로봇과 대화하는 첨단 로봇 전시관"
             },
             {
@@ -162,7 +162,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_info": "무료 관람 및 주말 어린이 워크시트 무료 증정",
                 "days_end": 15,
                 "days_event": 22,
-                "url": "https://poma.pohang.go.kr",
+                "url": "https://poma.pohang.go.kr/poma/exhibition/current/",
                 "desc": "스틸아트 기획전시 감상 및 스페이스워크 구름다리 산책, 야외 조각공원에서 펼쳐지는 어린이 예술 놀이터"
             },
             {
