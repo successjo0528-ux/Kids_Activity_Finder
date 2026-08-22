@@ -38,7 +38,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "전석 무료 (잔디밭 돗자리 자유 착석)",
                 "days_end": 7,
                 "days_event": 14,
-                "url": "https://www.snart.or.kr",
+                "url": "https://www.snart.or.kr/main/show/list.do",
                 "desc": "선선한 주말 저녁 잔디밭에 돗자리를 펴고 온 가족이 감상하는 성남 대표 무료 야외 대형 파크콘서트"
             },
             {
@@ -53,7 +53,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "전석 10,000원 (성남시민 30% 할인)",
                 "days_end": 5,
                 "days_event": 10,
-                "url": "https://www.snart.or.kr",
+                "url": "https://www.snart.or.kr/main/show/list.do",
                 "desc": "지휘자의 쉽고 재미있는 해설과 오케스트라 연주로 만나는 생상스의 '동물의 사육제' 어린이 클래식 음악회"
             },
 
@@ -70,7 +70,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "R석 60,000원 / S석 40,000원 / A석 30,000원 (가족 할인 20%)",
                 "days_end": 12,
                 "days_event": 20,
-                "url": "https://www.lotteconcerthall.com",
+                "url": "https://www.lotteconcerthall.com/kor/Performance/ProgramList",
                 "desc": "대형 스크린 영상과 70인조 풀 오케스트라의 웅장한 사운드로 만나는 겨울왕국, 알라딘, 이웃집 토토로 명곡 라이브"
             },
 
@@ -87,7 +87,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "전석 15,000원",
                 "days_end": 8,
                 "days_event": 16,
-                "url": "https://www.ggac.or.kr",
+                "url": "https://www.ggac.or.kr/?p=16",
                 "desc": "악기별 음색 소개와 베토벤 '운명', 모차르트 '아이네 클라이네' 등 교과서 속 클래식 명곡을 직접 듣는 교육형 음악회"
             },
 
@@ -104,7 +104,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "야외 분수광장 버스킹 무료 / 실내 콘서트 10,000원",
                 "days_end": 11,
                 "days_event": 19,
-                "url": "https://www.aci.or.kr",
+                "url": "https://www.aci.or.kr/prog/program/kor/sub01_01/list.do",
                 "desc": "송도 바다와 센트럴파크를 배경으로 신나는 리듬의 키즈 재즈 밴드와 디즈니 앙상블 공연"
             },
 
@@ -121,7 +121,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_info": "무료 초대 (사전 온라인 좌석 예약)",
                 "days_end": 6,
                 "days_event": 13,
-                "url": "https://phcf.or.kr",
+                "url": "https://phcf.or.kr/kr/sub.do?pageCode=01010100",
                 "desc": "포항시민과 아이들을 위해 클래식 명곡과 영화 OST를 시향의 아름다운 하모니로 선물하는 주말 힐링 콘서트"
             }
         ]

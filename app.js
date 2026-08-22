@@ -561,8 +561,27 @@ function openDetailModal(id) {
   const tagsContainer = document.getElementById("modal-tags");
   tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
 
+  // 1. 네이버 기사/블로그/상세 실시간 다이렉트 검색 링크 생성
+  const cleanTitle = (item.title || "").replace(/\[.*?\]/g, "").replace(/\(.*?\)/g, "").trim();
+  const searchPlace = (item.place_name || item.region || "").split('(')[0].trim();
+  const searchQuery = `${cleanTitle} ${searchPlace}`.trim();
+  const naverBtn = document.getElementById("modal-naver-btn");
+  if (naverBtn) {
+    naverBtn.href = `https://search.naver.com/search.naver?query=${encodeURIComponent(searchQuery)}`;
+  }
+
+  // 2. 주최측 공식 상세/공지 페이지
   const urlBtn = document.getElementById("modal-url-btn");
-  urlBtn.href = item.url || "#";
+  if (urlBtn) {
+    urlBtn.href = item.url || "#";
+  }
+
+  // 3. 네이버 지도 길찾기 / 위치 상세
+  const mapBtn = document.getElementById("modal-map-btn");
+  if (mapBtn) {
+    const mapQuery = item.address || item.place_name || item.region || "";
+    mapBtn.href = `https://map.naver.com/v5/search/${encodeURIComponent(mapQuery)}`;
+  }
 
   updateModalBookmarkBtn(item.id);
 

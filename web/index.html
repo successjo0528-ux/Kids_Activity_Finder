@@ -321,15 +321,35 @@
         </div>
       </div>
 
-      <!-- 모달 하단 버튼 바 -->
-      <div class="p-4 border-t border-slate-100 bg-slate-50 flex items-center gap-2">
-        <button id="modal-bookmark-btn" onclick="toggleModalBookmark()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition">
-          <i class="fa-regular fa-heart text-rose-500"></i><span>찜하기</span>
-        </button>
-        <a id="modal-url-btn" href="#" target="_blank" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition">
-          <span>공식 예매/상세 페이지 가기</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-        </a>
+      <!-- 모달 하단 버튼 바 (스마트 다이렉트 액션 4종) -->
+      <div class="p-4 border-t border-slate-100 bg-slate-50 space-y-2">
+        <div class="grid grid-cols-2 gap-2">
+          <!-- 🟢 1. 네이버 기사/블로그/상세 실시간 검색 -->
+          <a id="modal-naver-btn" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm shadow-emerald-100 transition">
+            <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+            <span>네이버 기사·상세 검색</span>
+          </a>
+
+          <!-- 🌐 2. 주최측 공식 상세/공지 페이지 -->
+          <a id="modal-url-btn" href="#" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm shadow-indigo-100 transition">
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+            <span>공식 상세/공지 이동</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <!-- 📍 3. 네이버 지도 길찾기 -->
+          <a id="modal-map-btn" href="#" target="_blank" class="border border-slate-200 bg-white hover:bg-slate-100 text-slate-700 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition">
+            <i class="fa-solid fa-map-location-dot text-indigo-500 text-[11px]"></i>
+            <span>네이버 지도 길찾기</span>
+          </a>
+
+          <!-- ❤️ 4. 찜하기 -->
+          <button id="modal-bookmark-btn" onclick="toggleModalBookmark()" class="border border-slate-200 bg-white hover:bg-rose-50 text-slate-700 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition">
+            <i class="fa-regular fa-heart text-rose-500"></i>
+            <span>찜하기</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

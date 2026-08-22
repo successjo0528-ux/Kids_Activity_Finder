@@ -13,8 +13,8 @@ class SeongnamCityScraper(BaseScraper):
             name="성남시청 & 청소년재단",
             source_key="seongnam_city"
         )
-        self.city_url = "https://www.seongnam.go.kr"
-        self.youth_url = "https://www.snyouth.or.kr"
+        self.city_url = "https://www.seongnam.go.kr/city/event/list.do"
+        self.youth_url = "https://www.snyouth.or.kr/main/board/list.do?bCode=B0001"
 
     def scrape(self) -> List[ActivityItem]:
         logger.info(f"[{self.name}] 크롤링 시작...")
