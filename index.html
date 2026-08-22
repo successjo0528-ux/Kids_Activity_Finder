@@ -27,20 +27,21 @@
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between gap-3">
       <div class="flex items-center gap-2 cursor-pointer" onclick="resetFilters()">
-        <span class="text-2xl">🎈</span>
+        <span class="text-2xl sm:text-3xl">🎈</span>
         <div>
-          <h1 class="font-bold text-base sm:text-lg leading-tight text-indigo-900 tracking-tight">Kids Activity Finder</h1>
-          <p class="text-[11px] text-slate-500 font-medium">성남·경기 중심 키즈 문화·음악회·스포츠·대회 탐색기</p>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="font-bold text-base sm:text-lg leading-tight text-indigo-900 tracking-tight">Kids Activity Finder</h1>
+            <!-- 🟢 통합 갱신 시간 상태 뱃지 (PC/모바일 공통) -->
+            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] sm:text-[11px] font-medium shadow-xs" id="update-status-badge">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+              <span id="last-updated-text">데이터 로딩 중...</span>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium hidden sm:block">성남·경기 중심 키즈 문화·음악회·스포츠·대회 탐색기</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
-        <!-- 🟢 갱신 시간 상태 뱃지 (Global_Macro_Briefing과 동일 스타일) -->
-        <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-medium shadow-xs" id="update-status-badge">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span id="last-updated-text">데이터 로딩 중...</span>
-        </div>
-
         <!-- 🔄 새로고침 버튼 -->
         <button onclick="refreshData()" class="px-2.5 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold flex items-center gap-1 transition border border-indigo-100" title="데이터 새로고침">
           <i class="fa-solid fa-rotate-right" id="refresh-icon"></i>
@@ -85,11 +86,7 @@
         </div>
 
         <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] text-emerald-600 font-medium sm:hidden flex items-center gap-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span id="last-updated-text-mobile">로딩중</span>
-          </span>
-          <span class="text-[11px] text-slate-400 font-medium shrink-0">
+          <span class="text-[11px] text-slate-500 font-medium shrink-0">
             총 <strong id="total-count" class="text-indigo-600">0</strong>건
           </span>
         </div>
