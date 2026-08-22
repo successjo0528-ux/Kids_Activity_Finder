@@ -25,19 +25,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 2. 데이터 불러오기
 async function loadData() {
+  const updateBadgeElem = document.getElementById("last-updated-text");
+  const updateBadgeMobile = document.getElementById("last-updated-text-mobile");
+  const refreshIcon = document.getElementById("refresh-icon");
+  if (refreshIcon) refreshIcon.classList.add("fa-spin");
+
   try {
     const res = await fetch("activities.json?t=" + new Date().getTime());
     if (!res.ok) throw new Error("JSON 파일을 찾을 수 없습니다.");
-    allActivities = await res.json();
+    const data = await res.json();
+
+    if (Array.isArray(data)) {
+      allActivities = data;
+    } else if (data && data.items) {
+      allActivities = data.items;
+      if (data.metadata && data.metadata.updated_at) {
+        const timeStr = data.metadata.updated_at.slice(0, 16);
+        if (updateBadgeElem) updateBadgeElem.textContent = `${timeStr} 갱신`;
+        if (updateBadgeMobile) updateBadgeMobile.textContent = `${timeStr.slice(5)} 갱신`;
+      }
+    }
+
+    // 메타데이터가 없는 레거시 구조 대응 (최신 created_at 파싱)
+    if ((!data.metadata || !data.metadata.updated_at) && allActivities.length > 0) {
+      const dates = allActivities.map(a => a.created_at || '').filter(Boolean).sort().reverse();
+      if (dates.length > 0) {
+        const fallbackDate = dates[0].replace('T', ' ').slice(0, 16);
+        if (updateBadgeElem) updateBadgeElem.textContent = `${fallbackDate} 갱신`;
+        if (updateBadgeMobile) updateBadgeMobile.textContent = `${fallbackDate.slice(5)} 갱신`;
+      }
+    }
+
     applyFilters();
   } catch (err) {
     console.error("데이터 로드 실패:", err);
+    if (updateBadgeElem) updateBadgeElem.textContent = "데이터 로드 실패";
+    if (updateBadgeMobile) updateBadgeMobile.textContent = "로드 실패";
     document.getElementById("cards-grid").innerHTML = `
       <div class="col-span-full text-center py-12 text-slate-500">
         <p class="text-base font-semibold mb-2">데이터를 불러오는 중입니다...</p>
         <p class="text-xs">잠시 후 새로고침 버튼을 눌러주세요.</p>
       </div>
     `;
+  } finally {
+    if (refreshIcon) {
+      setTimeout(() => refreshIcon.classList.remove("fa-spin"), 400);
+    }
   }
 }
 

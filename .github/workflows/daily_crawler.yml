@@ -36,8 +36,8 @@ jobs:
         run: |
           git config --global user.name "KidsActivityBot"
           git config --global user.email "bot@github-actions.com"
-          git add data/activities.json web/activities.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 [자동 갱신] 최신 키즈 체험/대회 데이터 업데이트 ($(date +'%Y-%m-%d'))" && git push)
+          git add data/activities.json web/activities.json activities.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 [자동 갱신] 최신 키즈 체험/대회 데이터 업데이트 ($(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST'))" && git push)
 
       - name: GitHub Pages 배포 설정
         uses: actions/configure-pages@v4

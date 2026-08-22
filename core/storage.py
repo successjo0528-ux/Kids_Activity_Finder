@@ -1,10 +1,12 @@
 import json
 import os
 import shutil
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from typing import List, Dict, Any
 from .models import ActivityItem
 
+# KST (Korea Standard Time, UTC+9)
+KST = timezone(timedelta(hours=9))
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -21,22 +23,23 @@ def ensure_dirs():
 
 
 def load_activities() -> List[ActivityItem]:
-    """저장된 전체 활동 목록 불러오기"""
+    """저장된 전체 활동 목록 불러오기 (배열 또는 메타데이터 래핑 객체 호환)"""
     ensure_dirs()
     if not os.path.exists(JSON_PATH):
         return []
     
     try:
         with open(JSON_PATH, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return [ActivityItem(**item) for item in data]
+            raw = json.load(f)
+            items_data = raw.get("items", []) if isinstance(raw, dict) else raw
+            return [ActivityItem(**item) for item in items_data]
     except Exception as e:
         print(f"데이터 로드 실패: {e}")
         return []
 
 
 def save_activities(items: List[ActivityItem]) -> int:
-    """새로운 활동 목록을 data/, web/ 및 루트 경로에 3중 자동 동기화 저장"""
+    """새로운 활동 목록을 data/, web/ 및 루트 경로에 KST 메타데이터와 함께 3중 자동 동기화 저장"""
     ensure_dirs()
     
     # 기존 데이터 로드
@@ -50,19 +53,33 @@ def save_activities(items: List[ActivityItem]) -> int:
     merged_list = list(existing_items.values())
     
     # 딕셔너리로 직렬화
-    serialized_data = [item.to_dict() for item in merged_list]
+    serialized_items = [item.to_dict() for item in merged_list]
+    
+    now_kst = datetime.now(KST)
+    weekday_kr = ["월", "화", "수", "목", "금", "토", "일"][now_kst.weekday()]
+    date_str = f"{now_kst.year}년 {now_kst.month:02d}월 {now_kst.day:02d}일 ({weekday_kr})"
+    
+    payload = {
+        "metadata": {
+            "title": "Kids Activity Finder",
+            "updated_at": now_kst.strftime("%Y-%m-%d %H:%M:%S"),
+            "date_str": date_str,
+            "total_count": len(merged_list)
+        },
+        "items": serialized_items
+    }
     
     # 1. data/activities.json 저장
     with open(JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(serialized_data, f, ensure_ascii=False, indent=2)
+        json.dump(payload, f, ensure_ascii=False, indent=2)
     
     # 2. web/activities.json 저장
     with open(WEB_JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(serialized_data, f, ensure_ascii=False, indent=2)
+        json.dump(payload, f, ensure_ascii=False, indent=2)
 
     # 3. 루트 activities.json 저장 (루트 접속 호환)
     with open(ROOT_JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(serialized_data, f, ensure_ascii=False, indent=2)
+        json.dump(payload, f, ensure_ascii=False, indent=2)
         
-    print(f"총 {len(merged_list)}건의 활동 데이터 저장 완료 (신규/갱신: {len(items)}건)")
+    print(f"총 {len(merged_list)}건의 활동 데이터 저장 완료 (갱신 시각: {payload['metadata']['updated_at']} KST)")
     return len(merged_list)

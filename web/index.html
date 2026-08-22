@@ -34,18 +34,32 @@
         </div>
       </div>
 
-      <!-- 뷰 모드 탭 (카드 뷰 / 캘린더 뷰 / 북마크) -->
-      <div class="flex bg-slate-100 p-1 rounded-xl text-xs font-semibold">
-        <button id="tab-cards" onclick="switchView('cards')" class="px-3 py-1.5 rounded-lg transition-all active-tab shadow-sm bg-white text-indigo-600">
-          <i class="fa-solid fa-grip mr-1"></i>카드
+      <div class="flex items-center gap-2">
+        <!-- 🟢 갱신 시간 상태 뱃지 (Global_Macro_Briefing과 동일 스타일) -->
+        <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-medium shadow-xs" id="update-status-badge">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="last-updated-text">데이터 로딩 중...</span>
+        </div>
+
+        <!-- 🔄 새로고침 버튼 -->
+        <button onclick="refreshData()" class="px-2.5 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold flex items-center gap-1 transition border border-indigo-100" title="데이터 새로고침">
+          <i class="fa-solid fa-rotate-right" id="refresh-icon"></i>
+          <span class="hidden md:inline">새로고침</span>
         </button>
-        <button id="tab-calendar" onclick="switchView('calendar')" class="px-3 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900">
-          <i class="fa-solid fa-calendar-days mr-1"></i>캘린더
-        </button>
-        <button id="tab-bookmarks" onclick="switchView('bookmarks')" class="px-3 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1">
-          <i class="fa-solid fa-heart text-rose-500"></i>찜목록
-          <span id="bookmark-badge" class="hidden bg-rose-500 text-white rounded-full px-1.5 py-0.2 text-[10px]">0</span>
-        </button>
+
+        <!-- 뷰 모드 탭 (카드 뷰 / 캘린더 뷰 / 북마크) -->
+        <div class="flex bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+          <button id="tab-cards" onclick="switchView('cards')" class="px-3 py-1.5 rounded-lg transition-all active-tab shadow-sm bg-white text-indigo-600">
+            <i class="fa-solid fa-grip mr-1"></i>카드
+          </button>
+          <button id="tab-calendar" onclick="switchView('calendar')" class="px-3 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900">
+            <i class="fa-solid fa-calendar-days mr-1"></i>캘린더
+          </button>
+          <button id="tab-bookmarks" onclick="switchView('bookmarks')" class="px-3 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1">
+            <i class="fa-solid fa-heart text-rose-500"></i>찜목록
+            <span id="bookmark-badge" class="hidden bg-rose-500 text-white rounded-full px-1.5 py-0.2 text-[10px]">0</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -70,9 +84,15 @@
           </button>
         </div>
 
-        <span class="text-[11px] text-slate-400 font-medium shrink-0 hidden sm:inline">
-          총 <strong id="total-count" class="text-indigo-600">0</strong>건
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] text-emerald-600 font-medium sm:hidden flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span id="last-updated-text-mobile">로딩중</span>
+          </span>
+          <span class="text-[11px] text-slate-400 font-medium shrink-0">
+            총 <strong id="total-count" class="text-indigo-600">0</strong>건
+          </span>
+        </div>
       </div>
     </div>
 
