@@ -590,64 +590,80 @@ function showCalendarDateDetails(dateStr) {
 
 // 11. 모달 제어
 function openDetailModal(id) {
-  const item = allActivities.find(a => a.id === id);
-  if (!item) return;
-
-  currentModalActivity = item;
-  const setElemText = (elId, text) => {
-    const el = document.getElementById(elId);
-    if (el) el.textContent = text || "";
-  };
-
-  setElemText("modal-category-badge", item.category);
-  setElemText("modal-dday-badge", item.d_day || item.status);
-  setElemText("modal-cost-badge", item.cost_type);
-  setElemText("modal-title", item.title);
-  setElemText("modal-place", item.place_name || item.region);
-  setElemText("modal-address", item.address || item.place_name);
-  setElemText("modal-source", item.source_name || "공식 주최 기관");
-  setElemText("modal-age", item.target_age);
-  setElemText("modal-apply-period", `${item.apply_start || '상시'} ~ ${item.apply_end || '선착순 마감'}`);
-  setElemText("modal-event-period", `${item.event_start || '상세 안내 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`);
-  setElemText("modal-cost-info", item.cost_info || item.cost_type);
-  setElemText("modal-description", item.description || "상세 페이지를 통해 상세한 안내를 확인해 주세요.");
-
-  const tagsContainer = document.getElementById("modal-tags");
-  if (tagsContainer) {
-    tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
-  }
-
-  // 🖼️ 실제 포스터 / 안내 이미지 표시 (기본 파비콘 제외)
-  const imgContainer = document.getElementById("modal-image-container");
-  const modalImg = document.getElementById("modal-image");
-  if (imgContainer && modalImg) {
-    if (item.image_url && !item.image_url.includes("favicon") && !item.image_url.endsWith(".ico")) {
-      modalImg.src = item.image_url;
-      modalImg.alt = item.title;
-      imgContainer.classList.remove("hidden");
-    } else {
-      imgContainer.classList.add("hidden");
-      modalImg.src = "";
+  try {
+    const item = allActivities.find(a => a.id === id);
+    if (!item) {
+      console.warn("해당 ID의 행사를 찾을 수 없습니다:", id);
+      return;
     }
+
+    currentModalActivity = item;
+    const setElemText = (elId, text) => {
+      const el = document.getElementById(elId);
+      if (el) el.textContent = text || "";
+    };
+
+    setElemText("modal-category-badge", item.category || "기타");
+    setElemText("modal-dday-badge", item.d_day || item.status || "D-Day");
+    setElemText("modal-cost-badge", item.cost_type || "무료");
+    setElemText("modal-title", item.title || "행사 안내");
+    setElemText("modal-place", item.place_name || item.region || "상세 안내 참조");
+    setElemText("modal-address", item.address || item.place_name || "");
+    setElemText("modal-source", item.source_name || "공식 주최 기관");
+    setElemText("modal-age", item.target_age || "전연령");
+    setElemText("modal-apply-period", `${item.apply_start || '상시'} ~ ${item.apply_end || '선착순 마감'}`);
+    setElemText("modal-event-period", `${item.event_start || '상세 안내 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`);
+    setElemText("modal-cost-info", item.cost_info || item.cost_type || "무료");
+    setElemText("modal-description", item.description || "상세 페이지를 통해 상세한 안내를 확인해 주세요.");
+
+    const tagsContainer = document.getElementById("modal-tags");
+    if (tagsContainer) {
+      tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
+    }
+
+    // 🖼️ 실제 포스터 / 안내 이미지 표시 (기본 파비콘 제외)
+    const imgContainer = document.getElementById("modal-image-container");
+    const modalImg = document.getElementById("modal-image");
+    if (imgContainer && modalImg) {
+      if (item.image_url && !item.image_url.includes("favicon") && !item.image_url.endsWith(".ico")) {
+        modalImg.src = item.image_url;
+        modalImg.alt = item.title;
+        imgContainer.style.display = "block";
+        imgContainer.classList.remove("hidden");
+      } else {
+        imgContainer.style.display = "none";
+        imgContainer.classList.add("hidden");
+        modalImg.src = "";
+      }
+    }
+
+    // 공식 예매/상세 페이지 다이렉트 URL
+    const urlBtn = document.getElementById("modal-url-btn");
+    if (urlBtn) {
+      urlBtn.href = item.url || "#";
+    }
+
+    updateModalBookmarkBtn(item.id);
+
+    // 📱 모바일 뒤로가기 대응: 가상 히스토리 스택 추가
+    if (!window.location.hash.includes("detail")) {
+      try {
+        history.pushState({ modalOpen: true }, "", "#detail");
+      } catch (e) {
+        console.debug("History pushState skip:", e);
+      }
+    }
+
+    const modal = document.getElementById("detail-modal");
+    if (modal) {
+      modal.style.display = "flex";
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+  } catch (err) {
+    console.error("openDetailModal 오류:", err);
   }
-
-  // 공식 예매/상세 페이지 다이렉트 URL
-  const urlBtn = document.getElementById("modal-url-btn");
-  if (urlBtn) {
-    urlBtn.href = item.url || "#";
-  }
-
-  updateModalBookmarkBtn(item.id);
-
-  // 📱 모바일 뒤로가기 대응: 가상 히스토리 스택 추가
-  if (!window.location.hash.includes("detail")) {
-    history.pushState({ modalOpen: true }, "", "#detail");
-  }
-
-  const modal = document.getElementById("detail-modal");
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  document.body.style.overflow = "hidden";
 }
 
 function openOriginalImage() {
@@ -660,10 +676,12 @@ function updateModalBookmarkBtn(id) {
   const bookmarks = getBookmarks();
   const isBookmarked = bookmarks.includes(id);
   const btn = document.getElementById("modal-bookmark-btn");
-  if (isBookmarked) {
-    btn.innerHTML = `<i class="fa-solid fa-heart text-rose-500"></i><span class="text-rose-600">찜취소</span>`;
-  } else {
-    btn.innerHTML = `<i class="fa-regular fa-heart text-rose-500"></i><span>찜하기</span>`;
+  if (btn) {
+    if (isBookmarked) {
+      btn.innerHTML = `<i class="fa-solid fa-heart text-rose-500"></i><span class="text-rose-600">찜취소</span>`;
+    } else {
+      btn.innerHTML = `<i class="fa-regular fa-heart text-rose-500"></i><span>찜하기</span>`;
+    }
   }
 }
 
@@ -675,14 +693,19 @@ function toggleModalBookmark() {
 
 function closeModal() {
   const modal = document.getElementById("detail-modal");
-  if (modal && !modal.classList.contains("hidden")) {
+  if (modal) {
+    modal.style.display = "none";
     modal.classList.add("hidden");
     modal.classList.remove("flex");
     document.body.style.overflow = "auto";
     
     // URL 해시가 남아있으면 히스토리 되돌리기
     if (window.location.hash.includes("detail")) {
-      history.back();
+      try {
+        history.back();
+      } catch (e) {
+        // ignore
+      }
     }
   }
 }
@@ -690,7 +713,8 @@ function closeModal() {
 // 📱 스마트폰 뒤로가기(제스처/버튼) 감지하여 모달만 안전하게 닫기
 window.addEventListener("popstate", () => {
   const modal = document.getElementById("detail-modal");
-  if (modal && !modal.classList.contains("hidden")) {
+  if (modal && modal.style.display !== "none" && !modal.classList.contains("hidden")) {
+    modal.style.display = "none";
     modal.classList.add("hidden");
     modal.classList.remove("flex");
     document.body.style.overflow = "auto";
