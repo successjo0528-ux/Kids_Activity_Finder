@@ -246,18 +246,22 @@ function applyFilters() {
         itemRegion.includes("서울") || 
         itemRegion.includes("전국") || 
         item.source_key === "contests" || 
+        item.source_key === "conventions" || 
+        item.source_key === "museum" || 
+        item.source_key === "gwacheon_sci" || 
         item.source_key === "seongnam_lib" || 
         item.source_key === "seongnam_city" || 
-        item.source_key === "gwacheon_sci" || 
-        item.source_key === "museum" || 
-        item.source_key === "conventions" || 
         item.source_key === "kids_platforms";
 
-      if (!isGyeonggiOrCapital || itemRegion.includes("인천") || itemRegion.includes("포항")) {
+      if (!isGyeonggiOrCapital) {
         if (!itemRegion.includes("전국")) return false;
       }
+      // 인천/포항 전용 도서관/지자체는 인천/포항 탭에서 우선 제공
+      if ((itemRegion.includes("인천") || itemRegion.includes("포항")) && item.source_key === "seongnam_lib") {
+        return false;
+      }
     } else if (currentMainRegion === "인천") {
-      if (!itemRegion.includes("인천") && !itemRegion.includes("송도") && !itemRegion.includes("계양") && !itemRegion.includes("미추홀")) {
+      if (!itemRegion.includes("인천") && !itemRegion.includes("송도") && !itemRegion.includes("계양") && !itemRegion.includes("미추홀") && !itemRegion.includes("청라")) {
         return false;
       }
     } else if (currentMainRegion === "포항") {
@@ -272,9 +276,40 @@ function applyFilters() {
       if (!regionSearchStr.includes(subRegion)) return false;
     }
 
-    // 3. 카테고리 필터 (1:1 완전 일치)
-    if (currentCategory !== "전체" && item.category !== currentCategory) {
-      return false;
+    // 3. 지능형 카테고리 필터 (다중 호환 매핑)
+    if (currentCategory !== "전체") {
+      if (currentCategory === "전시행사") {
+        const isExpo = item.category === "전시행사" || item.category === "전시체험" || item.source_key === "conventions" || (item.tags || []).some(t => t.includes("전시") || t.includes("박람회") || t.includes("페어"));
+        if (!isExpo) return false;
+      } else if (currentCategory === "과학박물관") {
+        const isSciMuseum = item.category === "과학박물관" || item.category === "과학체험" || item.category === "과학관체험" || item.category === "박물관체험" || item.category === "미술관체험" || item.source_key === "gwacheon_sci" || item.source_key === "museum" || item.source_key === "regional_museums_sports";
+        if (!isSciMuseum) return false;
+      } else if (currentCategory === "AI코딩대회") {
+        const isAiCoding = item.category === "AI코딩대회" || 
+          (item.tags || []).some(t => t.includes("AI") || t.includes("로봇") || t.includes("코딩") || t.includes("과학")) ||
+          (item.title || "").includes("AI") || (item.title || "").includes("인공지능") || (item.title || "").includes("로봇") || (item.title || "").includes("코딩");
+        if (!isAiCoding) return false;
+      } else if (currentCategory === "미술글짓기") {
+        const isArt = item.category === "미술글짓기" || (item.tags || []).some(t => t.includes("미술") || t.includes("그림") || t.includes("글짓기") || t.includes("백일장"));
+        if (!isArt) return false;
+      } else if (currentCategory === "스포츠대회") {
+        const isSports = item.category === "스포츠대회" || item.source_key === "sports_events";
+        if (!isSports) return false;
+      } else if (currentCategory === "도서관체험") {
+        const isLib = item.category === "도서관체험" || item.source_key === "seongnam_lib";
+        if (!isLib) return false;
+      } else if (currentCategory === "지자체체험") {
+        const isCity = item.category === "지자체체험" || item.source_key === "seongnam_city";
+        if (!isCity) return false;
+      } else if (currentCategory === "음악공연") {
+        const isMusic = item.category === "음악공연" || item.source_key === "concerts";
+        if (!isMusic) return false;
+      } else if (currentCategory === "키즈플랫폼") {
+        const isPlatform = item.category === "키즈플랫폼" || item.category === "문화센터" || item.source_key === "kids_platforms";
+        if (!isPlatform) return false;
+      } else if (item.category !== currentCategory) {
+        return false;
+      }
     }
 
     // 4. 검색어 필터
@@ -559,32 +594,41 @@ function openDetailModal(id) {
   if (!item) return;
 
   currentModalActivity = item;
-  document.getElementById("modal-category-badge").textContent = item.category;
-  document.getElementById("modal-dday-badge").textContent = item.d_day || item.status;
-  document.getElementById("modal-cost-badge").textContent = item.cost_type;
-  document.getElementById("modal-title").textContent = item.title;
-  document.getElementById("modal-place").textContent = item.place_name || item.region;
-  document.getElementById("modal-address").textContent = item.address || item.place_name;
-  document.getElementById("modal-source").textContent = item.source_name || "공식 주최 기관";
-  document.getElementById("modal-age").textContent = item.target_age;
-  document.getElementById("modal-apply-period").textContent = `${item.apply_start || '상시'} ~ ${item.apply_end || '선착순 마감'}`;
-  document.getElementById("modal-event-period").textContent = `${item.event_start || '상세 안내 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`;
-  document.getElementById("modal-cost-info").textContent = item.cost_info || item.cost_type;
-  document.getElementById("modal-description").textContent = item.description || "상세 페이지를 통해 상세한 안내를 확인해 주세요.";
+  const setElemText = (elId, text) => {
+    const el = document.getElementById(elId);
+    if (el) el.textContent = text || "";
+  };
+
+  setElemText("modal-category-badge", item.category);
+  setElemText("modal-dday-badge", item.d_day || item.status);
+  setElemText("modal-cost-badge", item.cost_type);
+  setElemText("modal-title", item.title);
+  setElemText("modal-place", item.place_name || item.region);
+  setElemText("modal-address", item.address || item.place_name);
+  setElemText("modal-source", item.source_name || "공식 주최 기관");
+  setElemText("modal-age", item.target_age);
+  setElemText("modal-apply-period", `${item.apply_start || '상시'} ~ ${item.apply_end || '선착순 마감'}`);
+  setElemText("modal-event-period", `${item.event_start || '상세 안내 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`);
+  setElemText("modal-cost-info", item.cost_info || item.cost_type);
+  setElemText("modal-description", item.description || "상세 페이지를 통해 상세한 안내를 확인해 주세요.");
 
   const tagsContainer = document.getElementById("modal-tags");
-  tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
+  if (tagsContainer) {
+    tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
+  }
 
   // 🖼️ 실제 포스터 / 안내 이미지 표시 (기본 파비콘 제외)
   const imgContainer = document.getElementById("modal-image-container");
   const modalImg = document.getElementById("modal-image");
-  if (item.image_url && !item.image_url.includes("favicon") && !item.image_url.endsWith(".ico")) {
-    modalImg.src = item.image_url;
-    modalImg.alt = item.title;
-    imgContainer.classList.remove("hidden");
-  } else {
-    imgContainer.classList.add("hidden");
-    modalImg.src = "";
+  if (imgContainer && modalImg) {
+    if (item.image_url && !item.image_url.includes("favicon") && !item.image_url.endsWith(".ico")) {
+      modalImg.src = item.image_url;
+      modalImg.alt = item.title;
+      imgContainer.classList.remove("hidden");
+    } else {
+      imgContainer.classList.add("hidden");
+      modalImg.src = "";
+    }
   }
 
   // 공식 예매/상세 페이지 다이렉트 URL
