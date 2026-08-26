@@ -68,7 +68,7 @@
 
 ## 4. GitHub Actions CI 자동 교차 검증 파이프라인 (`.github/workflows/daily_crawler.yml`)
 
-1. **매일 한국 시간 오전 6시 자동 실행:**
+1. **매일 한국 시간 오전 9시 자동 실행:**
    - 크롤러 실행 (`python crawler_runner.py`)
    - **10개 출처 전수 교차 검증 (`python verify_all.py`) 자동 실행**:
      * 10개 채널별 최소 수집 건수 및 파일 무결성 검증
