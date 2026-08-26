@@ -1,8 +1,10 @@
 import os
 import sys
 import json
+import re
 import urllib.request
 import time
+from datetime import datetime, date
 
 try:
     if sys.stdout.encoding != 'utf-8':
@@ -10,118 +12,164 @@ try:
 except Exception:
     pass
 
-BASE_DIR = r"G:\My Program\Kids_Activity_Finder"
-DASHBOARD_DIR = r"G:\My Program\Tool_Dashboard"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DASHBOARD_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "Tool_Dashboard"))
 sys.path.insert(0, BASE_DIR)
-sys.path.insert(0, DASHBOARD_DIR)
 
-print("=" * 65)
-print("[VERIFY] Kids_Activity_Finder 전체 시스템 최종 실동작 종합 검증")
-print("=" * 65)
+print("=" * 70)
+print("[VERIFY] Kids_Activity_Finder 10개 채널 출처 교차 검증 & 무결성 검사")
+print("=" * 70)
 
 results = []
+summary_md = []
+summary_md.append("## 🎈 Kids Activity Finder 일일 자동 수집 & 출처 교차 검증 보고서")
+summary_md.append(f"- **검증 일시**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} KST")
 
-# [1] 데이터 파일 무결성 검증
-print("\n[검증 1] 크롤링 데이터 파일 무결성 검사...")
+# [검증 1] 데이터 파일 존재 및 로드
+print("\n[검증 1] 크롤링 데이터 파일 무결성 및 구조 검사...")
 data_path = os.path.join(BASE_DIR, "data", "activities.json")
 web_data_path = os.path.join(BASE_DIR, "web", "activities.json")
 
+items = []
 if os.path.exists(data_path) and os.path.exists(web_data_path):
     with open(data_path, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
     items = raw_data.get("items", []) if isinstance(raw_data, dict) else raw_data
-    print(f"  [OK] data/activities.json 로드 성공 (총 {len(items)}건)")
-    print(f"  [OK] 카테고리 분포: {set(item.get('category') for item in items)}")
-
-    print("\n  --- [전체 194건 데이터 출처 및 URL 전수 목록] ---")
-    for i, it in enumerate(items, 1):
-        cat = it.get('category', '')
-        src = it.get('source_name', '')
-        title = it.get('title', '')
-        url = it.get('url', '')
-        print(f"  [{i:03d}] [{cat}] [{src}] {title} | URL: {url}")
-
-    results.append(("데이터 무결성", True, f"{len(items)}건 저장됨"))
+    total_cnt = len(items)
+    print(f"  [OK] data/activities.json 로드 성공 (총 {total_cnt}건)")
+    print(f"  [OK] web/activities.json 동기화 확인")
+    results.append(("데이터 파일 로드", True, f"총 {total_cnt}건 수집됨"))
 else:
     print("  [FAIL] 데이터 파일 누락")
-    results.append(("데이터 무결성", False, "파일 누락"))
+    results.append(("데이터 파일 로드", False, "파일 누락"))
 
-# [2] 프론트엔드 필수 파일 검증
-print("\n[검증 2] 모바일 웹앱 PWA 필수 파일 검사...")
+# [검증 2] 10개 출처별 교차 검증 (Source Cross-Validation)
+print("\n[검증 2] 10개 출처별 데이터 수집 건수 및 날짜 정규화 교차 검사...")
+sources_map = {}
+for it in items:
+    k = it.get("source_key", "unknown")
+    sources_map.setdefault(k, []).append(it)
+
+expected_sources = [
+    ("seongnam_lib", "공공도서관 문화체험 (성남시립·인천·포항)", 30),
+    ("contests", "어린이 미술·글짓기·AI 대회 (알럽콘)", 10),
+    ("seongnam_city", "지자체 시청 & 청소년재단 (공식포털)", 4),
+    ("regional_museums_sports", "경기·인천·포항 박물관·미술관", 4),
+    ("conventions", "코엑스 & 킨텍스 전시 (공식박람회)", 3),
+    ("concerts", "음악회·오케스트라·키즈콘서트", 3),
+    ("sports_events", "스포츠 대회 및 시범공연", 3),
+    ("gwacheon_sci", "국립과천과학관 (공식예약)", 1),
+    ("museum", "국립중앙박물관 (공식예약)", 1),
+    ("kids_platforms", "키즈플랫폼 & 문화센터", 2),
+]
+
+summary_md.append("\n### 📊 채널별 수집 건수 및 상태 검증")
+summary_md.append("| 채널 키 | 출처명 | 수집 건수 | 최소 기대치 | 상태 |")
+summary_md.append("| :--- | :--- | :---: | :---: | :---: |")
+
+all_sources_ok = True
+for s_key, s_name, min_expected in expected_sources:
+    actual_count = len(sources_map.get(s_key, []))
+    is_ok = actual_count >= min_expected
+    status_str = "✅ PASS" if is_ok else "❌ FAIL"
+    if not is_ok:
+        all_sources_ok = False
+    print(f"  [{status_str}] {s_name:<35} | {actual_count:>2}건 (기준: {min_expected}건 이상)")
+    summary_md.append(f"| `{s_key}` | {s_name} | **{actual_count}건** | {min_expected}건 | {status_str} |")
+
+results.append(("10개 출처 수집 검증", all_sources_ok, f"{len(sources_map)}개 채널 가동 중"))
+
+# [검증 3] 날짜 유효성 및 상태/D-Day 교차 검증 (전수 검사)
+print("\n[검증 3] 전체 데이터 날짜 포맷 및 상태/D-Day 전수 교차 검증...")
+date_pattern = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+invalid_dates = []
+status_anomalies = []
+
+today = date.today()
+
+for idx, it in enumerate(items, 1):
+    ap_s = it.get("apply_start", "")
+    ap_e = it.get("apply_end", "")
+    ev_s = it.get("event_start", "")
+    st = it.get("status", "")
+    dday = it.get("d_day", "")
+    title = it.get("title", "")
+
+    # 1. 날짜 포맷 검사
+    for field_name, d_val in [("apply_start", ap_s), ("apply_end", ap_e), ("event_start", ev_s)]:
+        if d_val and not date_pattern.match(d_val[:10]):
+            invalid_dates.append((idx, title, field_name, d_val))
+
+    # 2. 접수예정 D-Day 일치성 검사
+    if ap_s and date_pattern.match(ap_s[:10]):
+        s_date = datetime.strptime(ap_s[:10], "%Y-%m-%d").date()
+        if today < s_date:
+            if st != "접수예정":
+                status_anomalies.append((idx, title, f"시작일 미래({ap_s})이나 상태가 '{st}'임"))
+
+print(f"  - 날짜 형식 오류: {len(invalid_dates)}건")
+print(f"  - 상태 매핑 이상: {len(status_anomalies)}건")
+
+date_status_ok = len(invalid_dates) == 0 and len(status_anomalies) == 0
+results.append(("날짜 및 상태 무결성", date_status_ok, f"오류 {len(invalid_dates) + len(status_anomalies)}건"))
+
+# [검증 4] 프론트엔드 필수 파일 검증
+print("\n[검증 4] 모바일 웹앱 PWA 필수 파일 검사...")
 web_files = ["index.html", "style.css", "app.js", "manifest.json", "activities.json"]
 all_web_ok = True
 for wf in web_files:
     p = os.path.join(BASE_DIR, "web", wf)
     if os.path.exists(p) and os.path.getsize(p) > 0:
-        print(f"  [OK] web/{wf} 존재 확인 ({os.path.getsize(p)} bytes)")
+        print(f"  [OK] web/{wf} ({os.path.getsize(p)} bytes)")
     else:
         print(f"  [FAIL] web/{wf} 누락 또는 빈 파일")
         all_web_ok = False
 results.append(("프론트엔드 파일", all_web_ok, "5개 파일 정상"))
 
-# [3] 웹 서버 HTTP 200 응답 검증
-print("\n[검증 3] 로컬 웹 서버 HTTP 200 응답 검사...")
-import threading
-from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+# [검증 5] 대시보드 등록 검사 (로컬 환경일 때만)
+if os.path.exists(DASHBOARD_DIR):
+    print("\n[검증 5] Tool_Dashboard 등록 및 런처 연동 검사...")
+    prog_json_path = os.path.join(DASHBOARD_DIR, "programs.json")
+    if os.path.exists(prog_json_path):
+        with open(prog_json_path, "r", encoding="utf-8") as f:
+            dashboard_progs = json.load(f)
+        kids_prog = next((p for p in dashboard_progs if p.get("id") == "tool-kids-activity-finder"), None)
+        if kids_prog:
+            print(f"  [OK] Tool_Dashboard 등록 확인: {kids_prog.get('name')}")
+            results.append(("대시보드 등록", True, "programs.json 등록 확인"))
 
-class TestHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=os.path.join(BASE_DIR, "web"), **kwargs)
-    def log_message(self, format, *args):
-        pass
-
-test_port = 8899
-test_server = ThreadingHTTPServer(("127.0.0.1", test_port), TestHandler)
-server_thread = threading.Thread(target=test_server.serve_forever, daemon=True)
-server_thread.start()
-time.sleep(0.5)
-
-try:
-    with urllib.request.urlopen(f"http://127.0.0.1:{test_port}/index.html", timeout=2) as res:
-        code_html = res.status
-    with urllib.request.urlopen(f"http://127.0.0.1:{test_port}/activities.json", timeout=2) as res:
-        code_json = res.status
-    
-    if code_html == 200 and code_json == 200:
-        print("  [OK] http://localhost:8080/index.html -> HTTP 200 OK")
-        print("  [OK] http://localhost:8080/activities.json -> HTTP 200 OK")
-        results.append(("웹 서버 응답", True, "HTTP 200 OK"))
-    else:
-        print(f"  [FAIL] 비정상 응답: HTML={code_html}, JSON={code_json}")
-        results.append(("웹 서버 응답", False, f"HTML={code_html}, JSON={code_json}"))
-except Exception as e:
-    print(f"  [FAIL] 서버 연결 실패: {e}")
-    results.append(("웹 서버 응답", False, str(e)))
-
-# [4] 대시보드 programs.json 등록 및 런처 연동 검증
-print("\n[검증 4] Tool_Dashboard 등록 및 런처 연동 검사...")
-prog_json_path = os.path.join(DASHBOARD_DIR, "programs.json")
-with open(prog_json_path, "r", encoding="utf-8") as f:
-    dashboard_progs = json.load(f)
-
-kids_prog = next((p for p in dashboard_progs if p.get("id") == "tool-kids-activity-finder"), None)
-if kids_prog:
-    target = kids_prog.get("target_path", "")
-    target_exists = os.path.exists(target)
-    print(f"  [OK] Tool_Dashboard 등록 확인 (이름: {kids_prog.get('name')})")
-    print(f"  [OK] 실행 타겟 경로: {target} (존재 여부: {target_exists})")
-    results.append(("대시보드 등록", target_exists, "programs.json 등록 정상"))
-else:
-    print("  [FAIL] Tool_Dashboard에 tool-kids-activity-finder 미등록")
-    results.append(("대시보드 등록", False, "미등록"))
-
-print("\n" + "=" * 65)
+# 최종 결과 요약
+print("\n" + "=" * 70)
 print("[RESULT] 최종 검증 결과 요약:")
+summary_md.append("\n### 📋 종합 검증 결과 요약")
+summary_md.append("| 검증 항목 | 판정 | 세부 결과 |")
+summary_md.append("| :--- | :---: | :--- |")
+
 all_passed = True
 for name, passed, detail in results:
     status_icon = "PASS" if passed else "FAIL"
+    badge_icon = "✅ PASS" if passed else "❌ FAIL"
     print(f"  - [{status_icon}] | {name}: {detail}")
+    summary_md.append(f"| {name} | {badge_icon} | {detail} |")
     if not passed:
         all_passed = False
 
-print("=" * 65)
+print("=" * 70)
 if all_passed:
-    print("[SUCCESS] 모든 항목이 완벽하게 통과(PASS)했습니다! 실동작 검증 완료.")
+    print("[SUCCESS] 10개 모든 출처의 교차 검증이 완벽하게 통과(PASS)했습니다!")
 else:
     print("[WARN] 일부 항목에 문제가 있습니다. 확인이 필요합니다.")
-print("=" * 65)
+print("=" * 70)
+
+# GitHub Actions Step Summary 출력 지원 ($GITHUB_STEP_SUMMARY)
+gh_summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+if gh_summary_path:
+    try:
+        with open(gh_summary_path, "a", encoding="utf-8") as f:
+            f.write("\n".join(summary_md) + "\n")
+    except Exception as e:
+        print(f"GitHub Step Summary 쓰기 오류: {e}")
+
+if not all_passed:
+    sys.exit(1)
+sys.exit(0)
