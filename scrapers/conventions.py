@@ -121,14 +121,12 @@ class ConventionsScraper(BaseScraper):
                         img_url = f"https://www.coex.co.kr{img_url}"
 
                     # 카테고리 태그 분류
+                    category = "전시체험"
                     if any(k in title for k in ["AI", "인공지능", "로봇", "전자", "모빌리티", "IT", "과학"]):
-                        category = "과학체험"
-                        tags = ["#코엑스", "#미래기술", "#과학체험", "#IT박람회"]
+                        tags = ["#코엑스", "#미래기술", "#AI전시", "#IT박람회"]
                     elif any(k in title for k in ["베이비", "유아", "키즈", "교육", "도서", "어린이"]):
-                        category = "전시체험"
                         tags = ["#코엑스", "#베이비키즈페어", "#유아교육전", "#체험박람회"]
                     else:
-                        category = "전시체험"
                         tags = ["#코엑스", "#전시체험", "#가족박람회"]
 
                     item = ActivityItem(
