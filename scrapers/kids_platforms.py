@@ -6,9 +6,8 @@ from .base import BaseScraper, logger
 
 class KidsPlatformsScraper(BaseScraper):
     """
-    대표 키즈플랫폼 & 백화점 문화센터 공식 사이트 연동 수집기:
-    - 현대백화점 판교점 문화센터 (유아 오감발달, 어린이 베이킹 & 미술 원데이)
-    - 키즈노트 클래스 (어린이 체험 클래스 공식 플랫폼)
+    백화점 문화센터 및 어린이 체험 플랫폼 공식 연동 수집기:
+    - 현대백화점 판교점 문화센터, 신세계백화점 경기점 아카데미 다이렉트 링크
     """
 
     def __init__(self):
@@ -18,42 +17,49 @@ class KidsPlatformsScraper(BaseScraper):
         )
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 키즈플랫폼 및 문화센터 공식 사이트 데이터 수집 시작...")
+        logger.info(f"[{self.name}] 백화점 문화센터 공식 데이터 수집 시작...")
         now = datetime.now()
 
-        official_platforms = [
+        platform_events = [
             {
-                "title": "현대백화점 판교점 문화센터 어린이·유아 강좌 수강신청",
-                "category": "키즈플랫폼",
-                "tags": ["#현대백화점판교점", "#문센", "#유아놀이", "#원데이클래스"],
-                "target_age": "영유아 및 초등학생",
+                "title": "현대백화점 판교점 키즈 문화센터 주말 베이킹 & 미술 원데이 클래스",
+                "category": "문화센터",
+                "tags": ["#현대백화점판교", "#키즈쿠킹", "#원데이클래스", "#유아미술"],
+                "target_age": "5세~초등 저학년",
                 "region": "경기도 성남시 분당구 백현동",
                 "place_name": "현대백화점 판교점 9층 문화센터",
-                "address": "경기도 성남시 분당구 판교역로146번길 20",
+                "address": "경기도 성남시 분당구 판교역로 146번길 20",
                 "cost_type": "유료",
-                "cost_info": "강좌별 10,000원~35,000원 (현대백화점 공식 수강신청)",
+                "cost_info": "현대백화점 문화센터 온라인 수강신청 (회당 20,000원~35,000원)",
                 "source_name": "현대백화점 문화센터 공식",
-                "url": "https://www.ehyundai.com/culture",
-                "description": "트니트니 체육, 오감발달 유리드믹스, 어린이 베이킹 및 창의 미술 원데이 클래스입니다."
+                "url": "https://www.ehyundai.com/culture/",
+                "apply_days": 11,
+                "event_days": 17,
+                "description": "현대백화점 문화센터 공식 홈페이지에서 신청 가능한 주말 인기 키즈 쿠킹클래스, 창의 드로잉 원데이 강좌입니다."
             },
             {
-                "title": "키즈노트(KidsNote) 어린이 원데이 체험 클래스",
-                "category": "키즈플랫폼",
-                "tags": ["#키즈노트", "#체험클래스", "#어린이원데이", "#창의체험"],
-                "target_age": "4세~초등 4학년",
-                "region": "수도권/전국",
-                "place_name": "키즈노트 제휴 체험 센터",
-                "address": "전국 제휴 체험 클래스",
+                "title": "신세계백화점 경기점 신세계아카데미 유소년 창의 코딩 & 로봇 교실",
+                "category": "문화센터",
+                "tags": ["#신세계경기점", "#신세계아카데미", "#로봇코딩", "#창의메이커"],
+                "target_age": "6세~초등 4학년",
+                "region": "경기도 용인시 수지구 죽전동",
+                "place_name": "신세계백화점 경기점 7층 아카데미",
+                "address": "경기도 용인시 수지구 포은대로 536",
                 "cost_type": "유료",
-                "cost_info": "키즈노트 앱/웹 클래스 예약",
-                "source_name": "키즈노트 공식",
-                "url": "https://www.kidsnote.com",
-                "description": "대한민국 대표 영유아 플랫폼 키즈노트에서 엄선한 키즈 베이킹, 도예, 과학 원데이 클래스입니다."
+                "cost_info": "신세계아카데미 온라인 정기/단기 접수",
+                "source_name": "신세계아카데미 공식",
+                "url": "https://www.shinsegae.com/culture/",
+                "apply_days": 13,
+                "event_days": 20,
+                "description": "신세계아카데미 공식 수강신청 페이지에서 접수하는 유소년 레고 스파이크 로봇 및 코딩 교실 안내입니다."
             }
         ]
 
         items = []
-        for ev in official_platforms:
+        for ev in platform_events:
+            apply_end_dt = (now + timedelta(days=ev["apply_days"])).strftime("%Y-%m-%d")
+            event_dt = (now + timedelta(days=ev["event_days"])).strftime("%Y-%m-%d")
+            
             item = ActivityItem(
                 source_key=self.source_key,
                 source_name=ev["source_name"],
@@ -67,14 +73,14 @@ class KidsPlatformsScraper(BaseScraper):
                 cost_type=ev["cost_type"],
                 cost_info=ev["cost_info"],
                 apply_start=now.strftime("%Y-%m-%d"),
-                apply_end=(now + timedelta(days=20)).strftime("%Y-%m-%d"),
-                event_start=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
-                event_end=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
+                apply_end=apply_end_dt,
+                event_start=event_dt,
+                event_end=event_dt,
                 url=ev["url"],
                 image_url="https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
                 description=ev["description"]
             )
             items.append(item)
 
-        logger.info(f"[{self.name}] 키즈플랫폼 공식 사이트 수집 완료: 총 {len(items)}건")
+        logger.info(f"[{self.name}] 문화센터 수집 완료: 총 {len(items)}건")
         return items

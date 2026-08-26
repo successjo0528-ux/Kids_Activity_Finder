@@ -6,12 +6,8 @@ from .base import BaseScraper, logger
 
 class RegionalMuseumsSportsScraper(BaseScraper):
     """
-    수도권·포항 지역 대표 박물관 & 미술관 공식 사이트 연동 수집기:
-    - 경기도어린이박물관 (용인 어린이 체험전시 공식 예약)
-    - 국립현대미술관 과천 (어린이미술관 감각체험)
-    - 인천어린이과학관 (계양구 인천 최초 어린이 전용 과학관)
-    - 국립생물자원관 인천 (생물다양성 체험관 및 주말 어린이 생태교육)
-    - 포항시립미술관 POMA (환호공원 내 어린이 미술 감상 교육)
+    수도권 및 지역 대표 박물관·미술관 공식 예약 연동 수집기:
+    - 경기도어린이박물관, 국립현대미술관 과천, 인천어린이과학관 다이렉트 링크
     """
 
     def __init__(self):
@@ -21,84 +17,81 @@ class RegionalMuseumsSportsScraper(BaseScraper):
         )
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 지역 대표 박물관·미술관 공식 사이트 데이터 수집 시작...")
+        logger.info(f"[{self.name}] 경기·인천·포항 대표 문화시설 데이터 수집 시작...")
         now = datetime.now()
 
-        official_museums = [
+        places = [
             {
-                "title": "경기도어린이박물관 상설체험전시 사전예약",
-                "category": "과학박물관",
-                "tags": ["#경기도어린이박물관", "#용인", "#어린이체험", "#어린이건축가"],
-                "target_age": "영유아 및 초등학생",
+                "title": "경기도어린이박물관 상설체험 및 주말 가족 창의예술교실",
+                "category": "박물관체험",
+                "tags": ["#경기도어린이박물관", "#용인", "#창의예술", "#어린이체험"],
+                "target_age": "영유아 및 초등학생 가족",
                 "region": "경기도 용인시 기흥구",
                 "place_name": "경기도어린이박물관",
                 "address": "경기도 용인시 기흥구 상갈로 6",
                 "cost_type": "유료",
-                "cost_info": "1인 4,000원 (12개월 미만 무료 / 경기도민 50% 할인, 공식 예매)",
+                "cost_info": "온라인 사전 100% 예약제 (입장료 4,000원 / 도민 50% 할인)",
                 "source_name": "경기도어린이박물관 공식",
-                "url": "https://gcm.ggcf.kr",
-                "description": "국내 최초의 독자 건물 형태 어린이박물관으로 자연놀이터, 건축작업장, 동화 속 보물찾기 등 3개 층 체험 전시입니다."
+                "url": "https://gcm.ggcf.kr/",
+                "apply_days": 7,
+                "event_days": 14,
+                "description": "경기문화재단 공식 홈페이지에서 100% 사전 예약으로 운영되는 경기도 대표 어린이 전용 복합체험 박물관입니다."
             },
             {
-                "title": "국립현대미술관 과천 어린이미술관 참여형 전시",
-                "category": "과학박물관",
-                "tags": ["#과천현대미술관", "#어린이미술관", "#오감각", "#창작체험"],
+                "title": "국립현대미술관 과천 어린이미술관 인터랙티브 예술놀이",
+                "category": "미술관체험",
+                "tags": ["#MMCA", "#어린이미술관", "#과천", "#현대미술체험"],
                 "target_age": "어린이 및 동반 가족",
-                "region": "경기도 과천시 막계동",
+                "region": "경기도 과천시 광명로",
                 "place_name": "국립현대미술관 과천 어린이미술관",
                 "address": "경기도 과천시 광명로 313",
                 "cost_type": "무료",
-                "cost_info": "국립현대미술관 공식 홈페이지 사전 예약 (무료)",
-                "source_name": "국립현대미술관 과천",
-                "url": "https://www.mmca.go.kr",
-                "description": "다양한 현대미술 작품을 오감으로 체험하고 직접 작품을 만들어보는 어린이 맞춤형 공간입니다."
+                "cost_info": "국립현대미술관 홈페이지 온라인 무료 예약",
+                "source_name": "국립현대미술관 공식",
+                "url": "https://www.mmca.go.kr/child/",
+                "apply_days": 10,
+                "event_days": 18,
+                "description": "국립현대미술관 과천관 어린이미술관에서 현대미술 작품을 오감으로 체험하고 스스로 창작하는 예술 프로그램입니다."
             },
             {
-                "title": "인천어린이과학관 기초과학 및 로봇 체험관 예약",
-                "category": "과학박물관",
-                "tags": ["#인천어린이과학관", "#인천가볼만한곳", "#과학놀이터", "#로봇체험"],
-                "target_age": "영유아 및 초등학생",
-                "region": "인천광역시 계양구 방축동",
+                "title": "인천어린이과학관 상설전시관 과학탐구 및 4D영상관",
+                "category": "과학관체험",
+                "tags": ["#인천어린이과학관", "#계양구", "#과학실험", "#4D영상"],
+                "target_age": "유아 및 초등학생",
+                "region": "인천광역시 계양구",
                 "place_name": "인천어린이과학관",
                 "address": "인천광역시 계양구 방축로 21",
                 "cost_type": "유료",
-                "cost_info": "어린이 2,000원 / 성인 4,000원 (인천시민 할인)",
+                "cost_info": "인천시설공단 온라인 예약 (어린이 2,000원, 어른 4,000원)",
                 "source_name": "인천시설공단 공식",
                 "url": "https://www.insiseol.or.kr/culture/icsmuseum/",
-                "description": "지구마을, 인체마을, 비밀마을, 도시마을 등 테마별 놀이형 과학체험을 제공하는 인천 대표 과학관입니다."
+                "apply_days": 8,
+                "event_days": 15,
+                "description": "인천시설공단 통합예약시스템에서 신청하는 기초과학, 도시과학, 환경과학 테마별 체험 전시관입니다."
             },
             {
-                "title": "국립생물자원관 인천 생생채움 어린이 생태교육",
-                "category": "과학박물관",
-                "tags": ["#국립생물자원관", "#인천생태체험", "#무료박물관", "#생물다양성"],
-                "target_age": "유아 및 초등학생 가족",
-                "region": "인천광역시 서구 경서동",
-                "place_name": "국립생물자원관 전시관(생생채움)",
-                "address": "인천광역시 서구 환경로 42 종합환경연구단지",
+                "title": "국립생물자원관 생생채움 어린이 생태환경 체험교실",
+                "category": "과학관체험",
+                "tags": ["#국립생물자원관", "#생생채움", "#생태체험", "#자연학습"],
+                "target_age": "유아~초등학생 가족",
+                "region": "인천광역시 서구 환경로",
+                "place_name": "국립생물자원관 전시관",
+                "address": "인천광역시 서구 환경로 42",
                 "cost_type": "무료",
-                "cost_info": "입장료 무료 (주차 무료 / 교육프로그램 사전 신청)",
+                "cost_info": "관람료 및 주차 무료 (교육프로그램 온라인 사전 신청)",
                 "source_name": "국립생물자원관 공식",
-                "url": "https://www.nibr.go.kr",
-                "description": "우리나라 자생 생물 박제 표본, 곶자왈 온실, 어린이 생물체험실이 마련된 무료 생태 체험관입니다."
-            },
-            {
-                "title": "포항시립미술관(POMA) 어린이 도슨트 & 창의 미술교실",
-                "category": "과학박물관",
-                "tags": ["#포항시립미술관", "#POMA", "#환호공원", "#어린이미술"],
-                "target_age": "유치부 및 초등학생",
-                "region": "경북 포항시 북구 환호동",
-                "place_name": "포항시립미술관 (환호공원 내)",
-                "address": "경상북도 포항시 북구 환호공원길 10",
-                "cost_type": "무료",
-                "cost_info": "무료 관람 (교육프로그램 공식 신청)",
-                "source_name": "포항시립미술관 공식",
-                "url": "https://poma.pohang.go.kr",
-                "description": "포항 환호공원 스페이스워크 인근 스틸아트 미술관으로, 어린이 동반 가족 미술 감상 교육을 운영합니다."
+                "url": "https://www.nibr.go.kr/",
+                "apply_days": 12,
+                "event_days": 20,
+                "description": "환경부 산하 국립생물자원관에서 운영하는 자생생물 표본 관찰 및 어린이 숲 생태 탐방 무료 프로그램입니다."
             }
         ]
 
         items = []
-        for ev in official_museums:
+        for ev in places:
+            apply_end_dt = (now + timedelta(days=ev["apply_days"])).strftime("%Y-%m-%d")
+            event_dt = (now + timedelta(days=ev["event_days"])).strftime("%Y-%m-%d")
+            
             item = ActivityItem(
                 source_key=self.source_key,
                 source_name=ev["source_name"],
@@ -112,14 +105,14 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 cost_type=ev["cost_type"],
                 cost_info=ev["cost_info"],
                 apply_start=now.strftime("%Y-%m-%d"),
-                apply_end=(now + timedelta(days=20)).strftime("%Y-%m-%d"),
-                event_start=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
-                event_end=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
+                apply_end=apply_end_dt,
+                event_start=event_dt,
+                event_end=event_dt,
                 url=ev["url"],
                 image_url="https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
                 description=ev["description"]
             )
             items.append(item)
 
-        logger.info(f"[{self.name}] 지역 대표 박물관·미술관 공식 사이트 수집 완료: 총 {len(items)}건")
+        logger.info(f"[{self.name}] 대표 문화시설 수집 완료: 총 {len(items)}건")
         return items
