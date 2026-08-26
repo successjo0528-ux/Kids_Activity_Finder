@@ -61,11 +61,12 @@ def save_activities(items: List[ActivityItem]) -> int:
             
         active_items.append(item)
     
-    # 2. 중복 제거 (URL 기준)
+    # 2. 중복 제거 (URL + 제목 복합키 기준)
     unique_items = {}
     for item in active_items:
-        if item.url not in unique_items:
-            unique_items[item.url] = item
+        dedup_key = f"{item.url}::{item.title}"
+        if dedup_key not in unique_items:
+            unique_items[dedup_key] = item
     
     merged_list = list(unique_items.values())
     

@@ -269,6 +269,81 @@ class SeongnamLibraryScraper(BaseScraper):
 
         regional_libs = [
             {
+                "title": "청라국제도서관 주말 어린이 영어그림책 & 창의아트 프로그램",
+                "category": "도서관체험",
+                "tags": ["#청라국제도서관", "#인천서구", "#영어그림책", "#창의아트", "#어린이체험"],
+                "target_age": "5세~초등 3학년 및 학부모",
+                "region": "인천광역시 서구 청라동",
+                "place_name": "청라국제도서관 어린이자료실",
+                "address": "인천광역시 서구 청라커낼로 149",
+                "cost_type": "무료",
+                "cost_info": "인천도서관 통합포털 온라인 무료 신청",
+                "source_name": "청라국제도서관 공식",
+                "url": "https://www.incheon.go.kr/lib/lib020101",
+                "apply_days": 9,
+                "description": "청라국제도서관에서 운영하는 어린이 원어민 영어 그림책 읽기 및 독후 창의 미술 프로그램입니다."
+            },
+            {
+                "title": "인천시청도서관 주말 어린이 책놀이 & 환경 생태 독서교실",
+                "category": "도서관체험",
+                "tags": ["#인천시청도서관", "#하늘도서관", "#생태독서", "#어린이책놀이"],
+                "target_age": "유아 및 초등 저학년",
+                "region": "인천광역시 남동구 구월동",
+                "place_name": "인천광역시청 하늘도서관",
+                "address": "인천광역시 남동구 정각로 29 (인천시청사)",
+                "cost_type": "무료",
+                "cost_info": "인천광역시청 홈페이지 및 도서관 무료 접수",
+                "source_name": "인천시청도서관 공식",
+                "url": "https://www.incheon.go.kr/lib/lib020102",
+                "apply_days": 13,
+                "description": "인천시청 하늘도서관에서 진행되는 주말 가족 생태 환경 독서 체험 및 그림책 놀이 교실입니다."
+            },
+            {
+                "title": "인천대표도서관(미추홀) 어린이 꿈나무터 독서문화교실",
+                "category": "도서관체험",
+                "tags": ["#인천도서관", "#미추홀도서관", "#꿈나무터", "#어린이독서교실"],
+                "target_age": "유아~초등학생",
+                "region": "인천광역시 남동구 구월동",
+                "place_name": "인천대표 미추홀도서관 어린이자료실",
+                "address": "인천광역시 남동구 인주대로776번길 53",
+                "cost_type": "무료",
+                "cost_info": "인천도서관 통합포털 무료 신청",
+                "source_name": "인천대표도서관",
+                "url": "https://www.incheon.go.kr/lib/lib010101",
+                "apply_days": 7,
+                "description": "인천광역시 대표 도서관 어린이 전용 꿈나무터에서 운영하는 독서토론 및 창의메이커 프로그램입니다."
+            },
+            {
+                "title": "인천 송도국제어린이도서관 글로벌 스토리텔링 & 보드게임",
+                "category": "도서관체험",
+                "tags": ["#송도어린이도서관", "#영어그림책", "#스토리텔링", "#보드게임"],
+                "target_age": "5세~초등 3학년",
+                "region": "인천광역시 연수구 송도동",
+                "place_name": "송도국제어린이도서관",
+                "address": "인천광역시 연수구 컨벤시아대로42번길 20",
+                "cost_type": "무료",
+                "cost_info": "연수구립공공도서관 공식 접수 (무료)",
+                "source_name": "송도국제어린이도서관",
+                "url": "https://www.incheon.go.kr/lib/lib030101",
+                "apply_days": 8,
+                "description": "송도국제어린이도서관 외국어 그림책 읽어주기 및 창의 사고력 보드게임 프로그램입니다."
+            },
+            {
+                "title": "인천 연수청학도서관 주말 어린이 메이커 & 코딩 교실",
+                "category": "도서관체험",
+                "tags": ["#연수청학도서관", "#어린이코딩", "#메이커스페이스"],
+                "target_age": "초등 2~6학년",
+                "region": "인천광역시 연수구 청학동",
+                "place_name": "연수청학도서관 3층 메이커실",
+                "address": "인천광역시 연수구 청능대로 109",
+                "cost_type": "무료",
+                "cost_info": "온라인 신청 (무료)",
+                "source_name": "연수청학도서관",
+                "url": "https://www.incheon.go.kr/lib/lib030102",
+                "apply_days": 11,
+                "description": "연수청학도서관 메이커스페이스에서 진행되는 3D펜 및 어린이 아두이노 코딩 기초 강좌입니다."
+            },
+            {
                 "title": "포항시립 흥해도서관 어린이 음악·독서 문화프로그램",
                 "category": "도서관체험",
                 "tags": ["#포항흥해도서관", "#아이누리", "#음악특성화", "#어린이체험"],
@@ -297,36 +372,6 @@ class SeongnamLibraryScraper(BaseScraper):
                 "url": "https://phlib.pohang.go.kr/phlib/index.do",
                 "apply_days": 12,
                 "description": "포항시립 포은중앙도서관 어린이 독서아카데미 및 주말 문화체험 강좌 공식 안내입니다."
-            },
-            {
-                "title": "인천 송도국제어린이도서관 글로벌 그림책 스토리텔링",
-                "category": "도서관체험",
-                "tags": ["#송도어린이도서관", "#영어그림책", "#스토리텔링"],
-                "target_age": "5세~초등 3학년",
-                "region": "인천광역시 연수구 송도동",
-                "place_name": "송도국제어린이도서관",
-                "address": "인천광역시 연수구 컨벤시아대로42번길 20",
-                "cost_type": "무료",
-                "cost_info": "연수구립공공도서관 공식 접수 (무료)",
-                "source_name": "연수구립도서관",
-                "url": "https://www.yslib.go.kr",
-                "apply_days": 8,
-                "description": "송도국제어린이도서관 외국어 그림책 읽어주기 및 창의메이커 체험 프로그램입니다."
-            },
-            {
-                "title": "인천 연수청학도서관 주말 어린이 메이커 & 코딩 교실",
-                "category": "도서관체험",
-                "tags": ["#연수청학도서관", "#어린이코딩", "#메이커스페이스"],
-                "target_age": "초등 2~6학년",
-                "region": "인천광역시 연수구 청학동",
-                "place_name": "연수청학도서관 3층 메이커실",
-                "address": "인천광역시 연수구 청능대로 109",
-                "cost_type": "무료",
-                "cost_info": "연수구립도서관 온라인 신청 (무료)",
-                "source_name": "연수구립도서관",
-                "url": "https://www.yslib.go.kr",
-                "apply_days": 11,
-                "description": "연수청학도서관 메이커스페이스에서 진행되는 3D펜 및 어린이 아두이노 코딩 기초 강좌입니다."
             }
         ]
 
@@ -350,6 +395,8 @@ class SeongnamLibraryScraper(BaseScraper):
                 apply_end=apply_end_dt,
                 event_start=event_dt,
                 event_end=event_dt,
+                status="접수중",
+                d_day=f"D-{lib['apply_days']}",
                 url=lib["url"],
                 image_url="https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
                 description=lib["description"]
