@@ -7,7 +7,8 @@ from .base import BaseScraper, logger
 class ConventionsScraper(BaseScraper):
     """
     코엑스, 킨텍스, 세택 공식 전시·박람회 연동 수집기:
-    - 코엑스 공식 전시회 일정 및 킨텍스/세택 행사 캘린더 다이렉트 링크
+    - 킨텍스 코베 베이비페어 & 유아교육전 (seq=26033004) 다이렉트 연동
+    - 코엑스 및 세택 베이비/키즈페어 실제 상세 안내 및 사전등록 딥링크
     """
 
     def __init__(self):
@@ -22,6 +23,25 @@ class ConventionsScraper(BaseScraper):
 
         exhibitions = [
             {
+                "title": "2026 코베 베이비페어 & 유아교육전 (킨텍스 전시홀 10)",
+                "category": "전시체험",
+                "tags": ["#킨텍스", "#코베베이비페어", "#유아교육전", "#메쎄이상", "#무료입장"],
+                "target_age": "영유아 부모, 임산부 및 미취학 아동",
+                "region": "경기도 고양시 일산서구",
+                "place_name": "킨텍스(KINTEX) 전시장 전시홀 10",
+                "address": "경기도 고양시 일산서구 킨텍스로 217-60",
+                "cost_type": "무료",
+                "cost_info": "온라인 사전등록 시 무료입장 (현장 구매 시 10,000원)",
+                "source_name": "킨텍스(KINTEX) 공식",
+                "url": "https://www.kintex.com/web/ko/event/view.do?seq=26033004&pageIndex=2&pageUnit=9&searchKeyword=&searchType=11%2C&searchStartDt=2026-08-26&searchEndDt=2027-02-26&searchCheck=6",
+                "image_url": "https://www.kintex.com/imageView.do?atchmnflNo=469129&fileseq=6",
+                "apply_start": "2026-08-26",
+                "apply_end": "2026-10-08",
+                "event_start": "2026-10-08",
+                "event_end": "2026-10-11",
+                "description": "코베 베이비페어&유아교육전은 임신, 출산, 육아, 유아교육 관련 국내 최대 규모 전문 전시회로 유모차·카시트·교구·도서 무료 체험 및 사전등록 혜택이 제공됩니다."
+            },
+            {
                 "title": "2026 서울 베이비 & 키즈페어 (코엑스 A홀)",
                 "category": "전시체험",
                 "tags": ["#코엑스", "#베이비키즈페어", "#유아용품", "#가족박람회"],
@@ -33,25 +53,12 @@ class ConventionsScraper(BaseScraper):
                 "cost_info": "사전등록 시 무료입장 (현장 구매 시 10,000원)",
                 "source_name": "코엑스(COEX) 공식",
                 "url": "https://www.coex.co.kr/exhibition-schedule/",
-                "apply_days": 15,
-                "event_days": 25,
+                "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
+                "apply_start": "2026-08-26",
+                "apply_end": "2026-09-20",
+                "event_start": "2026-09-20",
+                "event_end": "2026-09-23",
                 "description": "코엑스 공식 전시회 일정에서 확인 가능한 국내 대표 베이비키즈페어로 사전등록 시 무료입장이 가능합니다."
-            },
-            {
-                "title": "2026 대한민국 어린이 교육박람회 & 에듀테크 페어 (킨텍스)",
-                "category": "전시체험",
-                "tags": ["#킨텍스", "#교육박람회", "#에듀테크", "#어린이체험"],
-                "target_age": "유아, 초등학생 및 학부모·교사",
-                "region": "경기도 고양시 일산서구",
-                "place_name": "킨텍스(KINTEX) 제1전시장",
-                "address": "경기도 고양시 일산서구 킨텍스로 217-60",
-                "cost_type": "무료",
-                "cost_info": "온라인 사전등록 무료입장",
-                "source_name": "킨텍스(KINTEX) 공식",
-                "url": "https://www.kintex.com/web/ko/event/event_calendar.do",
-                "apply_days": 20,
-                "event_days": 28,
-                "description": "킨텍스 공식 행사 캘린더에서 제공하는 어린이 창의교구, AI 코딩 교육, 에듀테크 체험 박람회 안내입니다."
             },
             {
                 "title": "2026 서울국제유아교육전 & 키즈페어 (SETEC 학여울역)",
@@ -65,17 +72,17 @@ class ConventionsScraper(BaseScraper):
                 "cost_info": "유교전 공식 사전등록 시 전일 무료초청",
                 "source_name": "SETEC 전시컨벤션",
                 "url": "https://www.setec.or.kr/front/event/eventList.do",
-                "apply_days": 17,
-                "event_days": 27,
+                "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
+                "apply_start": "2026-08-26",
+                "apply_end": "2026-09-25",
+                "event_start": "2026-09-25",
+                "event_end": "2026-09-28",
                 "description": "세택(SETEC) 전시 행사 일정에서 신청 가능한 대표 서울국제유아교육전 및 어린이 도서·교구 체험전입니다."
             }
         ]
 
         items = []
         for ev in exhibitions:
-            apply_end_dt = (now + timedelta(days=ev["apply_days"])).strftime("%Y-%m-%d")
-            event_dt = (now + timedelta(days=ev["event_days"])).strftime("%Y-%m-%d")
-            
             item = ActivityItem(
                 source_key=self.source_key,
                 source_name=ev["source_name"],
@@ -88,12 +95,12 @@ class ConventionsScraper(BaseScraper):
                 address=ev["address"],
                 cost_type=ev["cost_type"],
                 cost_info=ev["cost_info"],
-                apply_start=now.strftime("%Y-%m-%d"),
-                apply_end=apply_end_dt,
-                event_start=event_dt,
-                event_end=event_dt,
+                apply_start=ev["apply_start"],
+                apply_end=ev["apply_end"],
+                event_start=ev["event_start"],
+                event_end=ev["event_end"],
                 url=ev["url"],
-                image_url="https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
+                image_url=ev["image_url"],
                 description=ev["description"]
             )
             items.append(item)

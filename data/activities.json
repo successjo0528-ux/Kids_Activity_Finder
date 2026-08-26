@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Kids Activity Finder",
-    "updated_at": "2026-08-26 22:49:56",
+    "updated_at": "2026-08-26 23:04:26",
     "date_str": "2026년 08월 26일 (수)",
     "total_count": 76
   },
@@ -32,7 +32,7 @@
       "url": "https://sugang.seongnam.go.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남시 배움숲 통합예약시스템에서 신청하는 판교환경생태학습원 주말 온실 생태탐방 및 신재생에너지 체험 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:27.326958",
+      "created_at": "2026-08-26T23:03:58.823110",
       "id": "a64c2593c82f"
     },
     {
@@ -61,7 +61,7 @@
       "url": "https://www.snyouth.or.kr/reservation/index.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남시청소년재단 통합예약포털에서 예약 가능한 청소년 맞춤형 3D프린팅, 드론 제어, 메이커 강좌입니다.",
-      "created_at": "2026-08-26T22:49:27.333900",
+      "created_at": "2026-08-26T23:03:58.827122",
       "id": "afc68cb2f5b0"
     },
     {
@@ -90,7 +90,7 @@
       "url": "https://www.pohang.go.kr/youth/index.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "포항시 청소년문화의집 포털에서 신청하는 3D펜 아트, 드론 코딩, 로봇 메이커 강좌 안내입니다.",
-      "created_at": "2026-08-26T22:49:27.333900",
+      "created_at": "2026-08-26T23:03:58.827122",
       "id": "5eb8c9909ace"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.inyouth.or.kr/activity/list.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천청소년정보포털 유스내비에서 신청 가능한 주말 과학탐구 및 로봇 코딩 캠프 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:27.333900",
+      "created_at": "2026-08-26T23:03:58.828117",
       "id": "a2dd59514e09"
     },
     {
@@ -147,7 +147,7 @@
       "url": "https://www.sciencecenter.go.kr/scipia/introduce/facilities/observatory",
       "image_url": "https://www.sciencecenter.go.kr/images/common/logo.png",
       "description": "국립과천과학관 대형 굴절망원경을 통한 달·행성·성단 야간 천체관측 및 천체투영관 돔 영상 관람 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:27.333900",
+      "created_at": "2026-08-26T23:03:58.828117",
       "id": "b7ac6fb1b984"
     },
     {
@@ -176,7 +176,7 @@
       "url": "https://www.sciencecenter.go.kr/scipia/introduce/facilities/infant",
       "image_url": "https://www.sciencecenter.go.kr/images/common/logo.png",
       "description": "유아들의 감각과 상상력을 자극하는 놀이 중심 과학 탐구 체험관으로 과천과학관 공식 예약시스템에서 사전 신청합니다.",
-      "created_at": "2026-08-26T22:49:27.334898",
+      "created_at": "2026-08-26T23:03:58.828117",
       "id": "c29c3974bbf2"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://www.museum.go.kr/site/main/content/child_res_guidance",
       "image_url": "https://www.museum.go.kr/site/main/assets/images/common/logo.png",
       "description": "국립중앙박물관 어린이박물관 공식 홈페이지에서 신청하는 어린이 역사 문화 오감 체험 전시 관람 예약 안내입니다.",
-      "created_at": "2026-08-26T22:49:27.334898",
+      "created_at": "2026-08-26T23:03:58.828117",
       "id": "d3f07edbeae7"
     },
     {
@@ -233,8 +233,38 @@
       "url": "https://www.museum.go.kr/site/main/edu/view/all",
       "image_url": "https://www.museum.go.kr/site/main/assets/images/common/logo.png",
       "description": "박물관 소장 유물을 직접 관찰하고 역사 스토리텔링과 만들기 활동을 함께하는 주말 가족 교육 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:27.335907",
+      "created_at": "2026-08-26T23:03:58.828117",
       "id": "1b64cefbfa95"
+    },
+    {
+      "source_key": "conventions",
+      "source_name": "킨텍스(KINTEX) 공식",
+      "title": "2026 코베 베이비페어 & 유아교육전 (킨텍스 전시홀 10)",
+      "category": "전시체험",
+      "tags": [
+        "#킨텍스",
+        "#코베베이비페어",
+        "#유아교육전",
+        "#메쎄이상",
+        "#무료입장"
+      ],
+      "target_age": "영유아 부모, 임산부 및 미취학 아동",
+      "region": "경기도 고양시 일산서구",
+      "place_name": "킨텍스(KINTEX) 전시장 전시홀 10",
+      "address": "경기도 고양시 일산서구 킨텍스로 217-60",
+      "cost_type": "무료",
+      "cost_info": "온라인 사전등록 시 무료입장 (현장 구매 시 10,000원)",
+      "apply_start": "2026-08-26",
+      "apply_end": "2026-10-08",
+      "event_start": "2026-10-08",
+      "event_end": "2026-10-11",
+      "status": "접수중",
+      "d_day": "D-43",
+      "url": "https://www.kintex.com/web/ko/event/view.do?seq=26033004&pageIndex=2&pageUnit=9&searchKeyword=&searchType=11%2C&searchStartDt=2026-08-26&searchEndDt=2027-02-26&searchCheck=6",
+      "image_url": "https://www.kintex.com/imageView.do?atchmnflNo=469129&fileseq=6",
+      "description": "코베 베이비페어&유아교육전은 임신, 출산, 육아, 유아교육 관련 국내 최대 규모 전문 전시회로 유모차·카시트·교구·도서 무료 체험 및 사전등록 혜택이 제공됩니다.",
+      "created_at": "2026-08-26T23:03:58.829114",
+      "id": "a66f6d073582"
     },
     {
       "source_key": "conventions",
@@ -254,45 +284,16 @@
       "cost_type": "무료",
       "cost_info": "사전등록 시 무료입장 (현장 구매 시 10,000원)",
       "apply_start": "2026-08-26",
-      "apply_end": "2026-09-10",
+      "apply_end": "2026-09-20",
       "event_start": "2026-09-20",
-      "event_end": "2026-09-20",
+      "event_end": "2026-09-23",
       "status": "접수중",
-      "d_day": "D-15",
+      "d_day": "D-25",
       "url": "https://www.coex.co.kr/exhibition-schedule/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "코엑스 공식 전시회 일정에서 확인 가능한 국내 대표 베이비키즈페어로 사전등록 시 무료입장이 가능합니다.",
-      "created_at": "2026-08-26T22:49:27.336898",
+      "created_at": "2026-08-26T23:03:58.829114",
       "id": "ab662aa64a3f"
-    },
-    {
-      "source_key": "conventions",
-      "source_name": "킨텍스(KINTEX) 공식",
-      "title": "2026 대한민국 어린이 교육박람회 & 에듀테크 페어 (킨텍스)",
-      "category": "전시체험",
-      "tags": [
-        "#킨텍스",
-        "#교육박람회",
-        "#에듀테크",
-        "#어린이체험"
-      ],
-      "target_age": "유아, 초등학생 및 학부모·교사",
-      "region": "경기도 고양시 일산서구",
-      "place_name": "킨텍스(KINTEX) 제1전시장",
-      "address": "경기도 고양시 일산서구 킨텍스로 217-60",
-      "cost_type": "무료",
-      "cost_info": "온라인 사전등록 무료입장",
-      "apply_start": "2026-08-26",
-      "apply_end": "2026-09-15",
-      "event_start": "2026-09-23",
-      "event_end": "2026-09-23",
-      "status": "접수중",
-      "d_day": "D-20",
-      "url": "https://www.kintex.com/web/ko/event/event_calendar.do",
-      "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
-      "description": "킨텍스 공식 행사 캘린더에서 제공하는 어린이 창의교구, AI 코딩 교육, 에듀테크 체험 박람회 안내입니다.",
-      "created_at": "2026-08-26T22:49:27.336898",
-      "id": "7414a3cf7217"
     },
     {
       "source_key": "conventions",
@@ -312,16 +313,16 @@
       "cost_type": "무료",
       "cost_info": "유교전 공식 사전등록 시 전일 무료초청",
       "apply_start": "2026-08-26",
-      "apply_end": "2026-09-12",
-      "event_start": "2026-09-22",
-      "event_end": "2026-09-22",
+      "apply_end": "2026-09-25",
+      "event_start": "2026-09-25",
+      "event_end": "2026-09-28",
       "status": "접수중",
-      "d_day": "D-17",
+      "d_day": "D-30",
       "url": "https://www.setec.or.kr/front/event/eventList.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "세택(SETEC) 전시 행사 일정에서 신청 가능한 대표 서울국제유아교육전 및 어린이 도서·교구 체험전입니다.",
-      "created_at": "2026-08-26T22:49:27.337897",
-      "id": "7b0465eb2263"
+      "created_at": "2026-08-26T23:03:58.829114",
+      "id": "64288943ef81"
     },
     {
       "source_key": "contests",
@@ -348,7 +349,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5887",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "6주 만에 책을 내고 작가가 되세요! 책 쓰기 프로젝트 [온라인 / 오프라인] 58기 모집! - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.102360",
+      "created_at": "2026-08-26T23:03:59.702680",
       "id": "711e9680ced7"
     },
     {
@@ -376,7 +377,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5879",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "(4주) 신춘문예 작가님에게 글쓰기를 배워보세요! 참여자 모집 중 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.102360",
+      "created_at": "2026-08-26T23:03:59.702680",
       "id": "f1266eb46873"
     },
     {
@@ -407,7 +408,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5818",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026 제25회 김포문학상 전국 공모 (대상 1000만원) - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.102360",
+      "created_at": "2026-08-26T23:03:59.702680",
       "id": "33e5951818af"
     },
     {
@@ -438,7 +439,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5580",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제34회 눈높이아동문학대전 - 청소년문학 부문마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.102360",
+      "created_at": "2026-08-26T23:03:59.702680",
       "id": "6e755ca706a0"
     },
     {
@@ -469,7 +470,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5533",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제18회 삶의향기 동서문학상 공모 (총상금 7,900만원) - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.103357",
+      "created_at": "2026-08-26T23:03:59.702680",
       "id": "d29d13d238e0"
     },
     {
@@ -500,7 +501,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5519",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제3회 신격호 샤롯데문학상 (총상금 9,000만원)마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.103357",
+      "created_at": "2026-08-26T23:03:59.703690",
       "id": "e91fc8b9d701"
     },
     {
@@ -531,7 +532,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5816",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제16회 한국문학특구포럼 전국고교생 백일장 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.103357",
+      "created_at": "2026-08-26T23:03:59.703690",
       "id": "5717328d62db"
     },
     {
@@ -562,7 +563,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5817",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제9회 아산문학상 & 제4회 아산향토문학상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.103906",
+      "created_at": "2026-08-26T23:03:59.703690",
       "id": "9c095c89ca21"
     },
     {
@@ -593,7 +594,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5774",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026 서초전국백일장 공모 (총상금 490만원)마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.103906",
+      "created_at": "2026-08-26T23:03:59.703690",
       "id": "543ac1d61a1e"
     },
     {
@@ -624,7 +625,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5773",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제47회 경기백일장 공모전 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.103906",
+      "created_at": "2026-08-26T23:03:59.704993",
       "id": "4645476029ff"
     },
     {
@@ -655,7 +656,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5675",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제9회 부안디카시 공모전마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.104415",
+      "created_at": "2026-08-26T23:03:59.705129",
       "id": "c04e0bcdd6dc"
     },
     {
@@ -686,7 +687,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5640",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026년 제15회 행주문학상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.104693",
+      "created_at": "2026-08-26T23:03:59.705129",
       "id": "dc76e9382a64"
     },
     {
@@ -714,7 +715,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5627",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "청강문화산업대학교 웹소설 실기 피드백프로그램 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.104693",
+      "created_at": "2026-08-26T23:03:59.705129",
       "id": "9799f6fcf408"
     },
     {
@@ -742,7 +743,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5526",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026년 제4회 경상북도 문예현상공모전 (대상 300만원)마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.104693",
+      "created_at": "2026-08-26T23:03:59.705673",
       "id": "7e69c3231d03"
     },
     {
@@ -773,7 +774,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5894",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제111회 열린동해문학 신인문학상 공모전 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.105202",
+      "created_at": "2026-08-26T23:03:59.705673",
       "id": "ae5d63421374"
     },
     {
@@ -804,7 +805,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5539&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "한국시인협회 2026년 제26회 전국 고교생 문예백일장 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.884016",
+      "created_at": "2026-08-26T23:04:00.286868",
       "id": "88309248d01b"
     },
     {
@@ -835,7 +836,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5541&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제14회 박경리 전국 시 낭송 대회 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.884016",
+      "created_at": "2026-08-26T23:04:00.287385",
       "id": "780cf2d397eb"
     },
     {
@@ -866,7 +867,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5791&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026 DMZ문학축전 DMZ 백일장 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.884016",
+      "created_at": "2026-08-26T23:04:00.287385",
       "id": "e7f13b88c463"
     },
     {
@@ -897,7 +898,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5461&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026년 제5회 김포시 전국시낭송대회 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.884016",
+      "created_at": "2026-08-26T23:04:00.287681",
       "id": "594e3eb8ef55"
     },
     {
@@ -928,7 +929,7 @@
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5399&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제4회 포엠피플 신인문학상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.884016",
+      "created_at": "2026-08-26T23:04:00.287681",
       "id": "88c2d9442925"
     },
     {
@@ -957,7 +958,7 @@
       "url": "https://www.koreataekwondo.co.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "대한태권도협회 공식 대회 일정으로 성남종합운동장에서 펼쳐지는 고난도 회전격파 및 품새 최강전 무료 관람 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.885015",
+      "created_at": "2026-08-26T23:04:00.288277",
       "id": "8c6f1a5cc8b2"
     },
     {
@@ -986,7 +987,7 @@
       "url": "https://www.isdc.co.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남도시개발공사 탄천종합운동장 50m 공인 경영풀에서 개최되는 꿈나무 수영대회 관람 및 참가 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.885015",
+      "created_at": "2026-08-26T23:04:00.288277",
       "id": "11c4e5ea15a3"
     },
     {
@@ -1015,7 +1016,7 @@
       "url": "https://www.jumprope.co.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "대한줄넘기협회 주최 음악줄넘기 프리스타일 및 국가대표 시범단의 고난도 퍼포먼스 무료 야외 공연입니다.",
-      "created_at": "2026-08-26T22:49:28.885015",
+      "created_at": "2026-08-26T23:04:00.288277",
       "id": "e341a5b50064"
     },
     {
@@ -1044,7 +1045,7 @@
       "url": "https://www.ehyundai.com/culture/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "현대백화점 문화센터 공식 홈페이지에서 신청 가능한 주말 인기 키즈 쿠킹클래스, 창의 드로잉 원데이 강좌입니다.",
-      "created_at": "2026-08-26T22:49:28.886009",
+      "created_at": "2026-08-26T23:04:00.289192",
       "id": "50f62fd78e57"
     },
     {
@@ -1073,7 +1074,7 @@
       "url": "https://www.shinsegae.com/culture/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "신세계아카데미 공식 수강신청 페이지에서 접수하는 유소년 레고 스파이크 로봇 및 코딩 교실 안내입니다.",
-      "created_at": "2026-08-26T22:49:28.886009",
+      "created_at": "2026-08-26T23:04:00.289192",
       "id": "f8d14d1fb590"
     },
     {
@@ -1102,7 +1103,7 @@
       "url": "https://gcm.ggcf.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "경기문화재단 공식 홈페이지에서 100% 사전 예약으로 운영되는 경기도 대표 어린이 전용 복합체험 박물관입니다.",
-      "created_at": "2026-08-26T22:49:28.886009",
+      "created_at": "2026-08-26T23:04:00.289192",
       "id": "b88245ab81cc"
     },
     {
@@ -1131,7 +1132,7 @@
       "url": "https://www.mmca.go.kr/child/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "국립현대미술관 과천관 어린이미술관에서 현대미술 작품을 오감으로 체험하고 스스로 창작하는 예술 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:28.886009",
+      "created_at": "2026-08-26T23:04:00.289192",
       "id": "5b8b2becdfe0"
     },
     {
@@ -1160,7 +1161,7 @@
       "url": "https://www.insiseol.or.kr/culture/icsmuseum/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천시설공단 통합예약시스템에서 신청하는 기초과학, 도시과학, 환경과학 테마별 체험 전시관입니다.",
-      "created_at": "2026-08-26T22:49:28.886009",
+      "created_at": "2026-08-26T23:04:00.290191",
       "id": "1e47c51a1a6d"
     },
     {
@@ -1189,7 +1190,7 @@
       "url": "https://www.nibr.go.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "환경부 산하 국립생물자원관에서 운영하는 자생생물 표본 관찰 및 어린이 숲 생태 탐방 무료 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:28.886009",
+      "created_at": "2026-08-26T23:04:00.290191",
       "id": "ad47bb984f20"
     },
     {
@@ -1218,7 +1219,7 @@
       "url": "https://www.snart.or.kr/pms/performance/index.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남아트센터 공식 예매 포털에서 예매 가능한 어린이 눈높이 맞춤 클래식 악기 해설 및 오케스트라 연주회입니다.",
-      "created_at": "2026-08-26T22:49:28.887005",
+      "created_at": "2026-08-26T23:04:00.290191",
       "id": "cba7a8668509"
     },
     {
@@ -1247,7 +1248,7 @@
       "url": "https://www.lotteconcerthall.com/kor/Performance/Program",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "롯데콘서트홀 공식 프로그램 안내에서 예매할 수 있는 대형 풀 오케스트라 애니메이션 명곡 갈라 콘서트입니다.",
-      "created_at": "2026-08-26T22:49:28.887005",
+      "created_at": "2026-08-26T23:04:00.290191",
       "id": "fc022d2ae47e"
     },
     {
@@ -1275,7 +1276,7 @@
       "url": "https://www.sejongpac.or.kr/kr/performance/main/list.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "세종문화회관 공식 공연 예매에서 신청 가능한 청소년 및 꿈나무 오케스트라 연주 페스티벌입니다.",
-      "created_at": "2026-08-26T22:49:28.887005",
+      "created_at": "2026-08-26T23:04:00.290191",
       "id": "4c253e189011"
     },
     {
@@ -1284,12 +1285,12 @@
       "title": "[운중도서관] 2026년 하반기 운중도서관 도심 속 독서캠핑 & 북크닉 운영 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#가족체험",
+        "#성남시",
         "#북크닉",
         "#독서캠핑",
         "#운중도서관",
-        "#성남시",
-        "#가족체험"
+        "#도서관체험"
       ],
       "target_age": "2인 이상 구성원 60팀",
       "region": "경기도 성남시 분당구 운중동",
@@ -1306,7 +1307,7 @@
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209234",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260810164809991.jpg",
       "description": "2026 하반기 도심 속 독서캠핑 & 북크닉 참가자모집\n\n\n○ 운영일시: 2026.09.19.(토) 10:00~16:00 \n\n\n○ 대 상 : 2인 이상 구성원 60팀 \n\n\n○ 장 소 : 운중도서관 후문 운중공원\n\n\n\r\n○ 접수일시: 2026.09.01.(화) 10:00~선착순 마감 \n\n\n○ 접수방법 : 성남시 배움숲 홈페이지https://sugang.seongnam.go.kr\n\n\n○ 운영내용 : 야외 공간에서 가족 및 개인이 자유롭게 독서를 즐기는 프로그램으로\n\r\n별도의 어린이 독서프로그램(그림책 실험실), 밴드공연, 알뜰장터, 도서나눔 등 부대행사 진행됩니다.\n\r\n부대행사중 그림책 실험실, 알뜰장터 참가는",
-      "created_at": "2026-08-26T22:49:28.672261",
+      "created_at": "2026-08-26T23:04:00.084860",
       "id": "f72437b9cdcf"
     },
     {
@@ -1315,11 +1316,11 @@
       "title": "[운중도서관] 2026년 하반기 운중도서관 어린이 생태교실 운영 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
-        "#자연체험",
-        "#운중도서관",
+        "#생태교실",
         "#성남시",
-        "#생태교실"
+        "#운중도서관",
+        "#도서관체험",
+        "#자연체험"
       ],
       "target_age": "관내 초등학생 1,2학년",
       "region": "경기도 성남시 분당구 운중동",
@@ -1336,7 +1337,7 @@
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209101",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260810140353010.jpg",
       "description": "★시작시간 9시에서 9시30분으로 변경★\n\n\n\n\n\n\n\r\n2026년 하반기 운중도서관 어린이 생태교실 모집 안내\n\r\n \n\n\n○ 회차별 수업 일정\n\r\n- 1회차: 8월 29일 토요일\n\r\n- 2회차: 9월 19일 토요일\n\r\n- 3회차: 10월 17일 토요일\n\n\n○ 회차별 접수 일정\n\r\n- 1회차: 8월 18일 화요일 10시 ~\n\r\n- 2회차: 9월 8일 화요일 10시 ~\n\r\n- 3회차: 10월 6일 화요일 10시 ~\n\n\n○ 수업대상\n: 관내 초등학생 1,2학년\n\n\n○ 수업장소\n: 운중도서관 인근(문화교실, 운중공원, 운중천)\n\n\n\n\n○ 유의사항\n\r\n- 하반기 3회 운영 / \n1인 1회만 신청 가능\n\r\n- 회차별 \n접수 일",
-      "created_at": "2026-08-26T22:49:29.198135",
+      "created_at": "2026-08-26T23:04:00.570465",
       "id": "156a9f72d3f8"
     },
     {
@@ -1345,9 +1346,9 @@
       "title": "[운중도서관] 2026년 하반기 운중도서관 어린이 견학 신청 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#운중도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "관내 어린이집 및 유치원(회당 20명 내) [기관신청]",
       "region": "경기도 성남시 분당구 운중동",
@@ -1364,7 +1365,7 @@
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209098",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260805132001551.jpg",
       "description": "<2026년 하반기 운중도서관 어린이 견학 신청 안내>     \n \n견학신청 바로가기\n\n\n\r\n○ 운영기간: 2026. 9월 ~ 12월, 매주 수요일, 목요일 10:00~11:00(1시간)\n\r\n○ 견학장소: 운중도서관 1층 어린이자료실\n\r\n○ 대      상: 관내 어린이집 및 유치원(회당 20명 내) [기관신청]\n\r\n○ 내      용: 도서관 이용안내, 자유로운 독서활동, 동화책 읽어주기 및 동화구연 감상(자원봉사자)\n\r\n                   ※ 참여횟수가 제한될 수 있으며, 견학프로그램과 일정은 도서관 사정에 따라 변경될 수 있습니다.\n\r\n                   \n※ 동화책 읽어주기",
-      "created_at": "2026-08-26T22:49:30.276082",
+      "created_at": "2026-08-26T23:04:01.728572",
       "id": "23de624c5859"
     },
     {
@@ -1373,11 +1374,11 @@
       "title": "[판교어린이도서관] 판/어2026년 판교어린이도서관 로봇교실 3기 수강생 모집",
       "category": "도서관체험",
       "tags": [
+        "#성남시",
         "#도서관체험",
-        "#판교어린이도서관",
         "#과학체험",
-        "#창의체험",
-        "#성남시"
+        "#판교어린이도서관",
+        "#창의체험"
       ],
       "target_age": "관내 초등학생",
       "region": "경기도 성남시 분당구 판교동",
@@ -1394,7 +1395,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=209454",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260820160522784.png",
       "description": "2026년 판교어린이도서관 로봇교실 3기 수강생 모집\n\r\n1. 운영기간 : 2026. 9. 29.(화) ~ 12. 11.(금) [10차시] \n\r\n2. 모집기간 : \n2026. 9. 7.(월)  ~ 9. 20.(일)\n (14일간, 과목별 접수시간이 상이하며 접수시간은 이미지 및 첨부파일 참조)\n\r\n3. 대상 : 관내 초등학생 \n(조기입학 등으로 법정 기준에 따른 학년이 달라 배움숲에서 신청이 불가한 학생은 사전에 도서관으로 연락 주시기 바랍니다.)\n\r\n4. 접수방법 : 성남시 배움숲 홈페이지 (\nhttps://sugang.seongnam.go.kr\n) 온라인 접수(선착순)",
-      "created_at": "2026-08-26T22:49:32.597651",
+      "created_at": "2026-08-26T23:04:03.965546",
       "id": "70183a3ff96f"
     },
     {
@@ -1403,9 +1404,9 @@
       "title": "[판교어린이도서관] 판/어2026년 판교어린이도서관 어린이 공연 <꿈을 찾아주는 버블 책방> 모집 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교어린이도서관",
         "#성남시",
-        "#판교어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "성남시 거주 어린이 및 학부모 50가족(총 100명)",
       "region": "경기도 성남시 분당구 판교동",
@@ -1422,7 +1423,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=209152",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260807103119985.png",
       "description": "○\n 공연제목: 꿈을 찾아주는 버블 책방\n\n\n○ \n공연일시: 2026. 9. 9.(수) 16:00~17:00\n\r\n○ 장소: 판교어린이도서관 3층 시청각실\n\r\n○ \n공연내용: 책에 대한 호기심을 유도하는 독서권장 버블&벌룬 공연\n\r\n○ 관람방법: 성남시 배움숲 선착순 모집  \n배움숲 신청 바로가기\n\n\n    ※ 접수일정: 2026. 8. 26.(수) 10:00 ~ 마감 시\n\r\n○ 공연대상: 성남시 거주 어린이 및 학부모 50가족(총 100명)\n\r\n○ 문의: 031-729-4396\n\n\n\r\n※ 공연 관람 전, 아이들에게 도서관 에티켓을 알려주세요! (소리지르기, 뛰어다니기 등 다른 이용자의 도서관 이용을 방해하는",
-      "created_at": "2026-08-26T22:49:33.167010",
+      "created_at": "2026-08-26T23:04:04.514113",
       "id": "12451ddd2b2b"
     },
     {
@@ -1431,11 +1432,11 @@
       "title": "[판교어린이도서관] 판/어판교어린이도서관 2026년 9월 생태교실 수강생 모집",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
-        "#자연체험",
-        "#판교어린이도서관",
+        "#생태교실",
         "#성남시",
-        "#생태교실"
+        "#도서관체험",
+        "#판교어린이도서관",
+        "#자연체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교동",
@@ -1452,7 +1453,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=209291",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260812144450464.png",
       "description": "○ 운영일시: 2026년 9월 12일 9:30~11:30\n\r\n    (※ 집결은 판교어린이도서관 3층 1문화교실에서 먼저 이루어집니다.)\n\n\n○ 모집기간: 2026년 8월 31일 10:00 ~ 마감 시\n\r\n○ 운영장소: 낙생대공원(기상이변 시 1문화교실에서 진행)\n\r\n○ 접수방법: 배움숲 온라인 선착순 접수(관내 초등학교 1-3학년)  \n배움숲 바로가기\n\r\n    (https://sugang.seongnam.go.kr/ → 평생학습강좌(수강신청) → '판교어린이도서관' 검색 → 수강신청)\n\r\n○ 주제: 뛰어라! 메뚜기 (자세한 강의 계획은 붙임2 참조)\n\r\n \n\r\n○ 유의사항\n\r\n -\n 자녀 ID\n로 로그인",
-      "created_at": "2026-08-26T22:49:33.745958",
+      "created_at": "2026-08-26T23:04:05.014463",
       "id": "fabb270b6bde"
     },
     {
@@ -1461,9 +1462,9 @@
       "title": "[판교어린이도서관] 판/어판교어린이도서관 2026년 두배로데이 운영 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교어린이도서관",
         "#성남시",
-        "#판교어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교동",
@@ -1480,7 +1481,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=205334",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260120152154885.png",
       "description": "<2026년 경기도 문화의 날 두배로데이 운영 안내>\n\n\n\r\n★ 매월 마지막 주 수요일 2배로 대출!\n\r\n★ 도서 대출권수 6권 → 12권\n\n\n\n\n1월 28일(수)\n\r\n2월 25일(수)\n\r\n3월 25일(수)\n\r\n4월 29일(수)\n\r\n5월 27일(수)\n\r\n6월 24일(수)\n\r\n7월 29일(수)\n\r\n8월 26일(수)\n\r\n9월 30일(수)\n\r\n10월 28일(수)\n\r\n11월 25일(수)\n\r\n12월 30일(수)\n\n\n\r\n대출도서: 유아실, 어린이실, 문헌정보실 도서 (DVD제외)\n\r\n이용방법: 데스크 방문 (무인기 대출 불가)\n\n\n유아, 다자녀가족도 12권까지 대출 가능합니다.\n\n\n\r\n(문의사항)\n\r\n유아열람실: 729",
-      "created_at": "2026-08-26T22:49:34.301121",
+      "created_at": "2026-08-26T23:04:05.528763",
       "id": "eb6231ce0510"
     },
     {
@@ -1489,9 +1490,9 @@
       "title": "[판교어린이도서관] 판/어판교어린이도서관 9월 휴관일",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교어린이도서관",
         "#성남시",
-        "#판교어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교동",
@@ -1508,7 +1509,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=209457",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260820165213767.png",
       "description": "※판교어린이도서관 2026년 9월 휴관일 안내※\n\n\n\n\n○ 전체(1,2관) 휴관\n\r\n9/14(월)\n\r\n9/24(목)~9/26(토) 추석연휴\n\r\n9/28(월)\n\n\n\n\n○ 자료실(1관) 휴실 / 일반열람실(2관) 개방\n\r\n9/7(월)\n\r\n9/21(월)\n\n\n\r\n○ 전체(1,2관) 휴관: 매월 둘째/넷째 월요일, 신정, 명절연휴\n\r\n○ 자료실(1관) 휴실: 매주 월요일, 법정공휴일",
-      "created_at": "2026-08-26T22:49:35.362965",
+      "created_at": "2026-08-26T23:04:06.504895",
       "id": "d930f7a79699"
     },
     {
@@ -1517,9 +1518,9 @@
       "title": "[판교어린이도서관] 판/어2026년 하반기 책놀이 프로그램 ' 책이랑 놀자' 참여자 모집",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교어린이도서관",
         "#성남시",
-        "#판교어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교동",
@@ -1536,7 +1537,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=209088",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260804174240831.jpg",
       "description": "2026\n년 상반기 판교어린이도서관 책놀이 프로그램 수강생 모집\n\n\n\n\n○ 강 좌 명: 책이랑 놀자 A반 / B반\n\r\n○ \n대     상\n: \n관내 4\n-5\n세\n 유아(2022, 2023\n년생\n) 반별 6명 \n* 보호자 동반 \n1\n인 필수\n\n\n○ \n운영기간\n: 2026. 9. 3.(\n목\n) ~ 10. 1.(\n목\n) [\n반별 \n4\n회차\n] \n\n\n○ \n운영시간\n: (A\n반\n) 16\n시 \n~ 16\n시\n 50분  (B\n반\n) 17\n시 \n~ 17\n시 50분 \n\n\n○ 장     소\n:  1층 유아열람실 내 이야기방 \n\n\n\n\n○ \n접수기간\n: 2026. 8. 19.(\n수\n) 9:00\n \n~ 마감 시\n\n\n○ \n접수방법\n: \n성남시",
-      "created_at": "2026-08-26T22:49:36.042764",
+      "created_at": "2026-08-26T23:04:07.050459",
       "id": "536061f61ad0"
     },
     {
@@ -1545,9 +1546,9 @@
       "title": "[판교어린이도서관] 판/어2026년 하반기 문화교실 및 독서회 수강생 모집 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교어린이도서관",
         "#성남시",
-        "#판교어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교동",
@@ -1564,7 +1565,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=208959",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260729135848408.jpg",
       "description": "2026년 하반기 판교어린이도서관 문화교실 및 독서회 수강생 모집 안내\n\n\n\n\n○ 운영기간 : \n 2026. 9. 1.(화) ~ 12. 19.(토) [14차시] (\n강좌별로 공휴일 유무에 따라 종료일 상이)\n\n\n○ 접수기간 : 2026. 8. 18.(화) 10시 ~ 마감 시  \n※ 붙임 및 하단 안내문의 강좌별 접수 시작시간 유의\n\n\n○ 접수방법 : 성남시 배움숲 온라인 선착순 접수\n\r\n    ※ 수강생 ID로 로그인 후 신청(\n어린이 강좌는 반드시 수강 어린이 ID로 신청 / '고전 독서토론'은 보호자 오픈톡방 개설하므로 배움숲 회원정보에 보호자 휴대전화번호 확인 필수)\n\n\n○ 수강료 : 무료(교재비 및 재료비는",
-      "created_at": "2026-08-26T22:49:36.701584",
+      "created_at": "2026-08-26T23:04:07.621529",
       "id": "f79b0d49d592"
     },
     {
@@ -1573,9 +1574,9 @@
       "title": "[판교어린이도서관] 판/어2026년 판교어린이도서관 초단시간근로자 결원 채용 최종합격자 공고",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교어린이도서관",
         "#성남시",
-        "#판교어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교동",
@@ -1592,7 +1593,7 @@
       "url": "https://www.snlib.go.kr/cpg/20001/bbsPostDetail.do?postIdx=208768",
       "image_url": "https://www.snlib.go.kr/include/image/common/ico_sns_favicon.png",
       "description": "2026년 성남시 판교어린도서관 초단시간근로자 결원 채용 최종합격자를 다음과 같이 공고합니다.\n\n\n1. 채용분야: 2026년 판교어린이도서관 초단시간근로자 결원 채용\n\n\n2. 합격인원: 1명\n\n\n3. 유의사항: 결격사유에 해당하거나 제출서류 검증을 통해 채용에 부적합할 경우 합격 취소 예정\n\n\n4. 기타 궁금한 사항은 판교어린이도서관(☎031-729-4396)로 문의하시기 바라며, 자세한 내용은 공고문을 확인하시기 바랍니다.",
-      "created_at": "2026-08-26T22:49:37.348607",
+      "created_at": "2026-08-26T23:04:08.200369",
       "id": "c37bddbd738c"
     },
     {
@@ -1601,9 +1602,9 @@
       "title": "[분당도서관] 2026년 분당도서관 독서의 달 행사 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#분당도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 불정로",
@@ -1620,7 +1621,7 @@
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209256",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260811143655730.jpg",
       "description": "독서의 달 행사 안내\n\n\n\n\n기간 : 2026. 9. 1.(화) ~ 9. 27.(일)\n\n\n내용 : 저자특강, 어린이공연 등 운영\n\n\n저자특강 및 어린이공연 접수\r\n\t\n\n\n접수방법 : 온라인 선착순 접수 (성남시 평생학습통합플랫폼 배움숲)\n\n\n접수기간 : 2026. 8. 27.(목) 10:00 ~ 마감 시(어린이공연), 2026. 8. 28.(금) 10:00 ~ 마감 시(저자특강)\n\n\n\n\n\n\n문의전화 : 자료정보팀(729-4669)\n\n\n\n\n행사리스트\n\n\n\n\n\n\n\n\n\n\n구분\n\n\n\n\n\n\n행사명\n\n\n\n\n\n\n일시\n\n\n\n\n\n\n대상\n\n\n\n\n\n\n장소\n\n\n\n\n\n\n내용\n\n\n\n\n\n\n\n\n\n\n저자특강\n\n\n\n\n\n\n문요한 작가와의 만남",
-      "created_at": "2026-08-26T22:49:38.699990",
+      "created_at": "2026-08-26T23:04:09.488404",
       "id": "9cd1086221e0"
     },
     {
@@ -1629,9 +1630,9 @@
       "title": "[분당도서관] 2026년 분당도서관 독서의 달 어린이공연 행사 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#분당도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "어린이 및 보호자 50팀(100명)",
       "region": "경기도 성남시 분당구 불정로",
@@ -1648,7 +1649,7 @@
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209560",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260825102311038.jpg",
       "description": "어린이 공연 <매직앤사이언스>\n\n\n\n\n○ 운영일시: 2026. 9. 3.(목) 16:00~17:00\n\r\n○ 대 상: 어린이 및 보호자 50팀(100명)\n\r\n○ 장 소: 분당도서관 지하1층 시청각실\n\r\n○ 접수기간: 2026. 8. 27.(목) 10:00 ~ 마감 시\n\r\n○ 접수방법: 배움숲 선착순 접수  \n >>>접수바로가기<<<\n\r\n○ 내 용: 마술과 과학의 요소를 결합한 융복합 어린이 공연\n\r\n○ 문 의: 031-729-4669",
-      "created_at": "2026-08-26T22:49:39.225716",
+      "created_at": "2026-08-26T23:04:10.013281",
       "id": "41cdd39644ee"
     },
     {
@@ -1657,9 +1658,9 @@
       "title": "[분당도서관] 2026년 분당도서관 독서의 달 저자특강 문요한 작가와의 만남 행사 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#분당도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "성남시민 80명",
       "region": "경기도 성남시 분당구 불정로",
@@ -1676,7 +1677,7 @@
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209559",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260825102101016.jpg",
       "description": "문요한 작가와의 만남\n\n\n『마음과 마음을 잇다』\n\n\n일시: 9.12.(토) 10:00-11:30\n\n\n대상: 성남시민 80명\n\n\n장소: 분당도서관 지하1층 시청각실\n\n\n내용: 오해와 갈등을 줄이고 건강한 관계를 만들기위한 '마음 헤아리기'의 개념과 함양 방안\n\n\n접수방법: 평생학습 통합플랫폼 ‘배움숲’ 선착순 접수 >>>>\n신청바로가기\n<<<<  \n** 65세이상 현장접수 가능\n\n\n접수시간: 8. 28.(금) 10:00 ~ 마감 시\n\r\n문의: 031-729-4669",
-      "created_at": "2026-08-26T22:49:39.729628",
+      "created_at": "2026-08-26T23:04:10.552650",
       "id": "3b5d72de844c"
     },
     {
@@ -1685,9 +1686,9 @@
       "title": "[분당도서관] ★2026년 하반기 분당도서관 문화교실 추가모집 안내★",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#분당도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 불정로",
@@ -1704,7 +1705,7 @@
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209563",
       "image_url": "https://www.snlib.go.kr/include/image/common/ico_sns_favicon.png",
       "description": "★★배움숲 수강신청 바로가기★★\n\n\n\n\n2025년 하반기 분당도서관 문화교실 '신나는 책놀이' 수강생 추가모집 안내(타 강좌와 중복수강 가능)\n\n\n○ 운영기간: 2025. 9. 8.(화) ~ 12. 18.(금) [강좌별 12차시]\n\n\n○ 접수기간: 2025. 8. 25.(화) 10:00 ~ 8. 29.(토) 18:00 \n\n\n○ 접수방법: 성남시 배움숲(https://sugang.seongnam.go.kr/) 온라인 선착순 모집 \n\n\n○ 수강료: 무료(단, 재료 및 교재비 본인 부담)\n\n\n○ 문의: 분당도서관 자료정보팀 담당자(T.031-729-4663)\n\n\n○ 모집강좌             \n\n\n\n\n\n\n\n\n강좌명",
-      "created_at": "2026-08-26T22:49:40.268695",
+      "created_at": "2026-08-26T23:04:11.081114",
       "id": "35d2ba17a2be"
     },
     {
@@ -1713,9 +1714,9 @@
       "title": "[분당도서관] [유아실 주간행사] 9월 동화책읽어주기",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#분당도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 불정로",
@@ -1732,7 +1733,7 @@
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209572",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260826134250606.jpg",
       "description": "분당도서관 9월 동화책읽어주기\n\n\n\r\n장소 | 어린이가족열람실 내 유아실 (1층)\n\r\n시간 | 오후 3시 30분~ (매주 수요일)\n\n\n\r\n가장 효과적이고 감성적인 교육자료 동화책! 소중한 우리아이를 책을 좋아하는 아이, 마음이 따뜻한 아이, 행복한 아이로 키워주세요 ♥\n\r\n \r\n\n\n\n\n\n\n\n일시\n\n\n어떤 동화책을 읽나요?\n\n\n재능기부자\n\n\n\n\n\n\n9월 2일(수)\n\n\n우리는 찌르레기입니다 | 로버트퍼로.도나 조 나폴리 | 여유당\n\r\n\t\t\t메리 | 안녕달 | 사계절\n\n\n최지영 선생님\n\n\n\n\n\n\n9월 9일(수)\n\n\n삐딱이를 찾아라 | 김태호 | 비룡소\n\r\n\t\t\t내 모자 | 시모카와라 | 천개의바람\n\n\n강태임 선생님",
-      "created_at": "2026-08-26T22:49:40.839553",
+      "created_at": "2026-08-26T23:04:11.659138",
       "id": "9e6a68ad63cb"
     },
     {
@@ -1741,9 +1742,9 @@
       "title": "[분당도서관] 2026년 하반기 문화교실 및 독서회 모집안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#성남시",
         "#분당도서관",
-        "#성남시"
+        "#도서관체험"
       ],
       "target_age": "성남시민",
       "region": "경기도 성남시 분당구 불정로",
@@ -1760,7 +1761,7 @@
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209264",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260813153225320.jpg",
       "description": "2026년 하반기 분당도서관 문화교실 및 독서회 수강생 모집 안내\n\n\n○ 운영기간: 2026. 9.  8.(화) ~ 12.18.(금) [강좌별 12차시]\n\r\n○ 접수기간: \n2026. 8. 18.(화) 10:00\n ~ 8.30.(일) 18:00 \n(강좌별 접수시간 상이)\n  \n\r\n○ 모집대상: 성남시민\n\r\n○ 접수방법: 성남시 배움숲(https://sugang.seongnam.go.kr/) 온라인 선착순 모집   \n\r\n                  \n★★수강신청(배움숲) 바로가기★★\n\r\n○ 모집강좌 (첨부파일 또는 배움숲 참조)\n\n\n○ 문의: 분당도서관 자료정보팀(729-4663)",
-      "created_at": "2026-08-26T22:49:41.891034",
+      "created_at": "2026-08-26T23:04:12.718171",
       "id": "d8f185049942"
     },
     {
@@ -1769,9 +1770,9 @@
       "title": "[판교도서관] 2026년 판교도서관 9월 독서의 달 행사 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교도서관",
         "#성남시",
-        "#판교도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교공원로",
@@ -1788,7 +1789,7 @@
       "url": "https://www.snlib.go.kr/pg/20001/bbsPostDetail.do?postIdx=209343",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260814134249367.jpg",
       "description": "2026ë…„ íŒ�êµ�ë�„ì„œê´€ 9ì›” ë�…ì„œì�˜ ë‹¬ í–‰ì‚¬ ì•ˆë‚´\n\n\n\n\nğŸ�� ìš´ì˜�ë‚´ìš©\n\n\n\n\n\n\n\n\nêµ¬ë¶„\n\n\ní–‰ì‚¬ëª…\n\n\nì�¼ì •\n\n\nì�¥ì†Œ\n\n\nëŒ€ìƒ�\n\n\në‚´ìš©\n\n\n\n\n\n\n\n\n\n\nê³µëª¨\n\n\nì œ4íšŒ ë�…í›„ê°� ê³µëª¨ì „\n\n\n8.18.(í™”)~9.20.(ì�¼)\n\n\në¹„ëŒ€ë©´(ì˜¨ë�¼ì�¸ ì œì¶œ)\n\n\nì „êµ­ë¯¼ ëˆ„êµ¬ë‚˜\n\r\n\t\t\t(ì´ˆë“± 4í•™ë…„ ì�´ìƒ�)\n\n\nëŒ€ìƒ�ë�„ì„œ ì¤‘ 1ê¶Œì�„ ì�½ê³  ë�…í›„ê°� ì˜¨ë�¼",
-      "created_at": "2026-08-26T22:49:43.243577",
+      "created_at": "2026-08-26T23:04:13.938762",
       "id": "0019dd692681"
     },
     {
@@ -1797,9 +1798,9 @@
       "title": "[판교도서관] 판교도서관 9월 독서의 달 저자특강 「AI 시대, 강력한 개인이 온다」 구본권 작가와의 만남",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#판교도서관",
         "#성남시",
-        "#판교도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 판교공원로",
@@ -1816,7 +1817,7 @@
       "url": "https://www.snlib.go.kr/pg/20001/bbsPostDetail.do?postIdx=209412",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260818173735922.jpg",
       "description": "2026ë…„ íŒ�êµ�ë�„ì„œê´€ 9ì›” ë�…ì„œì�˜ ë‹¬ ì €ì��íŠ¹ê°•\n\n\nAI ì‹œëŒ€, ê°•ë ¥í•œ ê°œì�¸ì�´ ì˜¨ë‹¤\n\n\nêµ¬ë³¸ê¶Œ ì�‘ê°€ì™€ì�˜ ë§Œë‚¨\n\n\n\r\nâ–¶ï¸�\në°°ì›€ìˆ² ì‹ ì²­ ë°”ë¡œê°€ê¸°\n\n\n\r\nğŸŸ¦ ê°•ì—°ì�¼ì‹œ: 2026. 9. 12.(í† ) 10:00\n\r\nğŸŸ¦ ëª¨ì§‘ê¸°ê°„: \n2026. 8. 25.(í™”) 10:00 ~ ë§ˆê°� ì‹œ\n\r\nğŸŸ¦ ëª¨ì§‘ë°©ë²•: ì„±ë‚¨ì‹œ 'ë°°ì›€ìˆ²' í™ˆí�˜ì�´ì§€ ì„ ì°©ìˆœ ì ‘ìˆ",
-      "created_at": "2026-08-26T22:49:43.831937",
+      "created_at": "2026-08-26T23:04:14.424834",
       "id": "eb5ac2e46156"
     },
     {
@@ -1825,9 +1826,9 @@
       "title": "[위례도서관] 2026년 위례도서관 독서의 달 강좌 수강생 모집 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
         "#위례도서관",
-        "#성남시"
+        "#성남시",
+        "#도서관체험"
       ],
       "target_age": "유아(2020~2021년생) 16명(A반 8명, B반 8명)",
       "region": "경기도 성남시 수정구 위례동",
@@ -1844,7 +1845,7 @@
       "url": "https://www.snlib.go.kr/wr/20001/bbsPostDetail.do?postIdx=209277",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260826172555387.jpg",
       "description": "2026년 독서의 달 운영 안내\n\n\n\n\n행사기간 : 2026. 9. 1.(화) ~ 9. 30.(수)\n\n\n강좌 접수기간 : 2026. 8. 20.(목) 10:00 ~ 마감 시\n\n\n강좌 접수방법 : 성남시 평생학습 통합 플랫폼 '배움숲' 온라인 선착순 접수\n \nhttps://sugang.seongnam.go.kr/\n\n\n※\n 반드시 수강생 본인의 ID로 신청해야 합니다. \n\n\n문의전화 : 031-729-8953\n\n\n자세한 강의 내용은 '배움숲' 강의계획서를 꼭 참고해주세요.\n\n\n상기 일정 및 내용은 사정에 따라 변경될 수 있습니다.\n\n\n운영내용\n\n\n\n\n\n\n단기강좌: 꿈과 생각이 자라는 그림책 놀이터(A반,",
-      "created_at": "2026-08-26T22:49:46.263413",
+      "created_at": "2026-08-26T23:04:16.681692",
       "id": "04c570b5ed3f"
     },
     {
@@ -1853,9 +1854,9 @@
       "title": "[위례도서관] 2026년 하반기 독서회 수강생 모집(위례도서관)",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
         "#위례도서관",
-        "#성남시"
+        "#성남시",
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 수정구 위례동",
@@ -1872,7 +1873,7 @@
       "url": "https://www.snlib.go.kr/wr/20001/bbsPostDetail.do?postIdx=209174",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260807150648520.jpg",
       "description": "위례도서관 2026년 하반기 독서회 수강생 모집\n\r\n○ 운영기간: 2026. 9. 4.(금) ~ 12. 18.(금)\n\r\n○ 신청기간: 2026. 8. 21.(금) 10:00 ~ 마감 시까지\n\r\n○ 신청방법: 배움숲(아래의 링크 클릭→기관정보 클릭→'위례도서관 검색')\n\n\n배움숲 바로가기\n\r\n○ 수업장소: 성남시 위례도서관 4층 문화교실(성남시 수정구 위례순환로 125 위례행정복지센터 4층)\n\r\n \r\n\n강좌 세부내용\n\n\n\n\n\n\n\n\n수업명\n\n\n대상\n\n\n수업시간\n\n\n재료비\n\n\n\n\n\n\n1-2학년 독서회\n\n\n초1-2 10명\n\n\n9. 9. ~ 12. 9.(매주 수)\n\r\n\t\t\t15:30-17:30\n\n\n무료\n\n\n\n\n\n\n3-",
-      "created_at": "2026-08-26T22:49:46.811381",
+      "created_at": "2026-08-26T23:04:17.197067",
       "id": "d477df42de04"
     },
     {
@@ -1881,9 +1882,9 @@
       "title": "[중원어린이도서관] 중/어2026년 9월 우주체험관 천체관측 일정 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#중원어린이도서관",
         "#성남시",
-        "#중원어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 중원구 금광동",
@@ -1900,7 +1901,7 @@
       "url": "https://www.snlib.go.kr/cjw/20001/bbsPostDetail.do?postIdx=209561",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260825110938572.png",
       "description": "우주체험관 프로그램 확인 및 예약을 하시려면 버튼을 누르세요\n\n\n프로그램 안내\n \n예약하기",
-      "created_at": "2026-08-26T22:49:48.086976",
+      "created_at": "2026-08-26T23:04:18.292369",
       "id": "98504a3c40af"
     },
     {
@@ -1909,9 +1910,9 @@
       "title": "[중원어린이도서관] 중/어2026년 중원어린이도서관 독서의 달 행사 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#중원어린이도서관",
         "#성남시",
-        "#중원어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 중원구 금광동",
@@ -1928,7 +1929,7 @@
       "url": "https://www.snlib.go.kr/cjw/20001/bbsPostDetail.do?postIdx=209423",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260819141420107.jpg",
       "description": "2026년 중원어린이도서관 독서의 달\n 행사 안내\n\n\n□ \n행사기간\n: 2025. 9. 2.(화\n) ~ 9. 30.(화\n)\n\n\n□ \n접수기간\n: 어린이공연 - \n2026. 9. 1.(화) 10:00 ~ 선착순 마감\n\n\n단기강좌 - \n2025. 9.3.(목) 10:00 ~ 선착순 마감\n\n\n□ \n접수방법\n: \n성남시 \n‘\n배움숲\n’ \n홈페이지 온라인 선착순 모집 \n(https://sugang.seongnam.go.kr/)\n\n\n※ 배움숲 홈페이지 접속 (\nhttps://sugang.seongnam.go.kr/\n ) \n➜\n평생학습강좌\n(\n수강신청\n)\n바로가기\n➜\n로그인\n➜ \"중원어린이\n도서관\" 검색\n➜\n수강신청",
-      "created_at": "2026-08-26T22:49:49.122690",
+      "created_at": "2026-08-26T23:04:19.255261",
       "id": "e6ad2e4d2353"
     },
     {
@@ -1937,9 +1938,9 @@
       "title": "[중원어린이도서관] 중/어중원어린이도서관 우주체험관 이용안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#중원어린이도서관",
         "#성남시",
-        "#중원어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 중원구 금광동",
@@ -1956,7 +1957,7 @@
       "url": "https://www.snlib.go.kr/cjw/20001/bbsPostDetail.do?postIdx=201251",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20250626105142911.jpg",
       "description": "중원어린이도서관에서 운영하는 중/어중원어린이도서관 우주체험관 이용안내 안내입니다. 성남시 도서관 홈페이지에서 신청 및 상세 일정을 확인하실 수 있습니다.",
-      "created_at": "2026-08-26T22:49:51.367078",
+      "created_at": "2026-08-26T23:04:21.440724",
       "id": "88524353c11e"
     },
     {
@@ -1965,9 +1966,9 @@
       "title": "[중원어린이도서관] 중/어8월 <문화가 있는 날> <경기도 문화의 날> 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#중원어린이도서관",
         "#성남시",
-        "#중원어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 중원구 금광동",
@@ -1984,7 +1985,7 @@
       "url": "https://www.snlib.go.kr/cjw/20001/bbsPostDetail.do?postIdx=209073",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260803161509297.jpg",
       "description": "• 행사명 : < 두배로 데이 >\n\r\n• 일   시 : 2026년 8월 26일(수) 9 ~ 20시\n\r\n• 장   소 : 꼬마책동산(1층), 어린이책동산(2층)\n\r\n• 내   용 : 도서 대출권수 2배로 확대 <6권→12권>\n\r\n           - 유아, 다자녀 등의 이용자도 12권까지만 대출가능합니다.\n\r\n           - DVD는 기존과 동일하게 중학생이상 2점까지만 대출가능합니다.\n\r\n• 문   의 : 꼬마책동산 729-4365, 어린이책동산 729-4364",
-      "created_at": "2026-08-26T22:49:51.962771",
+      "created_at": "2026-08-26T23:04:21.991642",
       "id": "19f2fb9a15e9"
     },
     {
@@ -1993,9 +1994,9 @@
       "title": "[중원어린이도서관] 중/어2026년도 중원어린이도서관 부설주차장 2년주기 월정기 추첨 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
+        "#중원어린이도서관",
         "#성남시",
-        "#중원어린이도서관"
+        "#도서관체험"
       ],
       "target_age": "중원어린이도서관 부설주차장",
       "region": "경기도 성남시 중원구 금광동",
@@ -2012,7 +2013,7 @@
       "url": "https://www.snlib.go.kr/cjw/20001/bbsPostDetail.do?postIdx=208738",
       "image_url": "https://www.snlib.go.kr/include/image/common/ico_sns_favicon.png",
       "description": "중원어린이도서관 부설주차장 월정기 추첨 안내(2년)\n\n\n \n\n\n2026년 중원어린이도서관 부설주차장 월정기권 추첨을 안내하오니 아래 내용\n 확인하시고 기한 내 신청 하시기 바랍니다\n.\n\n\n\n\n○\n  \n추첨 대상\n: \n중원어린이도서관 부설주차장\n(성남시 중원구 산성대로 408번길 42)\n\n\n○\n  \n신청 대상\n: \n모집 기간 내 신청자\n\n\n   ※ \n1.5톤\n \n이하\n \n(높이 2M\n \n이하)\n \n승용,\n \n승합차 기준\n이며,\n \n대형차량(\n캠핑카 및 특수차량 포함)\n \n등은 신청 불가\n\n\n   ※ \n차량 당 \n1개만 신청 가능하며 이중 신청의 경우 1\n개만 추첨 진행\n\n\n\n\n○ \n \n신청 기간: \n2026. 8. 4",
-      "created_at": "2026-08-26T22:49:53.174450",
+      "created_at": "2026-08-26T23:04:23.104956",
       "id": "4861fe585fb9"
     },
     {
@@ -2021,9 +2022,9 @@
       "title": "[서현도서관] 2026년 서현도서관 독서의 달 행사 안내 (모집 8.26(수) 10시~)",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
         "#서현도서관",
-        "#성남시"
+        "#성남시",
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 서현동",
@@ -2040,7 +2041,7 @@
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=209295",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260813152507485.jpg",
       "description": ">>>>>>>>>수강신청 페이지 바로가기<<<<<<<<<<\n \n \n\n\n\n\n\n\n\n\n[서현도서관 독서의 달 행사안내 ]\n\n\n\n\n* 특강 모집: 배움숲 온라인 선착순 접수 [ 8/26(수) 10시 ~ 마감시까지 ]\n\n\n\r\n1. [전시] '우리가족 독서가훈' 가족독서단 참여자 작품 전시\n\r\n- 9/12(토)~9/30(수) / 1층 로비\n\n\n\r\n2. [대출행사] 서현을 담은 책\n\r\n- 9/9(수) ~ 선착순 100개 한정/ 각 자료실 데스크\n\r\n- 당일 3권 이상 대출시 NFC책키링 증정 (1인 1개)\n\r\n ※무인기 대출시 자료실 데스크에서 확인증 제시 후 교환\n\n\n\r\n3. [잡지배부] 잡지골라 테이크아웃\n\r\n-",
-      "created_at": "2026-08-26T22:49:54.883730",
+      "created_at": "2026-08-26T23:04:24.909135",
       "id": "52570f61c187"
     },
     {
@@ -2049,9 +2050,9 @@
       "title": "[서현도서관] 2026년 하반기 서현도서관 문화교실 및 독서회 수강생 모집",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
         "#서현도서관",
-        "#성남시"
+        "#성남시",
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 서현동",
@@ -2068,7 +2069,7 @@
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=208761",
       "image_url": "https://www.snlib.go.kr/include/image/common/ico_sns_favicon.png",
       "description": "[서현도서관 하반기 문화교실 및 독서회 수강생 모집]\n\n\n수강 신청 전 “배움숲” 회원가입을 하셔야 수강 신청이 가능합니다.\n\n\n\n\n◯ 운영기간: \n2026. 9. 7.(월) ~ 12. 12.(토) (강좌별 강의계획서 확인 필수)\n\n\n◯ 접수기간:\n 2026. 8.18.(화) 10:00 ~ 8.24.(월) 선착순 마감\n (※ 과목별 접수 시간을 확인하세요)\n\n\n◯ 접수방법: 평생학습포털 배움숲(\nhttp://sugang.seongnam.go.kr\n) 온라인 선착순 모집\n\n\n    ※ 유아 및 어린이 강좌는 반드시 참여 어린이 ID로 신청(수강 신청 전 로그인 확인 필수)\n\r\n◯ 분야별(문화교실, 독서회) 각1강좌씩",
-      "created_at": "2026-08-26T22:49:55.394429",
+      "created_at": "2026-08-26T23:04:25.366542",
       "id": "09de33977866"
     },
     {
@@ -2077,9 +2078,9 @@
       "title": "[서현도서관] 2026년 서현도서관 여름방학특강 ‘이야기를 그리는 평면 니들펠트(초4~6)’ 수강생 모집 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
         "#서현도서관",
-        "#성남시"
+        "#성남시",
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 서현동",
@@ -2096,7 +2097,7 @@
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=208548",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260709112653151.jpg",
       "description": "서현도서관에서 운영하는 2026년 서현도서관 여름방학특강 ‘이야기를 그리는 평면 니들펠트(초4~6)’ 수강생 모집 안내 안내입니다. 성남시 도서관 홈페이지에서 신청 및 상세 일정을 확인하실 수 있습니다.",
-      "created_at": "2026-08-26T22:49:55.907171",
+      "created_at": "2026-08-26T23:04:25.836114",
       "id": "f00f58b742b1"
     },
     {
@@ -2105,9 +2106,9 @@
       "title": "[서현도서관] 2026년 서현도서관 여름방학특강 ‘까뮤와 함께하는 그림책 감정미술관(초1~2)’ 수강생 모집 안내",
       "category": "도서관체험",
       "tags": [
-        "#도서관체험",
         "#서현도서관",
-        "#성남시"
+        "#성남시",
+        "#도서관체험"
       ],
       "target_age": "유아 및 초등학생 가족",
       "region": "경기도 성남시 분당구 서현동",
@@ -2124,7 +2125,7 @@
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=208545",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260709104339015.png",
       "description": "서현도서관에서 운영하는 2026년 서현도서관 여름방학특강 ‘까뮤와 함께하는 그림책 감정미술관(초1~2)’ 수강생 모집 안내 안내입니다. 성남시 도서관 홈페이지에서 신청 및 상세 일정을 확인하실 수 있습니다.",
-      "created_at": "2026-08-26T22:49:56.412586",
+      "created_at": "2026-08-26T23:04:26.361477",
       "id": "3486bfe75061"
     },
     {
@@ -2153,7 +2154,7 @@
       "url": "https://phlib.pohang.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "포항시립 포은흥해도서관 어린이 음악도서관 체험 및 아이누리 독서문화 강좌 안내입니다.",
-      "created_at": "2026-08-26T22:49:56.414582",
+      "created_at": "2026-08-26T23:04:26.363506",
       "id": "281cee1a60f8"
     },
     {
@@ -2181,7 +2182,7 @@
       "url": "https://www.michuhollib.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천광역시 대표 도서관 미추홀도서관 어린이 전용 꿈나무터 독서문화 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:56.414582",
+      "created_at": "2026-08-26T23:04:26.363506",
       "id": "c7cf465462bb"
     },
     {
@@ -2209,7 +2210,7 @@
       "url": "https://www.yslib.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "송도국제어린이도서관 외국어 그림책 읽어주기 및 창의메이커 체험 프로그램입니다.",
-      "created_at": "2026-08-26T22:49:56.414582",
+      "created_at": "2026-08-26T23:04:26.364071",
       "id": "994c7afc05f7"
     }
   ]
