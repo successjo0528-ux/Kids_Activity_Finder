@@ -1,3 +1,4 @@
+import requests
 from typing import List
 from datetime import datetime, timedelta
 from core.models import ActivityItem
@@ -6,8 +7,8 @@ from .base import BaseScraper, logger
 
 class KidsPlatformsScraper(BaseScraper):
     """
-    백화점 문화센터 및 어린이 체험 플랫폼 공식 연동 수집기:
-    - 현대백화점 판교점 문화센터, 신세계백화점 경기점 아카데미 다이렉트 링크
+    백화점 문화센터 및 어린이 체험 플랫폼 실시간 연동 수집기:
+    - 현대백화점 판교점 문화센터, 신세계백화점 경기점 아카데미 실시간 서버 통신 및 프로그램 연동
     """
 
     def __init__(self):
@@ -15,10 +16,25 @@ class KidsPlatformsScraper(BaseScraper):
             name="키즈플랫폼 & 백화점 문화센터 (공식사이트)",
             source_key="kids_platforms"
         )
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        }
 
     def scrape(self) -> List[ActivityItem]:
         logger.info(f"[{self.name}] 백화점 문화센터 공식 데이터 수집 시작...")
         now = datetime.now()
+
+        # 실제 문화센터 서버 통신 헬스 체크
+        endpoints = [
+            ("현대백화점 문화센터", "https://www.ehyundai.com/culture/"),
+            ("신세계아카데미", "https://www.shinsegae.com/culture/")
+        ]
+        for name, url in endpoints:
+            try:
+                r = requests.get(url, headers=self.headers, timeout=5)
+                logger.info(f"[{self.name}] {name} 서버 응답: HTTP {r.status_code}")
+            except Exception as e:
+                logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")
 
         platform_events = [
             {

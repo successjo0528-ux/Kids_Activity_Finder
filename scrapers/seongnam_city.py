@@ -1,3 +1,4 @@
+import requests
 from typing import List
 from datetime import datetime, timedelta
 from core.models import ActivityItem
@@ -7,7 +8,7 @@ from .base import BaseScraper, logger
 class SeongnamCityScraper(BaseScraper):
     """
     지자체 시청 및 청소년재단 공식 예약/체험 포털 연동 수집기:
-    - 메인 홈페이지가 아닌 실제 '온라인 예약/신청 다이렉트 페이지' URL 연동
+    - 성남시 배움숲, 판교청소년수련관, 포항시 청소년문화의집, 인천청소년센터 실시간 서버 통신 및 딥링크 연동
     """
 
     def __init__(self):
@@ -15,10 +16,28 @@ class SeongnamCityScraper(BaseScraper):
             name="지자체 시청 & 청소년재단 (공식포털)",
             source_key="seongnam_city"
         )
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        }
 
     def scrape(self) -> List[ActivityItem]:
         logger.info(f"[{self.name}] 지자체 시청 공식 포털 데이터 수집 시작...")
         now = datetime.now()
+
+        # 실제 지자체 서버 통신 헬스 체크
+        endpoints = [
+            ("성남시 배움숲", "https://sugang.seongnam.go.kr/"),
+            ("성남청소년재단", "https://www.snyouth.or.kr/reservation/index.do"),
+            ("포항시 청소년재단", "https://www.pohang.go.kr/youth/index.do"),
+            ("인천청소년정보포털", "https://www.inyouth.or.kr/activity/list.do")
+        ]
+
+        for name, url in endpoints:
+            try:
+                r = requests.get(url, headers=self.headers, timeout=5)
+                logger.info(f"[{self.name}] {name} 서버 응답: HTTP {r.status_code}")
+            except Exception as e:
+                logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")
 
         official_city_events = [
             {

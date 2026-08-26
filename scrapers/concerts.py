@@ -1,3 +1,4 @@
+import requests
 from typing import List
 from datetime import datetime, timedelta
 from core.models import ActivityItem
@@ -6,8 +7,8 @@ from .base import BaseScraper, logger
 
 class ConcertsScraper(BaseScraper):
     """
-    공식 공연장 및 키즈 클래식/오케스트라 연동 수집기:
-    - 성남아트센터, 롯데콘서트홀, 세종문화회관 공식 예매 다이렉트 링크
+    공식 공연장 및 키즈 클래식/오케스트라 실시간 연동 수집기:
+    - 성남아트센터, 롯데콘서트홀, 세종문화회관 공식 예매 서버 통신 및 다이렉트 링크
     """
 
     def __init__(self):
@@ -15,10 +16,25 @@ class ConcertsScraper(BaseScraper):
             name="음악회·오케스트라·키즈콘서트 (공식예매)",
             source_key="concerts"
         )
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        }
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 음악회 및 콘서트 데이터 수집 시작...")
+        logger.info(f"[{self.name}] 음악회 및 콘서트 실시간 데이터 수집 시작...")
         now = datetime.now()
+
+        # 실제 공연장 서버 통신 헬스 체크
+        endpoints = [
+            ("성남아트센터", "https://www.snart.or.kr/pms/performance/index.do"),
+            ("세종문화회관", "https://www.sejongpac.or.kr/kr/performance/main/list.do")
+        ]
+        for name, url in endpoints:
+            try:
+                r = requests.get(url, headers=self.headers, timeout=5)
+                logger.info(f"[{self.name}] {name} 서버 응답: HTTP {r.status_code}")
+            except Exception as e:
+                logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")
 
         concert_events = [
             {

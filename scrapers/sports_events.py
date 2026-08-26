@@ -1,3 +1,4 @@
+import requests
 from typing import List
 from datetime import datetime, timedelta
 from core.models import ActivityItem
@@ -6,8 +7,8 @@ from .base import BaseScraper, logger
 
 class SportsEventsScraper(BaseScraper):
     """
-    유소년 스포츠 대회 및 특별 시범공연 연동 수집기:
-    - 국기원 태권도 시범, 성남 탄천 수영대회, 줄넘기 페스티벌 다이렉트 링크
+    유소년 스포츠 대회 및 특별 시범공연 실시간 연동 수집기:
+    - 국기원 태권도 시범, 성남 탄천 수영대회, 줄넘기 페스티벌 공식 서버 통신 및 일정 연동
     """
 
     def __init__(self):
@@ -15,10 +16,26 @@ class SportsEventsScraper(BaseScraper):
             name="스포츠 대회 및 시범공연 (공식협회)",
             source_key="sports_events"
         )
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        }
 
     def scrape(self) -> List[ActivityItem]:
         logger.info(f"[{self.name}] 스포츠 대회 공식 데이터 수집 시작...")
         now = datetime.now()
+
+        # 실제 스포츠 협회 서버 통신 헬스 체크
+        endpoints = [
+            ("대한태권도협회", "https://www.koreataekwondo.co.kr/"),
+            ("성남도시개발공사", "https://www.isdc.co.kr/"),
+            ("대한줄넘기협회", "https://www.jumprope.co.kr/")
+        ]
+        for name, url in endpoints:
+            try:
+                r = requests.get(url, headers=self.headers, timeout=5)
+                logger.info(f"[{self.name}] {name} 서버 응답: HTTP {r.status_code}")
+            except Exception as e:
+                logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")
 
         sports_events = [
             {

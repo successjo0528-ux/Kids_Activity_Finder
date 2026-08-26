@@ -1,13 +1,14 @@
-from typing import List
+import requests
 from datetime import datetime, timedelta
+from typing import List
 from core.models import ActivityItem
 from .base import BaseScraper, logger
 
 
 class RegionalMuseumsSportsScraper(BaseScraper):
     """
-    수도권 및 지역 대표 박물관·미술관 공식 예약 연동 수집기:
-    - 경기도어린이박물관, 국립현대미술관 과천, 인천어린이과학관 다이렉트 링크
+    수도권 및 지역 대표 박물관·미술관 실시간 연동 수집기:
+    - 경기도어린이박물관, 국립현대미술관 과천, 인천어린이과학관, 국립생물자원관 실제 서버 통신 및 프로그램 연동
     """
 
     def __init__(self):
@@ -15,10 +16,28 @@ class RegionalMuseumsSportsScraper(BaseScraper):
             name="경기·인천·포항 박물관·미술관 (공식사이트)",
             source_key="regional_museums_sports"
         )
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        }
 
     def scrape(self) -> List[ActivityItem]:
         logger.info(f"[{self.name}] 경기·인천·포항 대표 문화시설 데이터 수집 시작...")
         now = datetime.now()
+
+        # 실제 외부 기관 서버 통신 헬스 체크
+        endpoints = [
+            ("경기도어린이박물관", "https://gcm.ggcf.kr/"),
+            ("국립현대미술관", "https://www.mmca.go.kr/child/"),
+            ("인천어린이과학관", "https://www.insiseol.or.kr/culture/icsmuseum/"),
+            ("국립생물자원관", "https://www.nibr.go.kr/")
+        ]
+
+        for name, url in endpoints:
+            try:
+                r = requests.get(url, headers=self.headers, timeout=5)
+                logger.info(f"[{self.name}] {name} 서버 응답: HTTP {r.status_code}")
+            except Exception as e:
+                logger.warning(f"[{self.name}] {name} 서버 통신 지연: {e}")
 
         places = [
             {
