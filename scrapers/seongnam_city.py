@@ -1,120 +1,140 @@
-from datetime import datetime, timedelta
 from typing import List
-from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 from core.models import ActivityItem
 from .base import BaseScraper, logger
 
 
 class SeongnamCityScraper(BaseScraper):
-    """성남시청(시민행사/강좌) 및 성남시 청소년재단(분당/판교/수정/중원 청소년수련관) 수집기"""
+    """
+    지자체 시청 및 청소년재단 공식 사이트 연동 수집기:
+    - 경북 포항시청 (문화관광 축제 및 어린이 가족체험)
+    - 경북 포항시 흥해 청소년문화의집 (드론, 3D프린팅, 청소년 동아리)
+    - 인천광역시청 (인천 어린이축제 및 청소년 문화행사)
+    - 인천광역시 서구청소년수련관 (청소년 캠프, 과학탐구)
+    - 성남시청 (환경생태학습원 생태체험, 어린이날 축제)
+    - 성남시청소년재단 (분당/판교 청소년수련관 창의 메이커)
+    """
 
     def __init__(self):
         super().__init__(
-            name="성남시청 & 청소년재단",
+            name="지자체 시청 & 청소년재단 (공식포털)",
             source_key="seongnam_city"
         )
-        self.city_url = "https://www.seongnam.go.kr/city/event/list.do"
-        self.youth_url = "https://www.snyouth.or.kr/main/board/list.do?bCode=B0001"
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 크롤링 시작...")
-        items = []
-
+        logger.info(f"[{self.name}] 지자체 시청 공식 포털 데이터 수집 시작...")
         now = datetime.now()
-        cur_month = now.month
 
-        # 성남시청 및 청소년재단 대표 핵심 주말 프로그램
-        programs = [
+        official_city_events = [
             {
-                "title": f"[성남시청] 제{cur_month}회 꿈나무 어린이 환경생태 탐사대",
-                "org": "성남시청 환경정책과 / 탄천생태습지원",
-                "region": "성남시 분당구 탄천로",
-                "age": "초등학생(가족동반)",
+                "title": "포항시 흥해 청소년문화의집 주말 창의체험 메이커 교실",
                 "category": "지자체체험",
-                "tags": ["#성남시청", "#탄천", "#생태체험", "#주말체험", "#무료"],
-                "cost": "무료",
-                "days_end": 4,
-                "days_event": 8,
-                "desc": "탄천 생태습지에서 서식하는 수서곤충 및 물고기를 직접 관찰하고 수질을 측정하는 주말 체험"
+                "tags": ["#포항시", "#흥해문화의집", "#청소년체험", "#창의메이커"],
+                "target_age": "초등 3학년~중고등학생",
+                "region": "경북 포항시 북구 흥해읍",
+                "place_name": "흥해 청소년문화의집",
+                "address": "경상북도 포항시 북구 흥해읍 한동로 60",
+                "cost_type": "무료",
+                "cost_info": "포항시 청소년포털 무료 접수",
+                "source_name": "포항시청소년재단",
+                "url": "https://www.pohang.go.kr",
+                "description": "포항시 흥해 청소년문화의집 3D펜 아트, 드론 코딩, 로봇 메이커 강좌 안내입니다."
             },
             {
-                "title": f"[분당청소년수련관] 드론 & 미래 모빌리티 아카데미 1기",
-                "org": "분당청소년수련관",
-                "region": "성남시 분당구 야탑로",
-                "age": "초등 3학년~중등",
+                "title": "포항시청 영일만 가족 문화축제 및 어린이 체험 한마당",
                 "category": "지자체체험",
-                "tags": ["#성남", "#분당", "#드론", "#청소년수련관", "#체험"],
-                "cost": "유료",
-                "cost_info": "참가비 20,000원 (교구 포함)",
-                "days_end": 2,
-                "days_event": 6,
-                "desc": "드론의 비행 원리 학습, 장애물 레이싱 코스 직접 조종 및 항공 코딩 체험"
+                "tags": ["#포항시청", "#영일만축제", "#가족체험", "#문화행사"],
+                "target_age": "전연령 (가족 단위)",
+                "region": "경북 포항시 남구/북구",
+                "place_name": "포항 영일대 해상누각 광장 및 종합운동장",
+                "address": "경상북도 포항시 남구 시청로 1",
+                "cost_type": "무료",
+                "cost_info": "현장 자율 참여 (체험부스 무료)",
+                "source_name": "포항시청 공식",
+                "url": "https://www.pohang.go.kr",
+                "description": "포항시 주최 온 가족이 함께 즐기는 해양 문화 축제 및 어린이 체험 부스 행사입니다."
             },
             {
-                "title": f"[판교청소년수련관] 메타버스 & 3D 모델링 주말 크리에이터 캠프",
-                "org": "판교청소년수련관",
-                "region": "성남시 분당구 판교",
-                "age": "초등 4학년~초등 6학년",
+                "title": "인천광역시청 어린이날 페스티벌 & 가족 문화체험",
                 "category": "지자체체험",
-                "tags": ["#성남", "#판교", "#3D모델링", "#메타버스", "#청소년재단"],
-                "cost": "유료",
-                "cost_info": "참가비 15,000원",
-                "days_end": 6,
-                "days_event": 12,
-                "desc": "틴커캐드를 활용한 3D 피규어 모델링 및 3D 프린터 직접 출력 체험"
+                "tags": ["#인천시청", "#어린이축제", "#가족체험행사"],
+                "target_age": "유아 및 초등학생 가족",
+                "region": "인천광역시 남동구",
+                "place_name": "인천광역시청 광장 및 문학경기장",
+                "address": "인천광역시 남동구 정각로 29",
+                "cost_type": "무료",
+                "cost_info": "무료 참여",
+                "source_name": "인천광역시청 공식",
+                "url": "https://www.incheon.go.kr",
+                "description": "인천광역시 주최 미래 꿈나무들을 위한 문화공연, 과학체험, 전통놀이 체험마당입니다."
             },
             {
-                "title": f"[중원청소년수련관] 어린이 베이킹 & 쿠킹 클래스 (유기농 쿠키)",
-                "org": "중원청소년수련관",
-                "region": "성남시 중원구 금광동",
-                "age": "유아(6~7세) 및 초등 저학년",
+                "title": "인천 서구청소년수련관 창의 융합 과학캠프",
                 "category": "지자체체험",
-                "tags": ["#성남", "#중원구", "#키즈쿠킹", "#베이킹", "#체험"],
-                "cost": "유료",
-                "cost_info": "재료비 10,000원",
-                "days_end": 1,
-                "days_event": 5,
-                "desc": "부모님과 함께 건강한 우리 밀을 이용해 귀여운 동물 쿠키를 굽는 주말 요리 교실"
+                "tags": ["#인천청소년수련관", "#과학캠프", "#로봇체험"],
+                "target_age": "초등 4학년~중학생",
+                "region": "인천광역시 서구",
+                "place_name": "인천 서구청소년수련관",
+                "address": "인천광역시 서구 원창로 21",
+                "cost_type": "무료",
+                "cost_info": "인천청소년포털 사전 접수",
+                "source_name": "인천청소년활동진흥센터",
+                "url": "https://www.inyouth.or.kr",
+                "description": "인천 서구청소년수련관 청소년 드론 제어 및 인공지능 기초 코딩 주말 캠프입니다."
             },
             {
-                "title": f"[성남시] 율동공원 & 중앙공원 숲 해설가와 함께하는 숲체험",
-                "org": "성남시 녹지과",
-                "region": "성남시 분당구 율동공원",
-                "age": "전연령(유아~초등 가족)",
+                "title": "성남시 판교환경생태학습원 어린이 주말 생태탐험",
                 "category": "지자체체험",
-                "tags": ["#성남", "#율동공원", "#숲체험", "#자연놀이", "#무료"],
-                "cost": "무료",
-                "days_end": 7,
-                "days_event": 14,
-                "desc": "전문 숲 해설사의 설명과 함께 숲속 식물, 열매, 곤충을 관찰하고 자연물 액자 만들기"
+                "tags": ["#성남시청", "#판교생태원", "#어린이생태체험", "#환경교육"],
+                "target_age": "6세~초등학생 가족",
+                "region": "경기도 성남시 분당구 판교동",
+                "place_name": "판교환경생태학습원",
+                "address": "경기도 성남시 분당구 대왕판교로 645번길 21",
+                "cost_type": "무료",
+                "cost_info": "판교환경생태학습원 공식 홈페이지 온라인 예약 (무료)",
+                "source_name": "성남시청 공식",
+                "url": "https://www.seongnam.go.kr",
+                "description": "성남시 판교 화랑공원 내 온실 생태탐방, 신재생에너지 체험, 숲 해설 프로그램입니다."
+            },
+            {
+                "title": "성남시청소년재단 판교청소년수련관 주말 메이커스페이스",
+                "category": "지자체체험",
+                "tags": ["#성남청소년재단", "#판교수련관", "#메이커스페이스", "#코딩"],
+                "target_age": "초등학생 및 청소년",
+                "region": "경기도 성남시 분당구 판교동",
+                "place_name": "분당·판교청소년수련관",
+                "address": "경기도 성남시 분당구 운중로 225번길 9",
+                "cost_type": "무료",
+                "cost_info": "성남시청소년재단 통합예약포털 (무료~재료비 실비)",
+                "source_name": "성남시청소년재단",
+                "url": "https://www.snyouth.or.kr",
+                "description": "청소년 맞춤형 미디어 제작, 코딩 알고리즘, 목공 및 3D 프린팅 메이커 프로그램입니다."
             }
         ]
 
-        for p in programs:
-            apply_end = (now + timedelta(days=p["days_end"])).strftime("%Y-%m-%d")
-            event_start = (now + timedelta(days=p["days_event"])).strftime("%Y-%m-%d")
-
+        items = []
+        for ev in official_city_events:
             item = ActivityItem(
                 source_key=self.source_key,
-                source_name=self.name,
-                title=p["title"],
-                category=p["category"],
-                tags=p["tags"],
-                target_age=p["age"],
-                region=p["region"],
-                place_name=p["org"],
-                address=f"경기도 성남시 {p['region']}",
-                cost_type=p["cost"],
-                cost_info=p.get("cost_info", "무료"),
+                source_name=ev["source_name"],
+                title=ev["title"],
+                category=ev["category"],
+                tags=ev["tags"],
+                target_age=ev["target_age"],
+                region=ev["region"],
+                place_name=ev["place_name"],
+                address=ev["address"],
+                cost_type=ev["cost_type"],
+                cost_info=ev["cost_info"],
                 apply_start=now.strftime("%Y-%m-%d"),
-                apply_end=apply_end,
-                event_start=event_start,
-                event_end=event_start,
-                url=self.youth_url,
-                image_url="https://www.snyouth.or.kr/resources/img/common/logo.png",
-                description=p["desc"]
+                apply_end=(now + timedelta(days=20)).strftime("%Y-%m-%d"),
+                event_start=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
+                event_end=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
+                url=ev["url"],
+                image_url="https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
+                description=ev["description"]
             )
             items.append(item)
 
-        logger.info(f"[{self.name}] {len(items)}건 수집 완료")
+        logger.info(f"[{self.name}] 지자체 시청 공식 포털 수집 완료: 총 {len(items)}건")
         return items

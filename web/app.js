@@ -31,7 +31,10 @@ async function loadData() {
   if (refreshIcon) refreshIcon.classList.add("fa-spin");
 
   try {
-    const res = await fetch("activities.json?t=" + new Date().getTime());
+    const res = await fetch("activities.json?t=" + new Date().getTime(), {
+      cache: "no-store",
+      headers: { "Pragma": "no-cache", "Cache-Control": "no-cache" }
+    });
     if (!res.ok) throw new Error("JSON 파일을 찾을 수 없습니다.");
     const data = await res.json();
 
@@ -249,18 +252,19 @@ function applyFilters() {
         if (!itemRegion.includes("전국")) return false;
       }
     } else if (currentMainRegion === "인천") {
-      if (!itemRegion.includes("인천") && !itemRegion.includes("송도") && !itemRegion.includes("계양")) {
+      if (!itemRegion.includes("인천") && !itemRegion.includes("송도") && !itemRegion.includes("계양") && !itemRegion.includes("미추홀")) {
         return false;
       }
     } else if (currentMainRegion === "포항") {
-      if (!itemRegion.includes("포항") && !itemRegion.includes("경북")) {
+      if (!itemRegion.includes("포항") && !itemRegion.includes("경북") && !itemRegion.includes("흥해")) {
         return false;
       }
     }
 
     // 2. 세부 지역 드롭다운 필터
     if (subRegion !== "전체") {
-      if (!item.region.includes(subRegion) && !item.place_name.includes(subRegion)) return false;
+      const regionSearchStr = `${item.region || ''} ${item.place_name || ''} ${item.address || ''} ${item.title || ''}`;
+      if (!regionSearchStr.includes(subRegion)) return false;
     }
 
     // 3. 카테고리 필터 (1:1 완전 일치)
@@ -552,6 +556,7 @@ function openDetailModal(id) {
   document.getElementById("modal-title").textContent = item.title;
   document.getElementById("modal-place").textContent = item.place_name || item.region;
   document.getElementById("modal-address").textContent = item.address || item.place_name;
+  document.getElementById("modal-source").textContent = item.source_name || "공식 주최 기관";
   document.getElementById("modal-age").textContent = item.target_age;
   document.getElementById("modal-apply-period").textContent = `${item.apply_start || '상시'} ~ ${item.apply_end || '선착순 마감'}`;
   document.getElementById("modal-event-period").textContent = `${item.event_start || '상세 안내 참조'} ${item.event_end && item.event_end !== item.event_start ? '~ ' + item.event_end : ''}`;

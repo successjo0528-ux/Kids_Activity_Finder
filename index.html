@@ -78,7 +78,7 @@
             🌊 인천광역시
           </button>
           <button class="region-chip" data-region="포항" onclick="setMainRegion('포항')">
-            🤖 포항시 (경북)
+            🤖 포항시 (흥해 포함)
           </button>
           <button class="region-chip" data-region="전체" onclick="setMainRegion('전체')">
             🌐 전체 권역
@@ -97,7 +97,7 @@
     <div class="max-w-6xl mx-auto px-4 pt-2 pb-1.5">
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-        <input type="text" id="search-input" placeholder="파크콘서트, 오케스트라, 어린이박물관, 미술관, 태권도, 수영, AI대회 검색..." 
+        <input type="text" id="search-input" placeholder="흥해도서관, 파크콘서트, 오케스트라, 어린이박물관, 미술관, 태권도, 수영, AI대회 검색..." 
                class="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-xs sm:text-sm rounded-xl pl-9 pr-10 py-2 transition border border-transparent focus:border-indigo-500 focus:outline-none shadow-inner">
         <button id="clear-search" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
           <i class="fa-solid fa-circle-xmark text-sm"></i>
@@ -112,10 +112,10 @@
         <button class="chip" data-category="음악공연" onclick="setCategory('음악공연')">🎵 음악회·콘서트</button>
         <button class="chip" data-category="과학박물관" onclick="setCategory('과학박물관')">🔬 박물관·미술관</button>
         <button class="chip" data-category="AI코딩대회" onclick="setCategory('AI코딩대회')">🤖 AI & 코딩대회</button>
-        <button class="chip" data-category="미술글짓기" data-category="미술글짓기" onclick="setCategory('미술글짓기')">🎨 미술·글짓기</button>
+        <button class="chip" data-category="미술글짓기" onclick="setCategory('미술글짓기')">🎨 미술·글짓기</button>
         <button class="chip" data-category="스포츠대회" onclick="setCategory('스포츠대회')">🥋 스포츠·태권도·수영</button>
-        <button class="chip" data-category="도서관체험" onclick="setCategory('도서관체험')">📚 성남 도서관</button>
-        <button class="chip" data-category="지자체체험" onclick="setCategory('지자체체험')">🏛️ 성남시청·청소년</button>
+        <button class="chip" data-category="도서관체험" onclick="setCategory('도서관체험')">📚 도서관 (성남·인천·흥해)</button>
+        <button class="chip" data-category="지자체체험" onclick="setCategory('지자체체험')">🏛️ 시청·지자체 (성남·인천·포항)</button>
         <button class="chip" data-category="전시행사" onclick="setCategory('전시행사')">🎪 전시·박람회</button>
         <button class="chip" data-category="키즈플랫폼" onclick="setCategory('키즈플랫폼')">📱 키즈노트·클래스</button>
       </div>
@@ -138,8 +138,9 @@
           <option value="과천">경기도 과천시 (과학관/미술관)</option>
           <option value="고양">경기도 고양시 (체육관/킨텍스)</option>
           <option value="서울">서울 (롯데콘서트홀/코엑스/박물관)</option>
-          <option value="인천">인천광역시</option>
-          <option value="포항">포항시</option>
+          <option value="인천">인천광역시 (시청/미추홀도서관/과학관)</option>
+          <option value="포항">경북 포항시 전체</option>
+          <option value="흥해">⭐ 포항시 흥해읍 (흥해도서관/아이누리)</option>
         </select>
 
         <!-- 대상 연령 필터 -->
@@ -304,6 +305,14 @@
               <span id="modal-cost-info" class="text-slate-600">무료</span>
             </div>
           </div>
+
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-building-columns text-indigo-500 mt-0.5 text-xs w-4"></i>
+            <div>
+              <strong class="text-slate-800 block text-xs">공식 출처 기관</strong>
+              <span id="modal-source" class="text-indigo-600 font-bold">공식 주최 기관</span>
+            </div>
+          </div>
         </div>
 
         <div>
@@ -343,6 +352,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=20260821_02"></script>
+  <script src="app.js?v=20260822_05"></script>
 </body>
 </html>

@@ -42,15 +42,13 @@ def save_activities(items: List[ActivityItem]) -> int:
     """새로운 활동 목록을 data/, web/ 및 루트 경로에 KST 메타데이터와 함께 3중 자동 동기화 저장"""
     ensure_dirs()
     
-    # 기존 데이터 로드
-    existing_items = {item.id: item for item in load_activities()}
-    
-    # 새 데이터 병합 (최신 정보로 갱신)
+    # 중복 제거 (URL 기준)
+    unique_items = {}
     for item in items:
-        existing_items[item.id] = item
+        if item.url not in unique_items:
+            unique_items[item.url] = item
     
-    # 병합 목록 정렬
-    merged_list = list(existing_items.values())
+    merged_list = list(unique_items.values())
     
     # 딕셔너리로 직렬화
     serialized_items = [item.to_dict() for item in merged_list]

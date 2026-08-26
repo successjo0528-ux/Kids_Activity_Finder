@@ -32,6 +32,15 @@ if os.path.exists(data_path) and os.path.exists(web_data_path):
     items = raw_data.get("items", []) if isinstance(raw_data, dict) else raw_data
     print(f"  [OK] data/activities.json 로드 성공 (총 {len(items)}건)")
     print(f"  [OK] 카테고리 분포: {set(item.get('category') for item in items)}")
+
+    print("\n  --- [전체 194건 데이터 출처 및 URL 전수 목록] ---")
+    for i, it in enumerate(items, 1):
+        cat = it.get('category', '')
+        src = it.get('source_name', '')
+        title = it.get('title', '')
+        url = it.get('url', '')
+        print(f"  [{i:03d}] [{cat}] [{src}] {title} | URL: {url}")
+
     results.append(("데이터 무결성", True, f"{len(items)}건 저장됨"))
 else:
     print("  [FAIL] 데이터 파일 누락")

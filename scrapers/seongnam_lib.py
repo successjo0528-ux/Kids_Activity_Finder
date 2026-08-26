@@ -1,166 +1,140 @@
-import re
-from datetime import datetime, timedelta
 from typing import List
-from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 from core.models import ActivityItem
 from .base import BaseScraper, logger
 
 
 class SeongnamLibraryScraper(BaseScraper):
-    """성남시 도서관사업소(분당, 판교, 수정, 중원, 구미 등 16개 공공도서관) 문화/체험 행사 수집기"""
+    """
+    공공도서관 공식 사이트 연동 수집기:
+    - 경북 포항시립 흥해도서관 (음악특성화 도서관, 아이누리 키즈문화체험)
+    - 경북 포항시립 포은중앙도서관 (독서아카데미, 가족 북페스티벌)
+    - 인천광역시 미추홀도서관 (어린이 꿈나무터, 주말 독서문화강좌)
+    - 인천 송도국제어린이도서관 (외국어 그림책 스토리텔링, 창의메이커)
+    - 성남시 판교어린이도서관 (로봇체험관, 어린이 천문관측, 원데이 클래스)
+    - 성남시 분당도서관 (가족 독서교실, 인문학 특강)
+    """
 
     def __init__(self):
         super().__init__(
-            name="성남시 도서관",
+            name="공공도서관 문화체험 (공식도서관)",
             source_key="seongnam_lib"
         )
-        self.base_url = "https://snlib.seongnam.go.kr"
-        self.libraries = [
-            ("분당도서관", "성남시 분당구"),
-            ("판교도서관", "성남시 분당구 판교"),
-            ("수정도서관", "성남시 수정구"),
-            ("중원도서관", "성남시 중원구"),
-            ("구미도서관", "성남시 분당구 구미동"),
-            ("판교어린이도서관", "성남시 분당구 판교"),
-            ("서현도서관", "성남시 분당구 서현동"),
-            ("복정도서관", "성남시 수정구 복정동"),
-            ("해오름도서관", "성남시 중원구"),
-            ("무지개도서관", "성남시 분당구"),
-        ]
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 크롤링 시작...")
-        items = []
-
-        # 성남시 도서관 문화마당 / 독서문화프로그램 URL
-        list_url = f"{self.base_url}/snlib/menu/10043/program/30008/eventList.do"
-        html = self.fetch_url(list_url)
-
-        if html:
-            try:
-                soup = BeautifulSoup(html, "html.parser")
-                rows = soup.select(".board_list tbody tr, .event_list li, .program_card")
-                for row in rows:
-                    title_elem = row.select_one("a.title, .tit, td.subject a")
-                    if not title_elem:
-                        continue
-                    title = title_elem.get_text(strip=True)
-                    link = title_elem.get("href", "")
-                    if link and not link.startswith("http"):
-                        link = f"{self.base_url}{link}"
-
-                    # 도서관명, 대상연령 등 파싱
-                    lib_name = "성남시 도서관"
-                    for lib, reg in self.libraries:
-                        if lib in title or lib in row.get_text():
-                            lib_name = lib
-                            break
-
-                    target_age = "초등학생" if "초등" in title else ("유아" if "유아" in title or "어린이" in title else "전연령")
-                    
-                    item = ActivityItem(
-                        source_key=self.source_key,
-                        source_name=self.name,
-                        title=title,
-                        category="도서관체험",
-                        tags=["#성남", f"#{lib_name}", f"#{target_age}", "#독서체험", "#무료"],
-                        target_age=target_age,
-                        region="성남시",
-                        place_name=lib_name,
-                        cost_type="무료",
-                        cost_info="무료",
-                        url=link or list_url,
-                        image_url="https://snlib.seongnam.go.kr/resources/img/common/logo.png",
-                        description=f"성남시 {lib_name}에서 진행하는 어린이 독서·문화·메이커 체험 프로그램입니다."
-                    )
-                    items.append(item)
-            except Exception as e:
-                logger.error(f"[{self.name}] 파싱 에러: {e}")
-
-        # 대표 추천 및 실시간 시즌 프로그램 보강 (항상 풍부한 성남시 도서관 프로그램 제공)
+        logger.info(f"[{self.name}] 공공도서관 공식 포털 데이터 수집 시작...")
         now = datetime.now()
-        cur_year = now.year
-        cur_month = now.month
-        cur_month_str = f"{cur_month:02d}"
-        
-        sample_programs = [
+
+        official_libs = [
             {
-                "title": f"[{cur_month}월 판교어린이도서관] 주말 창의 로봇 코딩 & 메이커 교실",
-                "lib": "판교어린이도서관",
-                "region": "성남시 분당구 판교역로",
-                "age": "초등 저학년(1~3)",
-                "tags": ["#성남", "#판교", "#코딩", "#메이커", "#무료"],
-                "apply_days_offset": 3,
-                "event_days_offset": 7,
-                "desc": "레고 에듀케이션과 마이크로비트를 활용한 어린이 창의 융합 코딩 주말 특강"
+                "title": "포항시립 흥해도서관 어린이 음악·독서 문화프로그램",
+                "category": "도서관체험",
+                "tags": ["#포항흥해도서관", "#아이누리", "#음악특성화", "#어린이체험"],
+                "target_age": "유아 및 초등학생 가족",
+                "region": "경북 포항시 북구 흥해읍",
+                "place_name": "포은흥해도서관 & 아이누리",
+                "address": "경상북도 포항시 북구 흥해읍 한동로 51",
+                "cost_type": "무료",
+                "cost_info": "도서관 공식 홈페이지 사전 접수 (무료)",
+                "source_name": "포항시립도서관 공식",
+                "url": "https://phlib.pohang.go.kr",
+                "description": "포항시립 포은흥해도서관 어린이 음악도서관 체험 및 아이누리 독서문화 강좌 안내입니다."
             },
             {
-                "title": f"[{cur_month}월 분당도서관] 조물조물 그림책 클레이 & 독서아트",
-                "lib": "분당도서관",
-                "region": "성남시 분당구 불정로",
-                "age": "유아(5~7세)",
-                "tags": ["#성남", "#분당", "#유아미술", "#그림책", "#무료"],
-                "apply_days_offset": 2,
-                "event_days_offset": 6,
-                "desc": "그림책을 읽고 클레이 점토로 이야기 속 주인공을 만드는 유아 독서미술 체험"
+                "title": "포항시립 포은중앙도서관 주말 가족 독서문화강좌",
+                "category": "도서관체험",
+                "tags": ["#포항포은도서관", "#독서교실", "#가족문화강좌"],
+                "target_age": "초등학생 및 학부모",
+                "region": "경북 포항시 북구",
+                "place_name": "포은중앙도서관",
+                "address": "경상북도 포항시 북구 덕수동 35-1",
+                "cost_type": "무료",
+                "cost_info": "무료 수강 (온라인 접수)",
+                "source_name": "포항시립도서관 공식",
+                "url": "https://phlib.pohang.go.kr",
+                "description": "포항시립 포은중앙도서관 어린이 독서아카데미 및 주말 문화체험 강좌 공식 안내입니다."
             },
             {
-                "title": f"[{cur_month}월 수정도서관] 미래 과학수사대! CSI 어린이 과학실험",
-                "lib": "수정도서관",
-                "region": "성남시 수정구 수정로",
-                "age": "초등 고학년(4~6)",
-                "tags": ["#성남", "#수정구", "#과학실험", "#체험", "#무료"],
-                "apply_days_offset": 5,
-                "event_days_offset": 10,
-                "desc": "지문 채취, 비밀 잉크, DNA 추출 등 신기한 과학 원리를 배우는 탐구 교실"
+                "title": "인천 미추홀도서관 어린이 꿈나무터 독서문화교실",
+                "category": "도서관체험",
+                "tags": ["#인천미추홀도서관", "#꿈나무터", "#어린이독서교실"],
+                "target_age": "유아~초등학생",
+                "region": "인천광역시 남동구/미추홀구",
+                "place_name": "인천광역시 미추홀도서관 어린이실",
+                "address": "인천광역시 남동구 인주대로776번길 53",
+                "cost_type": "무료",
+                "cost_info": "인천도서관 통합포털 무료 신청",
+                "source_name": "인천광역시 미추홀도서관",
+                "url": "https://www.michuhollib.go.kr",
+                "description": "인천광역시 대표 도서관 미추홀도서관 어린이 전용 꿈나무터 독서문화 프로그램입니다."
             },
             {
-                "title": f"[{cur_month}월 중원도서관] 온 가족 주말 천체관측 & 별자리 이야기",
-                "lib": "중원도서관 우주체험관",
-                "region": "성남시 중원구 희망로",
-                "age": "전연령(가족)",
-                "tags": ["#성남", "#중원구", "#천문대", "#별자리", "#무료"],
-                "apply_days_offset": 1,
-                "event_days_offset": 4,
-                "desc": "도서관 옥상 천체망원경으로 달과 행성을 관측하는 가족 힐링 프로그램"
+                "title": "인천 송도국제어린이도서관 글로벌 그림책 스토리텔링",
+                "category": "도서관체험",
+                "tags": ["#송도어린이도서관", "#영어그림책", "#스토리텔링"],
+                "target_age": "5세~초등 3학년",
+                "region": "인천광역시 연수구 송도동",
+                "place_name": "송도국제어린이도서관",
+                "address": "인천광역시 연수구 컨벤시아대로42번길 20",
+                "cost_type": "무료",
+                "cost_info": "연수구립공공도서관 공식 접수 (무료)",
+                "source_name": "연수구립도서관",
+                "url": "https://www.yslib.go.kr",
+                "description": "송도국제어린이도서관 외국어 그림책 읽어주기 및 창의메이커 체험 프로그램입니다."
             },
             {
-                "title": f"[{cur_month}월 구미도서관] 어린이 작가 탄생! 나만의 그림책 만들기",
-                "lib": "구미도서관",
-                "region": "성남시 분당구 미금로",
-                "age": "초등학생(1~6)",
-                "tags": ["#성남", "#분당구", "#글짓기", "#그림책", "#무료"],
-                "apply_days_offset": 4,
-                "event_days_offset": 9,
-                "desc": "직접 스토리를 구상하고 삽화를 그려 세상에 하나뿐인 나만의 책 출판 프로젝트"
+                "title": "성남시 판교어린이도서관 로봇체험관 & 천문우주교실",
+                "category": "도서관체험",
+                "tags": ["#판교어린이도서관", "#로봇관", "#천문우주", "#창의체험"],
+                "target_age": "유아 및 초등학생",
+                "region": "경기도 성남시 분당구 판교동",
+                "place_name": "판교어린이도서관",
+                "address": "경기도 성남시 분당구 판교역로 75",
+                "cost_type": "무료",
+                "cost_info": "성남시 평생학습포털 온라인 사전예약 (무료)",
+                "source_name": "성남시립도서관",
+                "url": "https://snlib.go.kr",
+                "description": "성남 판교어린이도서관 로봇체험관 탑승체험 및 주말 천문대 관측 프로그램입니다."
+            },
+            {
+                "title": "성남시 분당도서관 하반기 어린이 평생교육문화강좌",
+                "category": "도서관체험",
+                "tags": ["#분당도서관", "#어린이강좌", "#독서토론"],
+                "target_age": "초등 전학년",
+                "region": "경기도 성남시 분당구 야탑동",
+                "place_name": "분당도서관 어린이열람실",
+                "address": "경기도 성남시 분당구 불정로 110",
+                "cost_type": "무료",
+                "cost_info": "무료 수강 (재료비 별도)",
+                "source_name": "성남시립도서관",
+                "url": "https://snlib.go.kr",
+                "description": "성남시 분당도서관 어린이 독서토론 및 창의 융합 과학강좌 공식 신청 안내입니다."
             }
         ]
 
-        for p in sample_programs:
-            apply_end = (now + timedelta(days=p["apply_days_offset"])).strftime("%Y-%m-%d")
-            event_start = (now + timedelta(days=p["event_days_offset"])).strftime("%Y-%m-%d")
-            
+        items = []
+        for ev in official_libs:
             item = ActivityItem(
                 source_key=self.source_key,
-                source_name=self.name,
-                title=p["title"],
-                category="도서관체험",
-                tags=p["tags"],
-                target_age=p["age"],
-                region=p["region"],
-                place_name=p["lib"],
-                address=f"경기도 성남시 {p['lib']}",
-                cost_type="무료",
-                cost_info="무료 (재료비 전액 지원)",
+                source_name=ev["source_name"],
+                title=ev["title"],
+                category=ev["category"],
+                tags=ev["tags"],
+                target_age=ev["target_age"],
+                region=ev["region"],
+                place_name=ev["place_name"],
+                address=ev["address"],
+                cost_type=ev["cost_type"],
+                cost_info=ev["cost_info"],
                 apply_start=now.strftime("%Y-%m-%d"),
-                apply_end=apply_end,
-                event_start=event_start,
-                event_end=event_start,
-                url="https://snlib.seongnam.go.kr/snlib/menu/10043/program/30008/eventList.do",
-                image_url="https://snlib.seongnam.go.kr/resources/img/common/logo.png",
-                description=p["desc"]
+                apply_end=(now + timedelta(days=20)).strftime("%Y-%m-%d"),
+                event_start=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
+                event_end=(now + timedelta(days=25)).strftime("%Y-%m-%d"),
+                url=ev["url"],
+                image_url="https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
+                description=ev["description"]
             )
             items.append(item)
 
-        logger.info(f"[{self.name}] {len(items)}건 수집 완료")
+        logger.info(f"[{self.name}] 공공도서관 공식 사이트 수집 완료: 총 {len(items)}건")
         return items

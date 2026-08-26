@@ -34,8 +34,8 @@ def run_single_scraper(scraper_cls):
         return []
 
 
-def run_all_crawlers(parallel: bool = True):
-    """모든 등록된 스크래퍼 실행 및 데이터 저장"""
+def run_all_crawlers(parallel: bool = False):
+    """모든 등록된 스크래퍼 실행 및 데이터 저장 (403 차단 방지를 위한 순차 안전 수집)"""
     print("=" * 60)
     print("[Kids_Activity_Finder] 통합 크롤러 엔진 가동 시작")
     print(f"[*] 대상 채널 수: {len(ALL_SCRAPERS)}개")
@@ -44,7 +44,7 @@ def run_all_crawlers(parallel: bool = True):
     all_collected_items = []
 
     if parallel:
-        with ThreadPoolExecutor(max_workers=5) as executor:
+        with ThreadPoolExecutor(max_workers=2) as executor:
             future_to_scraper = {executor.submit(run_single_scraper, cls): cls for cls in ALL_SCRAPERS}
             for future in as_completed(future_to_scraper):
                 items = future.result()
@@ -53,6 +53,7 @@ def run_all_crawlers(parallel: bool = True):
         for cls in ALL_SCRAPERS:
             items = run_single_scraper(cls)
             all_collected_items.extend(items)
+            time.sleep(0.5)  # 채널 간 안전 대기
 
     print("-" * 60)
     total_saved = save_activities(all_collected_items)
