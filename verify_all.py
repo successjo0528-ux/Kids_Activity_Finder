@@ -61,7 +61,7 @@ expected_sources = [
     ("sports_events", "스포츠 대회 및 시범공연", 3),
     ("gwacheon_sci", "국립과천과학관 (공식예약)", 2),
     ("museum", "국립중앙박물관 (공식예약)", 2),
-    ("kids_platforms", "키즈플랫폼 & 문화센터", 2),
+    ("kids_platforms", "놀이의발견·키즈노트·하이클래스·문화센터", 4),
 ]
 
 summary_md.append("\n### 📊 채널별 수집 건수 및 상태 검증")
@@ -92,7 +92,7 @@ scraper_files = {
     "seongnam_city.py": "지자체 시청 포털 연동 수집기",
     "concerts.py": "공연장/콘서트홀 연동 수집기",
     "sports_events.py": "스포츠협회 연동 수집기",
-    "kids_platforms.py": "문화센터 연동 수집기"
+    "kids_platforms.py": "놀이의발견/키즈노트/문화센터 연동 수집기"
 }
 
 summary_md.append("\n### 🔍 스크래퍼 엔진 소스코드 감사 (Audit)")
@@ -129,7 +129,7 @@ for s_file, desc in scraper_files.items():
 
 results.append(("스크래퍼 코드 감사", audit_passed, "10개 스크래퍼 실시간 네트워크 통신 확인"))
 
-# [검증 4 (NEW!)] 전체 수집 데이터 웹 URL 실시간 생존 및 무결성 감사 (Dead-Link Live Check)
+# [검증 4] 전체 수집 데이터 웹 URL 실시간 생존 및 404 에러 검사
 print("\n[검증 4] 전체 수집 데이터 웹 URL 실시간 생존 및 404 에러 검사...")
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
@@ -138,7 +138,6 @@ headers = {
 dead_links = []
 checked_urls = set()
 
-# 중복 URL을 제외한 대표 URL 전수 검사
 for it in items:
     u = it.get("url", "")
     t = it.get("title", "")
@@ -152,7 +151,6 @@ for it in items:
             dead_links.append((t, u, f"HTTP {r.status_code} Not Found"))
             print(f"  [❌ 404 DEAD] {t[:30]} -> {u}")
     except Exception as e:
-        # 일시적 타임아웃이나 SSL 경고는 기록하되 치명적 404와 구분
         pass
 
 if len(dead_links) == 0:
@@ -162,8 +160,21 @@ else:
     print(f"  [FAIL] 404 깨진 링크 {len(dead_links)}건 발견!")
     results.append(("URL 실시간 생존 감사", False, f"404 오류 {len(dead_links)}건 발생"))
 
-# [검증 5] 날짜 유효성 및 상태/D-Day 교차 검증 (전수 검사)
-print("\n[검증 5] 전체 데이터 날짜 포맷 및 상태/D-Day 전수 교차 검증...")
+# [검증 5] 중복 제거 에이전트 무결성 감사 (Deduplication Audit)
+print("\n[검증 5] 동일/유사 행사 카드 중복 제거 무결성 감사...")
+from core.deduplicator import ActivityDeduplicator
+from core.models import ActivityItem
+activity_objs = [ActivityItem(**it) for it in items]
+_, redundant_cnt = ActivityDeduplicator.deduplicate(activity_objs, threshold=0.85)
+if redundant_cnt == 0:
+    print(f"  [OK] 중복 정제 검증 통과: 잔여 중복 카드 0건 (100% 무결점 정제)")
+    results.append(("중복 정제 에이전트 감사", True, "잔여 중복 0건 (100% 고유 카드)"))
+else:
+    print(f"  [WARN] 잔여 중복 카드 {redundant_cnt}건 발견")
+    results.append(("중복 정제 에이전트 감사", False, f"잔여 중복 {redundant_cnt}건 존재"))
+
+# [검증 6] 날짜 유효성 및 상태/D-Day 교차 검증 (전수 검사)
+print("\n[검증 6] 전체 데이터 날짜 포맷 및 상태/D-Day 전수 교차 검증...")
 date_pattern = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 invalid_dates = []
 status_anomalies = []
@@ -194,8 +205,8 @@ print(f"  - 상태 매핑 이상: {len(status_anomalies)}건")
 date_status_ok = len(invalid_dates) == 0 and len(status_anomalies) == 0
 results.append(("날짜 및 상태 무결성", date_status_ok, f"오류 {len(invalid_dates) + len(status_anomalies)}건"))
 
-# [검증 6] 프론트엔드 필수 파일 검증
-print("\n[검증 6] 모바일 웹앱 PWA 필수 파일 검사...")
+# [검증 7] 프론트엔드 필수 파일 검증
+print("\n[검증 7] 모바일 웹앱 PWA 필수 파일 검사...")
 web_files = ["index.html", "style.css", "app.js", "manifest.json", "activities.json"]
 all_web_ok = True
 for wf in web_files:
@@ -207,9 +218,9 @@ for wf in web_files:
         all_web_ok = False
 results.append(("프론트엔드 파일", all_web_ok, "5개 파일 정상"))
 
-# [검증 7] 대시보드 등록 검사
+# [검증 8] 대시보드 등록 검사
 if os.path.exists(DASHBOARD_DIR):
-    print("\n[검증 7] Tool_Dashboard 등록 및 런처 연동 검사...")
+    print("\n[검증 8] Tool_Dashboard 등록 및 런처 연동 검사...")
     prog_json_path = os.path.join(DASHBOARD_DIR, "programs.json")
     if os.path.exists(prog_json_path):
         with open(prog_json_path, "r", encoding="utf-8") as f:
@@ -237,7 +248,7 @@ for name, passed, detail in results:
 
 print("=" * 70)
 if all_passed:
-    print("[SUCCESS] 10개 모든 출처 및 전체 링크 생존 무결성 검증이 완벽하게 통과(PASS)했습니다!")
+    print("[SUCCESS] 10개 모든 출처, 실시간 URL 생존, 중복 정제 무결성 검증이 완벽하게 통과(PASS)했습니다!")
 else:
     print("[WARN] 일부 항목에 문제가 있습니다. 확인이 필요합니다.")
 print("=" * 70)

@@ -61,14 +61,11 @@ def save_activities(items: List[ActivityItem]) -> int:
             
         active_items.append(item)
     
-    # 2. 중복 제거 (URL + 제목 복합키 기준)
-    unique_items = {}
-    for item in active_items:
-        dedup_key = f"{item.url}::{item.title}"
-        if dedup_key not in unique_items:
-            unique_items[dedup_key] = item
-    
-    merged_list = list(unique_items.values())
+    # 2. 지능형 중복 제거 전담 에이전트 실행 (URL + 제목 유사도 + 일정 기반 정제)
+    from .deduplicator import ActivityDeduplicator
+    merged_list, removed_cnt = ActivityDeduplicator.deduplicate(active_items, threshold=0.82)
+    if removed_cnt > 0:
+        print(f"[*] 중복 제거 에이전트가 동일/유사 중복 카드 {removed_cnt}건을 성공적으로 정제했습니다.")
     
     # 3. 딕셔너리로 직렬화
     serialized_items = [item.to_dict() for item in merged_list]

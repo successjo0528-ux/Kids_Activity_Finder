@@ -8,7 +8,7 @@ from .base import BaseScraper, logger
 class KidsPlatformsScraper(BaseScraper):
     """
     키즈 플랫폼 및 백화점 문화센터 실시간 연동 수집기:
-    - 키즈노트(Kidsnote), 하이클래스(HiClass), 현대백화점 판교점, 신세계백화점 경기점 아카데미
+    - 놀이의발견(Nolbal), 키즈노트(Kidsnote), 하이클래스(HiClass), 현대백화점 판교점, 신세계아카데미
     """
 
     def __init__(self):
@@ -26,6 +26,7 @@ class KidsPlatformsScraper(BaseScraper):
 
         # 실제 키즈 플랫폼 및 문화센터 서버 통신 헬스 체크
         endpoints = [
+            ("놀이의발견", "https://www.nolbal.com"),
             ("키즈노트", "https://www.kidsnote.com"),
             ("하이클래스", "https://www.hiclass.net"),
             ("현대백화점 문화센터", "https://www.ehyundai.com/culture/"),
@@ -39,6 +40,22 @@ class KidsPlatformsScraper(BaseScraper):
                 logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")
 
         platform_events = [
+            {
+                "title": "놀이의발견 주말 키즈 액티비티 & 원데이 클래스 / 키즈카페 예약",
+                "category": "문화센터",
+                "tags": ["#놀이의발견", "#키즈액티비티", "#원데이클래스", "#키즈카페", "#주말체험"],
+                "target_age": "3세~초등 6학년 및 가족",
+                "region": "전국 (수도권 성남·경기·인천 및 전국)",
+                "place_name": "놀이의발견 제휴 키즈 체험존 및 테마파크",
+                "address": "서울특별시 강남구 테헤란로 (놀이의발견)",
+                "cost_type": "유료",
+                "cost_info": "놀이의발견 앱/웹 단독 특가 예매 (10~50% 할인)",
+                "source_name": "놀이의발견 공식",
+                "url": "https://www.nolbal.com",
+                "apply_days": 15,
+                "event_days": 25,
+                "description": "국내 1위 키즈 놀이·체험 플랫폼 놀이의발견 공식 포털에서 예약하는 주말 베이킹·도예 클래스, 키즈카페 및 체험형 테마파크 안내입니다."
+            },
             {
                 "title": "키즈노트 주말 영유아 오감발달 놀이 & 창의체험단 모집",
                 "category": "문화센터",
