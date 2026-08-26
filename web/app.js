@@ -595,6 +595,11 @@ function openDetailModal(id) {
 
   updateModalBookmarkBtn(item.id);
 
+  // 📱 모바일 뒤로가기 대응: 가상 히스토리 스택 추가
+  if (!window.location.hash.includes("detail")) {
+    history.pushState({ modalOpen: true }, "", "#detail");
+  }
+
   const modal = document.getElementById("detail-modal");
   modal.classList.remove("hidden");
   modal.classList.add("flex");
@@ -625,9 +630,35 @@ function toggleModalBookmark() {
 }
 
 function closeModal() {
-  document.getElementById("detail-modal").classList.add("hidden");
-  document.body.style.overflow = "auto";
+  const modal = document.getElementById("detail-modal");
+  if (modal && !modal.classList.contains("hidden")) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "auto";
+    
+    // URL 해시가 남아있으면 히스토리 되돌리기
+    if (window.location.hash.includes("detail")) {
+      history.back();
+    }
+  }
 }
+
+// 📱 스마트폰 뒤로가기(제스처/버튼) 감지하여 모달만 안전하게 닫기
+window.addEventListener("popstate", () => {
+  const modal = document.getElementById("detail-modal");
+  if (modal && !modal.classList.contains("hidden")) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "auto";
+  }
+});
+
+// ESC 키 및 배경 클릭 시 모달 닫기
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
 
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("detail-modal");

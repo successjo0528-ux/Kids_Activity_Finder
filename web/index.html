@@ -247,17 +247,18 @@
   <!-- 📝 상세 보기 팝업 모달 -->
   <div id="detail-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white w-full sm:max-w-lg rounded-t-3xl sm:rounded-2xl max-h-[85vh] overflow-y-auto shadow-2xl animate-slide-up sm:animate-none flex flex-col">
-      <!-- 모달 헤더 -->
-      <div class="p-5 border-b border-slate-100 sticky top-0 bg-white/95 backdrop-blur z-10 flex items-start justify-between gap-3">
-        <div>
-          <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-            <span id="modal-category-badge" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-50 text-indigo-600">카테고리</span>
-            <span id="modal-dday-badge" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-rose-50 text-rose-600">D-Day</span>
-            <span id="modal-cost-badge" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-600">무료</span>
-          </div>
-          <h3 id="modal-title" class="text-base sm:text-lg font-bold text-slate-900 leading-snug">행사 제목</h3>
+      <!-- 모달 상단 헤더 -->
+      <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+        <div class="flex items-center gap-2 flex-wrap">
+          <button onclick="closeModal()" class="text-slate-600 hover:text-indigo-600 font-bold text-xs flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm transition">
+            <i class="fa-solid fa-chevron-left text-[11px]"></i>
+            <span>목록으로</span>
+          </button>
+          <span id="modal-category-badge" class="badge-cat bg-indigo-50 text-indigo-700 px-2.5 py-0.5 rounded text-xs font-bold">도서관체험</span>
+          <span id="modal-dday-badge" class="badge-dday-normal px-2.5 py-0.5 rounded-full text-xs font-bold">D-5</span>
+          <span id="modal-cost-badge" class="badge-free px-2 py-0.5 rounded text-xs font-bold">무료</span>
         </div>
-        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 p-1">
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-200/60 transition" aria-label="닫기">
           <i class="fa-solid fa-xmark text-lg"></i>
         </button>
       </div>
