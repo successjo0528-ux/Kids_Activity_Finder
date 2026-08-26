@@ -8,19 +8,11 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
 
 jobs:
-  crawl-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  crawl_and_update:
     runs-on: ubuntu-latest
+
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
@@ -41,19 +33,12 @@ jobs:
 
       - name: 갱신된 데이터 커밋 및 푸시
         run: |
-          git config --global user.name "KidsActivityBot"
-          git config --global user.email "bot@github-actions.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/activities.json web/activities.json activities.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 [자동 갱신] 최신 키즈 체험/대회 데이터 업데이트 ($(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST'))" && git push)
-
-      - name: GitHub Pages 배포 설정
-        uses: actions/configure-pages@v4
-
-      - name: 웹 빌드 아티팩트 업로드 (web 폴더)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'web'
-
-      - name: GitHub Pages에 배포 완료
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if git diff --staged --quiet; then
+            echo "No data changes detected. Skipping commit."
+          else
+            git commit -m "🤖 [자동 갱신] 최신 키즈 체험/대회 데이터 업데이트 ($(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST'))"
+            git push origin main
+          fi
