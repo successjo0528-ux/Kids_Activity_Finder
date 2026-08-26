@@ -1,4 +1,5 @@
 import re
+import urllib.parse
 import requests
 from bs4 import BeautifulSoup
 from typing import List, Dict, Any
@@ -11,10 +12,10 @@ class SeongnamLibraryScraper(BaseScraper):
     """
     성남시 공공도서관(운중, 판교어린이, 분당, 판교, 위례, 중원어린이, 서현 등) 실시간 공지 크롤러
     - 상세 본문 정밀 파싱:
-      * 4자리 연도 표기 (2026.09.19)
-      * 연도 생략 월/일 표기 (9.1 ~ 9.19 ➡️ 2026-09-01 자동 완성)
-      * 과거 연도(2025 등) 템플릿 오류 자동 보정
-      * 통이미지 공지 시 제목(8월/9월) 기반 자동 보정
+      * 실제 접수일시(시작/종료), 운영일시, 참가대상, 장소 자동 추출
+      * 공지 본문 포스터 및 안내 이미지(img) 절대 URL 실시간 추출
+      * 연도 생략 월/일 표기(9.1 ~ 9.19 ➡️ 2026-09-01) 자동 완성
+      * 과거 연도 템플릿 오류 자동 보정
     - 오늘(KST) 기준 정확한 접수 상태(접수예정/접수중/마감) 및 D-Day 실시간 계산
     """
 
@@ -32,7 +33,6 @@ class SeongnamLibraryScraper(BaseScraper):
         """연/월/일을 4자리 YYYY-MM-DD 표준 문자열로 정규화 및 과거 연도 자동 보정"""
         try:
             yr = int(year_str) if year_str else current_year
-            # 과거 연도가 들어온 경우 현재 연도로 보정
             if yr < current_year:
                 yr = current_year
             m = int(month_str)
@@ -42,8 +42,8 @@ class SeongnamLibraryScraper(BaseScraper):
             return ""
 
     def parse_detail_page(self, detail_url: str, title: str, write_date: str) -> Dict[str, Any]:
-        """공지 상세 페이지 본문을 요청하여 실제 접수일시, 행사일시, 참가대상, 장소 정밀 추출"""
-        current_year = datetime.now().year  # 2026
+        """공지 상세 페이지 본문을 요청하여 실제 접수일시, 행사일시, 참가대상, 장소, 포스터 이미지 정밀 추출"""
+        current_year = datetime.now().year
         parsed = {
             "apply_start": "",
             "apply_end": "",
@@ -51,7 +51,8 @@ class SeongnamLibraryScraper(BaseScraper):
             "event_end": "",
             "target_age": "유아 및 초등학생 가족",
             "place_name": "",
-            "description": ""
+            "description": "",
+            "image_url": "https://www.snlib.go.kr/include/image/common/ico_sns_favicon.png"
         }
         
         try:
@@ -65,26 +66,32 @@ class SeongnamLibraryScraper(BaseScraper):
             if not content_td:
                 return parsed
             
+            # 🖼️ 1. 본문 내 실제 포스터 / 안내 이미지 태그 추출
+            imgs = content_td.find_all("img")
+            for img in imgs:
+                src = img.get("src", "")
+                if src and not src.lower().endswith(".ico") and not "icon" in src.lower():
+                    full_img_url = urllib.parse.urljoin("https://www.snlib.go.kr", src)
+                    parsed["image_url"] = full_img_url
+                    break
+            
             text = content_td.get_text(separator="\n").replace("\xa0", " ")
             parsed["description"] = text[:350].strip()
 
             # -------------------------------------------------------------
-            # 1. 행사일시 / 운영일시 추출
+            # 2. 행사일시 / 운영일시 추출
             # -------------------------------------------------------------
-            # 패턴 A: 4자리 연도 포함 (예: 2026.09.19 or 2026년 9월 19일)
             event_m = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간|일\s*자|진행일시)\s*[:：]?\s*(\d{4})[.\-년\s]+(\d{1,2})[.\-월\s]+(\d{1,2})', text)
             if event_m:
                 ev_str = self._normalize_date_str(event_m.group(1), event_m.group(2), event_m.group(3), current_year)
                 parsed["event_start"] = ev_str
                 parsed["event_end"] = ev_str
                 
-                # 종료일이 별도로 있는 경우 (예: ~ 2026.09.25 or ~ 09.25 or ~ 25일)
                 end_m = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간)[^\n\r]*?[~∼]\s*(?:(\d{4})[.\-년\s]+)?(\d{1,2})[.\-월\s]+(\d{1,2})', text)
                 if end_m:
                     end_yr = end_m.group(1) if end_m.group(1) else event_m.group(1)
                     parsed["event_end"] = self._normalize_date_str(end_yr, end_m.group(2), end_m.group(3), current_year)
             else:
-                # 패턴 B: 연도 생략 월.일 (예: 일시 : 9. 19(토) 10:00 or 일시 : 9월 19일)
                 event_m2 = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간)\s*[:：]?\s*(\d{1,2})[.\-월\s]+(\d{1,2})', text)
                 if event_m2:
                     ev_str = self._normalize_date_str(str(current_year), event_m2.group(1), event_m2.group(2), current_year)
@@ -92,15 +99,13 @@ class SeongnamLibraryScraper(BaseScraper):
                     parsed["event_end"] = ev_str
 
             # -------------------------------------------------------------
-            # 2. 접수일시 / 접수기간 / 신청기간 추출
+            # 3. 접수일시 / 접수기간 / 신청기간 추출
             # -------------------------------------------------------------
-            # 패턴 A: 4자리 연도 포함 (예: 2026.09.01.(화) 10:00~선착순 마감)
             apply_m = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간|모집일시)\s*[:：]?\s*(\d{4})[.\-년\s]+(\d{1,2})[.\-월\s]+(\d{1,2})', text)
             if apply_m:
                 ap_start_str = self._normalize_date_str(apply_m.group(1), apply_m.group(2), apply_m.group(3), current_year)
                 parsed["apply_start"] = ap_start_str
                 
-                # 접수 종료일 확인 (예: ~ 2026.09.15 or ~ 09.15 or 선착순 마감)
                 apply_end_m = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간)[^\n\r]*?[~∼]\s*(?:(\d{4})[.\-년\s]+)?(\d{1,2})[.\-월\s]+(\d{1,2})', text)
                 if apply_end_m:
                     ap_end_yr = apply_end_m.group(1) if apply_end_m.group(1) else apply_m.group(1)
@@ -108,7 +113,6 @@ class SeongnamLibraryScraper(BaseScraper):
                 else:
                     parsed["apply_end"] = parsed["event_start"] if parsed["event_start"] else ap_start_str
             else:
-                # 패턴 B: 연도 생략 월.일 (예: 접수 : 9. 1(화) 10:00 ~ 9. 15(화))
                 apply_m2 = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간)\s*[:：]?\s*(\d{1,2})[.\-월\s]+(\d{1,2})', text)
                 if apply_m2:
                     ap_start_str = self._normalize_date_str(str(current_year), apply_m2.group(1), apply_m2.group(2), current_year)
@@ -121,7 +125,7 @@ class SeongnamLibraryScraper(BaseScraper):
                         parsed["apply_end"] = parsed["event_start"] if parsed["event_start"] else ap_start_str
 
             # -------------------------------------------------------------
-            # 3. 통이미지 공지 Fallback (본문에 텍스트가 거의 없는 경우 제목 기반 보정)
+            # 4. 통이미지 공지 Fallback
             # -------------------------------------------------------------
             if not parsed["event_start"]:
                 month_match = re.search(r'(\d{1,2})월', title)
@@ -133,7 +137,7 @@ class SeongnamLibraryScraper(BaseScraper):
                     parsed["apply_end"] = parsed["event_start"]
 
             # -------------------------------------------------------------
-            # 4. 대상 및 장소 추출
+            # 5. 대상 및 장소 추출
             # -------------------------------------------------------------
             target_m = re.search(r'(?:대\s*상|참가대상|모집대상|교육대상)\s*[:：]?\s*([^\n\r<]{3,35})', text)
             if target_m:
@@ -226,7 +230,7 @@ class SeongnamLibraryScraper(BaseScraper):
                         write_date = txt
                         break
                 
-                # 🔍 상세 페이지 본문에서 실제 접수기간 및 운영일시 정밀 파싱
+                # 🔍 상세 페이지 본문에서 실제 접수기간, 운영일시, 포스터 이미지 정밀 파싱
                 detail_info = self.parse_detail_page(detail_url, raw_title, write_date)
                 
                 now = datetime.now()
@@ -235,8 +239,11 @@ class SeongnamLibraryScraper(BaseScraper):
                 event_end = detail_info["event_end"] if detail_info["event_end"] else event_start
                 apply_end = detail_info["apply_end"] if detail_info["apply_end"] else event_start
                 
-                # 정확한 상태 및 D-Day 산출
                 status, d_day = self.calculate_status_and_dday(apply_start, apply_end, event_start)
+                
+                # 🛑 이미 마감된 공지글은 수집 단계에서 즉시 제외
+                if status == "마감" or d_day == "마감":
+                    continue
                 
                 place_name = detail_info["place_name"] if detail_info["place_name"] else f"성남시립 {lib_name}"
                 target_age = detail_info["target_age"] if detail_info["target_age"] else "유아 및 초등학생 가족"
@@ -250,6 +257,7 @@ class SeongnamLibraryScraper(BaseScraper):
                     tags.extend(["#과학체험", "#창의체험"])
                 
                 desc_text = detail_info["description"] if detail_info["description"] else f"{lib_name}에서 운영하는 {title_clean} 안내입니다. 성남시 도서관 홈페이지에서 신청 및 상세 일정을 확인하실 수 있습니다."
+                image_url = detail_info["image_url"]
                 
                 items.append(ActivityItem(
                     source_key="seongnam_lib",
@@ -270,7 +278,7 @@ class SeongnamLibraryScraper(BaseScraper):
                     status=status,
                     d_day=d_day,
                     url=detail_url,
-                    image_url="https://www.snlib.go.kr/include/image/common/ico_sns_favicon.png",
+                    image_url=image_url,
                     description=desc_text
                 ))
         except Exception as e:
@@ -282,7 +290,6 @@ class SeongnamLibraryScraper(BaseScraper):
         logger.info(f"[{self.name}] 공공도서관 공식 포털 데이터 수집 시작...")
         collected: List[ActivityItem] = []
 
-        # 1. 성남시 주요 공공도서관 실시간 크롤링 (운중, 판교어린이, 분당, 판교, 위례, 중원어린이, 서현 등)
         sn_libs = [
             {"code": "uj", "name": "운중도서관", "region": "경기도 성남시 분당구 운중동", "address": "경기도 성남시 분당구 운중로 134"},
             {"code": "cpg", "name": "판교어린이도서관", "region": "경기도 성남시 분당구 판교동", "address": "경기도 성남시 분당구 판교역로 75"},
@@ -298,7 +305,6 @@ class SeongnamLibraryScraper(BaseScraper):
             collected.extend(lib_items)
             logger.info(f"[*] 성남시 {lib['name']} 수집: {len(lib_items)}건")
 
-        # 2. 인천 및 포항 대표 도서관 공식 프로그램 추가
         regional_libs = [
             {
                 "title": "포항시립 흥해도서관 어린이 음악·독서 문화프로그램",
@@ -383,5 +389,5 @@ class SeongnamLibraryScraper(BaseScraper):
                 description=lib["description"]
             ))
 
-        logger.info(f"[{self.name}] 공공도서관 총 {len(collected)}건 수집 완료")
+        logger.info(f"[{self.name}] 공공도서관 총 {len(collected)}건 수집 완료 (마감 제외 반영)")
         return collected

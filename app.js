@@ -219,6 +219,11 @@ function applyFilters() {
   const bookmarks = getBookmarks();
 
   filteredActivities = allActivities.filter(item => {
+    // 0. 마감 및 종료된 행사는 기본 제외
+    if (item.status === "마감" || item.d_day === "마감" || item.status === "종료") {
+      return false;
+    }
+
     // 찜목록 뷰
     if (currentView === "bookmarks" && !bookmarks.includes(item.id)) {
       return false;
@@ -570,6 +575,18 @@ function openDetailModal(id) {
   const tagsContainer = document.getElementById("modal-tags");
   tagsContainer.innerHTML = (item.tags || []).map(t => `<span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-md text-[11px] font-medium">${t}</span>`).join("");
 
+  // 🖼️ 실제 포스터 / 안내 이미지 표시 (기본 파비콘 제외)
+  const imgContainer = document.getElementById("modal-image-container");
+  const modalImg = document.getElementById("modal-image");
+  if (item.image_url && !item.image_url.includes("favicon") && !item.image_url.endsWith(".ico")) {
+    modalImg.src = item.image_url;
+    modalImg.alt = item.title;
+    imgContainer.classList.remove("hidden");
+  } else {
+    imgContainer.classList.add("hidden");
+    modalImg.src = "";
+  }
+
   // 공식 예매/상세 페이지 다이렉트 URL
   const urlBtn = document.getElementById("modal-url-btn");
   if (urlBtn) {
@@ -578,8 +595,16 @@ function openDetailModal(id) {
 
   updateModalBookmarkBtn(item.id);
 
-  document.getElementById("detail-modal").classList.remove("hidden");
+  const modal = document.getElementById("detail-modal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
   document.body.style.overflow = "hidden";
+}
+
+function openOriginalImage() {
+  if (currentModalActivity && currentModalActivity.image_url) {
+    window.open(currentModalActivity.image_url, "_blank");
+  }
 }
 
 function updateModalBookmarkBtn(id) {

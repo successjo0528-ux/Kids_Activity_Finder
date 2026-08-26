@@ -1,7 +1,7 @@
 import json
 import os
 import shutil
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta, date
 from typing import List, Dict, Any
 from .models import ActivityItem
 
@@ -39,18 +39,37 @@ def load_activities() -> List[ActivityItem]:
 
 
 def save_activities(items: List[ActivityItem]) -> int:
-    """새로운 활동 목록을 data/, web/ 및 루트 경로에 KST 메타데이터와 함께 3중 자동 동기화 저장"""
+    """
+    활동 목록을 data/, web/ 및 루트 경로에 KST 메타데이터와 함께 3중 자동 동기화 저장:
+    - [자동 정제] 마감/종료되었거나 일정이 지난 활동 자동 제외 필터링 적용
+    - [중복 제거] 동일 URL 기반 중복 제거
+    """
     ensure_dirs()
+    today_str = datetime.now(KST).strftime("%Y-%m-%d")
     
-    # 중복 제거 (URL 기준)
-    unique_items = {}
+    # 1. 마감/종료 및 과거 일정 데이터 자동 제외
+    active_items = []
     for item in items:
+        # 상태가 마감/종료이거나 D-Day가 마감/종료인 경우 제외
+        if item.status in ["마감", "종료"] or item.d_day in ["마감", "종료"]:
+            continue
+        
+        # 접수 마감일 또는 행사일이 이미 오늘보다 과거인 경우 제외
+        end_ref = item.apply_end if item.apply_end else (item.event_end if item.event_end else item.event_start)
+        if end_ref and len(end_ref) >= 10 and end_ref[:10] < today_str:
+            continue
+            
+        active_items.append(item)
+    
+    # 2. 중복 제거 (URL 기준)
+    unique_items = {}
+    for item in active_items:
         if item.url not in unique_items:
             unique_items[item.url] = item
     
     merged_list = list(unique_items.values())
     
-    # 딕셔너리로 직렬화
+    # 3. 딕셔너리로 직렬화
     serialized_items = [item.to_dict() for item in merged_list]
     
     now_kst = datetime.now(KST)
@@ -79,5 +98,5 @@ def save_activities(items: List[ActivityItem]) -> int:
     with open(ROOT_JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
         
-    print(f"총 {len(merged_list)}건의 활동 데이터 저장 완료 (갱신 시각: {payload['metadata']['updated_at']} KST)")
+    print(f"총 {len(merged_list)}건의 유효 활동 데이터 저장 완료 (마감 제외 완료, 갱신 시각: {payload['metadata']['updated_at']} KST)")
     return len(merged_list)

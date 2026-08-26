@@ -262,9 +262,18 @@
         </button>
       </div>
 
-      <!-- 모달 본문 정보 -->
-      <div class="p-5 space-y-4 text-xs sm:text-sm text-slate-600 flex-1">
-        <div class="bg-slate-50 rounded-xl p-3.5 space-y-2 border border-slate-100">
+      <!-- 모달 스크롤 본문 -->
+      <div class="p-5 space-y-4 max-h-[70vh] overflow-y-auto text-xs">
+        <!-- 🖼️ 상세 포스터 / 안내 이미지 뷰어 -->
+        <div id="modal-image-container" class="hidden overflow-hidden rounded-xl bg-slate-50 border border-slate-200">
+          <img id="modal-image" src="" alt="포스터 이미지" class="w-full max-h-80 object-contain mx-auto transition hover:scale-102 duration-300 cursor-pointer" onclick="openOriginalImage()">
+          <div class="text-[11px] text-slate-400 text-center py-1.5 bg-slate-100/70 border-t border-slate-100 flex items-center justify-center gap-1">
+            <i class="fa-solid fa-magnifying-glass-plus text-indigo-400"></i>
+            <span>이미지를 클릭/터치하면 원본 크기로 크게 보실 수 있습니다</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
           <div class="flex items-start gap-2.5">
             <i class="fa-solid fa-location-dot text-indigo-500 mt-0.5 text-xs w-4"></i>
             <div>
