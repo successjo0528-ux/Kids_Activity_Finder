@@ -10,7 +10,11 @@ from .base import BaseScraper, logger
 class SeongnamLibraryScraper(BaseScraper):
     """
     성남시 공공도서관(운중, 판교어린이, 분당, 판교, 위례, 중원어린이, 서현 등) 실시간 공지 크롤러
-    - 상세 본문 정밀 파싱: 실제 접수일시(시작/종료), 운영일시, 참가대상, 장소 자동 추출
+    - 상세 본문 정밀 파싱:
+      * 4자리 연도 표기 (2026.09.19)
+      * 연도 생략 월/일 표기 (9.1 ~ 9.19 ➡️ 2026-09-01 자동 완성)
+      * 과거 연도(2025 등) 템플릿 오류 자동 보정
+      * 통이미지 공지 시 제목(8월/9월) 기반 자동 보정
     - 오늘(KST) 기준 정확한 접수 상태(접수예정/접수중/마감) 및 D-Day 실시간 계산
     """
 
@@ -24,8 +28,22 @@ class SeongnamLibraryScraper(BaseScraper):
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         }
 
-    def parse_detail_page(self, detail_url: str, default_write_date: str) -> Dict[str, Any]:
+    def _normalize_date_str(self, year_str: str, month_str: str, day_str: str, current_year: int) -> str:
+        """연/월/일을 4자리 YYYY-MM-DD 표준 문자열로 정규화 및 과거 연도 자동 보정"""
+        try:
+            yr = int(year_str) if year_str else current_year
+            # 과거 연도가 들어온 경우 현재 연도로 보정
+            if yr < current_year:
+                yr = current_year
+            m = int(month_str)
+            d = int(day_str)
+            return f"{yr:04d}-{m:02d}-{d:02d}"
+        except Exception:
+            return ""
+
+    def parse_detail_page(self, detail_url: str, title: str, write_date: str) -> Dict[str, Any]:
         """공지 상세 페이지 본문을 요청하여 실제 접수일시, 행사일시, 참가대상, 장소 정밀 추출"""
+        current_year = datetime.now().year  # 2026
         parsed = {
             "apply_start": "",
             "apply_end": "",
@@ -41,7 +59,6 @@ class SeongnamLibraryScraper(BaseScraper):
             if resp.status_code != 200:
                 return parsed
             
-            # UTF-8 강제 디코딩
             resp.encoding = resp.apparent_encoding or "utf-8"
             soup = BeautifulSoup(resp.text, "html.parser")
             content_td = soup.select_one("td.content")
@@ -51,42 +68,79 @@ class SeongnamLibraryScraper(BaseScraper):
             text = content_td.get_text(separator="\n").replace("\xa0", " ")
             parsed["description"] = text[:350].strip()
 
-            # 1. 행사일시 / 운영일시 추출 (예: 2026.09.19 or 2026-09-19 or 2026년 9월 19일)
-            event_m = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간|일\s*자)\s*[:：]?\s*(\d{4})[.\-년\s]+(\d{1,2})[.\-월\s]+(\d{1,2})', text)
+            # -------------------------------------------------------------
+            # 1. 행사일시 / 운영일시 추출
+            # -------------------------------------------------------------
+            # 패턴 A: 4자리 연도 포함 (예: 2026.09.19 or 2026년 9월 19일)
+            event_m = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간|일\s*자|진행일시)\s*[:：]?\s*(\d{4})[.\-년\s]+(\d{1,2})[.\-월\s]+(\d{1,2})', text)
             if event_m:
-                ev_str = f"{int(event_m.group(1)):04d}-{int(event_m.group(2)):02d}-{int(event_m.group(3)):02d}"
+                ev_str = self._normalize_date_str(event_m.group(1), event_m.group(2), event_m.group(3), current_year)
                 parsed["event_start"] = ev_str
                 parsed["event_end"] = ev_str
                 
-                # 종료일이 별도로 있는 경우 (예: ~ 2026.09.25 or ~ 09.25)
-                end_m = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간|일\s*자)[^\n\r]*?[~∼]\s*(?:(\d{4})[.\-년\s]+)?(\d{1,2})[.\-월\s]+(\d{1,2})', text)
+                # 종료일이 별도로 있는 경우 (예: ~ 2026.09.25 or ~ 09.25 or ~ 25일)
+                end_m = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간)[^\n\r]*?[~∼]\s*(?:(\d{4})[.\-년\s]+)?(\d{1,2})[.\-월\s]+(\d{1,2})', text)
                 if end_m:
-                    end_yr = int(end_m.group(1)) if end_m.group(1) else int(event_m.group(1))
-                    parsed["event_end"] = f"{end_yr:04d}-{int(end_m.group(2)):02d}-{int(end_m.group(3)):02d}"
+                    end_yr = end_m.group(1) if end_m.group(1) else event_m.group(1)
+                    parsed["event_end"] = self._normalize_date_str(end_yr, end_m.group(2), end_m.group(3), current_year)
+            else:
+                # 패턴 B: 연도 생략 월.일 (예: 일시 : 9. 19(토) 10:00 or 일시 : 9월 19일)
+                event_m2 = re.search(r'(?:운영일시|행사일시|일\s*시|운영기간|행사기간|교육기간)\s*[:：]?\s*(\d{1,2})[.\-월\s]+(\d{1,2})', text)
+                if event_m2:
+                    ev_str = self._normalize_date_str(str(current_year), event_m2.group(1), event_m2.group(2), current_year)
+                    parsed["event_start"] = ev_str
+                    parsed["event_end"] = ev_str
 
-            # 2. 접수일시 / 접수기간 / 신청기간 추출 (예: 2026.09.01.(화) 10:00~선착순 마감)
+            # -------------------------------------------------------------
+            # 2. 접수일시 / 접수기간 / 신청기간 추출
+            # -------------------------------------------------------------
+            # 패턴 A: 4자리 연도 포함 (예: 2026.09.01.(화) 10:00~선착순 마감)
             apply_m = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간|모집일시)\s*[:：]?\s*(\d{4})[.\-년\s]+(\d{1,2})[.\-월\s]+(\d{1,2})', text)
             if apply_m:
-                ap_start_str = f"{int(apply_m.group(1)):04d}-{int(apply_m.group(2)):02d}-{int(apply_m.group(3)):02d}"
+                ap_start_str = self._normalize_date_str(apply_m.group(1), apply_m.group(2), apply_m.group(3), current_year)
                 parsed["apply_start"] = ap_start_str
                 
                 # 접수 종료일 확인 (예: ~ 2026.09.15 or ~ 09.15 or 선착순 마감)
                 apply_end_m = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간)[^\n\r]*?[~∼]\s*(?:(\d{4})[.\-년\s]+)?(\d{1,2})[.\-월\s]+(\d{1,2})', text)
                 if apply_end_m:
-                    ap_end_yr = int(apply_end_m.group(1)) if apply_end_m.group(1) else int(apply_m.group(1))
-                    parsed["apply_end"] = f"{ap_end_yr:04d}-{int(apply_end_m.group(2)):02d}-{int(apply_end_m.group(3)):02d}"
+                    ap_end_yr = apply_end_m.group(1) if apply_end_m.group(1) else apply_m.group(1)
+                    parsed["apply_end"] = self._normalize_date_str(ap_end_yr, apply_end_m.group(2), apply_end_m.group(3), current_year)
                 else:
-                    # 선착순 마감 또는 행사일까지
                     parsed["apply_end"] = parsed["event_start"] if parsed["event_start"] else ap_start_str
+            else:
+                # 패턴 B: 연도 생략 월.일 (예: 접수 : 9. 1(화) 10:00 ~ 9. 15(화))
+                apply_m2 = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간)\s*[:：]?\s*(\d{1,2})[.\-월\s]+(\d{1,2})', text)
+                if apply_m2:
+                    ap_start_str = self._normalize_date_str(str(current_year), apply_m2.group(1), apply_m2.group(2), current_year)
+                    parsed["apply_start"] = ap_start_str
+                    
+                    apply_end_m2 = re.search(r'(?:접수일시|접수기간|신청기간|신청일시|모집기간)[^\n\r]*?[~∼]\s*(\d{1,2})[.\-월\s]+(\d{1,2})', text)
+                    if apply_end_m2:
+                        parsed["apply_end"] = self._normalize_date_str(str(current_year), apply_end_m2.group(1), apply_end_m2.group(2), current_year)
+                    else:
+                        parsed["apply_end"] = parsed["event_start"] if parsed["event_start"] else ap_start_str
 
-            # 3. 대상 추출 (예: 2인 이상 구성원 60팀, 초등 1~3학년 등)
+            # -------------------------------------------------------------
+            # 3. 통이미지 공지 Fallback (본문에 텍스트가 거의 없는 경우 제목 기반 보정)
+            # -------------------------------------------------------------
+            if not parsed["event_start"]:
+                month_match = re.search(r'(\d{1,2})월', title)
+                if month_match:
+                    m_val = int(month_match.group(1))
+                    parsed["event_start"] = f"{current_year:04d}-{m_val:02d}-25"
+                    parsed["event_end"] = parsed["event_start"]
+                    parsed["apply_start"] = write_date if write_date else f"{current_year:04d}-{m_val:02d}-01"
+                    parsed["apply_end"] = parsed["event_start"]
+
+            # -------------------------------------------------------------
+            # 4. 대상 및 장소 추출
+            # -------------------------------------------------------------
             target_m = re.search(r'(?:대\s*상|참가대상|모집대상|교육대상)\s*[:：]?\s*([^\n\r<]{3,35})', text)
             if target_m:
                 tgt_raw = target_m.group(1).strip()
                 if any(k in tgt_raw for k in ["어린이", "유아", "초등", "가족", "팀", "명", "학년", "청소년", "시민"]):
                     parsed["target_age"] = tgt_raw
 
-            # 4. 장소 추출 (예: 운중도서관 후문 운중공원, 판교어린이도서관 로봇실)
             place_m = re.search(r'(?:장\s*소|행사장소|교육장소|운영장소)\s*[:：]?\s*([^\n\r<]{2,30})', text)
             if place_m:
                 parsed["place_name"] = place_m.group(1).strip()
@@ -149,7 +203,7 @@ class SeongnamLibraryScraper(BaseScraper):
                     continue
                 
                 raw_title = title_elem.get_text(strip=True)
-                title_clean = re.sub(r'^(운중|판교|분당|위례|중원|중앙|공지)\s*', '', raw_title).strip()
+                title_clean = re.sub(r'^(운중|판교|분당|위례|중원|중앙|서현|공지)\s*', '', raw_title).strip()
                 if not title_clean:
                     title_clean = raw_title
                 
@@ -173,7 +227,7 @@ class SeongnamLibraryScraper(BaseScraper):
                         break
                 
                 # 🔍 상세 페이지 본문에서 실제 접수기간 및 운영일시 정밀 파싱
-                detail_info = self.parse_detail_page(detail_url, write_date)
+                detail_info = self.parse_detail_page(detail_url, raw_title, write_date)
                 
                 now = datetime.now()
                 apply_start = detail_info["apply_start"] if detail_info["apply_start"] else (write_date if write_date else now.strftime("%Y-%m-%d"))
