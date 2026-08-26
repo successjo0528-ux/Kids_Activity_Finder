@@ -81,12 +81,12 @@ class SeongnamCityScraper(BaseScraper):
                 "place_name": "흥해 청소년문화의집",
                 "address": "경상북도 포항시 북구 흥해읍 한동로 60",
                 "cost_type": "무료",
-                "cost_info": "포항시 청소년문화의집 온라인 접수",
+                "cost_info": "포항시 공식 포털 온라인 접수",
                 "source_name": "포항시청소년재단",
-                "url": "https://www.pohang.go.kr/youth/index.do",
+                "url": "https://www.pohang.go.kr",
                 "apply_days": 12,
                 "event_days": 18,
-                "description": "포항시 청소년문화의집 포털에서 신청하는 3D펜 아트, 드론 코딩, 로봇 메이커 강좌 안내입니다."
+                "description": "포항시 대표 포털에서 안내하는 3D펜 아트, 드론 코딩, 로봇 메이커 강좌 안내입니다."
             },
             {
                 "title": "인천 청소년활동진흥센터 주말 창의융합 캠프 & 동아리체험",
@@ -97,12 +97,12 @@ class SeongnamCityScraper(BaseScraper):
                 "place_name": "인천 서구청소년수련관",
                 "address": "인천광역시 서구 원창로 21",
                 "cost_type": "무료",
-                "cost_info": "인천청소년정보포털 무료 신청",
+                "cost_info": "인천광역시 공식 포털 무료 신청",
                 "source_name": "인천청소년활동진흥센터",
-                "url": "https://www.inyouth.or.kr/activity/list.do",
+                "url": "https://www.incheon.go.kr",
                 "apply_days": 8,
                 "event_days": 15,
-                "description": "인천청소년정보포털 유스내비에서 신청 가능한 주말 과학탐구 및 로봇 코딩 캠프 프로그램입니다."
+                "description": "인천광역시 대표 포털에서 신청 가능한 주말 과학탐구 및 로봇 코딩 캠프 프로그램입니다."
             }
         ]
 

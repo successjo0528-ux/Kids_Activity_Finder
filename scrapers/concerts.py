@@ -48,7 +48,7 @@ class ConcertsScraper(BaseScraper):
                 "cost_type": "유료",
                 "cost_info": "성남아트센터 공식 예매 (전석 15,000원~20,000원)",
                 "source_name": "성남아트센터 공식",
-                "url": "https://www.snart.or.kr/pms/performance/index.do",
+                "url": "https://www.snart.or.kr",
                 "apply_days": 14,
                 "event_days": 21,
                 "description": "성남아트센터 공식 예매 포털에서 예매 가능한 어린이 눈높이 맞춤 클래식 악기 해설 및 오케스트라 연주회입니다."

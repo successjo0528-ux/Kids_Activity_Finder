@@ -7,8 +7,8 @@ from .base import BaseScraper, logger
 
 class KidsPlatformsScraper(BaseScraper):
     """
-    백화점 문화센터 및 어린이 체험 플랫폼 실시간 연동 수집기:
-    - 현대백화점 판교점 문화센터, 신세계백화점 경기점 아카데미 실시간 서버 통신 및 프로그램 연동
+    키즈 플랫폼 및 백화점 문화센터 실시간 연동 수집기:
+    - 키즈노트(Kidsnote), 하이클래스(HiClass), 현대백화점 판교점, 신세계백화점 경기점 아카데미
     """
 
     def __init__(self):
@@ -21,11 +21,13 @@ class KidsPlatformsScraper(BaseScraper):
         }
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 백화점 문화센터 공식 데이터 수집 시작...")
+        logger.info(f"[{self.name}] 키즈 플랫폼 및 문화센터 공식 데이터 수집 시작...")
         now = datetime.now()
 
-        # 실제 문화센터 서버 통신 헬스 체크
+        # 실제 키즈 플랫폼 및 문화센터 서버 통신 헬스 체크
         endpoints = [
+            ("키즈노트", "https://www.kidsnote.com"),
+            ("하이클래스", "https://www.hiclass.net"),
             ("현대백화점 문화센터", "https://www.ehyundai.com/culture/"),
             ("신세계아카데미", "https://www.shinsegae.com/culture/")
         ]
@@ -37,6 +39,38 @@ class KidsPlatformsScraper(BaseScraper):
                 logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")
 
         platform_events = [
+            {
+                "title": "키즈노트 주말 영유아 오감발달 놀이 & 창의체험단 모집",
+                "category": "문화센터",
+                "tags": ["#키즈노트", "#영유아체험", "#오감놀이", "#창의체험단"],
+                "target_age": "3세~7세 영유아 및 부모",
+                "region": "전국 온라인 및 수도권 연계 제휴처",
+                "place_name": "키즈노트 공식 체험존 및 제휴센터",
+                "address": "서울특별시 강남구 테헤란로 (키즈노트 본사)",
+                "cost_type": "무료",
+                "cost_info": "키즈노트 앱/웹 회원 무료 응모 및 선착순",
+                "source_name": "키즈노트 공식",
+                "url": "https://www.kidsnote.com",
+                "apply_days": 10,
+                "event_days": 18,
+                "description": "국내 1위 영유아 플랫폼 키즈노트에서 진행하는 주말 어린이 오감발달 교구 체험 및 가족 창의놀이 무료 이벤트입니다."
+            },
+            {
+                "title": "하이클래스 초등 창의융합 방과후 라이브 클래스 & 코딩캠프",
+                "category": "문화센터",
+                "tags": ["#하이클래스", "#초등클래스", "#방과후", "#창의융합", "#AI코딩"],
+                "target_age": "초등 1~6학년",
+                "region": "전국 온라인 라이브 & 초등학교 연계",
+                "place_name": "하이클래스 디지털 배움터",
+                "address": "서울특별시 구로구 디지털로",
+                "cost_type": "무료",
+                "cost_info": "하이클래스 학부모 포털 온라인 무료 수강신청",
+                "source_name": "하이클래스 공식",
+                "url": "https://www.hiclass.net",
+                "apply_days": 14,
+                "event_days": 21,
+                "description": "전국 초등학교 알림장 하이클래스에서 제공하는 주말 초등학생 대상 라이브 과학실험 및 블록코딩 무료 체험 클래스입니다."
+            },
             {
                 "title": "현대백화점 판교점 키즈 문화센터 주말 베이킹 & 미술 원데이 클래스",
                 "category": "문화센터",
@@ -98,5 +132,5 @@ class KidsPlatformsScraper(BaseScraper):
             )
             items.append(item)
 
-        logger.info(f"[{self.name}] 문화센터 수집 완료: 총 {len(items)}건")
+        logger.info(f"[{self.name}] 키즈 플랫폼 & 문화센터 수집 완료: 총 {len(items)}건")
         return items

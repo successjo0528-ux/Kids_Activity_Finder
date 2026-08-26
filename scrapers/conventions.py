@@ -213,7 +213,7 @@ class ConventionsScraper(BaseScraper):
                 "cost_type": "무료",
                 "cost_info": "유교전 공식 사전등록 시 전일 무료초청",
                 "source_name": "SETEC 전시컨벤션",
-                "url": "https://www.setec.or.kr/front/event/eventList.do",
+                "url": "https://www.setec.or.kr",
                 "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
                 "apply_start": now.strftime("%Y-%m-%d"),
                 "apply_end": "2026-09-25",

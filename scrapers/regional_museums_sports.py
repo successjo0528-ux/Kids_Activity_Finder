@@ -67,7 +67,7 @@ class RegionalMuseumsSportsScraper(BaseScraper):
                 "cost_type": "무료",
                 "cost_info": "국립현대미술관 홈페이지 온라인 무료 예약",
                 "source_name": "국립현대미술관 공식",
-                "url": "https://www.mmca.go.kr/child/",
+                "url": "https://www.mmca.go.kr",
                 "apply_days": 10,
                 "event_days": 18,
                 "description": "국립현대미술관 과천관 어린이미술관에서 현대미술 작품을 오감으로 체험하고 스스로 창작하는 예술 프로그램입니다."

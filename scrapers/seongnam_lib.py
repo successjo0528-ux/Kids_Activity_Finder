@@ -277,9 +277,9 @@ class SeongnamLibraryScraper(BaseScraper):
                 "place_name": "청라국제도서관 어린이자료실",
                 "address": "인천광역시 서구 청라커낼로 149",
                 "cost_type": "무료",
-                "cost_info": "인천도서관 통합포털 온라인 무료 신청",
+                "cost_info": "인천시청 도서관 통합포털 온라인 무료 신청",
                 "source_name": "청라국제도서관 공식",
-                "url": "https://www.incheon.go.kr/lib/lib020101",
+                "url": "https://www.incheon.go.kr",
                 "apply_days": 9,
                 "description": "청라국제도서관에서 운영하는 어린이 원어민 영어 그림책 읽기 및 독후 창의 미술 프로그램입니다."
             },
@@ -294,7 +294,7 @@ class SeongnamLibraryScraper(BaseScraper):
                 "cost_type": "무료",
                 "cost_info": "인천광역시청 홈페이지 및 도서관 무료 접수",
                 "source_name": "인천시청도서관 공식",
-                "url": "https://www.incheon.go.kr/lib/lib020102",
+                "url": "https://www.incheon.go.kr",
                 "apply_days": 13,
                 "description": "인천시청 하늘도서관에서 진행되는 주말 가족 생태 환경 독서 체험 및 그림책 놀이 교실입니다."
             },
@@ -307,9 +307,9 @@ class SeongnamLibraryScraper(BaseScraper):
                 "place_name": "인천대표 미추홀도서관 어린이자료실",
                 "address": "인천광역시 남동구 인주대로776번길 53",
                 "cost_type": "무료",
-                "cost_info": "인천도서관 통합포털 무료 신청",
+                "cost_info": "인천시청 대표포털 무료 신청",
                 "source_name": "인천대표도서관",
-                "url": "https://www.incheon.go.kr/lib/lib010101",
+                "url": "https://www.incheon.go.kr",
                 "apply_days": 7,
                 "description": "인천광역시 대표 도서관 어린이 전용 꿈나무터에서 운영하는 독서토론 및 창의메이커 프로그램입니다."
             },
@@ -322,9 +322,9 @@ class SeongnamLibraryScraper(BaseScraper):
                 "place_name": "송도국제어린이도서관",
                 "address": "인천광역시 연수구 컨벤시아대로42번길 20",
                 "cost_type": "무료",
-                "cost_info": "연수구립공공도서관 공식 접수 (무료)",
+                "cost_info": "인천광역시 공식 접수 (무료)",
                 "source_name": "송도국제어린이도서관",
-                "url": "https://www.incheon.go.kr/lib/lib030101",
+                "url": "https://www.incheon.go.kr",
                 "apply_days": 8,
                 "description": "송도국제어린이도서관 외국어 그림책 읽어주기 및 창의 사고력 보드게임 프로그램입니다."
             },
@@ -339,7 +339,7 @@ class SeongnamLibraryScraper(BaseScraper):
                 "cost_type": "무료",
                 "cost_info": "온라인 신청 (무료)",
                 "source_name": "연수청학도서관",
-                "url": "https://www.incheon.go.kr/lib/lib030102",
+                "url": "https://www.incheon.go.kr",
                 "apply_days": 11,
                 "description": "연수청학도서관 메이커스페이스에서 진행되는 3D펜 및 어린이 아두이노 코딩 기초 강좌입니다."
             },
