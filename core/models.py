@@ -41,33 +41,50 @@ class ActivityItem:
 
     def _calculate_status_and_d_day(self):
         today = date.today()
-        target_date = None
+        start_date = None
+        end_date = None
 
-        # 마감일이 있으면 마감일 기준 계산
-        if self.apply_end and len(self.apply_end) >= 10:
+        if self.apply_start and len(self.apply_start) >= 10:
             try:
-                target_date = datetime.strptime(self.apply_end[:10], "%Y-%m-%d").date()
-                diff = (target_date - today).days
-                if diff < 0:
-                    self.status = "마감"
-                    self.d_day = "마감"
-                elif diff == 0:
-                    self.status = "마감임박"
-                    self.d_day = "오늘마감"
-                elif diff <= 3:
-                    self.status = "마감임박"
-                    self.d_day = f"D-{diff}"
-                else:
-                    self.status = "접수중"
-                    self.d_day = f"D-{diff}"
+                start_date = datetime.strptime(self.apply_start[:10], "%Y-%m-%d").date()
             except Exception:
                 pass
 
-        # 마감일이 없고 행사 시작일이 있는 경우
-        if not target_date and self.event_start and len(self.event_start) >= 10:
+        if self.apply_end and len(self.apply_end) >= 10:
             try:
-                target_date = datetime.strptime(self.event_start[:10], "%Y-%m-%d").date()
-                diff = (target_date - today).days
+                end_date = datetime.strptime(self.apply_end[:10], "%Y-%m-%d").date()
+            except Exception:
+                pass
+
+        # 1. 접수 시작일이 아직 미래인 경우 ➡️ 접수예정
+        if start_date and today < start_date:
+            diff = (start_date - today).days
+            self.status = "접수예정"
+            self.d_day = f"D-{diff}"
+            return
+
+        # 2. 접수 기간 중인 경우 (시작일 지남 ~ 마감일 전) ➡️ 접수중 / 마감임박
+        if end_date:
+            diff = (end_date - today).days
+            if diff < 0:
+                self.status = "마감"
+                self.d_day = "마감"
+            elif diff == 0:
+                self.status = "마감임박"
+                self.d_day = "오늘마감"
+            elif diff <= 3:
+                self.status = "마감임박"
+                self.d_day = f"D-{diff}"
+            else:
+                self.status = "접수중"
+                self.d_day = f"D-{diff}"
+            return
+
+        # 3. 접수 일정이 없고 행사 시작일만 있는 경우
+        if self.event_start and len(self.event_start) >= 10:
+            try:
+                ev_date = datetime.strptime(self.event_start[:10], "%Y-%m-%d").date()
+                diff = (ev_date - today).days
                 if diff < 0:
                     self.status = "종료"
                     self.d_day = "종료"

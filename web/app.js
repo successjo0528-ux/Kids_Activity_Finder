@@ -352,7 +352,11 @@ function renderCards() {
     const isBookmarked = bookmarks.includes(item.id);
     
     let ddayBadgeClass = "badge-dday-normal";
-    if (item.d_day === "오늘마감" || item.d_day === "D-1" || item.d_day === "D-2" || item.d_day === "D-3") {
+    let ddayLabel = item.d_day || "";
+    if (item.status === "접수예정") {
+      ddayBadgeClass = "bg-sky-50 text-sky-700 border border-sky-300 font-semibold";
+      ddayLabel = `접수예정 (${item.d_day})`;
+    } else if (item.d_day === "오늘마감" || item.d_day === "D-1" || item.d_day === "D-2" || item.d_day === "D-3") {
       ddayBadgeClass = "badge-dday-urgent";
     } else if (item.d_day === "마감" || item.d_day === "종료") {
       ddayBadgeClass = "badge-dday-ended";
@@ -419,7 +423,7 @@ function renderCards() {
         <!-- 카드 하단 D-Day 및 신청 상태 -->
         <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
           <span class="${ddayBadgeClass} px-2.5 py-0.5 rounded-full text-[11px] font-bold">
-            ${item.d_day || item.status}
+            ${ddayLabel || item.status}
           </span>
           <span class="text-[11px] text-indigo-600 font-semibold flex items-center gap-1">
             상세보기 <i class="fa-solid fa-chevron-right text-[9px]"></i>
