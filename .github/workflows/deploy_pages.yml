@@ -1,0 +1,38 @@
+name: 🚀 Deploy Kids Activity Finder to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: ⚙️ GitHub Pages 환경 설정
+        uses: actions/configure-pages@v5
+
+      - name: 📦 정적 웹 파일 아티팩트 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: 🌐 GitHub Pages 배포 완료
+        id: deployment
+        uses: actions/deploy-pages@v4
