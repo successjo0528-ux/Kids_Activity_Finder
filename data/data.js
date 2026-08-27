@@ -1,4 +1,4 @@
-{
+window.__ACTIVITIES_DATA__ = {
   "metadata": {
     "title": "Kids Activity Finder",
     "updated_at": "2026-08-27 21:37:10",
@@ -3772,4 +3772,4 @@
       "id": "55ec470d8f05"
     }
   ]
-}
+};

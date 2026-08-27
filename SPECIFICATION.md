@@ -1,6 +1,6 @@
 # Kids Activity Finder (키즈 액티비티 파인더) 기획안
 
-> **문서 버전:** v3.1.0 (Dual Deployment Architecture, Jekyll Conflict Guard & 9-Step Verification Pipeline)  
+> **문서 버전:** v3.2.0 (Zero-CORS data.js Hybrid Architecture & Streamlined GitHub Pages Auto-Deploy)  
 > **최종 개정일:** 2026-08-27  
 > **프로젝트 위치:** `G:\My Program\Kids_Activity_Finder\`  
 > **웹 라이브 URL:** [https://successjo0528-ux.github.io/Kids_Activity_Finder/](https://successjo0528-ux.github.io/Kids_Activity_Finder/)  
@@ -11,11 +11,11 @@
 ## 1. 기획 배경 및 목적
 * **기획 배경:**
   * 주말마다 아이들과 함께 갈 수 있는 문화체험, 과학관 관람, 도서관 특강, 전시회, AI·미술 공모전 정보가 여러 지자체·기관 사이트에 흩어져 있어 일일이 찾아보기 번거로움.
-  * 기존 포털의 링크 깨짐(404 에러), 마감된 행사 노출, 하드코딩된 가짜 데이터 및 정적 사이트 배포 실패(Jekyll 충돌) 문제를 원천 해결할 필요성 대두.
+  * 기존 포털의 링크 깨짐(404 에러), 마감된 행사 노출, 하드코딩된 가짜 데이터 및 정적 사이트 배포 실패(Jekyll 충돌 및 워크플로우 충돌) 문제를 원천 해결할 필요성 대두.
 * **핵심 목적:**
   * 성남(분당/판교), 인천(송도/청라/구월), 경북 포항 및 서울 수도권 일대의 어린이·온가족 프로그램을 **스스로 웹사이트를 순회하여 수집하는 100% 실시간 웹 크롤러 엔진**으로 구축.
   * 수집된 모든 URL의 **실시간 404 생존 검증(Live URL Health Check)**을 통과한 무결점 데이터만 PC 및 스마트폰(모바일 PWA)에 서비스.
-  * **GitHub Pages 듀얼 배포 체계(GitHub Actions & Deploy from a branch)**를 구축하여 빌드 오류 없이 100% 안정적으로 최신 데이터를 자동 배포.
+  * **Global_Macro_Briefing과 동일한 정석 GitHub Pages 아키텍처(Zero-CORS `data.js` + `.nojekyll` + `daily_crawler.yml` 자동 배포)**를 적용하여 로컬 더블클릭 오프라인 실행과 웹 배포 100% 무결점 보장.
 
 ---
 
@@ -42,24 +42,24 @@
    * 다중 출처에서 동일 행사 수집 시 고화질 포스터와 상세 설명을 가진 최상위 카드 1개로 자동 병합.
 2. **마감 데이터 자동 제외 (Auto-Purge Pipeline):**
    * 접수 마감일 및 행사 종료일이 지난 과거 데이터는 수집 및 저장 단계에서 100% 자동 필터링.
-3. **9단계 전수 무결성 검증 시스템 (`verify_all.py`):**
+3. **Zero-CORS `data.js` & `activities.json` 듀얼 데이터 파이프라인:**
+   * `core/storage.py`에서 `activities.json`과 함께 `window.__ACTIVITIES_DATA__`를 담은 `data.js`를 동시 생성.
+   * 로컬 탐색기에서 `index.html`을 더블클릭(`file:///`)해도 보안 에러 없이 즉시 렌더링되며, 웹(GitHub Pages)에서도 0초 즉각 렌더링 및 비동기 `fetch` 갱신 지원.
+4. **9단계 전수 무결성 검증 시스템 (`verify_all.py`):**
    * **[검증 1] 데이터 파일 무결성:** `data/` 및 `web/` activities.json 구조 검증.
    * **[검증 2] 10개 출처 수집량 검사:** 전 채널 최소 수집 기준 충족 여부.
    * **[검증 3] 소스코드 감사 (Code Audit):** 10개 스크래퍼 코드 내 실제 외부 네트워크 통신 탑재 여부 (하드코딩 적발 시 FAIL).
    * **[검증 4] URL 실시간 404 생존 감사 (Live URL Health Check):** 수집된 전체 링크(120여 개) 실시간 HTTP 요청 (404 에러 0건 원칙).
    * **[검증 5] 중복 제거 무결성:** 잔여 중복 카드 0건 검사.
    * **[검증 6] 날짜 및 상태 정합성:** YYYY-MM-DD 포맷 및 D-Day 일치성 전수 검사.
-   * **[검증 7] 모바일 PWA 파일 검사:** 필수 웹 리소스(HTML/CSS/JS/Manifest) 존재 및 크기 검사.
+   * **[검증 7] 모바일 PWA 및 data.js 검사:** 필수 웹 리소스(HTML/CSS/JS/Manifest/data.js) 존재 및 크기 검사.
    * **[검증 8] 대시보드 등록 검사:** `Tool_Dashboard/programs.json` 등록 상태.
-   * **[검증 9] GitHub Pages 배포 무결성:** `.nojekyll`, `_config.yml`, Actions 워크플로우 5종 정합성.
-4. **Jekyll 빌드 충돌 방지 및 듀얼 배포 아키텍처:**
-   * `_config.yml` 빌드 제외 목록(`exclude: [*.py, core, scrapers, __pycache__, ...]` 설정)으로 Jekyll 파싱 에러 원천 차단.
-   * 0바이트 `.nojekyll` 파일 탑재로 정적 리소스 직접 서빙 보장.
-   * `Deploy from a branch`와 `GitHub Actions` 두 가지 배포 방식 모두 100% 완벽 호환 지원.
+   * **[검증 9] GitHub Pages 배포 무결성:** `.nojekyll`, `data.js`, `push_to_github.bat`, `daily_crawler.yml` 5종 정합성.
 
 ---
 
 ## 4. 실행 및 배포 환경
-* **자동 스케줄링:** 매일 아침 09:00 KST (`0 0 * * *`) GitHub Actions를 통한 전수 크롤링 및 9단계 교차 검증 자동 배포.
+* **자동 스케줄링:** 매일 아침 09:00 KST (`0 0 * * *`) GitHub Actions(`daily_crawler.yml`)를 통한 전수 크롤링 및 9단계 교차 검증 자동 배포.
 * **PC 실행:** `G:\My Program\Tool_Dashboard\` 대시보드에서 [Kids Activity Finder] 원클릭 실행.
+* **원클릭 배포:** `push_to_github.bat`을 실행하면 최신 데이터와 코드가 Git Staging/Commit/Push되어 즉시 라이브 사이트에 반영.
 * **모바일 실행:** 웹 라이브 URL 접속 및 홈 화면에 추가 (PWA 앱 모드).

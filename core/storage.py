@@ -95,6 +95,16 @@ def save_activities(items: List[ActivityItem]) -> int:
     # 3. 루트 activities.json 저장 (루트 접속 호환)
     with open(ROOT_JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
+
+    # 4. Zero-CORS 및 즉각 로드를 위한 data.js 생성 (data/, web/, 루트)
+    js_content = f"window.__ACTIVITIES_DATA__ = {json.dumps(payload, ensure_ascii=False, indent=2)};\n"
+    for js_p in [
+        os.path.join(DATA_DIR, "data.js"),
+        os.path.join(WEB_DIR, "data.js"),
+        os.path.join(BASE_DIR, "data.js")
+    ]:
+        with open(js_p, "w", encoding="utf-8") as f:
+            f.write(js_content)
         
-    print(f"총 {len(merged_list)}건의 유효 활동 데이터 저장 완료 (마감 제외 완료, 갱신 시각: {payload['metadata']['updated_at']} KST)")
+    print(f"총 {len(merged_list)}건의 유효 활동 데이터 저장 완료 (activities.json & data.js 동시 생성, 갱신 시각: {payload['metadata']['updated_at']} KST)")
     return len(merged_list)

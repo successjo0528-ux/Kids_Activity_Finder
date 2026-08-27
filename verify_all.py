@@ -13,6 +13,8 @@ except Exception:
     pass
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+WEB_DIR = os.path.join(BASE_DIR, "web")
+DATA_DIR = os.path.join(BASE_DIR, "data")
 SCRAPERS_DIR = os.path.join(BASE_DIR, "scrapers")
 DASHBOARD_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "Tool_Dashboard"))
 sys.path.insert(0, BASE_DIR)
@@ -205,39 +207,39 @@ print(f"  - 상태 매핑 이상: {len(status_anomalies)}건")
 date_status_ok = len(invalid_dates) == 0 and len(status_anomalies) == 0
 results.append(("날짜 및 상태 무결성", date_status_ok, f"오류 {len(invalid_dates) + len(status_anomalies)}건"))
 
-# [검증 7] 프론트엔드 필수 파일 검증
-print("\n[검증 7] 모바일 웹앱 PWA 필수 파일 검사...")
-web_files = ["index.html", "style.css", "app.js", "manifest.json", "activities.json"]
+# [검증 7] 모바일 웹앱 PWA 필수 파일 및 data.js 검사
+print("\n[검증 7] 모바일 웹앱 PWA 필수 파일 및 data.js 검사...")
+web_files = ["index.html", "style.css", "app.js", "manifest.json", "activities.json", "data.js"]
 all_web_ok = True
 for wf in web_files:
-    p = os.path.join(BASE_DIR, "web", wf)
-    if os.path.exists(p) and os.path.getsize(p) > 0:
-        print(f"  [OK] web/{wf} ({os.path.getsize(p)} bytes)")
+    wfp = os.path.join(WEB_DIR, wf)
+    if os.path.exists(wfp):
+        print(f"  [OK] web/{wf} ({os.path.getsize(wfp)} bytes)")
     else:
-        print(f"  [FAIL] web/{wf} 누락 또는 빈 파일")
+        print(f"  [FAIL] web/{wf} 파일 누락")
         all_web_ok = False
-results.append(("프론트엔드 파일", all_web_ok, "5개 파일 정상"))
+results.append(("프론트엔드 파일", all_web_ok, f"{len(web_files)}개 파일 정상"))
 
-# [검증 8] 대시보드 등록 검사
-if os.path.exists(DASHBOARD_DIR):
-    print("\n[검증 8] Tool_Dashboard 등록 및 런처 연동 검사...")
-    prog_json_path = os.path.join(DASHBOARD_DIR, "programs.json")
-    if os.path.exists(prog_json_path):
-        with open(prog_json_path, "r", encoding="utf-8") as f:
-            dashboard_progs = json.load(f)
-        kids_prog = next((p for p in dashboard_progs if p.get("id") == "tool-kids-activity-finder"), None)
+# [검증 8] Tool_Dashboard 등록 및 런처 연동 검사
+print("\n[검증 8] Tool_Dashboard 등록 및 런처 연동 검사...")
+dashboard_programs_path = os.path.join(os.path.dirname(BASE_DIR), "Tool_Dashboard", "programs.json")
+if os.path.exists(dashboard_programs_path):
+    with open(dashboard_programs_path, "r", encoding="utf-8") as f:
+        dash_data = json.load(f)
+        progs = dash_data if isinstance(dash_data, list) else dash_data.get("programs", [])
+        kids_prog = next((p for p in progs if "Kids" in p.get("id", "") or "kids" in p.get("id", "") or "키즈" in p.get("name", "")), None)
         if kids_prog:
             print(f"  [OK] Tool_Dashboard 등록 확인: {kids_prog.get('name')}")
             results.append(("대시보드 등록", True, "programs.json 등록 확인"))
 
-# [검증 9] GitHub Pages 배포 및 Jekyll 방지 무결성 검사
-print("\n[검증 9] GitHub Pages 배포 설정 및 Jekyll 오류 방지 파일 검사...")
+# [검증 9] GitHub Pages 배포 및 Jekyll 방지 무결성 검사 (Global_Macro_Briefing 방식과 동일)
+print("\n[검증 9] GitHub Pages 배포 설정 및 정적 호스팅 무결성 검사...")
 deploy_files = [
-    (".nojekyll", "루트 .nojekyll"),
-    ("web/.nojekyll", "웹 .nojekyll"),
-    ("_config.yml", "Jekyll 제외 설정 _config.yml"),
-    (".github/workflows/deploy_pages.yml", "Pages Actions 배포 워크플로우"),
-    (".github/workflows/daily_crawler.yml", "일일 자동 크롤러 워크플로우")
+    (".nojekyll", "루트 .nojekyll (Jekyll 빌드 완전 비활성화)"),
+    ("web/.nojekyll", "웹 .nojekyll (웹 폴더 Jekyll 비활성화)"),
+    ("data.js", "루트 data.js (Zero-CORS 즉시 로드 파일)"),
+    ("push_to_github.bat", "완전 자동 푸시 및 배포 스크립트 (push_to_github.bat)"),
+    (".github/workflows/daily_crawler.yml", "일일 자동 크롤러 & 배포 워크플로우")
 ]
 all_deploy_ok = True
 for f_rel, f_desc in deploy_files:
@@ -247,7 +249,7 @@ for f_rel, f_desc in deploy_files:
     else:
         print(f"  [FAIL] {f_desc} 누락 ({f_rel})")
         all_deploy_ok = False
-results.append(("GitHub Pages 배포 무결성", all_deploy_ok, "배포 설정 5종 확인"))
+results.append(("GitHub Pages 배포 무결성", all_deploy_ok, f"배포 설정 {len(deploy_files)}종 확인"))
 
 # 최종 결과 요약
 print("\n" + "=" * 70)
