@@ -10,10 +10,10 @@ from .base import BaseScraper, logger
 
 class ContestsScraper(BaseScraper):
     """
-    국내 최대 공모전 3중 통합 크롤러 엔진:
-    1. 알럽콘 (ilovecontest.com): 전국 유소년 미술대회, 글짓기·백일장, AI·코딩 대회
-    2. 위비티 (wevity.com): 국내 1위 공모전 허브 (어린이·초등·청소년 공모전 전수 수집)
-    3. 실시간 대기업 공모전 뉴스 RSS: 현대차·삼성·구몬·금융사 등 대기업 비정기 어린이 공모전 실시간 포착
+    국내 최대 유소년·어린이·청소년 공모전·대회 3중 통합 크롤러 엔진:
+    1. 알럽콘 (ilovecontest.com): 전국 유소년 미술대회, 그림·포스터 공모전, 백일장, AI·코딩 대회
+    2. 위비티 (wevity.com): 국내 1위 공모전 포털 (어린이·초등·청소년 공모전 전수 수집)
+    3. 범용 실시간 대기업·기관 뉴스 RSS: AI/코딩/SW/로봇/과학/미술/그림/글짓기/창작 등 전 대기업 대회 실시간 감지
     """
 
     def __init__(self):
@@ -23,7 +23,7 @@ class ContestsScraper(BaseScraper):
         )
 
     def scrape(self) -> List[ActivityItem]:
-        logger.info(f"[{self.name}] 3중 공모전 엔진(알럽콘 + 위비티 + 대기업 뉴스 RSS) 실시간 통합 크롤링 시작...")
+        logger.info(f"[{self.name}] 3중 공모전 엔진(알럽콘 + 위비티 + 범용 기업 RSS) 실시간 통합 크롤링 시작...")
         items = []
         now = datetime.now()
 
@@ -185,32 +185,34 @@ class ContestsScraper(BaseScraper):
                 logger.warning(f"[{self.name}] 위비티 {target_url} 오류: {e}")
 
         # ----------------------------------------------------
-        # 3. 실시간 대기업·기관 공모전 뉴스 RSS (현대차·구몬 수소 스토리 등)
+        # 3. 범용 실시간 대기업·기관 공모전 뉴스 RSS (AI/코딩/로봇/과학/미술/그림/문학 전수 포착)
         # ----------------------------------------------------
-        rss_queries = [
-            '("현대차" OR "현대자동차" OR "구몬학습" OR "수소 스토리") AND ("공모전" OR "문학상")',
-            '("어린이" OR "초등" OR "청소년") AND ("공모전" OR "그림대회" OR "글짓기" OR "창작대회" OR "미술대회")'
+        generalized_queries = [
+            # 1) AI / 코딩 / SW / 로봇 / 과학 / 발명 경진대회
+            '("어린이" OR "초등" OR "청소년" OR "유소년" OR "초중고") AND ("AI" OR "인공지능" OR "코딩" OR "소프트웨어" OR "SW" OR "로봇" OR "과학" OR "발명") AND ("공모전" OR "경진대회" OR "대회" OR "챌린지" OR "올림피아드" OR "해커톤")',
+            # 2) 미술 / 그림 / 그림대회 / 포스터 / 사생대회 / 글짓기 / 백일장 / 문학 / 독후감 / 창작
+            '("어린이" OR "초등" OR "청소년" OR "유아") AND ("미술" OR "그림" OR "그림대회" OR "그리기" OR "포스터" OR "사생대회" OR "글짓기" OR "백일장" OR "문학" OR "독후감" OR "스토리") AND ("공모전" OR "대회" OR "문학상" OR "페스티벌")',
+            # 3) 대기업 / 공공기관 주관 창의 아이디어 & 체험 챌린지
+            '("어린이" OR "초등" OR "청소년") AND ("아이디어" OR "창작" OR "체험") AND ("공모전" OR "대회" OR "챌린지")'
         ]
 
-        for query_str in rss_queries:
+        for query_str in generalized_queries:
             try:
                 encoded_q = urllib.parse.quote(query_str)
                 rss_url = f"https://news.google.com/rss/search?q={encoded_q}&hl=ko&gl=KR&ceid=KR:ko"
                 r = requests.get(rss_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
                 if r.status_code == 200:
                     rss_soup = BeautifulSoup(r.text, "xml")
-                    for news_el in rss_soup.find_all("item")[:10]:
+                    for news_el in rss_soup.find_all("item")[:15]:
                         title_raw = news_el.title.get_text(strip=True) if news_el.title else ""
                         link = news_el.link.get_text(strip=True) if news_el.link else ""
                         if not title_raw or not link:
                             continue
 
-                        # " - 언론사" 분리
                         parts = title_raw.rsplit(" - ", 1)
                         title = parts[0].strip()
-                        source_media = parts[1].strip() if len(parts) > 1 else "언론사 보도자료"
+                        source_media = parts[1].strip() if len(parts) > 1 else "주요 언론사"
 
-                        # 제목 정제 및 따옴표 제거
                         title = re.sub(r'^[“"\'\[\(]+|[”"\'\]\)]+$', '', title).strip()
                         if len(title) < 8:
                             continue
@@ -218,21 +220,18 @@ class ContestsScraper(BaseScraper):
                         if any(x.title == title or x.url == link for x in items):
                             continue
 
-                        # 주최 기관 추론
-                        organ = "대기업/공공기관"
-                        if "현대차" in title or "현대자동차" in title or "구몬" in title:
-                            organ = "현대차그룹·구몬학습"
-                        elif "iM뱅크" in title or "대구은행" in title:
-                            organ = "iM뱅크"
-                        elif "삼성" in title:
-                            organ = "삼성전자"
+                        organ = "공식 주최사"
+                        m_bracket = re.match(r'^\[([^\]]+)\]', title)
+                        m_prefix = re.match(r'^([가-힣a-zA-Z0-9·\s]{2,15})(?:,|·|\s+그룹|\s+재단|\s+은행|\s+센터)\s+', title)
+                        if m_bracket:
+                            organ = m_bracket.group(1).strip()
+                        elif m_prefix:
+                            organ = m_prefix.group(1).strip()
 
                         category, tags = self._classify_contest(title)
-                        tags.extend(["#대기업공모전", "#보도자료", f"#{organ}"])
+                        tags.extend(["#기업공모전", "#실시간뉴스", f"#{organ}"])
 
-                        # 기본 마감일은 30~60일 뒤로 설정
-                        days_left = 60 if "구몬" in title or "현대차" in title else 30
-                        apply_end_date = (now + timedelta(days=days_left)).strftime("%Y-%m-%d")
+                        apply_end_date = (now + timedelta(days=45)).strftime("%Y-%m-%d")
 
                         item = ActivityItem(
                             source_key=self.source_key,
@@ -241,7 +240,7 @@ class ContestsScraper(BaseScraper):
                             category=category,
                             tags=tags,
                             target_age="유치부, 초등부, 청소년 및 온가족",
-                            region="전국 / 공식 접수처",
+                            region="전국 / 온라인 접수",
                             place_name=f"{organ} 공식 공모전 접수처",
                             address="전국 온라인 접수",
                             cost_type="무료",
@@ -252,11 +251,11 @@ class ContestsScraper(BaseScraper):
                             event_end=apply_end_date,
                             url=link,
                             image_url="https://www.wevity.com/images/common/logo.png",
-                            description=f"{title}\n- 주최: {organ}\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조"
+                            description=f"{title}\n- 주최: {organ}\n- 대상: 유아부, 초등부, 청소년 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조"
                         )
                         items.append(item)
             except Exception as e:
-                logger.warning(f"[{self.name}] 뉴스 RSS {query_str} 크롤링 오류: {e}")
+                logger.warning(f"[{self.name}] 뉴스 RSS {query_str[:30]}... 크롤링 오류: {e}")
 
         logger.info(f"[{self.name}] 3중 공모전 엔진 실시간 수집 완료: 총 {len(items)}건")
         return items
@@ -266,13 +265,16 @@ class ContestsScraper(BaseScraper):
         category = "미술글짓기"
         tags = ["#전국공모전", "#공식접수"]
         
-        if any(kw in title for kw in ["AI", "코딩", "소프트웨어", "SW", "디지털", "로봇", "앱", "과학", "수소"]):
+        # 1. AI / 코딩 / SW / 로봇 / 과학 / 발명 / 수소
+        if any(kw in title.upper() for kw in ["AI", "인공지능", "코딩", "소프트웨어", "SW", "디지털", "로봇", "앱", "과학", "수소", "발명", "해커톤"]):
             category = "AI코딩대회"
             tags += ["#AI대회", "#SW코딩대회", "#과학창작"]
-        elif any(kw in title for kw in ["미술", "그림", "포스터", "웹툰", "만화", "사생", "사진", "디자인"]):
+        # 2. 미술 / 그림 / 포스터 / 웹툰 / 만화 / 사생대회
+        elif any(kw in title for kw in ["미술", "그림", "그리기", "포스터", "웹툰", "만화", "사생", "사진", "디자인", "일러스트"]):
             category = "미술글짓기"
-            tags += ["#어린이미술대회", "#그림공모전"]
-        elif any(kw in title for kw in ["백일장", "글짓기", "독후감", "문학", "스토리", "시", "수필", "동시", "산문"]):
+            tags += ["#어린이그림대회", "#미술공모전", "#그림그리기"]
+        # 3. 백일장 / 글짓기 / 문학 / 스토리 / 독후감 / 시 / 동시
+        elif any(kw in title for kw in ["백일장", "글짓기", "독후감", "문학", "스토리", "시", "수필", "동시", "산문", "독서", "에세이"]):
             category = "미술글짓기"
             tags += ["#창작문학", "#글짓기대회", "#백일장"]
 
