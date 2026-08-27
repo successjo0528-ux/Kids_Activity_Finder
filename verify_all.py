@@ -230,6 +230,25 @@ if os.path.exists(DASHBOARD_DIR):
             print(f"  [OK] Tool_Dashboard 등록 확인: {kids_prog.get('name')}")
             results.append(("대시보드 등록", True, "programs.json 등록 확인"))
 
+# [검증 9] GitHub Pages 배포 및 Jekyll 방지 무결성 검사
+print("\n[검증 9] GitHub Pages 배포 설정 및 Jekyll 오류 방지 파일 검사...")
+deploy_files = [
+    (".nojekyll", "루트 .nojekyll"),
+    ("web/.nojekyll", "웹 .nojekyll"),
+    ("_config.yml", "Jekyll 제외 설정 _config.yml"),
+    (".github/workflows/deploy_pages.yml", "Pages Actions 배포 워크플로우"),
+    (".github/workflows/daily_crawler.yml", "일일 자동 크롤러 워크플로우")
+]
+all_deploy_ok = True
+for f_rel, f_desc in deploy_files:
+    fp = os.path.join(BASE_DIR, f_rel)
+    if os.path.exists(fp):
+        print(f"  [OK] {f_desc} 확인 완료 ({f_rel})")
+    else:
+        print(f"  [FAIL] {f_desc} 누락 ({f_rel})")
+        all_deploy_ok = False
+results.append(("GitHub Pages 배포 무결성", all_deploy_ok, "배포 설정 5종 확인"))
+
 # 최종 결과 요약
 print("\n" + "=" * 70)
 print("[RESULT] 최종 검증 결과 요약:")
