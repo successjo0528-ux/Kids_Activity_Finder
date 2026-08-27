@@ -1,9 +1,9 @@
 window.__ACTIVITIES_DATA__ = {
   "metadata": {
     "title": "Kids Activity Finder",
-    "updated_at": "2026-08-27 21:56:20",
+    "updated_at": "2026-08-27 22:01:25",
     "date_str": "2026년 08월 27일 (목)",
-    "total_count": 145
+    "total_count": 158
   },
   "items": [
     {
@@ -32,7 +32,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://sugang.seongnam.go.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남시 배움숲 통합예약시스템에서 신청하는 판교환경생태학습원 주말 온실 생태탐방 및 신재생에너지 체험 프로그램입니다.",
-      "created_at": "2026-08-27T21:55:58.955250",
+      "created_at": "2026-08-27T22:01:02.673261",
       "id": "53c50e539ef0"
     },
     {
@@ -61,7 +61,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snyouth.or.kr/reservation/index.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남시청소년재단 통합예약포털에서 예약 가능한 청소년 맞춤형 3D프린팅, 드론 제어, 메이커 강좌입니다.",
-      "created_at": "2026-08-27T21:55:58.955250",
+      "created_at": "2026-08-27T22:01:02.677248",
       "id": "409cbd861370"
     },
     {
@@ -90,7 +90,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.pohang.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "포항시 대표 포털에서 안내하는 3D펜 아트, 드론 코딩, 로봇 메이커 강좌 안내입니다.",
-      "created_at": "2026-08-27T21:55:58.955250",
+      "created_at": "2026-08-27T22:01:02.677248",
       "id": "e5e000de2ea3"
     },
     {
@@ -118,7 +118,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.incheon.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천광역시 대표 포털에서 신청 가능한 주말 과학탐구 및 로봇 코딩 캠프 프로그램입니다.",
-      "created_at": "2026-08-27T21:55:58.955250",
+      "created_at": "2026-08-27T22:01:02.677248",
       "id": "ada12424b517"
     },
     {
@@ -147,7 +147,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.sciencecenter.go.kr",
       "image_url": "https://www.sciencecenter.go.kr/images/common/logo.png",
       "description": "국립과천과학관 대형 굴절망원경을 통한 달·행성·성단 야간 천체관측 및 천체투영관 돔 영상 관람 프로그램입니다.",
-      "created_at": "2026-08-27T21:55:59.480944",
+      "created_at": "2026-08-27T22:01:03.184603",
       "id": "6e2f4d400f29"
     },
     {
@@ -176,7 +176,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.sciencecenter.go.kr",
       "image_url": "https://www.sciencecenter.go.kr/images/common/logo.png",
       "description": "유아들의 감각과 상상력을 자극하는 놀이 중심 과학 탐구 체험관으로 과천과학관 공식 예약시스템에서 사전 신청합니다.",
-      "created_at": "2026-08-27T21:55:59.480944",
+      "created_at": "2026-08-27T22:01:03.184603",
       "id": "62887e628ccf"
     },
     {
@@ -205,7 +205,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.sciencecenter.go.kr",
       "image_url": "https://www.sciencecenter.go.kr/images/common/logo.png",
       "description": "생명과학, 물리, 화학, 우주항공 등 분야별 실험 실습 중심의 과천과학관 정기 탐구 프로그램입니다.",
-      "created_at": "2026-08-27T21:55:59.480944",
+      "created_at": "2026-08-27T22:01:03.184603",
       "id": "4a466f9825e8"
     },
     {
@@ -234,7 +234,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.museum.go.kr/CHILD",
       "image_url": "https://www.museum.go.kr/site/main/assets/images/common/logo.png",
       "description": "국립중앙박물관 어린이박물관 공식 포털에서 신청하는 어린이 역사 문화 오감 체험 전시 관람 예약 안내입니다.",
-      "created_at": "2026-08-27T21:55:59.481941",
+      "created_at": "2026-08-27T22:01:03.185597",
       "id": "aecd9e07fe71"
     },
     {
@@ -263,7 +263,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.museum.go.kr/site/main/home",
       "image_url": "https://www.museum.go.kr/site/main/assets/images/common/logo.png",
       "description": "박물관 소장 유물을 직접 관찰하고 역사 스토리텔링과 만들기 활동을 함께하는 주말 가족 교육 프로그램입니다.",
-      "created_at": "2026-08-27T21:55:59.481941",
+      "created_at": "2026-08-27T22:01:03.185597",
       "id": "317bd26efb29"
     },
     {
@@ -292,7 +292,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.museum.go.kr/site/main/home",
       "image_url": "https://www.museum.go.kr/site/main/assets/images/common/logo.png",
       "description": "파노라마 스크린과 VR/AR 기술로 조선시대 기록화와 문화유산을 3D로 생생하게 체험하는 실감영상 프로그램입니다.",
-      "created_at": "2026-08-27T21:55:59.481941",
+      "created_at": "2026-08-27T22:01:03.185597",
       "id": "891a4d4d7c60"
     },
     {
@@ -321,7 +321,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/ev%c2%b7%ed%94%bc%ec%a7%80%ec%bb%ac-ai%eb%a5%bc-%ec%9c%84%ed%95%9c-%eb%b0%b0%ed%84%b0%eb%a6%ac-%ec%95%88%ec%a0%84%ec%84%b1-%eb%b0%8f-%ec%b6%a9%ec%a0%84-%ec%9d%b8%ed%94%84%eb%9d%bc-%ea%b5%ac%ec%b6%95/?var_page=1&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/06/610.jpg",
       "description": "코엑스 컨퍼런스룸(남) 3F에서 개최되는 EV·피지컬 AI를 위한 배터리 안전성 및 충전 인프라 구축 방안 세미나 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:00.189013",
+      "created_at": "2026-08-27T22:01:03.822728",
       "id": "784c91048ef3"
     },
     {
@@ -349,7 +349,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c-1%ed%9a%8c-%eb%af%b8%ec%9a%a9%eb%8c%80%ed%95%99-%ec%9e%85%ec%8b%9c%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=1&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverConvention.png",
       "description": "코엑스 컨퍼런스룸E에서 개최되는 제 1회 미용대학 입시박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:00.196991",
+      "created_at": "2026-08-27T22:01:03.827837",
       "id": "eb8900406a2b"
     },
     {
@@ -377,7 +377,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c54%ed%9a%8c-%ed%95%84%eb%a6%ac%ed%95%80%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=1&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/07/0코엑스-행사일정배너.jpg",
       "description": "코엑스 컨퍼런스룸(남) 3F에서 개최되는 제54회 필리핀유학박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:00.199984",
+      "created_at": "2026-08-27T22:01:03.830090",
       "id": "19f6c7259511"
     },
     {
@@ -405,7 +405,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ed%94%84%eb%a6%ac%ec%a6%88-%ec%84%9c%ec%9a%b8-2026/?var_page=1&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/12/FSE26_COEX_CalendarListing_KR_610x610px-1.jpg",
       "description": "코엑스 Hall C, D에서 개최되는 프리즈 서울 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:00.202977",
+      "created_at": "2026-08-27T22:01:03.832084",
       "id": "8ceda1b6d740"
     },
     {
@@ -433,7 +433,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/kiaf-seoul-2026-%ed%95%9c%ea%b5%ad%ea%b5%ad%ec%a0%9c%ec%95%84%ed%8a%b8%ed%8e%98%ec%96%b4-2/?var_page=1&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/12/9_kiaf-scaled.jpg",
       "description": "코엑스 Hall A, B에서 개최되는 Kiaf SEOUL 2026 (한국국제아트페어) 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:00.204974",
+      "created_at": "2026-08-27T22:01:03.833081",
       "id": "9c3b17582824"
     },
     {
@@ -461,7 +461,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-educationusa-%eb%af%b8%ea%b5%ad%eb%8c%80%ed%95%99%ea%b5%90-%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/코엑스용-배너610x610.jpg",
       "description": "코엑스 컨퍼런스룸(남) 4F에서 개최되는 2026 EducationUSA 미국대학교 유학박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.195033",
+      "created_at": "2026-08-27T22:01:04.446833",
       "id": "a892d4fedbda"
     },
     {
@@ -489,7 +489,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ea%b5%ad%ec%a0%9c%ed%95%99%ea%b5%90-%c2%b7-%ec%a1%b0%ea%b8%b0%ec%9c%a0%ed%95%99-%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/더유학_박람회_610x610-1.jpg",
       "description": "코엑스 컨퍼런스룸(남) 3F에서 개최되는 국제학교 · 조기유학 박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.198023",
+      "created_at": "2026-08-27T22:01:04.448828",
       "id": "30b199645c60"
     },
     {
@@ -517,7 +517,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c15%ed%9a%8c-%eb%89%b4%ec%a7%88%eb%9e%9c%eb%93%9c-%ed%83%80%ec%9a%b0%eb%9e%91%ea%b0%80-%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/제-15회-뉴질랜드-타우랑가-조기유학-박람회.png",
       "description": "코엑스 컨퍼런스룸(남) 3F에서 개최되는 제15회 뉴질랜드 타우랑가 유학박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.201020",
+      "created_at": "2026-08-27T22:01:04.450823",
       "id": "061f50230906"
     },
     {
@@ -545,7 +545,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%8a%a4%eb%a7%88%ed%8a%b8-%ec%9b%8c%ed%81%ac-%ec%bb%a8%ed%83%9d%ec%84%bc%ed%84%b0-%ec%97%91%ec%8a%a4%ed%8f%ac/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/SWCC_코엑스-배너-국문_610_610_복사본-001-J.-Expo-Ltd.jpg",
       "description": "코엑스 Hall B1에서 개최되는 스마트 워크 & 컨택센터 엑스포 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.204010",
+      "created_at": "2026-08-27T22:01:04.452817",
       "id": "2dd7ffa5c522"
     },
     {
@@ -573,7 +573,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ea%b5%ad%ec%a0%9c%ec%96%91%ec%9e%90%ec%82%b0%ec%97%85%eb%8c%80%ec%a0%84/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/크기변환화면-캡처-2026-01-13-111650-한상훈.jpg",
       "description": "코엑스 Hall B2에서 개최되는 2026 국제양자산업대전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.206012",
+      "created_at": "2026-08-27T22:01:04.454812",
       "id": "b5e8c3e7b4c8"
     },
     {
@@ -602,7 +602,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c50%ed%9a%8c-%eb%b2%a0%ed%8e%98-%eb%b2%a0%ec%9d%b4%eb%b9%84%ed%8e%98%ec%96%b4/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/코엑스-웹배너-국문.png",
       "description": "코엑스 Hall A에서 개최되는 제50회 베페 베이비페어 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.207998",
+      "created_at": "2026-08-27T22:01:04.457803",
       "id": "ed44ce31021f"
     },
     {
@@ -630,7 +630,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c-4/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/게재-일정-이미지-610-610.png",
       "description": "코엑스 컨퍼런스룸(남) 3층 307/308호에서 개최되는 2026 유학박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.210992",
+      "created_at": "2026-08-27T22:01:04.461802",
       "id": "eac2a30aa067"
     },
     {
@@ -658,7 +658,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026%eb%85%84-%ea%b5%ad%ec%a0%9c%eb%b0%a9%ec%86%a1%ec%98%81%ec%83%81%eb%a7%88%ec%bc%93/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/COEX-홈페이지용-BCWW-이남규.jpg",
       "description": "코엑스 Hall B에서 개최되는 2026년 국제방송영상마켓 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.213986",
+      "created_at": "2026-08-27T22:01:04.463786",
       "id": "aff0342d7421"
     },
     {
@@ -686,7 +686,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%97%90%eb%93%80%ed%85%8c%ed%81%ac-%ed%8e%98%ec%96%b4/?var_page=2&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/정방형국문-사공.jpg",
       "description": "코엑스 Hall A에서 개최되는 2026 에듀테크 페어 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.215134",
+      "created_at": "2026-08-27T22:01:04.465784",
       "id": "a82535f3a969"
     },
     {
@@ -714,7 +714,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2027%ed%95%99%eb%85%84%eb%8f%84-%ec%88%98%ec%8b%9c-%ec%a0%84%eb%ac%b8%eb%8c%80%ed%95%99-%ec%9e%85%ed%95%99%ec%a0%95%eb%b3%b4%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/코엑스홈페이지610x610.png",
       "description": "코엑스 The Platz에서 개최되는 2027학년도 수시 전문대학 입학정보박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:01.999898",
+      "created_at": "2026-08-27T22:01:05.389704",
       "id": "32c7af781f93"
     },
     {
@@ -742,7 +742,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ea%b2%bd%ea%b8%b0-%ea%b5%ad%ec%a0%9c-%ec%a2%85%ed%95%a9-%ed%95%99%ec%88%a0%eb%8c%80%ed%9a%8c-%eb%b0%8f-%ec%b9%98%ea%b3%bc%ea%b8%b0%ec%9e%90%ec%9e%ac-%ec%a0%84%ec%8b%9c%ed%9a%8cgamex-2026/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/04/GAMEX2026-국문배너610-박종원.jpg",
       "description": "코엑스 Hall C에서 개최되는 경기 국제 종합 학술대회 및 치과기자재 전시회(GAMEX 2026) 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.000900",
+      "created_at": "2026-08-27T22:01:05.392007",
       "id": "6fd31f26ae70"
     },
     {
@@ -770,7 +770,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ed%95%98%eb%b0%98%ea%b8%b0-%ed%95%b4%ec%99%b8-%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c-%ec%9d%b4%eb%af%bc%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/07/국문-유학-박람회-엠블렘.jpg",
       "description": "코엑스 Hall B에서 개최되는 2026 하반기 해외 유학박람회 / 이민박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.002889",
+      "created_at": "2026-08-27T22:01:05.393003",
       "id": "b81f5b69e665"
     },
     {
@@ -798,7 +798,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%bd%94%eb%a6%ac%ec%95%84-%eb%9d%bc%ec%9d%b4%ed%94%84%ec%82%ac%ec%9d%b4%ec%96%b8%ec%8a%a4-%ec%9c%84%ed%81%ac-2026/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/05/2026_610X610pixel-Splendid-tHiNGs-1.jpg",
       "description": "코엑스 Hall D에서 개최되는 코리아 라이프사이언스 위크 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.003887",
+      "created_at": "2026-08-27T22:01:05.394001",
       "id": "4afb34335dd7"
     },
     {
@@ -826,7 +826,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c3%ed%9a%8c-%eb%8c%80%ed%95%9c%eb%af%bc%ea%b5%ad-%ec%82%ac%ed%9a%8c%ec%a0%81%ea%b0%80%ec%b9%98-%ed%8e%98%ec%8a%a4%ed%83%80/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/홈페이지_웹배너_저용량-조정흠.jpg",
       "description": "코엑스 Hall A에서 개최되는 제3회 대한민국 사회적가치 페스타 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.006365",
+      "created_at": "2026-08-27T22:01:05.395995",
       "id": "f3c31c9b1c74"
     },
     {
@@ -854,7 +854,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c12%ed%9a%8c-%ec%a7%91%ec%bd%94%eb%85%b8%eb%af%b8-%eb%b0%95%eb%9e%8c%ed%9a%8c-2026/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/07/코엑스-홈페이지-배너_2026-이혜진.jpg",
       "description": "코엑스 Hall D에서 개최되는 제12회 집코노미 박람회 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.008364",
+      "created_at": "2026-08-27T22:01:05.397990",
       "id": "56d619cc66d4"
     },
     {
@@ -882,7 +882,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c14%ed%9a%8c%ea%b5%ad%ec%a0%9c%ec%b2%a8%eb%8b%a8%ec%86%8c%ec%9e%ac%ec%84%b8%eb%9d%bc%eb%af%b9-%ed%83%84%ec%86%8c-%ec%a0%91%ec%b0%a9%ec%bd%94%ed%8c%85%ed%95%84%eb%a6%84%ea%b8%b0%ec%88%a0/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/제14회국제첨단소재기술대전INTRA2026-식탐대마왕.jpg",
       "description": "코엑스 Hall C에서 개최되는 제14회국제첨단소재(세라믹, 탄소, 접착코팅필름)기술대전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.011356",
+      "created_at": "2026-08-27T22:01:05.400983",
       "id": "72881b80e271"
     },
     {
@@ -910,7 +910,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%eb%8f%99%ec%95%84%ec%9e%ac%ed%85%8c%ed%81%ac%ec%87%bc/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/국문엠블럼-박민영.png",
       "description": "코엑스 Hall B1에서 개최되는 2026 동아재테크쇼 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.013354",
+      "created_at": "2026-08-27T22:01:05.402978",
       "id": "6b1120782a5b"
     },
     {
@@ -938,7 +938,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c-62%ed%9a%8c-%ec%ba%90%eb%82%98%eb%8b%a4-%ec%9c%a0%ed%95%99%eb%b0%95%eb%9e%8c%ed%9a%8c/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/62회-박람회-코엑스-행사용-성주유학.jpg",
       "description": "코엑스 컨퍼런스룸(남) 3F에서 개최되는 제 62회 캐나다 유학박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.014349",
+      "created_at": "2026-08-27T22:01:05.404442",
       "id": "4e64c03323e1"
     },
     {
@@ -966,7 +966,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%8a%a4%eb%a7%88%ed%8a%b8%eb%9d%bc%ec%9d%b4%ed%94%84%ec%9c%84%ed%81%acslw/?var_page=3&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall A, B에서 개최되는 스마트라이프위크(SLW) 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.016601",
+      "created_at": "2026-08-27T22:01:05.405947",
       "id": "daf5d2ce2719"
     },
     {
@@ -995,7 +995,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%9d%b8%ea%b3%b5%ec%a7%80%eb%8a%a5-%ed%8e%98%ec%8a%a4%ed%83%80-2026/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall C에서 개최되는 인공지능 페스타 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.723884",
+      "created_at": "2026-08-27T22:01:06.055659",
       "id": "f39612cbec45"
     },
     {
@@ -1023,7 +1023,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ed%95%9c%ec%9d%bc%ec%b6%95%ec%a0%9c%ed%95%9c%eb%a7%88%eb%8b%b9-2026-in-seoul/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/한일축제한마당-2026-포스터-kyutae777@naver.com_-scaled.jpg",
       "description": "코엑스 Hall D에서 개최되는 한일축제한마당 2026 in Seoul 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.725878",
+      "created_at": "2026-08-27T22:01:06.056656",
       "id": "27af3ca5880a"
     },
     {
@@ -1052,7 +1052,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/kes-2026%ed%95%9c%ea%b5%ad%ec%a0%84%ec%9e%90%ec%a0%84/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/KES-2026_COEX.jpg",
       "description": "코엑스 Hall A, B에서 개최되는 KES 2026(한국전자전) 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.726880",
+      "created_at": "2026-08-27T22:01:06.058651",
       "id": "221c5cf6f1d8"
     },
     {
@@ -1080,7 +1080,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c-28%ed%9a%8c-%eb%b0%98%eb%8f%84%ec%b2%b4%eb%8c%80%ec%a0%84/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/SEDEX_배너-김홍기.jpg",
       "description": "코엑스 Hall C, D에서 개최되는 제 28회 반도체대전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.728875",
+      "created_at": "2026-08-27T22:01:06.060647",
       "id": "d4edc4d4e33d"
     },
     {
@@ -1108,7 +1108,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%a0%81%ec%8b%ad%ec%9e%90-%eb%b0%94%ec%9e%90/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall B1에서 개최되는 2026 적십자 바자 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.730867",
+      "created_at": "2026-08-27T22:01:06.061644",
       "id": "71e4b3cc5305"
     },
     {
@@ -1136,7 +1136,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%eb%8c%80%ed%95%9c%eb%af%bc%ea%b5%ad-%ec%b9%9c%ed%99%98%ea%b2%bd%eb%8c%80%ec%a0%84/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall A에서 개최되는 2026 대한민국 친환경대전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.732870",
+      "created_at": "2026-08-27T22:01:06.063639",
       "id": "e14d93fa4a41"
     },
     {
@@ -1164,7 +1164,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ed%99%88%ec%bc%80%ec%96%b4%c2%b7%ec%9e%ac%ed%99%9c%c2%b7%eb%b3%b5%ec%a7%80-%ec%a0%84%ec%8b%9c%ed%9a%8c/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/03/Reha.Homecare-2026_엠블럼_COEX_국문-김민지.jpg",
       "description": "코엑스 Hall D에서 개최되는 2026 홈케어·재활·복지 전시회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.735854",
+      "created_at": "2026-08-27T22:01:06.065633",
       "id": "288a286cd906"
     },
     {
@@ -1192,7 +1192,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c37%ed%9a%8c-%ec%84%9c%ec%9a%b8%ea%b5%ad%ec%a0%9c%eb%ac%b8%ea%b5%ac%ec%82%ac%eb%ac%b4%ec%9a%a9%ed%92%88%ec%a0%84%ec%8b%9c%ed%9a%8c/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/11/코엑스-2026-엠블럼국문-김영중.jpg",
       "description": "코엑스 Hall B1에서 개최되는 제37회 서울국제문구사무용품전시회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.736850",
+      "created_at": "2026-08-27T22:01:06.066676",
       "id": "1645c1c2e209"
     },
     {
@@ -1220,7 +1220,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ed%95%9c%ea%b5%ad%ea%b1%b4%ec%b6%95%ec%82%b0%ec%97%85%eb%8c%80%ec%a0%84-5/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall D에서 개최되는 한국건축산업대전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.740840",
+      "created_at": "2026-08-27T22:01:06.072261",
       "id": "6684c7d61c6a"
     },
     {
@@ -1248,7 +1248,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%8a%a4%eb%a7%88%ed%8a%b8%ec%97%90%eb%84%88%ec%a7%80%ed%94%8c%eb%9f%ac%ec%8a%a4-2026-2/?var_page=4&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/08/SEP2026_webbanner_KR-homepage.png",
       "description": "코엑스 Hall B에서 개최되는 스마트에너지플러스 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:02.742836",
+      "created_at": "2026-08-27T22:01:06.074911",
       "id": "9ab3609b4888"
     },
     {
@@ -1277,7 +1277,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%bd%94%eb%b2%a0-%eb%b2%a0%ec%9d%b4%eb%b9%84%ed%8e%98%ec%96%b4/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/26년10월코엑스111회코베_코엑스행사일정610X610-남궁민.png",
       "description": "코엑스 Hall A에서 개최되는 2026 코베 베이비페어 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.452137",
+      "created_at": "2026-08-27T22:01:07.172632",
       "id": "5102546c7a58"
     },
     {
@@ -1306,7 +1306,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/aiot-%ea%b5%ad%ec%a0%9c%ec%a0%84%ec%8b%9c%ed%9a%8c-2/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/COEX_일정_KR-Eileen-Kim.jpg",
       "description": "코엑스 Hall D에서 개최되는 AIoT 국제전시회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.453136",
+      "created_at": "2026-08-27T22:01:07.174790",
       "id": "ecf610d8e117"
     },
     {
@@ -1334,7 +1334,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ed%91%b8%eb%93%9c%ec%9c%84%ed%81%ac-%ec%bd%94%eb%a6%ac%ec%95%84%ec%a0%9c21%ed%9a%8c-%ec%84%9c%ec%9a%b8%ea%b5%ad%ec%a0%9c%ec%8b%9d%ed%92%88%ec%82%b0%ec%97%85%ec%a0%84/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/2026-푸드위크-코리아-썸네일.jpg",
       "description": "코엑스 Hall A, B, C, The Platz에서 개최되는 2026 푸드위크 코리아(제21회 서울국제식품산업전) 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.456128",
+      "created_at": "2026-08-27T22:01:07.178778",
       "id": "6a7d42e4df80"
     },
     {
@@ -1362,7 +1362,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c25%ed%9a%8c-%ec%84%9c%ec%9a%b8%ec%b9%b4%ed%8e%98%ec%87%bc/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/cafeshow로고out-정방형-World-of-Coffee-Asia.png",
       "description": "코엑스 전관에서 개최되는 제25회 서울카페쇼 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.457124",
+      "created_at": "2026-08-27T22:01:07.181774",
       "id": "c120b2adbecd"
     },
     {
@@ -1391,7 +1391,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c58%ed%9a%8c-%ec%84%9c%ec%9a%b8%ea%b5%ad%ec%a0%9c%ec%9c%a0%ec%95%84%ea%b5%90%ec%9c%a1%ec%a0%84/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/제58회-유교전-세계전람.jpg",
       "description": "코엑스 Hall A에서 개최되는 제58회 서울국제유아교육전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.460117",
+      "created_at": "2026-08-27T22:01:07.185773",
       "id": "1843a25e7ddf"
     },
     {
@@ -1420,7 +1420,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ea%b8%80%eb%a1%9c%eb%b2%8c-%eb%b2%a0%ec%9d%b4%eb%b9%84%ed%8e%98%ec%96%b4/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/03/2026_11_글로벌-베이비페어_포스터_코엑스용610x610px-jerry.jpg",
       "description": "코엑스 Hall B에서 개최되는 글로벌 베이비페어 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.462822",
+      "created_at": "2026-08-27T22:01:07.187808",
       "id": "61406c1c733f"
     },
     {
@@ -1448,7 +1448,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%eb%a7%88%ec%9d%b8%eb%93%9c%ec%bc%80%ec%96%b4-%ec%9b%b0%eb%8b%88%ec%8a%a4-%eb%a1%9c%ec%bb%ac%eb%b0%94%ec%9d%b4%eb%b8%8c-%ed%8a%b8%eb%9e%98%eb%b8%94-%ec%87%bc/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/07/트래블-쇼-2026-앰블럼-임성준.png",
       "description": "코엑스 Hall C에서 개최되는 2026 트래블 쇼 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.464918",
+      "created_at": "2026-08-27T22:01:07.189314",
       "id": "ed853dbc534f"
     },
     {
@@ -1476,7 +1476,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%86%8c%ec%8b%b1%ec%9d%b8%eb%a7%88%ec%bc%93/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/sourcing_visitor.jpg",
       "description": "코엑스 Hall C에서 개최되는 소싱인마켓 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.466427",
+      "created_at": "2026-08-27T22:01:07.191309",
       "id": "c6c5dabbe76b"
     },
     {
@@ -1504,7 +1504,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%eb%94%94%ec%9e%90%ec%9d%b8%ec%bd%94%eb%a6%ac%ec%95%84-2026/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/디자인코리아-이미지.jpg",
       "description": "코엑스 Hall B에서 개최되는 디자인코리아 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.467943",
+      "created_at": "2026-08-27T22:01:07.193303",
       "id": "70b221b275cd"
     },
     {
@@ -1532,7 +1532,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%84%9c%ec%9a%b8%eb%94%94%ec%9e%90%ec%9d%b8%ed%8e%98%ec%8a%a4%ed%8b%b0%eb%b2%8c/?var_page=5&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/02/sdf-로고-2-garam-yun.jpg",
       "description": "코엑스 Hall A에서 개최되는 2026 서울디자인페스티벌 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:03.469451",
+      "created_at": "2026-08-27T22:01:07.195298",
       "id": "ec3f03bf58ca"
     },
     {
@@ -1560,7 +1560,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%84%9c%ec%9a%b8%ea%b5%ad%ec%a0%9c%eb%b0%9c%eb%aa%85%ec%a0%84%ec%8b%9c%ed%9a%8c/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/2026-서울전-배너_국문-610x610-1.jpg",
       "description": "코엑스 Hall C에서 개최되는 2026 서울국제발명전시회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.163582",
+      "created_at": "2026-08-27T22:01:08.091149",
       "id": "f622f8b2946c"
     },
     {
@@ -1588,7 +1588,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%eb%8c%80%ed%95%9c%eb%af%bc%ea%b5%ad%eb%b0%9c%eb%aa%85%ed%8a%b9%ed%97%88%eb%8c%80%ec%a0%84/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/2026-서울전-배너_국문-610x610-1.jpg",
       "description": "코엑스 Hall C에서 개최되는 2026 대한민국발명특허대전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.165304",
+      "created_at": "2026-08-27T22:01:08.093018",
       "id": "b7b4e9920433"
     },
     {
@@ -1616,7 +1616,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%83%81%ed%91%9c%c2%b7%eb%94%94%ec%9e%90%ec%9d%b8%ea%b6%8c%e5%b1%95/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/2026-서울전-배너_국문-610x610-1.jpg",
       "description": "코엑스 Hall C에서 개최되는 2026 상표·디자인권展 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.167462",
+      "created_at": "2026-08-27T22:01:08.094015",
       "id": "083347ebb746"
     },
     {
@@ -1644,7 +1644,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ec%9b%94%eb%93%9c-%ec%9b%b9%ed%88%b0-%ed%8e%98%ec%8a%a4%ed%8b%b0%eb%b2%8c/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall B에서 개최되는 2026 월드 웹툰 페스티벌 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.168693",
+      "created_at": "2026-08-27T22:01:08.097009",
       "id": "65ccc5612d83"
     },
     {
@@ -1672,7 +1672,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%a0%9c11%ed%9a%8c-%eb%8c%80%ed%95%9c%eb%af%bc%ea%b5%ad-%ec%86%8c%ed%94%84%ed%8a%b8%ec%9b%a8%ec%96%b4-%eb%8c%80%ec%a0%84-%ec%86%8c%ed%94%84%ed%8a%b8%ec%9b%a8%ec%9d%b4%eb%b8%8c-2026/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/themes/coex-visitor/assets/images/bg/bg-hoverExhibition.png",
       "description": "코엑스 Hall A에서 개최되는 제11회 대한민국 소프트웨어 대전, 소프트웨이브 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.170685",
+      "created_at": "2026-08-27T22:01:08.099002",
       "id": "b5f3695be8e0"
     },
     {
@@ -1700,7 +1700,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%bb%b4%ec%97%85-2026/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/07/KakaoTalk_20260714_171059124-JiHee.jpg",
       "description": "코엑스 Hall C에서 개최되는 컴업 2026 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.171683",
+      "created_at": "2026-08-27T22:01:08.100997",
       "id": "09c3e2bbb1ae"
     },
     {
@@ -1728,7 +1728,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026%ed%95%99%eb%85%84%eb%8f%84-%ec%a0%95%ec%8b%9c-%eb%8c%80%ed%95%99%ec%9e%85%ed%95%99%ec%a0%95%eb%b3%b4%eb%b0%95%eb%9e%8c%ed%9a%8c-2/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/웹배너2026-02-1.jpg",
       "description": "코엑스 Hall A에서 개최되는 2027학년도 정시 대학입학정보박람회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.173677",
+      "created_at": "2026-08-27T22:01:08.102992",
       "id": "1311369b81b7"
     },
     {
@@ -1756,7 +1756,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ed%95%9c%ea%b5%ad%ea%b5%ad%ec%a0%9c%ec%b9%98%ea%b3%bc%ec%9d%98%eb%a3%8c%ea%b8%b0%ea%b8%b0-%ec%a0%84%ec%8b%9c%ed%9a%8c-%eb%b0%8f-%ed%95%99%ec%88%a0%eb%8c%80%ed%9a%8c/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/03/kdx-로고_V2-1-EXACTLY-25CM.png",
       "description": "코엑스 Hall D에서 개최되는 2026 한국국제치과의료기기 전시회 및 학술대회 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.174676",
+      "created_at": "2026-08-27T22:01:08.105163",
       "id": "2b1fa1807066"
     },
     {
@@ -1784,7 +1784,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-k-%ed%95%b8%eb%93%9c%eb%a9%94%ec%9d%b4%eb%93%9c%ed%8e%98%ec%96%b4/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2025/03/K-핸드메이드페어-2026-엠블렘국문-최슬기.jpg",
       "description": "코엑스 Hall B에서 개최되는 2026 K-핸드메이드페어 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.176672",
+      "created_at": "2026-08-27T22:01:08.107186",
       "id": "cd34eac5c4fd"
     },
     {
@@ -1812,7 +1812,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026-%ed%99%88%ed%85%8c%ec%9d%b4%eb%b8%94%eb%8d%b0%ec%bd%94%ed%8e%98%ec%96%b4/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/HT_포스터_2026_정사각형.png",
       "description": "코엑스 Hall C, D에서 개최되는 2026 홈테이블데코페어 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.178546",
+      "created_at": "2026-08-27T22:01:08.110530",
       "id": "aafe816659a9"
     },
     {
@@ -1840,7 +1840,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/%ec%84%a4%eb%a7%9e%ec%9d%b4-%eb%aa%85%ec%a0%88%ec%84%a0%eb%ac%bc%ec%a0%84-4/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/코엑스-포스터설맞이.jpg",
       "description": "코엑스 Hall B에서 개최되는 설맞이 명절선물전 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.182009",
+      "created_at": "2026-08-27T22:01:08.113616",
       "id": "e30190648fd8"
     },
     {
@@ -1868,7 +1868,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.coex.co.kr/exhibitions/2026%ec%84%9c%ec%9a%b8%ec%95%84%ed%8a%b8%ec%87%bc/?var_page=6&search_start_date=2026.08.27&search_end_date=2027.08.27&list_type=LIST",
       "image_url": "https://www.coex.co.kr/wp-content/uploads/2026/01/서울아트쇼_정사각형-SEOUL-ART-SHOW.jpg",
       "description": "코엑스 Hall A에서 개최되는 2026서울아트쇼 공식 전시회입니다. 최신 전시 품목 관람 및 사전등록 무료 혜택을 확인하실 수 있습니다.",
-      "created_at": "2026-08-27T21:56:04.185134",
+      "created_at": "2026-08-27T22:01:08.115607",
       "id": "773a11598450"
     },
     {
@@ -1897,7 +1897,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.kintex.com/web/ko/event/view.do?seq=26033004&pageIndex=2&pageUnit=9&searchKeyword=&searchType=11%2C&searchStartDt=2026-08-26&searchEndDt=2027-02-26&searchCheck=6",
       "image_url": "https://www.kintex.com/imageView.do?atchmnflNo=469129&fileseq=6",
       "description": "코베 베이비페어&유아교육전은 임신, 출산, 육아, 유아교육 관련 국내 최대 규모 전문 전시회로 유모차·카시트·교구·도서 무료 체험 및 사전등록 혜택이 제공됩니다.",
-      "created_at": "2026-08-27T21:56:04.187366",
+      "created_at": "2026-08-27T22:01:08.119593",
       "id": "a66f6d073582"
     },
     {
@@ -1926,7 +1926,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.kintex.com/web/ko/event/event_calendar.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "킨텍스 공식 행사 캘린더에서 제공하는 어린이 창의교구, AI 코딩 교육, 에듀테크 체험 박람회 안내입니다.",
-      "created_at": "2026-08-27T21:56:04.187366",
+      "created_at": "2026-08-27T22:01:08.120100",
       "id": "f3698e4fbdac"
     },
     {
@@ -1955,7 +1955,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.setec.or.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "세택(SETEC) 전시 행사 일정에서 신청 가능한 대표 서울국제유아교육전 및 어린이 도서·교구 체험전입니다.",
-      "created_at": "2026-08-27T21:56:04.187366",
+      "created_at": "2026-08-27T22:01:08.120100",
       "id": "64288943ef81"
     },
     {
@@ -1983,7 +1983,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5887",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "6주 만에 책을 내고 작가가 되세요! 책 쓰기 프로젝트 [온라인 / 오프라인] 58기 모집! - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.181925",
+      "created_at": "2026-08-27T22:01:09.123716",
       "id": "711e9680ced7"
     },
     {
@@ -2011,7 +2011,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5879",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "(4주) 신춘문예 작가님에게 글쓰기를 배워보세요! 참여자 모집 중 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.181925",
+      "created_at": "2026-08-27T22:01:09.124274",
       "id": "f1266eb46873"
     },
     {
@@ -2042,7 +2042,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5818",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026 제25회 김포문학상 전국 공모 (대상 1000만원) - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.181925",
+      "created_at": "2026-08-27T22:01:09.124792",
       "id": "33e5951818af"
     },
     {
@@ -2073,7 +2073,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5580",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제34회 눈높이아동문학대전 - 청소년문학 부문마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.183006",
+      "created_at": "2026-08-27T22:01:09.124792",
       "id": "4272107f2e38"
     },
     {
@@ -2104,7 +2104,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5533",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제18회 삶의향기 동서문학상 공모 (총상금 7,900만원) - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.183006",
+      "created_at": "2026-08-27T22:01:09.125382",
       "id": "d29d13d238e0"
     },
     {
@@ -2135,7 +2135,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5519",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제3회 신격호 샤롯데문학상 (총상금 9,000만원)마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.183006",
+      "created_at": "2026-08-27T22:01:09.125382",
       "id": "0b43effb4d66"
     },
     {
@@ -2166,7 +2166,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5816",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제16회 한국문학특구포럼 전국고교생 백일장 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.183006",
+      "created_at": "2026-08-27T22:01:09.125976",
       "id": "5717328d62db"
     },
     {
@@ -2197,7 +2197,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5817",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제9회 아산문학상 & 제4회 아산향토문학상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.183588",
+      "created_at": "2026-08-27T22:01:09.125976",
       "id": "9c095c89ca21"
     },
     {
@@ -2228,7 +2228,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5774",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026 서초전국백일장 공모 (총상금 490만원)마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.183588",
+      "created_at": "2026-08-27T22:01:09.126527",
       "id": "95388d0a3f57"
     },
     {
@@ -2259,7 +2259,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5773",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제47회 경기백일장 공모전마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.184101",
+      "created_at": "2026-08-27T22:01:09.126527",
       "id": "ada6941d7b06"
     },
     {
@@ -2290,7 +2290,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5675",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제9회 부안디카시 공모전마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.184101",
+      "created_at": "2026-08-27T22:01:09.127947",
       "id": "9f973f3a7017"
     },
     {
@@ -2321,7 +2321,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5640",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026년 제15회 행주문학상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.184101",
+      "created_at": "2026-08-27T22:01:09.128473",
       "id": "dc76e9382a64"
     },
     {
@@ -2349,7 +2349,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5627",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "청강문화산업대학교 웹소설 실기 피드백프로그램 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.184101",
+      "created_at": "2026-08-27T22:01:09.128473",
       "id": "9799f6fcf408"
     },
     {
@@ -2377,7 +2377,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5526",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026년 제4회 경상북도 문예현상공모전 (대상 300만원)마감임박 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.184101",
+      "created_at": "2026-08-27T22:01:09.128984",
       "id": "edaa4ddace6c"
     },
     {
@@ -2405,7 +2405,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5898",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제26회 계간 문예창작 신인상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.184101",
+      "created_at": "2026-08-27T22:01:09.128984",
       "id": "a7d574f43fc2"
     },
     {
@@ -2436,7 +2436,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5539&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "한국시인협회 2026년 제26회 전국 고교생 문예백일장 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.852788",
+      "created_at": "2026-08-27T22:01:09.826159",
       "id": "37587cecd9a1"
     },
     {
@@ -2467,7 +2467,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5541&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제14회 박경리 전국 시 낭송 대회 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.852788",
+      "created_at": "2026-08-27T22:01:09.826159",
       "id": "f79f00f0c13a"
     },
     {
@@ -2498,7 +2498,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5791&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026 DMZ문학축전 DMZ 백일장 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.852788",
+      "created_at": "2026-08-27T22:01:09.826159",
       "id": "d7e6430fc5c5"
     },
     {
@@ -2529,7 +2529,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5461&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "2026년 제5회 김포시 전국시낭송대회 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.852788",
+      "created_at": "2026-08-27T22:01:09.826159",
       "id": "edec5b51a585"
     },
     {
@@ -2560,7 +2560,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest&wr_id=5399&wmode=1",
       "image_url": "https://ilovecontest.com/img/logo.png",
       "description": "제4회 포엠피플 신인문학상 공모 - 알럽콘 공식 공모전·백일장 세부 요강 및 온라인 접수 안내입니다.",
-      "created_at": "2026-08-27T21:56:05.852788",
+      "created_at": "2026-08-27T22:01:09.826159",
       "id": "c65ab211addc"
     },
     {
@@ -2592,7 +2592,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110530",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제5회 2026 대한민국 고등학생 AI•SW 개발 공모전\n- 주최: 한국인공지능•소프트웨어산업협회\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.587977",
+      "created_at": "2026-08-27T22:01:12.099566",
       "id": "f0ebf8646a56"
     },
     {
@@ -2621,7 +2621,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110335",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "6주 만에 책을 내고 작가가 되세요! ! 누구나 참여 가능합니다! 58기 모집\n- 주최: 주관글ego\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.588973",
+      "created_at": "2026-08-27T22:01:12.100602",
       "id": "fd060554a75c"
     },
     {
@@ -2650,7 +2650,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110179",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "7th Da-Ho Award Asian International Short Film Competition(단편영화 공모전)\n- 주최: Da-Ho Construction Co., Ltd.\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.589968",
+      "created_at": "2026-08-27T22:01:12.101715",
       "id": "485b3d1691a6"
     },
     {
@@ -2679,7 +2679,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110171",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "2026 Little Ambassador 선발 공모전 - 6·25 전쟁 UN 참전용사에게 감사편지쓰기\n- 주최: H2O품앗이운동본부\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.589968",
+      "created_at": "2026-08-27T22:01:12.102964",
       "id": "e54c974f64a9"
     },
     {
@@ -2710,7 +2710,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110012",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "[대통령직속 빛의 위원회] 빛의 혁명 상징 디자인 공모전\n- 주최: 대통령직속 빛의 위원회\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.590962",
+      "created_at": "2026-08-27T22:01:12.103484",
       "id": "a2c56e0ad910"
     },
     {
@@ -2739,7 +2739,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=109883",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제8회 오티콘챌린지 공모전\n- 주최: 오티콘, 다이어텍\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.592434",
+      "created_at": "2026-08-27T22:01:12.103484",
       "id": "e0c43c15e0ce"
     },
     {
@@ -2771,7 +2771,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=109579",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제3회 전국 K스토리 공모전\n- 주최: 문화체육관광부, 충청북도, 진천군, 한국콘텐츠진흥원\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.592943",
+      "created_at": "2026-08-27T22:01:12.104481",
       "id": "249780ee29f4"
     },
     {
@@ -2800,7 +2800,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=109568",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제17회 LH 국토기술대전\n- 주최: LH 한국토지주택공사\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.592943",
+      "created_at": "2026-08-27T22:01:12.105478",
       "id": "e8afa73521a6"
     },
     {
@@ -2832,7 +2832,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=108474",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제52회 전국여성 독후감 대회\n- 주최: (사)대한어머니회중앙회\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.593938",
+      "created_at": "2026-08-27T22:01:12.105478",
       "id": "a69aef285371"
     },
     {
@@ -2863,7 +2863,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=108461",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제7회 좋은데이 미술대전\n- 주최: 좋은데이나눔재단\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.593938",
+      "created_at": "2026-08-27T22:01:12.106476",
       "id": "83d60699e220"
     },
     {
@@ -2895,7 +2895,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=107537",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제26회 가람이병기청년시·최명희청년소설 문학상 공모\n- 주최: 전북대학교\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.594935",
+      "created_at": "2026-08-27T22:01:12.107473",
       "id": "c106aa9c9cb7"
     },
     {
@@ -2927,7 +2927,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=107135",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제24회 임베디드SW경진대회\n- 주최: 산업통상부\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.595934",
+      "created_at": "2026-08-27T22:01:12.107473",
       "id": "cb8952c8120d"
     },
     {
@@ -2958,7 +2958,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=104715",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "2026 제4회 충청남도 드론 영상 및 사진 공모전\n- 주최: 충청남도\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.595934",
+      "created_at": "2026-08-27T22:01:12.108472",
       "id": "a54627a9af29"
     },
     {
@@ -2987,7 +2987,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110539",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "교보교육재단 2026년 제10회 책갈피 독서편지 공모전\n- 주최: 교보교육재단\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.596931",
+      "created_at": "2026-08-27T22:01:12.108472",
       "id": "d309774b80ef"
     },
     {
@@ -3016,8 +3016,427 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.wevity.com/?c=find&s=1&gub=1&gbn=view&gp=1&ix=110534",
       "image_url": "https://www.wevity.com/images/common/logo.png",
       "description": "제28회 가천효행대상 공모 (총 장학금 1억원)\n- 주최: 가천문화재단\n- 대상: 어린이·유아 및 전국 어린이/청소년\n- 접수: 위비티 공식 요강 및 온라인 접수처 참조",
-      "created_at": "2026-08-27T21:56:08.596931",
+      "created_at": "2026-08-27T22:01:12.109468",
       "id": "964fd6167890"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (투데이에너지)",
+      "title": "현대차그룹, 구몬학습과 함께하는 ‘수소 스토리’ 공모전 개최",
+      "category": "AI코딩대회",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#AI대회",
+        "#SW코딩대회",
+        "#과학창작",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-10-26",
+      "event_start": "2026-10-26",
+      "event_end": "2026-10-26",
+      "status": "접수중",
+      "d_day": "D-60",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA0VmtNb0p4QS1uV1VucUhaWmg4ckVvZXlIQ2JLNklETlo5NG00M182MHBrcnJvSC1YZHFXWVc2Y3gtek9aUmZ2M1lwZEdqZGM4QWwtamU5LVZOVVR6dW9NOS1KSmRmUjRRbnpHTXFn?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "현대차그룹, 구몬학습과 함께하는 ‘수소 스토리’ 공모전 개최\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.455872",
+      "id": "0d5eb3471c58"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (서울경제)",
+      "title": "교육 알림장]구몬학습, ‘창작 문학 공모전’ 개최",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#창작문학",
+        "#글짓기대회",
+        "#백일장",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-10-26",
+      "event_start": "2026-10-26",
+      "event_end": "2026-10-26",
+      "status": "접수중",
+      "d_day": "D-60",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5jeXpSeDZmbmh5RDlLYy1JNXV4bV8zc2dCTEVld1ZkRlhfempXZE5wZnItQkRPOWdFTDJpVWMwa3BGWTB5cFhVY3JWd2dmdkcxSGc?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "교육 알림장]구몬학습, ‘창작 문학 공모전’ 개최\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.456877",
+      "id": "54710a749369"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (v.daum.net)",
+      "title": "구몬학습-현대차 '수소 에너지' 문학 공모전 연다",
+      "category": "AI코딩대회",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#AI대회",
+        "#SW코딩대회",
+        "#과학창작",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-10-26",
+      "event_start": "2026-10-26",
+      "event_end": "2026-10-26",
+      "status": "접수중",
+      "d_day": "D-60",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE01aHJUV3RGWGZWUDNDMUI2cG9kaWNDbXFhV1B5QTZlMTJCSG1hbDFVczZubHZZYmpmTkdyeWZYNHVhUkpGLWZ3SFhsLUowQXVlcGZPUQ?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "구몬학습-현대차 '수소 에너지' 문학 공모전 연다\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.456877",
+      "id": "bb1f4eaafa6d"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (Hyundai Motor Group)",
+      "title": "2026 차량 UX 아이디어 공모전 안내 | 공지 | News | UX 스튜디오 | 현대자동차그룹",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1YeFZQV0c4WmJfNGZHMWFfTFd4UkRJYkJkSkNjZE1YUDM3SzIwbnZXcWRvTjdJWUtld05HSGplMzZxNjJwVjAweTlqN3BDeTlpaURudWVuNTNKMGp2Z0YwS05Oa081WDNtY2Y3NWJDV1NxTEswRG5rMWhYaEhyQQ?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "2026 차량 UX 아이디어 공모전 안내 | 공지 | News | UX 스튜디오 | 현대자동차그룹\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.456877",
+      "id": "040527fcf8ca"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (아주경제)",
+      "title": "현대차, 구몬학습과 수소 스토리 공모전",
+      "category": "AI코딩대회",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#AI대회",
+        "#SW코딩대회",
+        "#과학창작",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-10-26",
+      "event_start": "2026-10-26",
+      "event_end": "2026-10-26",
+      "status": "접수중",
+      "d_day": "D-60",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE02ME5seElJSW01SDdYNXRCNjlNbUZHdTJ3bjktM1FhYUNySDB2dlNFYU5ab3pLMzZpajJsMUx4ZWxwelpnVTViSkc3QzAxd1J1ckRCZm1CdU05QdIBWEFVX3lxTE53d3p3dXZOc2VON3VtSTQ3emNRVlgtYk9wd3Z1MWotd04tRUNVa1AyQ2Q1VThLR01NU3V4ZkZ0WmVTV0pKVjBiUU82R3B3SDFXQWQ0NzR0ejc?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "현대차, 구몬학습과 수소 스토리 공모전\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.457870",
+      "id": "8aeb1b620f20"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (뉴스핌)",
+      "title": "구몬학습, 현대차그룹과 '제2회 창작 문학 공모전' 개최",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#창작문학",
+        "#글짓기대회",
+        "#백일장",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-10-26",
+      "event_start": "2026-10-26",
+      "event_end": "2026-10-26",
+      "status": "접수중",
+      "d_day": "D-60",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9qZ29lby14MlNBdGdxUHg0b3BCUkphWmtVTHNtVlFZb2FOVk41S0tyZWhHby1YYlQ1WTFXMzNIUTFuM1JodmtfbUM4M1Z3Skt2WWo3QkRmVjI4dkV0?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "구몬학습, 현대차그룹과 '제2회 창작 문학 공모전' 개최\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.457870",
+      "id": "4d452423c8b3"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "현대차그룹·구몬학습 (헤럴드경제)",
+      "title": "현대차그룹, 구몬학습과 ‘수소’ 창작 공모전…전 국민 대상 확대",
+      "category": "AI코딩대회",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#AI대회",
+        "#SW코딩대회",
+        "#과학창작",
+        "#대기업공모전",
+        "#보도자료",
+        "#현대차그룹·구몬학습"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "현대차그룹·구몬학습 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-10-26",
+      "event_start": "2026-10-26",
+      "event_end": "2026-10-26",
+      "status": "접수중",
+      "d_day": "D-60",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5NcG9QT0J6YXo1QTRKel9FeFZsNnE5SFowQ211OFpKRW1BR2dleFFnSkJZSGdkcWVHUXFqdTRVMTk0Y0w5YUEyak9LWUx3UVp6X19OYjln?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "현대차그룹, 구몬학습과 ‘수소’ 창작 공모전…전 국민 대상 확대\n- 주최: 현대차그룹·구몬학습\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:17.458865",
+      "id": "4a1ff3ccdf07"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "iM뱅크 (연합뉴스)",
+      "title": "게시판] iM뱅크, '전국 어린이미술공모전' 시상식",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#어린이미술대회",
+        "#그림공모전",
+        "#대기업공모전",
+        "#보도자료",
+        "#iM뱅크"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "iM뱅크 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9sN1pvN3IwRUNVSzEtM3I1aE8zdWp3ZGY2VjdhTk1tMEFvZDBXYW12RWltbDJYajBSWHN2UnB4X0lFalI4ZXhsUHVVZDA5MmxtcHg3eG5QTjV6TnfSAWBBVV95cUxNa3dVTThSQ1NJSXByUFcyQlVwak9pRVZxOGphSzZETnNFNHN4U04xV2ZHUHRveTMzRjRoUnRhWm91V3NYbXBIT1RVUTZtdmU1ZFh6WE43ZzRUYndJUmhjS1E?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "게시판] iM뱅크, '전국 어린이미술공모전' 시상식\n- 주최: iM뱅크\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:18.679582",
+      "id": "a3008c57f481"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "대기업/공공기관 (씨원뉴스)",
+      "title": "대구 북구청소년회관, ‘건강챌린지공모전’ 개최",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#대기업공모전",
+        "#보도자료",
+        "#대기업/공공기관"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "대기업/공공기관 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1CdlMyZXlZMWVISTFJbHFqQ3QtblNseEFSdU5sVndWOEhhSlJLOURBZnllaVlUM3BwTjBEUG4xN0VSUDNlbTIwTHlYbmpkYlhsR291eW9sYzkxZ1ZFNW0tTEt6ZHo1MHM?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "대구 북구청소년회관, ‘건강챌린지공모전’ 개최\n- 주최: 대기업/공공기관\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:18.679582",
+      "id": "d0b8a4bd5b56"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "iM뱅크 (더나은미래)",
+      "title": "iM뱅크, ‘2026 제22회 전국 어린이미술공모전’ 시상식 개최",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#어린이미술대회",
+        "#그림공모전",
+        "#대기업공모전",
+        "#보도자료",
+        "#iM뱅크"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "iM뱅크 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1HQ2Vac0FDenZibHZGbFIxbHRzTjlBbXppblFzMm1JalpMWTNmRkxmckU5WW9IWktUNV9SYm1zLXFhaVlqV1JzS3A0VVFPaVd4Z3c?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "iM뱅크, ‘2026 제22회 전국 어린이미술공모전’ 시상식 개최\n- 주최: iM뱅크\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:18.679582",
+      "id": "88a7c213a3f6"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "iM뱅크 (hidomin.com)",
+      "title": "iM뱅크 미술공모전, 아이들 꿈·상상력 한자리에",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#어린이미술대회",
+        "#그림공모전",
+        "#대기업공모전",
+        "#보도자료",
+        "#iM뱅크"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "iM뱅크 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5JNkkyRTl2QnljdmgxdVJacVZOZ1JPMDlrbVQ0cVo5LWNmM1k5eTkwS05tMEJZZVExUlhWRm93MlRqT09XSU9pSlg4djZLVmhFeDRJdzZTd2dQQTJQUmFxQnBfcEhYTmFMU2c?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "iM뱅크 미술공모전, 아이들 꿈·상상력 한자리에\n- 주최: iM뱅크\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:18.680579",
+      "id": "bed5da65ad55"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "대기업/공공기관 (kyongbuk.co.kr)",
+      "title": "어린이 그림에 담긴 김구와 보훈…3200명 전국 미술공모전",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#어린이미술대회",
+        "#그림공모전",
+        "#대기업공모전",
+        "#보도자료",
+        "#대기업/공공기관"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "대기업/공공기관 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE43R2VYUk11TTAtbWtiZTRrNkVSMzNoWVl2UW8xSHlkb0lKYnRQdHZoNnJhcnZLVWhxQ2tyRXZ5WUNsNEItSVNBRkwxOEJvQWtMOW5sR20xdk01Vm9WWmdkQzBSN2Q1MTI0NEdNOVZaVQ?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "어린이 그림에 담긴 김구와 보훈…3200명 전국 미술공모전\n- 주최: 대기업/공공기관\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:18.680579",
+      "id": "04adb0987e26"
+    },
+    {
+      "source_key": "contests",
+      "source_name": "대기업/공공기관 (중구신문)",
+      "title": "서울특별시교육청어린이도서관 제44회 어린이글짓기대회 개최",
+      "category": "미술글짓기",
+      "tags": [
+        "#전국공모전",
+        "#공식접수",
+        "#창작문학",
+        "#글짓기대회",
+        "#백일장",
+        "#대기업공모전",
+        "#보도자료",
+        "#대기업/공공기관"
+      ],
+      "target_age": "유치부, 초등부, 청소년 및 온가족",
+      "region": "전국 / 공식 접수처",
+      "place_name": "대기업/공공기관 공식 공모전 접수처",
+      "address": "전국 온라인 접수",
+      "cost_type": "무료",
+      "cost_info": "참가비 무료 (공식 요강 참조)",
+      "apply_start": "2026-08-27",
+      "apply_end": "2026-09-26",
+      "event_start": "2026-09-26",
+      "event_end": "2026-09-26",
+      "status": "접수중",
+      "d_day": "D-30",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE84NHJYX0lWWE02dEFHVmRwQmZBbjc1dXBqQVFFbktvR3lfaFhCMk9hWGQ5M05IalhHTXRxT2JFOHE1QUxZTHU4eE9DeFNjbklmbHFfTnFCUnlSOWE2T0FmSm9QM1p1dHB4WTdmYg?oc=5",
+      "image_url": "https://www.wevity.com/images/common/logo.png",
+      "description": "서울특별시교육청어린이도서관 제44회 어린이글짓기대회 개최\n- 주최: 대기업/공공기관\n- 대상: 유아부, 초등부, 중고등부 및 가족\n- 접수 및 세부 요강: 공식 보도자료 및 주최사 접수 페이지 참조",
+      "created_at": "2026-08-27T22:01:18.680579",
+      "id": "b827b93e17ec"
     },
     {
       "source_key": "seongnam_lib",
@@ -3046,7 +3465,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209234",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260810164809991.jpg",
       "description": "2026 하반기 도심 속 독서캠핑 & 북크닉 참가자모집\n○ 운영일시: 2026.09.19.(토) 10:00~16:00\n○ 대 상 : 2인 이상 구성원 60팀\n○ 장 소 : 운중도서관 후문 운중공원\n○ 접수일시: 2026.09.01.(화) 10:00~선착순 마감\n○ 접수방법 : 성남시 배움숲 홈페이지https://sugang.seongnam.go.kr\n○ 운영내용 : 야외 공간에서 가족 및 개인이 자유롭게 독서를 즐기는 프로그램으로\n별도의 어린이 독서프로그램(그림책 실험실), 밴드공연, 알뜰장터, 도서나눔 등 부대행사 진행됩니다.\n부대행사중 그림책 실험실, 알뜰장터 참가는 별도 접수를 필요로 합니다.\n야외활동에 필요한 텐트, 돗자리, 의자, 테이블 등 개인지참 바랍니다. 도서관은 팀별 지정된 구역을 제공합니다",
-      "created_at": "2026-08-27T21:55:58.780841",
+      "created_at": "2026-08-27T22:01:03.112114",
       "id": "f72437b9cdcf"
     },
     {
@@ -3076,7 +3495,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209101",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260810140353010.jpg",
       "description": "★시작시간 9시에서 9시30분으로 변경★\n2026년 하반기 운중도서관 어린이 생태교실 모집 안내\n○ 회차별 수업 일정\n- 1회차: 8월 29일 토요일\n- 2회차: 9월 19일 토요일\n- 3회차: 10월 17일 토요일\n○ 회차별 접수 일정\n- 1회차: 8월 18일 화요일 10시 ~\n- 2회차: 9월 8일 화요일 10시 ~\n- 3회차: 10월 6일 화요일 10시 ~\n○ 수업대상\n: 관내 초등학생 1,2학년\n○ 수업장소\n: 운중도서관 인근(문화교실, 운중공원, 운중천)\n○ 유의사항\n- 하반기 3회 운영 /\n1인 1회만 신청 가능\n- 회차별\n접수 일정 상이 (확인 후 신청)\n- 배움숲 홈페이지\n선착순 접수\n- 야외 활동 포함\n(편한 복장·운동화 착용 권장)\n- 우천 시 실내 프로그램으로 전환\n- 기상 및 현장 상황",
-      "created_at": "2026-08-27T21:55:59.394425",
+      "created_at": "2026-08-27T22:01:03.713258",
       "id": "3bf1c9be732b"
     },
     {
@@ -3106,7 +3525,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209392",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260818092251009.jpg",
       "description": "성남시립 운중도서관에서 진행되는 어린이 및 가족 독서문화 체험 프로그램 안내입니다.",
-      "created_at": "2026-08-27T21:55:59.944786",
+      "created_at": "2026-08-27T22:01:04.258520",
       "id": "31dce50af60a"
     },
     {
@@ -3136,7 +3555,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/uj/20001/bbsPostDetail.do?postIdx=209098",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260805132001551.jpg",
       "description": "<2026년 하반기 운중도서관 어린이 견학 신청 안내>\n견학신청 바로가기\n○ 운영기간: 2026. 9월 ~ 12월, 매주 수요일, 목요일 10:00~11:00(1시간)\n○ 견학장소: 운중도서관 1층 어린이자료실\n○ 대      상: 관내 어린이집 및 유치원(회당 20명 내) [기관신청]\n○ 내      용: 도서관 이용안내, 자유로운 독서활동, 동화책 읽어주기 및 동화구연 감상(자원봉사자)\n※ 참여횟수가 제한될 수 있으며, 견학프로그램과 일정은 도서관 사정에 따라 변경될 수 있습니다.\n※ 동화책 읽어주기는 매주 목요일 운영\n수요일은 수시 운영(자원봉사자와 일정 조율 후 가능여부 알려드립니다.)\n○ 접수방법: 운중도서관 홈페이지 온라인 신청\n'운중도서관 홈페이지-이용자마당-신청서비스-견학신청-신청현황/신청하기",
-      "created_at": "2026-08-27T21:56:00.496843",
+      "created_at": "2026-08-27T22:01:04.796798",
       "id": "94b45b3c6637"
     },
     {
@@ -3166,7 +3585,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209256",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260811143655730.jpg",
       "description": "독서의 달 행사 안내\n기간 : 2026. 9. 1.(화) ~ 9. 27.(일)\n내용 : 저자특강, 어린이공연 등 운영\n저자특강 및 어린이공연 접수\n접수방법 : 온라인 선착순 접수 (성남시 평생학습통합플랫폼 배움숲)\n접수기간 : 2026. 8. 27.(목) 10:00 ~ 마감 시(어린이공연), 2026. 8. 28.(금) 10:00 ~ 마감 시(저자특강)\n문의전화 : 자료정보팀(729-4669)\n행사리스트\n구분\n행사명\n일시\n대상\n장소\n내용\n저자특강\n문요한 작가와의 만남\n『마음과 마음을 잇다\n』\n9.12.(토)\n10:00~11:30\n성남시민80명\n시청각실\n오해와 갈등을 줄이고 건강한 관계를 만들기 위한 '마음 헤아리기' 의 개념과 함양 방안\n공연\n어린이 공연\n『매직사이언스』\n9.3.(목)\n16:00~17:00\n",
-      "created_at": "2026-08-27T21:56:03.370679",
+      "created_at": "2026-08-27T22:01:07.828884",
       "id": "a9e41f61061b"
     },
     {
@@ -3196,7 +3615,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209560",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260825102311038.jpg",
       "description": "어린이 공연 <매직앤사이언스>\n○ 운영일시: 2026. 9. 3.(목) 16:00~17:00\n○ 대 상: 어린이 및 보호자 50팀(100명)\n○ 장 소: 분당도서관 지하1층 시청각실\n○ 접수기간: 2026. 8. 27.(목) 10:00 ~ 마감 시\n○ 접수방법: 배움숲 선착순 접수\n>>>접수바로가기<<<\n○ 내 용: 마술과 과학의 요소를 결합한 융복합 어린이 공연\n○ 문 의: 031-729-4669",
-      "created_at": "2026-08-27T21:56:03.977888",
+      "created_at": "2026-08-27T22:01:08.422985",
       "id": "41cdd39644ee"
     },
     {
@@ -3226,7 +3645,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209559",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260825102101016.jpg",
       "description": "문요한 작가와의 만남\n『마음과 마음을 잇다』\n일시: 9.12.(토) 10:00-11:30\n대상: 성남시민 80명\n장소: 분당도서관 지하1층 시청각실\n내용: 오해와 갈등을 줄이고 건강한 관계를 만들기위한 '마음 헤아리기'의 개념과 함양 방안\n접수방법: 평생학습 통합플랫폼 ‘배움숲’ 선착순 접수 >>>>\n신청바로가기\n<<<<\n** 65세이상 현장접수 가능\n접수시간: 8. 28.(금) 10:00 ~ 마감 시\n문의: 031-729-4669",
-      "created_at": "2026-08-27T21:56:04.567816",
+      "created_at": "2026-08-27T22:01:09.097863",
       "id": "3b5d72de844c"
     },
     {
@@ -3256,7 +3675,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209572",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260826134250606.jpg",
       "description": "분당도서관 9월 동화책읽어주기\n장소 | 어린이가족열람실 내 유아실 (1층)\n시간 | 오후 3시 30분~ (매주 수요일)\n가장 효과적이고 감성적인 교육자료 동화책! 소중한 우리아이를 책을 좋아하는 아이, 마음이 따뜻한 아이, 행복한 아이로 키워주세요 ♥\n일시\n어떤 동화책을 읽나요?\n재능기부자\n9월 2일(수)\n우리는 찌르레기입니다 | 로버트퍼로.도나 조 나폴리 | 여유당\n메리 | 안녕달 | 사계절\n최지영 선생님\n9월 9일(수)\n삐딱이를 찾아라 | 김태호 | 비룡소\n내 모자 | 시모카와라 | 천개의바람\n강태임 선생님\n9월 16일(수)\n지옥탕 | 손지희 | 책읽는곰\n솔이의 추석 이야기 | 이억배 | 길벗어린이\n최지영 선생님\n9월 23일(수)\n우리가 케이크를 먹는 방법 | 김효은 | 문학동네\n케첩 | 노인경 | 보림",
-      "created_at": "2026-08-27T21:56:05.792405",
+      "created_at": "2026-08-27T22:01:10.388765",
       "id": "db59c1d096e3"
     },
     {
@@ -3286,7 +3705,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/bd/20001/bbsPostDetail.do?postIdx=209264",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260813153225320.jpg",
       "description": "2026년 하반기 분당도서관 문화교실 및 독서회 수강생 모집 안내\n○ 운영기간: 2026. 9.  8.(화) ~ 12.18.(금) [강좌별 12차시]\n○ 접수기간:\n2026. 8. 18.(화) 10:00\n~ 8.30.(일) 18:00\n(강좌별 접수시간 상이)\n○ 모집대상: 성남시민\n○ 접수방법: 성남시 배움숲(https://sugang.seongnam.go.kr/) 온라인 선착순 모집\n★★수강신청(배움숲) 바로가기★★\n○ 모집강좌 (첨부파일 또는 배움숲 참조)\n○ 문의: 분당도서관 자료정보팀(729-4663)",
-      "created_at": "2026-08-27T21:56:06.592438",
+      "created_at": "2026-08-27T22:01:11.098310",
       "id": "d8f185049942"
     },
     {
@@ -3316,7 +3735,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/pg/20001/bbsPostDetail.do?postIdx=209343",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260814134249367.jpg",
       "description": "2026ë…„ íŒ�êµ�ë�„ì„œê´€ 9ì›” ë�…ì„œì�˜ ë‹¬ í–‰ì‚¬ ì•ˆë‚´\nğŸ�� ìš´ì˜�ë‚´ìš©\nêµ¬ë¶„\ní–‰ì‚¬ëª…\nì�¼ì •\nì�¥ì†Œ\nëŒ€ìƒ�\në‚´ìš©\nê³µëª¨\nì œ4íšŒ ë�…í›„ê°� ê³µëª¨ì „\n8.18.(í™”)~9.20.(ì�¼)\në¹„ëŒ€ë©´(ì˜¨ë�¼ì�¸ ì œì¶œ)\nì „êµ­ë¯¼ ëˆ„êµ¬ë‚˜\n(ì´ˆë“± 4í•™ë…„ ì�´ìƒ�)\nëŒ€ìƒ�ë�„ì„œ ì¤‘ 1ê¶Œì�„ ì�½ê³  ë�…í›„ê°� ì˜¨ë�¼ì�¸ ì œì¶œ, 60ëª… ì‹œìƒ�\nê³µëª¨ì „ ì•ˆë‚´ ë°”ë¡œê°€ê¸°\nì €ì��\níŠ¹ê°•\nã€ŒAI ì‹œëŒ€, ê°•ë ¥í•œ ê°œì�¸ì�´ ",
-      "created_at": "2026-08-27T21:56:07.926610",
+      "created_at": "2026-08-27T22:01:12.553510",
       "id": "ff09f41e47c7"
     },
     {
@@ -3346,7 +3765,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/pg/20001/bbsPostDetail.do?postIdx=209412",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260818173735922.jpg",
       "description": "2026ë…„ íŒ�êµ�ë�„ì„œê´€ 9ì›” ë�…ì„œì�˜ ë‹¬ ì €ì��íŠ¹ê°•\nAI ì‹œëŒ€, ê°•ë ¥í•œ ê°œì�¸ì�´ ì˜¨ë‹¤\nêµ¬ë³¸ê¶Œ ì�‘ê°€ì™€ì�˜ ë§Œë‚¨\nâ–¶ï¸�\në°°ì›€ìˆ² ì‹ ì²­ ë°”ë¡œê°€ê¸°\nğŸŸ¦ ê°•ì—°ì�¼ì‹œ: 2026. 9. 12.(í† ) 10:00\nğŸŸ¦ ëª¨ì§‘ê¸°ê°„:\n2026. 8. 25.(í™”) 10:00 ~ ë§ˆê°� ì‹œ\nğŸŸ¦ ëª¨ì§‘ë°©ë²•: ì„±ë‚¨ì‹œ 'ë°°ì›€ìˆ²' í™ˆí�˜ì�´ì§€ ì„ ì°©ìˆœ ì ‘ìˆ˜\nğŸŸ¦ ì�¥      ì†Œ: íŒ�êµ�ë�„ì„œê´€ ì‹œì²­ê°�ì‹¤(B1ì¸µ)\nğŸŸ¦ ëŒ€      ",
-      "created_at": "2026-08-27T21:56:08.500161",
+      "created_at": "2026-08-27T22:01:13.167520",
       "id": "63a44b99a68a"
     },
     {
@@ -3376,7 +3795,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/pg/20001/bbsPostDetail.do?postIdx=209106",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260805142850451.jpg",
       "description": "★★배움숲 수강신청 바로가기★★\n2026년 판교도서관 하반기 문화교실 및 독서회 수강생 모집 안내\n○ 운영기간: 2026. 9. 1.(화) ~ 12. 19.(토) [14차시 ※강좌별로 공휴일 및 휴강 유무에 따라 종료일 상이]\n○ 접수기간: 2026. 8. 18.(화) ~ 8. 24.(월) [7일간] (각 강좌별 접수시작시간 참고)\n미달된 강좌에 한해 8. 25.(화) 10시부터 중복접수가 가능합니다.\n○ 접수방법: \"성남시 배움숲\" 온라인 선착순 접수(https://sugang.seongnam.go.kr) 로그인 후 수강신청\n*어린이 강좌는 반드시 참여 어린이ID로 신청\n○ 수 강 료: 무료 (단, 교재비 및 재료비는 본인 부담)\n○ 문      의: 자료정보팀 ☎729-4582\n분야\n번호\n강좌명\n대상\n모",
-      "created_at": "2026-08-27T21:56:09.288660",
+      "created_at": "2026-08-27T22:01:13.809185",
       "id": "c69a99936202"
     },
     {
@@ -3406,7 +3825,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/pg/20001/bbsPostDetail.do?postIdx=209347",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260814142326925.jpg",
       "description": "2026. 8. 26.(수)\n매달 마지막 수요일은 도서대출권수 2배로 확대\n기존 6권→12권 (DVD제외)\n이용방법: 무인기 대출 및 데스크 방문대출\n* 유아, 다자녀회원 등도 최대 12권까지 대출 가능합니다.",
-      "created_at": "2026-08-27T21:56:09.806062",
+      "created_at": "2026-08-27T22:01:14.430005",
       "id": "7c0bac4d58cb"
     },
     {
@@ -3436,7 +3855,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/wr/20001/bbsPostDetail.do?postIdx=209277",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260826172555387.jpg",
       "description": "2026년 독서의 달 운영 안내\n행사기간 : 2026. 9. 1.(화) ~ 9. 30.(수)\n강좌 접수기간 : 2026. 8. 20.(목) 10:00 ~ 마감 시\n강좌 접수방법 : 성남시 평생학습 통합 플랫폼 '배움숲' 온라인 선착순 접수\nhttps://sugang.seongnam.go.kr/\n※\n반드시 수강생 본인의 ID로 신청해야 합니다.\n문의전화 : 031-729-8953\n자세한 강의 내용은 '배움숲' 강의계획서를 꼭 참고해주세요.\n상기 일정 및 내용은 사정에 따라 변경될 수 있습니다.\n운영내용\n단기강좌: 꿈과 생각이 자라는 그림책 놀이터(A반, B반)\n- 대상: 유아(2020~2021년생) 16명(A반 8명, B반 8명)\n- 내용: 그림책을 함께 읽고 이야기 나누며 다양한 활동으로 자신의 생각을 자연",
-      "created_at": "2026-08-27T21:56:11.372827",
+      "created_at": "2026-08-27T22:01:15.926660",
       "id": "264638640f69"
     },
     {
@@ -3466,7 +3885,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/wr/20001/bbsPostDetail.do?postIdx=209174",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260807150648520.jpg",
       "description": "위례도서관 2026년 하반기 독서회 수강생 모집\n○ 운영기간: 2026. 9. 4.(금) ~ 12. 18.(금)\n○ 신청기간: 2026. 8. 21.(금) 10:00 ~ 마감 시까지\n○ 신청방법: 배움숲(아래의 링크 클릭→기관정보 클릭→'위례도서관 검색')\n배움숲 바로가기\n○ 수업장소: 성남시 위례도서관 4층 문화교실(성남시 수정구 위례순환로 125 위례행정복지센터 4층)\n강좌 세부내용\n수업명\n대상\n수업시간\n재료비\n1-2학년 독서회\n초1-2 10명\n9. 9. ~ 12. 9.(매주 수)\n15:30-17:30\n무료\n3-4학년 역사 독서회\n초3-4 10명\n9. 4. ~ 12. 18.(매주 금)\n15:30-17:30\n10,000원\n성인독서회(함께 읽기)\n성인 10명\n9. 9. ~ 12. 9.(매주 수)\n10:00-",
-      "created_at": "2026-08-27T21:56:11.976722",
+      "created_at": "2026-08-27T22:01:16.507920",
       "id": "56a69d05bbf3"
     },
     {
@@ -3496,7 +3915,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=209295",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260827132929159.jpg",
       "description": ">>>>>>>>>수강신청 페이지 바로가기<<<<<<<<<<\n[서현도서관 독서의 달 행사안내 ]\n* 특강 모집: 배움숲 온라인 선착순 접수 [ 8/26(수) 10시 ~ 마감시까지 ]\n1. [전시] '우리가족 독서가훈' 가족독서단 참여자 작품 전시\n- 9/12(토)~9/30(수) / 1층 로비\n2. [대출행사] 서현을 담은 책\n- 9/9(수) ~ 선착순 100개 한정/ 각 자료실 데스크\n- 당일 3권 이상 대출시 NFC책키링 증정 (1인 1개)\n※무인기 대출시 자료실 데스크에서 확인증 제시 후 교환\n3. [잡지배부] 잡지골라 테이크아웃\n- 9/16(수) ~ 9.20(일) / 2층 로비 자율참여 / ※소진시 조기종료 됩니다\n- 24년 7월 ~ 25년 6월분 과월호 잡지 무료 배부\n(1인 5부 한정 / 참여대장 작",
-      "created_at": "2026-08-27T21:56:13.678195",
+      "created_at": "2026-08-27T22:01:18.035532",
       "id": "81659cd16f71"
     },
     {
@@ -3526,7 +3945,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=208761",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "[서현도서관 하반기 문화교실 및 독서회 수강생 모집]\n수강 신청 전 “배움숲” 회원가입을 하셔야 수강 신청이 가능합니다.\n◯ 운영기간:\n2026. 9. 7.(월) ~ 12. 12.(토) (강좌별 강의계획서 확인 필수)\n◯ 접수기간:\n2026. 8.18.(화) 10:00 ~ 8.24.(월) 선착순 마감\n(※ 과목별 접수 시간을 확인하세요)\n◯ 접수방법: 평생학습포털 배움숲(\nhttp://sugang.seongnam.go.kr\n) 온라인 선착순 모집\n※ 유아 및 어린이 강좌는 반드시 참여 어린이 ID로 신청(수강 신청 전 로그인 확인 필수)\n◯ 분야별(문화교실, 독서회) 각1강좌씩 신청이 가능합니다.\n◯ 과목별 모집인원 50% 미만일 경우 폐강될 수 있습니다.\n◯ 8월 25일(화) 이후 취소 시,\n사무실(031",
-      "created_at": "2026-08-27T21:56:14.217823",
+      "created_at": "2026-08-27T22:01:18.650571",
       "id": "09de33977866"
     },
     {
@@ -3556,7 +3975,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=208548",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260709112653151.jpg",
       "description": "성남시립 서현도서관에서 진행되는 어린이 및 가족 독서문화 체험 프로그램 안내입니다.",
-      "created_at": "2026-08-27T21:56:14.788573",
+      "created_at": "2026-08-27T22:01:19.232880",
       "id": "a61fdaa6de0a"
     },
     {
@@ -3586,7 +4005,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snlib.go.kr/sh/20001/bbsPostDetail.do?postIdx=208545",
       "image_url": "https://www.snlib.go.kr/attachfile/editor/img_20260709104339015.png",
       "description": "성남시립 서현도서관에서 진행되는 어린이 및 가족 독서문화 체험 프로그램 안내입니다.",
-      "created_at": "2026-08-27T21:56:15.313212",
+      "created_at": "2026-08-27T22:01:19.848714",
       "id": "a30572c68af9"
     },
     {
@@ -3616,7 +4035,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.incheon.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "청라국제도서관에서 운영하는 어린이 원어민 영어 그림책 읽기 및 독후 창의 미술 프로그램입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695260",
       "id": "3ed5d762125d"
     },
     {
@@ -3645,7 +4064,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.incheon.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천시청 하늘도서관에서 진행되는 주말 가족 생태 환경 독서 체험 및 그림책 놀이 교실입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695260",
       "id": "5d8a764ce06d"
     },
     {
@@ -3674,7 +4093,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.incheon.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천광역시 대표 도서관 어린이 전용 꿈나무터에서 운영하는 독서토론 및 창의메이커 프로그램입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695260",
       "id": "69f612da6bdd"
     },
     {
@@ -3703,7 +4122,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.incheon.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "송도국제어린이도서관 외국어 그림책 읽어주기 및 창의 사고력 보드게임 프로그램입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695260",
       "id": "8ce0f8603f75"
     },
     {
@@ -3731,7 +4150,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.incheon.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "연수청학도서관 메이커스페이스에서 진행되는 3D펜 및 어린이 아두이노 코딩 기초 강좌입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695260",
       "id": "bfc8d1264cdd"
     },
     {
@@ -3760,7 +4179,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://phlib.pohang.go.kr/phlib/index.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "포항시립 포은흥해도서관 어린이 음악도서관 체험 및 아이누리 독서문화 강좌 안내입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695840",
       "id": "03c8d58f76f1"
     },
     {
@@ -3788,7 +4207,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://phlib.pohang.go.kr/phlib/index.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "포항시립 포은중앙도서관 어린이 독서아카데미 및 주말 문화체험 강좌 공식 안내입니다.",
-      "created_at": "2026-08-27T21:56:16.194295",
+      "created_at": "2026-08-27T22:01:20.695840",
       "id": "55ec470d8f05"
     },
     {
@@ -3817,7 +4236,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.koreataekwondo.co.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "대한태권도협회 공식 대회 일정으로 성남종합운동장에서 펼쳐지는 고난도 회전격파 및 품새 최강전 무료 관람 안내입니다.",
-      "created_at": "2026-08-27T21:56:16.481921",
+      "created_at": "2026-08-27T22:01:21.624360",
       "id": "1580a1297e5e"
     },
     {
@@ -3846,7 +4265,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.isdc.co.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남도시개발공사 탄천종합운동장 50m 공인 경영풀에서 개최되는 꿈나무 수영대회 관람 및 참가 안내입니다.",
-      "created_at": "2026-08-27T21:56:16.482438",
+      "created_at": "2026-08-27T22:01:21.624360",
       "id": "63fdbd32db95"
     },
     {
@@ -3875,7 +4294,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.jumprope.co.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "대한줄넘기협회 주최 음악줄넘기 프리스타일 및 국가대표 시범단의 고난도 퍼포먼스 무료 야외 공연입니다.",
-      "created_at": "2026-08-27T21:56:16.482510",
+      "created_at": "2026-08-27T22:01:21.624360",
       "id": "3c902afef43b"
     },
     {
@@ -3905,7 +4324,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.nolbal.com",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "국내 1위 키즈 놀이·체험 플랫폼 놀이의발견 공식 포털에서 예약하는 주말 베이킹·도예 클래스, 키즈카페 및 체험형 테마파크 안내입니다.",
-      "created_at": "2026-08-27T21:56:17.420028",
+      "created_at": "2026-08-27T22:01:21.924450",
       "id": "aece78cdb4a5"
     },
     {
@@ -3934,7 +4353,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.kidsnote.com",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "국내 1위 영유아 플랫폼 키즈노트에서 진행하는 주말 어린이 오감발달 교구 체험 및 가족 창의놀이 무료 이벤트입니다.",
-      "created_at": "2026-08-27T21:56:17.421028",
+      "created_at": "2026-08-27T22:01:21.924450",
       "id": "37a9106af885"
     },
     {
@@ -3964,7 +4383,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.hiclass.net",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "전국 초등학교 알림장 하이클래스에서 제공하는 주말 초등학생 대상 라이브 과학실험 및 블록코딩 무료 체험 클래스입니다.",
-      "created_at": "2026-08-27T21:56:17.421028",
+      "created_at": "2026-08-27T22:01:21.924450",
       "id": "32b4e2476ff2"
     },
     {
@@ -3993,7 +4412,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.ehyundai.com/culture/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "현대백화점 문화센터 공식 홈페이지에서 신청 가능한 주말 인기 키즈 쿠킹클래스, 창의 드로잉 원데이 강좌입니다.",
-      "created_at": "2026-08-27T21:56:17.421028",
+      "created_at": "2026-08-27T22:01:21.925447",
       "id": "f55dd9fd2b99"
     },
     {
@@ -4022,7 +4441,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.shinsegae.com/culture/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "신세계아카데미 공식 수강신청 페이지에서 접수하는 유소년 레고 스파이크 로봇 및 코딩 교실 안내입니다.",
-      "created_at": "2026-08-27T21:56:17.421028",
+      "created_at": "2026-08-27T22:01:21.925447",
       "id": "588cb934ae16"
     },
     {
@@ -4051,7 +4470,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.snart.or.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "성남아트센터 공식 예매 포털에서 예매 가능한 어린이 눈높이 맞춤 클래식 악기 해설 및 오케스트라 연주회입니다.",
-      "created_at": "2026-08-27T21:56:17.690378",
+      "created_at": "2026-08-27T22:01:22.233516",
       "id": "2b8ab913f460"
     },
     {
@@ -4080,7 +4499,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.lotteconcerthall.com/kor/Performance/Program",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "롯데콘서트홀 공식 프로그램 안내에서 예매할 수 있는 대형 풀 오케스트라 애니메이션 명곡 갈라 콘서트입니다.",
-      "created_at": "2026-08-27T21:56:17.690378",
+      "created_at": "2026-08-27T22:01:22.233516",
       "id": "1b519e8e0d14"
     },
     {
@@ -4108,7 +4527,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.sejongpac.or.kr/kr/performance/main/list.do",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "세종문화회관 공식 공연 예매에서 신청 가능한 청소년 및 꿈나무 오케스트라 연주 페스티벌입니다.",
-      "created_at": "2026-08-27T21:56:17.691375",
+      "created_at": "2026-08-27T22:01:22.233516",
       "id": "03ea34b3af93"
     },
     {
@@ -4137,7 +4556,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://gcm.ggcf.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "경기문화재단 공식 홈페이지에서 100% 사전 예약으로 운영되는 경기도 대표 어린이 전용 복합체험 박물관입니다.",
-      "created_at": "2026-08-27T21:56:19.430788",
+      "created_at": "2026-08-27T22:01:24.216352",
       "id": "5790e51bcc66"
     },
     {
@@ -4166,7 +4585,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.mmca.go.kr",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "국립현대미술관 과천관 어린이미술관에서 현대미술 작품을 오감으로 체험하고 스스로 창작하는 예술 프로그램입니다.",
-      "created_at": "2026-08-27T21:56:19.430788",
+      "created_at": "2026-08-27T22:01:24.216352",
       "id": "dc17d108531a"
     },
     {
@@ -4195,7 +4614,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.insiseol.or.kr/culture/icsmuseum/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "인천시설공단 통합예약시스템에서 신청하는 기초과학, 도시과학, 환경과학 테마별 체험 전시관입니다.",
-      "created_at": "2026-08-27T21:56:19.430788",
+      "created_at": "2026-08-27T22:01:24.216352",
       "id": "5058d0dd089d"
     },
     {
@@ -4224,7 +4643,7 @@ window.__ACTIVITIES_DATA__ = {
       "url": "https://www.nibr.go.kr/",
       "image_url": "https://ssl.pstatic.net/sstatic/search/favicon/favicon_191118_pc.ico",
       "description": "환경부 산하 국립생물자원관에서 운영하는 자생생물 표본 관찰 및 어린이 숲 생태 탐방 무료 프로그램입니다.",
-      "created_at": "2026-08-27T21:56:19.430788",
+      "created_at": "2026-08-27T22:01:24.216352",
       "id": "9c3ba6c7a5a8"
     }
   ]
