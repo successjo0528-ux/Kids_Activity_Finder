@@ -2,9 +2,14 @@ name: 🎈 Kids Activity Finder Daily Auto Crawler & Health Check
 
 on:
   schedule:
-    # 매일 한국 시간 오전 9시 (UTC 00:00) 자동 실행
+    # 매일 한국 시간 오전 9시 (UTC 00:00) 자동 실행 (GitHub 기본 스케줄러 백업용)
     - cron: '0 0 * * *'
-  workflow_dispatch: # GitHub 웹 Actions 탭에서 수동 즉시 실행 지원
+  workflow_dispatch: # cron-job.org 외부 Webhook 및 GitHub 수동 실행
+
+# 중복 실행 방지 및 이전 진행 중인 작업 자동 취소
+concurrency:
+  group: kids-activity-crawler
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -16,6 +21,8 @@ jobs:
     steps:
       - name: 📥 저장소 체크아웃
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 🐍 파이썬 3.10 환경 설정
         uses: actions/setup-python@v5
@@ -25,6 +32,7 @@ jobs:
       - name: 📦 의존성 패키지 설치
         run: |
           python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install requests beautifulsoup4 lxml python-dateutil
 
       - name: 🕷️ 10대 출처 실시간 크롤러 & 중복 제거 에이전트 실행
@@ -44,5 +52,6 @@ jobs:
             echo "No data changes detected. Skipping commit."
           else
             git commit -m "🤖 [자동 갱신] 최신 키즈 체험/전시/대회 데이터 업데이트 ($(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST'))"
+            git pull --rebase origin main || true
             git push origin main
           fi
