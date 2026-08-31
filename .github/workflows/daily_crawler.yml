@@ -1,9 +1,6 @@
 name: 🎈 Kids Activity Finder Daily Auto Crawler & Health Check
 
 on:
-  schedule:
-    # 매일 한국 시간 오전 9시 (UTC 00:00) 자동 실행 (GitHub 기본 스케줄러 백업용)
-    - cron: '0 0 * * *'
   workflow_dispatch: # cron-job.org 외부 Webhook 및 GitHub 수동 실행
 
 # 중복 실행 방지 및 이전 진행 중인 작업 자동 취소

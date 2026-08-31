@@ -50,14 +50,14 @@
   1. `launcher.py`가 0.05초 만에 최신 데이터를 실시간 크롤링하여 갱신
   2. Edge 데스크톱 앱 창 모드(`--app`)로 **주소창 없는 깔끔한 독립 프로그램 창으로 즉시 팝업**
 
-### 2. 스마트폰 24시간 자동화 (GitHub Serverless Cloud)
-* **GitHub Actions (`.github/workflows/daily_crawler.yml`):**
-  - PC가 꺼져 있어도 **매일 새벽 6시(한국시간)** 클라우드에서 최신 데이터를 자동 크롤링하고 GitHub 저장소에 커밋/푸시하여 스마트폰 웹페이지를 자동 갱신합니다.
+### 2. 스마트폰 24시간 자동화 (cron-job.org & GitHub Serverless Cloud)
+* **cron-job.org & GitHub Actions (`.github/workflows/daily_crawler.yml`):**
+  - PC가 꺼져 있어도 **cron-job.org 외부 Webhook이 GitHub Actions를 매일 정시에 즉시 트리거**하여 최신 데이터를 자동 크롤링하고 GitHub 저장소에 커밋/푸시하여 스마트폰 웹페이지를 자동 갱신합니다.
 * **스마트폰 홈 화면 앱 설치 (PWA):**
   - 스마트폰 브라우저 메뉴 ➡️ `[홈 화면에 추가]` 터치 시 앱 아이콘 생성
 
 ### 3. 수동 GitHub 푸시 (필요 시)
-* PC에서 코드를 수정한 후 GitHub에 올릴 때는 폴더 내 **`push_to_github.bat`** 파일을 더블클릭하시면 강제 동기화(`git push -f origin main`)가 진행됩니다.
+* PC에서 코드를 수정한 후 GitHub에 올릴 때는 폴더 내 **`push_to_github.bat`** 파일을 더블클릭하시면 자동 동기화(`git push origin main`)가 진행됩니다.
 
 ---
 

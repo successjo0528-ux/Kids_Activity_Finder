@@ -1,7 +1,7 @@
 # Kids Activity Finder (키즈 액티비티 파인더) 기획안
 
-> **문서 버전:** v3.2.0 (Zero-CORS data.js Hybrid Architecture & Streamlined GitHub Pages Auto-Deploy)  
-> **최종 개정일:** 2026-08-27  
+> **문서 버전:** v3.3.0 (cron-job.org External Webhook Single Scheduler & Concurrency Control)  
+> **최종 개정일:** 2026-08-31  
 > **프로젝트 위치:** `G:\My Program\Kids_Activity_Finder\`  
 > **웹 라이브 URL:** [https://successjo0528-ux.github.io/Kids_Activity_Finder/](https://successjo0528-ux.github.io/Kids_Activity_Finder/)  
 > **GitHub 저장소:** [https://github.com/successjo0528-ux/Kids_Activity_Finder](https://github.com/successjo0528-ux/Kids_Activity_Finder)
@@ -59,7 +59,7 @@
 ---
 
 ## 4. 실행 및 배포 환경
-* **자동 스케줄링:** 매일 아침 09:00 KST (`0 0 * * *`) GitHub Actions(`daily_crawler.yml`)를 통한 전수 크롤링 및 9단계 교차 검증 자동 배포.
+* **자동 스케줄링:** cron-job.org 외부 Webhook (`workflow_dispatch`)을 통해 매일 정시 GitHub Actions(`daily_crawler.yml`)를 즉시 트리거하여 전수 크롤링 및 무결성 검증 자동 배포.
 * **PC 실행:** `G:\My Program\Tool_Dashboard\` 대시보드에서 [Kids Activity Finder] 원클릭 실행.
 * **원클릭 배포:** `push_to_github.bat`을 실행하면 최신 데이터와 코드가 Git Staging/Commit/Push되어 즉시 라이브 사이트에 반영.
 * **모바일 실행:** 웹 라이브 URL 접속 및 홈 화면에 추가 (PWA 앱 모드).
