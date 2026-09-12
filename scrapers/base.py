@@ -9,6 +9,9 @@ import requests
 from bs4 import BeautifulSoup
 from core.models import ActivityItem
 
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("Scraper")
 
@@ -20,40 +23,52 @@ class BaseScraper(ABC):
         self.name = name
         self.source_key = source_key
         self.headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
             "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+            "Referer": "https://www.google.com/",
         }
-        self.timeout = 5
+        self.timeout = 8
 
     @abstractmethod
     def scrape(self) -> List[ActivityItem]:
         """웹사이트 또는 API에서 데이터를 수집하여 ActivityItem 목록으로 반환"""
         pass
 
-    def fetch_url(self, url: str, params: dict = None) -> str:
-        """안전한 HTTP GET 요청 헬퍼 (UTF-8 인코딩 보장 & 403 재시도)"""
+    def fetch_url(self, url: str, params: dict = None, verify: bool = False) -> str:
+        """안전한 HTTP GET 요청 헬퍼 (UTF-8 인코딩 보장 & SSL 오류 방어 & 403 재시도)"""
         try:
             time.sleep(0.3)  # 속도 제한 방지
-            res = requests.get(url, headers=self.headers, params=params, timeout=self.timeout)
-            res.encoding = "utf-8"
+            res = requests.get(
+                url,
+                headers=self.headers,
+                params=params,
+                timeout=self.timeout,
+                verify=verify
+            )
+            res.encoding = res.apparent_encoding or "utf-8"
             if res.status_code == 200:
                 return res.text
             elif res.status_code == 403:
-                # 모바일 검색 URL로 Fallback 시도
+                # 모바일 헤더로 Fallback 시도
                 m_url = url.replace("search.naver.com", "m.search.naver.com")
                 m_headers = {
-                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+                    "Accept-Language": "ko-KR,ko;q=0.9",
                 }
                 time.sleep(0.5)
-                m_res = requests.get(m_url, headers=m_headers, params=params, timeout=self.timeout)
-                m_res.encoding = "utf-8"
+                m_res = requests.get(m_url, headers=m_headers, params=params, timeout=self.timeout, verify=verify)
+                m_res.encoding = m_res.apparent_encoding or "utf-8"
                 if m_res.status_code == 200:
                     return m_res.text
-            logger.warning(f"[{self.name}] 요청 실패 (상태코드: {res.status_code}): {url}")
+            logger.warning(f"[{self.name}] 요청 상태코드 ({res.status_code}): {url}")
             return ""
         except Exception as e:
-            logger.error(f"[{self.name}] 연결 오류: {e}")
+            logger.warning(f"[{self.name}] 연결 경고: {e}")
             return ""
 
     @staticmethod

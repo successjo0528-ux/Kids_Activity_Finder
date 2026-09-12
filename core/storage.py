@@ -41,15 +41,25 @@ def load_activities() -> List[ActivityItem]:
 def save_activities(items: List[ActivityItem]) -> int:
     """
     활동 목록을 data/, web/ 및 루트 경로에 KST 메타데이터와 함께 3중 자동 동기화 저장:
+    - [스마트 병합] 기존 유효 데이터와 신규 수집 데이터를 통합 병합하여 데이터 보존성 극대화
     - [자동 정제] 마감/종료되었거나 일정이 지난 활동 자동 제외 필터링 적용
-    - [중복 제거] 동일 URL 기반 중복 제거
+    - [중복 제거] URL 및 행사명 유사도 기반 지능형 중복 제거
     """
     ensure_dirs()
     today_str = datetime.now(KST).strftime("%Y-%m-%d")
     
+    # 0. 기존 저장 데이터 로드하여 스마트 누적 병합 대상 구성
+    existing_items = load_activities()
+    combined_pool = list(items)
+    
+    # 기존 데이터 중 신규 수집 풀에 없는 고유 항목들 합산 (단, 같은 source_key라도 기존 유효 데이터 보존)
+    for ex in existing_items:
+        if not any(x.id == ex.id or (x.title == ex.title and x.source_key == ex.source_key) for x in combined_pool):
+            combined_pool.append(ex)
+    
     # 1. 마감/종료 및 과거 일정 데이터 자동 제외
     active_items = []
-    for item in items:
+    for item in combined_pool:
         # 상태가 마감/종료이거나 D-Day가 마감/종료인 경우 제외
         if item.status in ["마감", "종료"] or item.d_day in ["마감", "종료"]:
             continue

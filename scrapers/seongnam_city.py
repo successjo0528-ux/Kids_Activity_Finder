@@ -34,7 +34,7 @@ class SeongnamCityScraper(BaseScraper):
 
         for name, url in endpoints:
             try:
-                r = requests.get(url, headers=self.headers, timeout=5)
+                r = requests.get(url, headers=self.headers, timeout=5, verify=False)
                 logger.info(f"[{self.name}] {name} 서버 응답: HTTP {r.status_code}")
             except Exception as e:
                 logger.warning(f"[{self.name}] {name} 서버 통신 확인: {e}")

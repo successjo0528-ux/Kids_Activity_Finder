@@ -39,7 +39,7 @@ class MuseumScraper(BaseScraper):
                 "address": "서울특별시 용산구 서빙고로 137",
                 "cost_type": "무료",
                 "cost_info": "온라인 사전 예약 필수 (관람료 전액 무료)",
-                "url": "https://www.museum.go.kr/CHILD",
+                "url": "https://www.museum.go.kr/site/child/home",
                 "days": 10,
                 "description": "국립중앙박물관 어린이박물관 공식 포털에서 신청하는 어린이 역사 문화 오감 체험 전시 관람 예약 안내입니다."
             },
